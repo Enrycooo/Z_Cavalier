@@ -16,7 +16,7 @@ if(isset($_POST["create"])){
             </script>
         <?php
     }
-    $req = $oCasier->db_create($_POST["casier_name"]);
+    $req = $oCavalier->db_create($_POST["casier_name"]);
     if($req){
         ?>
             <script>
@@ -25,7 +25,7 @@ if(isset($_POST["create"])){
         <?php
     }
 }elseif(isset($_POST["update"])){
-    $req = $oCasier->db_update_lib($_POST["casier_id"], $_POST["casier_name"]);
+    $req = $oCavalier->db_update_lib($_POST["casier_id"], $_POST["casier_name"]);
     if($req){
         ?>
             <script>
@@ -34,7 +34,7 @@ if(isset($_POST["create"])){
         <?php
     }
 }elseif(isset($_POST["delete"])){
-    $req = $oCasier->db_soft_delete_one($_POST["casier_id"]);
+    $req = $oCavalier->db_soft_delete_one($_POST["casier_id"]);
     if($req){
         ?>
             <script>
