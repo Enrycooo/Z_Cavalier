@@ -60,10 +60,5 @@ class Cavalier{
     public function set_numerolicence($nl) {
         $this -> numerolicence = $nl;
     }
-    public function affiche_cavalier(){
-        Return "Nom : " . $this->get_nom(). " - " . " Prenom : " . $this->get_prenom(). " - " . " Date de naissance : " . $this->get_datedenaissance() .
-                " - " . "Adresse mail" . $this->get_mail() . " - " . "Numéro de telephone : " . $this->get_telephone() .
-                " - " . "Galop : " . $this->get_galop() . " - " . "Numéro de licence : " . $this->get_numerolicence().'<br>';
-    }
 }
 ?>
