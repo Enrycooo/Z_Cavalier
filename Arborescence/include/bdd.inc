@@ -3,6 +3,5 @@
 
 //Mettre la connexion PDO
 
-bonjour
 
 ?>
