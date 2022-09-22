@@ -1,4 +1,5 @@
 <?php
+include_once('/../lib/includes/defines.inc.php');
 //Cette page est dédiée aux traitements
 
 /*

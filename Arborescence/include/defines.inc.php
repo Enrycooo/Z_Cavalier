@@ -7,7 +7,7 @@ define('DB_TABLE_COURS', 'cours');
 define('DB_TABLE_CAVALERIE', 'cavalerie');
 
 //define paths
-define('DB_CLASS_DIR', 'db/classes/');
+define('DB_CLASS_DIR', 'class/');
 
 
 // get main classes
