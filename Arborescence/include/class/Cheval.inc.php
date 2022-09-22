@@ -1,5 +1,57 @@
 <?php 
-
+class Cheval{
+    private $nom;
+    private $datedenaissance;
+    private $race;
+    private $sexe;
+    private $taille;
+    private $sire;
+    
+    public function __construct($n,$dna,$r,$s,$taille,$sire){
+        $this -> nom = $n;
+        $this -> datedenaissance = $dna;
+        $this -> race = $r;
+        $this -> sexe = $s;
+        $this -> taille = $taille;
+        $this -> sire = $sire;
+    }
+    public function get_nom (){
+        Return $this -> nom;
+    }
+    public function set_nom ($n){
+        $this -> nom = $n;
+    }
+    public function get_datedenaissance () {
+        Return $this -> datedenaissance;
+    }
+    public function set_datedenaissance ($dna) {
+        $this -> datedenaissance = $dna;
+    }
+    public function get_race () {
+        Return $this -> race;
+    }
+    public function set_race ($r) {
+        $this -> race = $r;
+    }
+    public function get_sexe () {
+        Return $this -> sexe;
+    }
+    public function set_sexe ($s) {
+        $this -> sexe = $s;
+    }
+    public function get_taille () {
+        Return $this -> taille;
+    }
+    public function set_taille ($taille) {
+        $this -> taille = $taille;
+    }
+    public function get_sire () {
+        Return $this -> sire;
+    }
+    public function set_sire($sire) {
+        $this -> sire = $sire;
+    }
+}
 /*
 class Article{
 
