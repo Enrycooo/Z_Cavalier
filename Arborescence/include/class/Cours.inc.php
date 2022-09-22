@@ -28,6 +28,8 @@ class Cours{
     public function set_duree ($d) {
         $this -> duree = $d;
     }
+    
+    fefefefrgreqhrhqrar
 }
 ?>
 ?>
