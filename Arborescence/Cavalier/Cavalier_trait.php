@@ -5,7 +5,7 @@
  Exemple de traitement
 <?php 
 
-require '../../lib/includes/defines.inc.php';
+require '../include/defines.inc.php';
 
 
 if(isset($_POST["create"])){
