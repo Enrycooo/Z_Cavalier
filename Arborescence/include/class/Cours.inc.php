@@ -29,7 +29,7 @@ class Cours{
         $this -> duree = $d;
     }
     
-    fefefefrgreqhrhqrar
+  
 }
 ?>
 ?>
