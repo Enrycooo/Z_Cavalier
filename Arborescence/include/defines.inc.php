@@ -4,20 +4,20 @@
 // define database tables names
 define('DB_TABLE_PERSONNE', 'personne');
 define('DB_TABLE_COURS', 'cours');
-define('DB_TABLE_CAVALERIE', 'cavalerie');
+define('DB_TABLE_CHEVAL', 'cheval');
 
 //define paths
 define('DB_CLASS_DIR', 'class/');
 
 
 // get main classes
-include_once DB_CLASS_DIR.'Cavalerie.inc.php';
+include_once DB_CLASS_DIR.'Cheval.inc.php';
 include_once DB_CLASS_DIR.'Cours.inc.php';
 include_once DB_CLASS_DIR.'Cavalier.inc.php';
 
 // get main objects
 $oCavalier = new Cavalier();
-$oCavalerie = new Cavalerie();
+$oCheval = new Cheval();
 $oCours = new Cours();
 
 try {
