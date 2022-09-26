@@ -2,64 +2,34 @@
 include_once('../include/defines.inc.php');
 //Cette page est dédiée aux traitements
 
-/*
- Exemple de traitement
-<?php 
+if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['dna'] != "" && $_POST['mail'] != "" && $_POST['telephone'] != "" && $_POST['galop'] != "" && $_POST['numerolicence'] != ""){
+    
+    $nom=$_POST['nom'];
+    $prenom=$_POST['prenom'];
+    $dna=$_POST['dna'];
+    $mail=$_POST['mail'];
+    $tel=$_POST['telephone'];
+    $galop=$_POST['galop'];
+    $nl=$_POST['numerolicence'];
 
-require '../include/defines.inc.php';
-
-
-if(isset($_POST["create"])){
-    if(empty($_POST["casier_name"])){
-        ?>
-            <script>
-                window.location.replace("http://localhost/uvlight/atelier1/casier/index.php?nav=read%22);
-            </script>
-        <?php
+    //Insertion des données dans la table utilisateur
+    $requete = "INSERT INTO personne 
+                VALUES ('Null', '$nom', '$prenom', '$dna', '$mail',1, '$tel',1, '$galop', '$nl')";
+    $result=$conn->query($requete);
+    if($result){
+    ?>
+        <script>
+            alert("Cela a fonctionné")
+            window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
+        </script>
+    <?php
+    }else {
+    ?>
+        <script>
+            alert("Veuillez remplir tout les champs ")
+            window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
+        </script>
+    <?php
     }
-    $req = $oCavalier->db_create($_POST["casier_name"]);
-    if($req){
-        ?>
-            <script>
-                window.location.replace("http://localhost/uvlight/atelier1/casier/index.php?nav=read%22);
-            </script>
-        <?php
-    }
-}elseif(isset($_POST["update"])){
-    $req = $oCavalier->db_update_lib($_POST["casier_id"], $_POST["casier_name"]);
-    if($req){
-        ?>
-            <script>
-                window.location.replace("http://localhost/uvlight/atelier1/casier/index.php?nav=read%22);
-            </script>
-        <?php
-    }
-}elseif(isset($_POST["delete"])){
-    $req = $oCavalier->db_soft_delete_one($_POST["casier_id"]);
-    if($req){
-        ?>
-            <script>
-                window.location.replace("http://localhost/uvlight/atelier1/casier/index.php?nav=read%22);
-            </script>
-        <?php
-    }
-}elseif(isset($_POST["multi_delete"])){
-    $array = $_POST["array"];
-    $finalarray = json_decode($array, true);
-    $ids = [];
-    foreach ($finalarray as $key => $value) {
-        $id = (int) $value;
-        array_push($ids, $id);
-    }
-
-    $res = $oCasier->db_soft_delete_multi($ids);
-    if($res){
-        $response = "ok";
-    }else{
-        $response = "pb";
-    }
-    echo json_encode($response);
-}*/
-
-
+}
 ?>
