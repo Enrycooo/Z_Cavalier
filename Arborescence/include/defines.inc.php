@@ -1,6 +1,6 @@
 <?php 
 
-/*
+
 // define database tables names
 define('DB_TABLE_PERSONNE', 'personne');
 define('DB_TABLE_COURS', 'cours');
@@ -11,15 +11,15 @@ define('DB_CLASS_DIR', 'class/');
 
 
 // get main classes
-include_once DB_CLASS_DIR.'Cheval.inc.php';
-include_once DB_CLASS_DIR.'Cours.inc.php';
-include_once DB_CLASS_DIR.'Cavalier.inc.php';
+include_once DB_CLASS_DIR.'Cavalier.class.inc.php';
+//include_once DB_CLASS_DIR.'Cheval.class.inc.php';
+//include_once DB_CLASS_DIR.'Cours.class.inc.php';
 
 // get main objects
 $oCavalier = new Cavalier();
-$oCheval = new Cheval();
-$oCours = new Cours();
-*/
+//$oCheval = new Cheval();
+//$oCours = new Cours();
+
 try {
     $server = "localhost";
     $username = "root";
