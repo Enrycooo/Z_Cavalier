@@ -67,5 +67,12 @@ $sql = ("SELECT * FROM personne");
                 </div>
             </div>
         </div>
+        <form action="test.php" method="post">
+            <center>
+                <input placeholder="Nom" type="text" name="nom">
+                <input placeholder="Prenom" type="text" name="prenom">
+                <button name="create" type="submit id="submit">Enregistrer</button>
+            </center>
+        </form>
     </body>
 </html>
