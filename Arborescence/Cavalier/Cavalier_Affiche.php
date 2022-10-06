@@ -167,6 +167,7 @@ $sql = ("SELECT * FROM personne WHERE actif = 1");
     <body>
         <input type="submit" value="Ajouter" 
         onclick="window.location='Cavalier_Ajouter.php';" /> 
+
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -197,7 +198,7 @@ $sql = ("SELECT * FROM personne WHERE actif = 1");
                             <td><center><?php echo $row["galop"] ?></center></td>
                             <td><center><?php echo $row["numerolicence"] ?></center></td>
                             <td style='display:flex; justify-content: space-evenly;'>
-                                <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modal<?php echo $id ?>'> Modifier </button>
+                                <input type="button" class='btn btn-primary' value="Modifier" onclick="window.location='Cavalier_modification.php';" />
                             <form action="Cavalier_suppr.php" method="post">
                                 <input type="hidden" name="id" value="<?php echo $id ?>">
                                 <button type="submit" name="delete" class="delete-btn btn btn-danger" onclick="return confirm('Etes vous sûre ?');">Supprimer</button>
