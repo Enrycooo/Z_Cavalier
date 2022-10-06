@@ -4,16 +4,16 @@ include_once('../include/defines.inc.php');
 /*
 if(isset($_POST["create"])){
     $sql = $conn->prepare("SELECT id FROM personne WHERE nom = :nom");
-    $sql->bindValue(':nom', $_POST["departement"]);
+    $sql->bindValue(':nom', $_POST["nom"],PDO::PARAM_STR);
     $sql->execute();
-    $departement_id = $sql->fetch(PDO::FETCH_ASSOC);
-    $departement_id = $departement_id["d_id"];
-    $req = $oCommunes->db_create($_POST["insee_code"], $_POST["zip_code"], $_POST["city_name"], $departement_id, $_POST["lat"], $_POST["lng"]);
+    $personne_id = $sql->fetch(PDO::FETCH_ASSOC);
+    $personne_id = $personne_id["id"];
+    $req = $oCavalier->db_create($_POST["nom"], $_POST["prenom"], $_POST["dna"], $personne_id, $_POST["lat"], $_POST["lng"]);
     if($req){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/uvlight/atelier1/commune/index.php?nav=read");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
             </script>
         <?php
     }
@@ -23,7 +23,7 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/uvlight/atelier1/commune/index.php?nav=read");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
             </script>
         <?php
     }
@@ -33,7 +33,7 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/uvlight/atelier1/commune/index.php?nav=read");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
             </script>
         <?php
     }
