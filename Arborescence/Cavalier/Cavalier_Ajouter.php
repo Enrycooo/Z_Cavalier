@@ -45,3 +45,5 @@
             <button name="create" type="submit id="submit">Créer</button>
             </div>
     </form>
+    </body>
+</html>
