@@ -45,15 +45,15 @@ if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['dna'] != "" && $_POS
     $pre = $_POST["prenom"];
     $dna = $_POST["dna"];
     $mail = $_POST["mail"];
-    $tel = $_POST["telephone"];
+    $tel = $_POST["telephone"]; 
     $galop = $_POST["galop"];
     $nl = $_POST["numerolicence"];
 
     //Insertion des données dans la table utilisateur
-    $requete = "INSERT INTO personne 
-                VALUES (Null, $nom, $pre, $dna, $mail, 1, $tel, 1, $galop, $nl)";
-    $req=$conn->query($requete);
-    $res = $req -> execute();
+    $sql = "INSERT INTO personne (nom, prenom, DNA, mail, actif, telephone, photo, galop, numerolicence)
+                VALUES ('$nom', '$pre', '$dna', '$mail', 1, $tel, 1, $galop, $nl);";
+    $req = $conn->prepare($sql);
+    $res = $req->execute();
     if($res){
     ?>
         <script>
