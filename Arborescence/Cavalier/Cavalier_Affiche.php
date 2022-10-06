@@ -165,41 +165,8 @@ $sql = ("SELECT * FROM personne WHERE actif = 1");
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
 </head>
     <body>
-        <INPUT type="button" value="Click" onClick="window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Ajouter.php");">
-        <form action="Cavalier_trait.php" method="post">
-            
-                <div class="form-group container">
-                    <label>Nom :</label>
-                <input placeholder="Nom" class="form-control" style="width: 25%;" type="text" name="nom">
-                </div>
-                <div class="form-group container">
-                    <label>Prenom :</label>
-                <input placeholder="Prenom" class="form-control" style="width: 25%;" type="text" name="prenom">
-                </div>
-                <div class="form-group container">
-                    <label>Date de naissance :</label>
-                <input placeholder="Date de naissance" class="form-control" style="width: 25%;" type="text" name="dna">
-                </div>
-                <div class="form-group container">
-                    <label>Adresse mail :</label>
-                <input placeholder="e-mail" class="form-control" style="width: 25%;" type="text" name="mail">
-                </div>
-                <div class="form-group container">
-                    <label>Numéro de téléphone :</label>
-                <input placeholder="telephone" class="form-control" style="width: 25%;" type="text" name="telephone">
-                </div>
-                <div class="form-group container">
-                    <label>Galop :</label>
-                <input placeholder="galop" class="form-control" style="width: 25%;" type="text" name="galop">
-                </div>
-                <div class="form-group container">
-                    <label>Numéro de licence :</label>
-                <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="numerolicence">
-                </div>
-                <div class="form-group container">
-                <button type='button' name="create" class='btn btn-primary form-control' style="width: 25%;" type="submit id="submit"> Enregistrer </button>
-                </div>
-        </form>
+        <input type="submit" value="Ajouter" 
+        onclick="window.location='Cavalier_Ajouter.php';" /> 
         <div class="container">
             <div class="row">
                 <div class="col">

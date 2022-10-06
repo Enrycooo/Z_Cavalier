@@ -53,6 +53,7 @@ if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['dna'] != "" && $_POS
     $requete = "INSERT INTO personne 
                 VALUES ('Null', '$nom', '$prenom', '$dna', '$mail',1, '$tel',1, '$galop', '$nl')";
     $result=$conn->query($requete);
+    $result -> execute();
     if($result){
     ?>
         <script>
@@ -64,11 +65,10 @@ if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['dna'] != "" && $_POS
     ?>
         <script>
             alert("Veuillez remplir tout les champs ")
-            window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
+            window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Ajouter.php");
         </script>
     <?php
     }
 }
 
- */
 ?>
