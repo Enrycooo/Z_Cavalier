@@ -42,7 +42,7 @@
             <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="numerolicence">
             </div>
             <div class="form-group container">
-            <button name="create" type="submit id="submit">Créer</button>
+            <button name="create" class=" btn btn-primary" type="submit id="submit">Créer</button>
             </div>
     </form>
     </body>

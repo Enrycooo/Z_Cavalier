@@ -165,8 +165,10 @@ $sql = ("SELECT * FROM personne WHERE actif = 1");
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
 </head>
     <body>
-        <input type="submit" value="Ajouter" 
+        <div class="container" style="padding-bottom:50px">
+        <input type="submit" class="btn btn-primary"value="Ajouter"
         onclick="window.location='Cavalier_Ajouter.php';" /> 
+        </div>
 
         <div class="container">
             <div class="row">
