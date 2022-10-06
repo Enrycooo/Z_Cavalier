@@ -1,6 +1,7 @@
 <?php
 include('../include/defines.inc.php');
-$sql = ("SELECT * FROM personne");
+
+$sql = ("SELECT * FROM personne WHERE actif = 1");
 /*
 ?>
 
@@ -10,8 +11,7 @@ $sql = ("SELECT * FROM personne");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <script>
         function autocomplet() {
         var min_length = 3; // nombre de caractère avant lancement recherche
@@ -154,6 +154,7 @@ $sql = ("SELECT * FROM personne");
 
 <?php
 */
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -253,4 +254,3 @@ $sql = ("SELECT * FROM personne");
         </form>
     </body>
 </html>
-*/

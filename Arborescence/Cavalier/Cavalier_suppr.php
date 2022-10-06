@@ -4,10 +4,11 @@ include_once('../include/defines.inc.php');
 if ($_POST['id'] != ""){
     $id = $_POST['id'];
     
-    $requete = "DELETE FROM personne
-                WHERE id = '$id'";
-    $result = $conn->query($requete);
-    if($result){
+    $request = "UPDATE ".DB_TABLE_PERSONNE." SET actif = 0 WHERE id = :id;";
+    $sql = $conn->prepare($request);
+    $sql->bindValue(':id', $id, PDO::PARAM_INT);
+    $sql->execute();
+    if($sql){
     ?>
         <script>
             alert("Cela a fonctionné")
