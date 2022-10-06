@@ -1,7 +1,7 @@
 <?php
 include_once('../include/defines.inc.php');
 //Cette page est dédiée aux traitements
-
+/*
 if(isset($_POST["create"])){
     $sql = $conn->prepare("SELECT id FROM personne WHERE nom = :nom");
     $sql->bindValue(':nom', $_POST["departement"]);
@@ -38,8 +38,7 @@ if(isset($_POST["create"])){
         <?php
     }
 }
-
-/*
+*/
 if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['dna'] != "" && $_POST['mail'] != "" && $_POST['telephone'] != "" && $_POST['galop'] != "" && $_POST['numerolicence'] != ""){
     
     $nom=$_POST['nom'];
