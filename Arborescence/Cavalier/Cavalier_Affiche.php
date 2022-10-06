@@ -165,9 +165,14 @@ $sql = ("SELECT * FROM personne WHERE actif = 1");
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
 </head>
     <body>
-        <div class="container" style="padding-bottom:50px">
-        <input type="submit" class="btn btn-primary"value="Ajouter"
-        onclick="window.location='Cavalier_Ajouter.php';" /> 
+        <div class="container" style="padding:25px">
+        <input type="submit" class="btn btn-primary" value="Créer un nouveau cavalier"
+        onclick="window.location='Cavalier_Ajouter.php';" />    
+        <form action="Cavalier_search.php" method="post" style='position: absolute;top: 25px; left: 1005px;'>
+                <input placeholder="Nom" type="text" name="nom">
+                <input placeholder="Prenom" type="text" name="prenom">
+                <button name="create" type="submit" class='btn btn-primary' id="submit">Chercher</button>
+        </form>
         </div>
 
         <div class="container">
@@ -215,12 +220,5 @@ $sql = ("SELECT * FROM personne WHERE actif = 1");
                 </div>
             </div>
         </div>
-        <form action="Cavalier_search.php" method="post">
-            <center>
-                <input placeholder="Nom" type="text" name="nom">
-                <input placeholder="Prenom" type="text" name="prenom">
-                <button name="create" type="submit" class='btn btn-primary' id="submit">Chercher</button>
-            </center>
-        </form>
     </body>
 </html>
