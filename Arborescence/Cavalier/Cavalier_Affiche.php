@@ -165,7 +165,7 @@ $sql = ("SELECT * FROM personne WHERE actif = 1");
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
 </head>
     <body>
-        
+        <INPUT type="button" value="Click" onClick="window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Ajouter.php");">
         <form action="Cavalier_trait.php" method="post">
             
                 <div class="form-group container">
@@ -233,7 +233,7 @@ $sql = ("SELECT * FROM personne WHERE actif = 1");
                                 <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modal<?php echo $id ?>'> Modifier </button>
                             <form action="Cavalier_suppr.php" method="post">
                                 <input type="hidden" name="id" value="<?php echo $id ?>">
-                                <button type="submit" name="delete" class="delete-btn btn btn-danger">Supprimer</button>
+                                <button type="submit" name="delete" class="delete-btn btn btn-danger" onclick="return confirm('Etes vous sûre ?');">Supprimer</button>
                             </form>
                             </td>
                         </tr>
@@ -249,7 +249,7 @@ $sql = ("SELECT * FROM personne WHERE actif = 1");
             <center>
                 <input placeholder="Nom" type="text" name="nom">
                 <input placeholder="Prenom" type="text" name="prenom">
-                <button name="create" type="submit id="submit">Enregistrer</button>
+                <button name="create" type="submit" class='btn btn-primary' id="submit">Chercher</button>
             </center>
         </form>
     </body>
