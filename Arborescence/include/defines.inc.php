@@ -1,6 +1,6 @@
 <?php 
 
-
+/*
 // define database tables names
 define('DB_TABLE_PERSONNE', 'personne');
 define('DB_TABLE_COURS', 'cours');
@@ -19,7 +19,7 @@ include_once DB_CLASS_DIR.'Cavalier.class.inc.php';
 $oCavalier = new Cavalier();
 //$oCheval = new Cheval();
 //$oCours = new Cours();
-
+*/
 try {
     $server = "localhost";
     $username = "root";

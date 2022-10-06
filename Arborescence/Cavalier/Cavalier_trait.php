@@ -41,20 +41,20 @@ if(isset($_POST["create"])){
 */
 if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['dna'] != "" && $_POST['mail'] != "" && $_POST['telephone'] != "" && $_POST['galop'] != "" && $_POST['numerolicence'] != ""){
     
-    $nom=$_POST['nom'];
-    $prenom=$_POST['prenom'];
-    $dna=$_POST['dna'];
-    $mail=$_POST['mail'];
-    $tel=$_POST['telephone'];
-    $galop=$_POST['galop'];
-    $nl=$_POST['numerolicence'];
+    $nom = $_POST["nom"];
+    $pre = $_POST["prenom"];
+    $dna = $_POST["dna"];
+    $mail = $_POST["mail"];
+    $tel = $_POST["telephone"];
+    $galop = $_POST["galop"];
+    $nl = $_POST["numerolicence"];
 
     //Insertion des données dans la table utilisateur
     $requete = "INSERT INTO personne 
-                VALUES ('Null', '$nom', '$prenom', '$dna', '$mail',1, '$tel',1, '$galop', '$nl')";
-    $result=$conn->query($requete);
-    $result -> execute();
-    if($result){
+                VALUES (Null, $nom, $pre, $dna, $mail, 1, $tel, 1, $galop, $nl)";
+    $req=$conn->query($requete);
+    $res = $req -> execute();
+    if($res){
     ?>
         <script>
             alert("Cela a fonctionné")
