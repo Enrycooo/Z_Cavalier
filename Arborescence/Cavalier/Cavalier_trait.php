@@ -71,7 +71,7 @@ if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['DNA'] != "" && $_POS
     }
 }
 elseif(isset($_POST["update"])){
-    $req = $conn->execute($_POST["nom"], $_POST["prenom"], $_POST["DNA"], $_POST["mail"], $_POST["telehone"], $_POST["galop"], $_POST["numerolicence"]);
+    $req = $conn->prepare($_POST["nom"], $_POST["prenom"], $_POST["DNA"], $_POST["mail"], $_POST["telehone"], $_POST["galop"], $_POST["numerolicence"]);
     if($req){
         ?>
             <script>
