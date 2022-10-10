@@ -194,7 +194,7 @@ $sql = ("SELECT * FROM personne WHERE actif = 1");
                     <tbody>
                         <?php 
                     foreach ($conn->query($sql) as $row) {
-                        $id = $row["id"]; ?>
+                        $id = $row["id_personne"]; ?>
                         <tr data-value="<?php echo $id ?>">
                             <td><center><?php echo $id ?></center></td>
                             <td><center><?php echo $row["nom"] ?></center></td>

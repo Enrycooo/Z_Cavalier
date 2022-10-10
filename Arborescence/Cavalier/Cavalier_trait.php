@@ -39,7 +39,7 @@ if(isset($_POST["create"])){
     }
 }
 */
-if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['dna'] != "" && $_POST['mail'] != "" && $_POST['telephone'] != "" && $_POST['galop'] != "" && $_POST['numerolicence'] != ""){
+if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['DNA'] != "" && $_POST['mail'] != "" && $_POST['telephone'] != "" && $_POST['galop'] != "" && $_POST['numerolicence'] != ""){
     
     $nom = $_POST["nom"];
     $pre = $_POST["prenom"];
@@ -68,6 +68,17 @@ if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['dna'] != "" && $_POS
             window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Ajouter.php");
         </script>
     <?php
+    }
+}
+elseif(isset($_POST["update"])){
+    $req = $conn->execute($_POST["nom"], $_POST["prenom"], $_POST["DNA"], $_POST["mail"], $_POST["telehone"], $_POST["galop"], $_POST["numerolicence"]);
+    if($req){
+        ?>
+            <script>
+                alert("Cela a fonctionné")
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Ajouter.php");
+            </script>
+        <?php
     }
 }
 
