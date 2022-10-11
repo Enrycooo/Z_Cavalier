@@ -23,7 +23,7 @@
             </div>
             <div class="form-group container">
                 <label>Date de naissance :</label>
-            <input placeholder="Date de naissance" class="form-control" style="width: 25%;" type="text" name="dna">
+            <input placeholder="Date de naissance" class="form-control" style="width: 25%;" type="text" name="DNA">
             </div>
             <div class="form-group container">
                 <label>Adresse mail :</label>

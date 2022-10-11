@@ -1,46 +1,61 @@
 <?php
 include_once('../include/defines.inc.php');
 
-$sql = ("SELECT * FROM personne WHERE id = 3");
-/*if ($_POST['id'] != ""){
-    $id = $_POST['id'];
-    }
-*/?>
+$sql = "SELECT * FROM personne P
+        INNER JOIN cavalier C ON P.id_personne = C.ref_pers
+        WHERE id_personne = :id";
+$req = $conn->prepare($sql);
+$req->bindValue(':id',$_POST['id_personne'],PDO::PARAM_INT);
+$res = $req->execute();
+foreach($conn->query($sql) as $data){
+?>
+
+
 <!DOCTYPE html>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <table class='table table-hover'>
-                <thead>
-                    <tr>
-                        <th style='text-align :center'>id</th>
-                        <th style='text-align :center'>Nom</th>
-                        <th style='text-align :center'>Prénom</th>
-                        <th style='text-align :center'>Date de naissance</th>
-                        <th style='text-align :center'>adresse mail</th>
-                        <th style='text-align :center'>téléphone</th>
-                        <th style='text-align :center'>galop</th>
-                        <th style='text-align :center'>Numéro de licence</th>
-                    </tr>
-                </thead>
-                </table>
-                </br>
-                <tbody>
-                    <form action="Cavalier_trait.php" method="post">
-                    <input type="hidden" name="id_personne" value="<?php echo $data["id_personne"] ?>">
-                    <input placeholder="Nom de la personne" type="text" name="nom" value="<?php echo $data["nom"] ?>">
-                    <input placeholder="Prénom de la personne" type="text" name="prenom" value="<?php echo $data["prenom"] ?>">
-                    <input placeholder="Date de naissance" type="text" name="DNA" value="<?php echo $data["DNA"] ?>">
-                    <input placeholder="Mail de la personne" type="text" name="mail" value="<?php echo $data["mail"] ?>">
-                    <input placeholder="Téléphone de la personne" type="text" name="telephone" value="<?php echo $data["telephone"] ?>">
-                    <input placeholder="Galop de la personne" type="text" name="galop" value="<?php echo $data["galop"] ?>">
-                    <input placeholder="Num licence de la personne" type="text" name="numerolicence" value="<?php echo $data["numerolicence"] ?>">
-                    <button name="update" type="submit">Enregistrer</button>
-                </form>
-                </tbody>  
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+</head>
+    <body>
+    <form action="Cavalier_trait.php" method="post">
+            
+            <div class="form-group container">
+                <label>Nom :</label>
+            <input placeholder="Nom" class="form-control" style="width: 25%;" type="text" name="nom" value="<?php echo $data["nom"] ?>">
             </div>
-        </div>
-    </div>
-</body>
+            <div class="form-group container">
+                <label>Prenom :</label>
+            <input placeholder="Prenom" class="form-control" style="width: 25%;" type="text" name="prenom" value="<?php echo $data["prenom"] ?>">
+            </div>
+            <div class="form-group container">
+                <label>Date de naissance :</label>
+            <input placeholder="Date de naissance" class="form-control" style="width: 25%;" type="text" name="dna" value="<?php echo $data["dna"] ?>">
+            </div>
+            <div class="form-group container">
+                <label>Adresse mail :</label>
+            <input placeholder="e-mail" class="form-control" style="width: 25%;" type="text" name="mail" value="<?php echo $data["mail"] ?>">
+            </div>
+            <div class="form-group container">
+                <label>Numéro de téléphone :</label>
+            <input placeholder="telephone" class="form-control" style="width: 25%;" type="text" name="telephone" value="<?php echo $data["telephone"] ?>">
+            </div>
+            <div class="form-group container">
+                <label>Galop :</label>
+            <input placeholder="galop" class="form-control" style="width: 25%;" type="text" name="galop" value="<?php echo $data["gal_cav"] ?>">
+            </div>
+            <div class="form-group container">
+                <label>Numéro de licence :</label>
+            <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="numerolicence" value="<?php echo $data["num_lic"] ?>">
+            </div>
+            <div class="form-group container">
+            <button name="create" class=" btn btn-primary" type="submit id="submit">Mettre à jour</button>
+            </div>
+    </form>
+    </body>
 </html>
+
+<?php
+}

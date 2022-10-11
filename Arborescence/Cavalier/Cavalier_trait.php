@@ -43,15 +43,18 @@ if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['DNA'] != "" && $_POS
     
     $nom = $_POST["nom"];
     $pre = $_POST["prenom"];
-    $dna = $_POST["dna"];
+    $dna = $_POST["DNA"];
     $mail = $_POST["mail"];
     $tel = $_POST["telephone"]; 
     $galop = $_POST["galop"];
     $nl = $_POST["numerolicence"];
 
     //Insertion des données dans la table utilisateur
-    $sql = "INSERT INTO personne (nom, prenom, DNA, mail, actif, telephone, photo, galop, numerolicence)
-                VALUES ('$nom', '$pre', '$dna', '$mail', 1, $tel, 1, $galop, $nl);";
+    $sql = "INSERT INTO personne(nom, prenom, DNA, mail, actif, telephone, photo)
+                VALUES ('$nom', '$pre', '$dna', '$mail', 1, $tel, 1)
+            
+            INSERT INTO cavalier(gal_cav, num_lic, ref_pers)
+            VALUES ($galop, $nl, );";
     $req = $conn->prepare($sql);
     $res = $req->execute();
     if($res){

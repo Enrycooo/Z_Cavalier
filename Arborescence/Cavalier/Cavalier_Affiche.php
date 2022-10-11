@@ -1,7 +1,9 @@
 <?php
 include('../include/defines.inc.php');
 
-$sql = ("SELECT * FROM personne WHERE actif = 1");
+$sql = ("SELECT * FROM personne P
+        INNER JOIN cavalier C ON P.id_personne = C.ref_pers
+        WHERE actif = 1");
 /*
 ?>
 
@@ -193,21 +195,23 @@ $sql = ("SELECT * FROM personne WHERE actif = 1");
                     </thead>
                     <tbody>
                         <?php 
-                    foreach ($conn->query($sql) as $row) {
-                        $id = $row["id_personne"]; ?>
-                        <tr data-value="<?php echo $id ?>">
-                            <td><center><?php echo $id ?></center></td>
+                    foreach ($conn->query($sql) as $row) { ?>
+                        <tr data-value="<?php echo $row["id_personne"] ?>">
+                            <td><center><?php echo $row["id_personne"] ?></center></td>
                             <td><center><?php echo $row["nom"] ?></center></td>
                             <td><center><?php echo $row["prenom"] ?></center></td>
                             <td><center><?php echo $row["DNA"] ?></center></td>
                             <td><center><?php echo $row["mail"] ?></center></td>
                             <td><center><?php echo $row["telephone"] ?></center></td>
-                            <td><center><?php echo $row["galop"] ?></center></td>
-                            <td><center><?php echo $row["numerolicence"] ?></center></td>
+                            <td><center><?php echo $row["gal_cav"] ?></center></td>
+                            <td><center><?php echo $row["num_lic"] ?></center></td>
                             <td style='display:flex; justify-content: space-evenly;'>
+                            <form action="Cavalier_modification.php" method="post">
+                                <input type="hidden" name="id_personne" value="<?php echo $row["id_personne"] ?>">
                                 <input type="button" class='btn btn-primary' value="Modifier" onclick="window.location='Cavalier_modification.php';" />
+                            </form>
                             <form action="Cavalier_suppr.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $id ?>">
+                                <input type="hidden" name="id" value="<?php echo $row["id_personne"] ?>">
                                 <button type="submit" name="delete" class="delete-btn btn btn-danger" onclick="return confirm('Etes vous sûre ?');">Supprimer</button>
                             </form>
                             </td>
