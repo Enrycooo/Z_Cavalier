@@ -4,7 +4,7 @@ include_once('../include/defines.inc.php');
 if ($_POST['id'] != ""){
     $id = $_POST['id'];
     
-    $request = "UPDATE ".DB_TABLE_PERSONNE." SET actif = 0 WHERE id = :id;";
+    $request = "UPDATE personne SET actif = 0 WHERE id_personne = :id;";
     $sql = $conn->prepare($request);
     $sql->bindValue(':id', $id, PDO::PARAM_INT);
     $sql->execute();

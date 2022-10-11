@@ -1,19 +1,16 @@
 <?php
 include_once('../include/defines.inc.php');
 
-$sql = "SELECT * FROM personne WHERE nom = :nom AND prenom = :prenom";
+$sql = "SELECT * FROM personne P
+        INNER JOIN cavalier C ON P.id_personne = C.ref_pers 
+        WHERE nom = :nom AND prenom = :prenom";
 $req = $conn->prepare($sql);
 $req->bindValue(':nom',$_POST['nom'],PDO::PARAM_STR);
 $req->bindValue(':prenom',$_POST['prenom'],PDO::PARAM_STR);
-//var_dump($req);
 $res = $req->execute();
-//var_dump($res);
 ?>
 <html>
     <head>
-        <title>Back Office Cavalier</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     </head>
     <body>
@@ -38,14 +35,14 @@ $res = $req->execute();
                     foreach ($data=$req->fetchAll() as $value) {
                         ?>
                         <tr data-value="<?php echo $value["nom"] ?>">
-                            <td><center><?php echo $value["id"] ?></center></td>
+                            <td><center><?php echo $value["id_personne"] ?></center></td>
                             <td><center><?php echo $value["nom"] ?></center></td>
                             <td><center><?php echo $value["prenom"] ?></center></td>
                             <td><center><?php echo $value["DNA"] ?></center></td>
                             <td><center><?php echo $value["mail"] ?></center></td>
                             <td><center><?php echo $value["telephone"] ?></center></td>
-                            <td><center><?php echo $value["galop"] ?></center></td>
-                            <td><center><?php echo $value["numerolicence"] ?></center></td>
+                            <td><center><?php echo $value["gal_cav"] ?></center></td>
+                            <td><center><?php echo $value["num_lic"] ?></center></td>
                         </tr>
                         <?php
                             }
@@ -55,5 +52,3 @@ $res = $req->execute();
                 </div>
             </div>
         </div>
-    </body>
-</html>
