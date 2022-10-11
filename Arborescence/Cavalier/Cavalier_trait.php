@@ -51,12 +51,13 @@ if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['DNA'] != "" && $_POS
 
     //Insertion des données dans la table utilisateur
     $sql = "INSERT INTO personne(nom, prenom, DNA, mail, actif, telephone, photo)
-                VALUES ('$nom', '$pre', '$dna', '$mail', 1, $tel, 1)
-            
-            INSERT INTO cavalier(gal_cav, num_lic, ref_pers)
-            VALUES ($galop, $nl, );";
+                VALUES ('$nom', '$pre', '$dna', '$mail', 1, $tel, 1)";
     $req = $conn->prepare($sql);
     $res = $req->execute();
+    $sql2= "INSERT INTO cavalier(gal_cav, num_lic,ref_pers)
+            VALUES ($galop, $nl, (SELECT id_personne FROM personne WHERE nom = '$nom' AND prenom = '$pre'))";
+    $req2 = $conn->prepare($sql2);
+    $res2 = $req2->execute();
     if($res){
     ?>
         <script>
