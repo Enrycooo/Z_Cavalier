@@ -1,14 +1,11 @@
 <?php
 include_once('../include/defines.inc.php');
 //Cette page est dédiée aux traitements
-/*
 if(isset($_POST["create"])){
-    $sql = $conn->prepare("SELECT id FROM personne WHERE nom = :nom");
+    $sql = $conn->prepare("SELECT id_personne FROM personne WHERE nom = :nom");
     $sql->bindValue(':nom', $_POST["nom"],PDO::PARAM_STR);
     $sql->execute();
-    $personne_id = $sql->fetch(PDO::FETCH_ASSOC);
-    $personne_id = $personne_id["id"];
-    $req = $oCavalier->db_create($_POST["nom"], $_POST["prenom"], $_POST["dna"], $personne_id, $_POST["lat"], $_POST["lng"]);
+    $req = $oCavalier->db_create($_POST["nom"], $_POST["prenom"], $_POST["dna"], $_POST["mail"], $_POST["telephone"], $_POST['galop'], $_POST['numerolicence']);
     if($req){
         ?>
             <script>
@@ -18,7 +15,7 @@ if(isset($_POST["create"])){
         <?php
     }
 }elseif(isset($_POST["update"])){
-    $req = $oCommunes->db_update_one($_POST["city_id"], $_POST["city_name"], $_POST["insee_code"], $_POST["zip_code"], $_POST["lat"], $_POST["lng"]);
+    $req = $oCavalier->db_update_one($_POST["nom"], $_POST["prenom"], $_POST["dna"], $_POST["mail"], $_POST["telephone"], $_POST['galop'], $_POST['numerolicence']);
     if($req){
         ?>
             <script>
@@ -28,7 +25,7 @@ if(isset($_POST["create"])){
         <?php
     }
 }elseif(isset($_POST["delete"])){
-    $req = $oCommunes->db_soft_delete_one();
+    $req = $oCavalier->db_soft_delete_one();
     if($req){
         ?>
             <script>
@@ -38,7 +35,7 @@ if(isset($_POST["create"])){
         <?php
     }
 }
-*/
+/*  
 if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['DNA'] != "" && $_POST['mail'] != "" && $_POST['telephone'] != "" && $_POST['galop'] != "" && $_POST['numerolicence'] != ""){
     
     $nom = $_POST["nom"];
@@ -85,5 +82,5 @@ elseif(isset($_POST["update"])){
         <?php
     }
 }
-
+*/
 ?>

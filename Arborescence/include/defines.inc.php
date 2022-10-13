@@ -1,10 +1,11 @@
 <?php 
 
-/*
+
 // define database tables names
 define('DB_TABLE_PERSONNE', 'personne');
 define('DB_TABLE_COURS', 'cours');
 define('DB_TABLE_CHEVAL', 'cheval');
+define('DB_TABLE_CAVALIER', 'cavalier');
 
 //define paths
 define('DB_CLASS_DIR', 'class/');
@@ -19,7 +20,7 @@ include_once DB_CLASS_DIR.'Cavalier.class.inc.php';
 $oCavalier = new Cavalier();
 //$oCheval = new Cheval();
 //$oCours = new Cours();
-*/
+
 try {
     $server = "localhost";
     $username = "root";

@@ -1,50 +1,22 @@
 <?php
 include('../include/defines.inc.php');
-
+/*
 $sql = ("SELECT * FROM personne P
         INNER JOIN cavalier C ON P.id_personne = C.ref_pers
         WHERE actif = 1");
-/*
+ */
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <script>
-        function autocomplet() {
-        var min_length = 3; // nombre de caractère avant lancement recherche
-        var keyword = $('#departement').val();  // departement fait référence au champ de recherche puis lancement de la recherche grace ajax_refres
-        if (keyword.length >= min_length) {
-            $.ajax({
-                url: 'ajax_refresh.php',
-                type: 'POST',
-                data: {keyword:keyword},
-                success:function(data){
-                    $('#departement_list').show();
-                    $('#departement_list').html(data);
-                }
-            });
-        } else {
-            $('#departement_list').hide();
-        }
-    }
-
-    // Lors du choix dans la liste
-    function set_item(item) {
-        // change input value
-        $('#departement').val(item);
-        // hide proposition list
-        $('#departement_list').hide();
-    }
-    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <!-- jQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
 
     
     <title>Cavalier</title>
@@ -56,7 +28,7 @@ $sql = ("SELECT * FROM personne P
 
   ?>
   <div class="container pt-5">
-    <a class="btn btn-success mb-4" href="index.php?nav=create">Créer une nouvelle commune</a>
+    <a class="btn btn-success mb-4" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle commune</a>
 
     <table id="table">
         <thead>
@@ -72,7 +44,6 @@ $sql = ("SELECT * FROM personne P
     </table>
   </div>
     
-
     <script> //initialisation datatable
         $(document).ready(function(){
             $('#table').DataTable({
@@ -83,14 +54,15 @@ $sql = ("SELECT * FROM personne P
                     'url':'ajaxfile.php'
                 },
                 'columns': [
-                    { data: 'id' },
+                    { data: 'id_personne' },
                     { data: 'nom' },
                     { data: 'prenom' },
-                    { data: 'DNA' },
+                    { data: 'dna' },
                     { data: 'mail' },
                     { data: 'telephone' },
-                    { data: 'galop' }
-                    { data: 'numerolicence' }
+                    { data: 'galop' },
+                    { data: 'numerolicence' },
+                    { data: 'actions' }
                 ],
                 deferRender:    true,
                 scrollCollapse: true,
@@ -98,7 +70,6 @@ $sql = ("SELECT * FROM personne P
             });
         });
     </script>
-
     <?php
     }
     elseif($_GET['nav'] === "create"){
@@ -109,7 +80,7 @@ $sql = ("SELECT * FROM personne P
             <form action="Cavalier_trait.php" method="post">
                 <input placeholder="Nom" type="text" name="nom">
                 <input placeholder="Prenom" type="text" name="prenom">
-                <input placeholder="Date de naissance" type="text" name="DNA">
+                <input placeholder="Date de naissance" type="text" name="dna">
                 <input placeholder="Adresse mail" type="text" name="mail">
                 <input placeholder="Numéro de téléphone" type="text" name="telephone">
                 <input placeholder="Galop" type="text" name="galop">
@@ -155,8 +126,8 @@ $sql = ("SELECT * FROM personne P
 </html>
 
 <?php
-*/
 
+/*
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -208,7 +179,7 @@ $sql = ("SELECT * FROM personne P
                             <td style='display:flex; justify-content: space-evenly;'>
                             <form action="Cavalier_modification.php" method="post">
                                 <input type="hidden" name="id_personne" value="<?php echo $row["id_personne"] ?>">
-                                <input type="button" class='btn btn-primary' value="Modifier" onclick="window.location='Cavalier_modification.php';" />
+                                <input type="button" name="id_personne" class='btn btn-primary' value="Modifier" value2="<?php echo $row["id_personne"] ?>" onclick="window.location='Cavalier_modification.php';">
                             </form>
                             <form action="Cavalier_suppr.php" method="post">
                                 <input type="hidden" name="id" value="<?php echo $row["id_personne"] ?>">
@@ -226,3 +197,4 @@ $sql = ("SELECT * FROM personne P
         </div>
     </body>
 </html>
+ */

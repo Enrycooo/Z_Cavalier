@@ -28,21 +28,21 @@ if($searchValue != ''){
 }
 
 ## Total number of records without filtering
-$stmt = $conn->prepare("SELECT COUNT(*) AS allcount FROM ".DB_TABLE_COMMUNES);
+$stmt = $conn->prepare("SELECT COUNT(*) AS allcount FROM ".DB_TABLE_PERSONNE);
 $stmt->execute();
 $records = $stmt->fetch();
 $totalRecords = $records['allcount'];
 
 ## Total number of records with filtering
-$stmt = $conn->prepare("SELECT COUNT(*) AS allcount FROM ".DB_TABLE_COMMUNES." INNER JOIN ".DB_TABLE_DEPARTEMENT." ON ".DB_TABLE_COMMUNES.".department_code =  ".DB_TABLE_DEPARTEMENT.".d_code WHERE 1 ".$searchQuery);
+$stmt = $conn->prepare("SELECT COUNT(*) AS allcount FROM ".DB_TABLE_PERSONNE." WHERE 1 ".$searchQuery);
 $stmt->execute($searchArray);
 $records = $stmt->fetch();
 $totalRecordwithFilter = $records['allcount'];
 
 ## Fetch records
-$stmt = $conn->prepare("SELECT * FROM ".DB_TABLE_COMMUNES." 
-INNER JOIN ".DB_TABLE_DEPARTEMENT." 
-ON ".DB_TABLE_COMMUNES.".department_code = ".DB_TABLE_DEPARTEMENT.".d_code WHERE c_is_visible = 1 ".$searchQuery." ORDER BY ".$columnName." ".$columnSortOrder." LIMIT :limit,:offset");
+$stmt = $conn->prepare("SELECT * FROM ".DB_TABLE_PERSONNE." P
+        INNER JOIN ".DB_TABLE_CAVALIER." C ON P.id_personne = C.ref_pers
+        WHERE actif = 1 ".$searchQuery." ORDER BY ".$columnName." ".$columnSortOrder." LIMIT :limit,:offset");
 
 // Bind values
 foreach($searchArray as $key=>$search){
@@ -57,15 +57,17 @@ $empRecords = $stmt->fetchAll();
 $data = array();
 
 foreach($empRecords as $row){
-    $id = $row["c_id"];
-    $actionrow = "<div style='display: flex; justify-content: space-evenly'><a href='index.php?nav=update&id=$id'><i class='fas fa-edit'></i></a><a href='index.php?nav=delete&id=$id'><i class='fas fa-trash-alt'></i></a></div>";
+    $id = $row["id_personne"];
+    $actionrow = "<div style='display: flex; justify-content: space-evenly'><a href='Cavalier_Affiche.php?nav=update&id=$id'><i class='fas fa-edit'></i></a><a href='Cavalier_Affiche.php?nav=delete&id=$id'><i class='fas fa-trash-alt'></i></a></div>";
     $data[] = array(
-      "insee_code"=>$row['insee_code'],
-      "zip_code"=>$row['zip_code'],
-      "c_name"=>$row['c_name'],
-      "gps_lat"=>$row['gps_lat'],
-      "gps_lng"=>$row['gps_lng'],
-      "d_name"=>$row['d_name'],
+      "id_personne"=>$row['id_personne'],
+      "nom"=>$row['nom'],
+      "prenom"=>$row['prenom'],
+      "dna"=>$row['dna'],
+      "mail"=>$row['mail'],
+      "telephone"=>$row['telephone'],
+      "galop"=>$row['gal_cav'], 
+      "numerolicence"=>$row['num_lic'],
       "actions"=>$actionrow
    );
 }
