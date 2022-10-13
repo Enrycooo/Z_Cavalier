@@ -40,17 +40,19 @@ class Cavalier{
         global $conn;
         $request = "INSERT INTO personne(nom, prenom, DNA, mail, actif, telephone, photo)
                 VALUES (:nom, :pre, :dna, :mail, 1, :tel, 1);";
+        $request2 = "INSERT INTO cavalier(gal_cav, num_lic,ref_pers)
+            VALUES (:galop, :nl, (SELECT id_personne FROM personne WHERE nom = ':nom' AND prenom = ':pre'));";
         $sql = $conn->prepare($request);
+        $sql2 = $conn->prepare($request2);
         $sql->bindValue(':nom', $nom, PDO::PARAM_STR);
         $sql->bindValue(':pre', $prenom, PDO::PARAM_STR);
         $sql->bindValue(':dna', $dna, PDO::PARAM_STR);
         $sql->bindValue(':mail', $mail, PDO::PARAM_STR);
         $sql->bindValue(':tel', $tel, PDO::PARAM_INT);
-        $request2 = "INSERT INTO cavalier(gal_cav, num_lic,ref_pers)
-            VALUES (:galop, :nl, (SELECT id_personne FROM personne WHERE nom = ':nom' AND prenom = ':pre'));";
-        $sql2 = $conn->prepare($request2);
-        $sql->bindValue(':galop', $galop, PDO::PARAM_INT);
-        $sql->bindValue(':nl', $nl, PDO::PARAM_INT);
+        $sql2->bindValue(':nom', $nom, PDO::PARAM_STR);
+        $sql2->bindValue(':pre', $prenom, PDO::PARAM_STR);
+        $sql2->bindValue(':galop', $galop, PDO::PARAM_INT);
+        $sql2->bindValue(':nl', $nl, PDO::PARAM_INT);
 
         try{
             $sql->execute();

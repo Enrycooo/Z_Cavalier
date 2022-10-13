@@ -30,7 +30,7 @@ $sql = ("SELECT * FROM personne P
   <div class="container pt-5">
     <a class="btn btn-success mb-4" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle commune</a>
 
-    <table id="table">
+    <table id='table table-hover'>
         <thead>
             <th>Id Cavalier</th>
             <th>Nom</th>
@@ -40,6 +40,7 @@ $sql = ("SELECT * FROM personne P
             <th>Telephone</th>
             <th>Galop</th>
             <th>Numéro licence</th>
+            <th>actions</th>
         </thead>
     </table>
   </div>
@@ -75,7 +76,7 @@ $sql = ("SELECT * FROM personne P
     elseif($_GET['nav'] === "create"){
         $cavalier = $oCavalier->db_get_all();
         ?>
-            <h1>Créer une ville</h1>
+            <h1>Créer un Cavalier</h1>
 
             <form action="Cavalier_trait.php" method="post">
                 <input placeholder="Nom" type="text" name="nom">
