@@ -1,8 +1,7 @@
 <?php
 include_once('../include/defines.inc.php');
 
-$sql = "SELECT * FROM personne P
-        INNER JOIN cavalier C ON P.id_personne = C.ref_pers 
+$sql = "SELECT * FROM personne
         WHERE nom = :nom AND prenom = :prenom";
 $req = $conn->prepare($sql);
 $req->bindValue(':nom',$_POST['nom'],PDO::PARAM_STR);
@@ -41,8 +40,8 @@ $res = $req->execute();
                             <td><center><?php echo $value["DNA"] ?></center></td>
                             <td><center><?php echo $value["mail"] ?></center></td>
                             <td><center><?php echo $value["telephone"] ?></center></td>
-                            <td><center><?php echo $value["gal_cav"] ?></center></td>
-                            <td><center><?php echo $value["num_lic"] ?></center></td>
+                            <td><center><?php echo $value["galop"] ?></center></td>
+                            <td><center><?php echo $value["numerolicence"] ?></center></td>
                         </tr>
                         <?php
                             }

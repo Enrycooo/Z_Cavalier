@@ -1,10 +1,11 @@
 <?php
 include('../include/defines.inc.php');
-/*
-$sql = ("SELECT * FROM personne P
-        INNER JOIN cavalier C ON P.id_personne = C.ref_pers
+
+$sql = ("SELECT * FROM personne 
         WHERE actif = 1");
- */
+$req = $conn->prepare($sql);
+$res = $req->execute();
+/*
 ?>
 
 <!DOCTYPE html>
@@ -13,12 +14,12 @@ $sql = ("SELECT * FROM personne P
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <!-- jQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
 
     
     <title>Departement</title>
@@ -44,35 +45,27 @@ $sql = ("SELECT * FROM personne P
             <th>Numéro licence</th>
             <th>actions</th>
         </thead>
+        <tbody>
+                        <?php 
+                    foreach ($data = $req->fetchAll() as $row) {
+                        ?>
+                        <tr data-value="<?php echo $row["id_personne"] ?>">
+                            <td><center><?php echo $row["id_personne"] ?></center></td>
+                            <td><center><?php echo $row["nom"] ?></center></td>
+                            <td><center><?php echo $row["prenom"] ?></center></td>
+                            <td><center><?php echo $row["DNA"] ?></center></td>
+                            <td><center><?php echo $row["mail"] ?></center></td>
+                            <td><center><?php echo $row["telephone"] ?></center></td>
+                            <td><center><?php echo $row["galop"] ?></center></td>
+                            <td><center><?php echo $row["numerolicence"] ?></center></td>
+                            </td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                    </tbody>
     </table>
   </div>
-    
-    <script> //initialisation datatable
-        $(document).ready(function(){
-            $('#table').DataTable({
-                'processing': true,
-                'serverSide': true,
-                'serverMethod': 'post',
-                'ajax': {
-                    'url':'ajaxfile.php'
-                },
-                'columns': [
-                    { data: 'id_personne' },
-                    { data: 'nom' },
-                    { data: 'prenom' },
-                    { data: 'dna' },
-                    { data: 'mail' },
-                    { data: 'telephone' },
-                    { data: 'galop' },
-                    { data: 'numerolicence' },
-                    { data: 'actions' }
-                ],
-                deferRender:    true,
-                scrollCollapse: true,
-                scroller:       true
-            });
-        });
-    </script>
     <?php
     }
     elseif($_GET['nav'] === "create"){
@@ -128,8 +121,7 @@ $sql = ("SELECT * FROM personne P
 </html>
 
 <?php
-
-/*
+*/
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -176,8 +168,8 @@ $sql = ("SELECT * FROM personne P
                             <td><center><?php echo $row["DNA"] ?></center></td>
                             <td><center><?php echo $row["mail"] ?></center></td>
                             <td><center><?php echo $row["telephone"] ?></center></td>
-                            <td><center><?php echo $row["gal_cav"] ?></center></td>
-                            <td><center><?php echo $row["num_lic"] ?></center></td>
+                            <td><center><?php echo $row["galop"] ?></center></td>
+                            <td><center><?php echo $row["numerolicence"] ?></center></td>
                             <td style='display:flex; justify-content: space-evenly;'>
                             <form action="Cavalier_modification.php" method="post">
                                 <input type="hidden" name="id_personne" value="<?php echo $row["id_personne"] ?>">
