@@ -1,9 +1,9 @@
 <?php
 include_once('../include/defines.inc.php');
 
-$sql = "SELECT * FROM personne P
+$sql = ("SELECT * FROM personne P
         INNER JOIN cavalier C ON P.id_personne = C.ref_pers
-        WHERE id_personne = :id";
+        WHERE id_personne = :id");
 $req = $conn->prepare($sql);
 $req->bindValue(':id',$_POST['id_personne'],PDO::PARAM_INT);
 $res = $req->execute();
@@ -51,7 +51,7 @@ foreach($conn->query($sql) as $data){
             <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="numerolicence" value="<?php echo $data["num_lic"] ?>">
             </div>
             <div class="form-group container">
-            <button name="create" class=" btn btn-primary" type="submit id="submit">Mettre à jour</button>
+            <button name="create" class=" btn btn-primary" type="submit id="submit>Mettre à jour</button>
             </div>
     </form>
     </body>
