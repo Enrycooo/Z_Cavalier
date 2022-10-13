@@ -6,7 +6,7 @@ class Cavalier{
 	public function db_get_all(){
 		global $conn;
 
-		$request = "SELECT * FROM ".DB_TABLE_PERSONNE." P INNER JOIN ".DB_TABLE_CAVALIER." C ON P.id_personne = C.ref_pers"
+		$request = "SELECT * FROM ".DB_TABLE_PERSONNE.""
                         . "WHERE actif = 1;";
 		try{
 			$sql = $conn->query($request);
