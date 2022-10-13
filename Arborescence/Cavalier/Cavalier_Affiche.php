@@ -28,7 +28,7 @@ $sql = ("SELECT * FROM personne P
 
   ?>
   <div class="container pt-5">
-    <a class="btn btn-success mb-4" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle commune</a>
+    <a class="btn btn-success mb-4" href="Cavalier_Affiche.php?nav=create">Créer un nouveau cavalier</a>
 
     <table id='table table-hover'>
         <thead>
@@ -74,7 +74,6 @@ $sql = ("SELECT * FROM personne P
     <?php
     }
     elseif($_GET['nav'] === "create"){
-        $cavalier = $oCavalier->db_get_all();
         ?>
             <h1>Créer un Cavalier</h1>
 
