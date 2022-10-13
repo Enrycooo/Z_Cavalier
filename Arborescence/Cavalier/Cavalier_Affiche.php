@@ -121,7 +121,7 @@ $res = $req->execute();
 </html>
 
 <?php
-*/
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
