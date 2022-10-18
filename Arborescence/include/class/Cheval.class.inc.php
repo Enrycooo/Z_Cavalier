@@ -1,85 +1,32 @@
 <?php 
 class Cheval{
-    private $nom;
-    private $datedenaissance;
-    private $race;
-    private $sexe;
-    private $taille;
-    private $sire;
-    
-    public function __construct($n,$dna,$r,$s,$taille,$sire){
-        $this -> nom = $n;
-        $this -> datedenaissance = $dna;
-        $this -> race = $r;
-        $this -> sexe = $s;
-        $this -> taille = $taille;
-        $this -> sire = $sire;
-    }
-    public function get_nom (){
-        Return $this -> nom;
-    }
-    public function set_nom ($n){
-        $this -> nom = $n;
-    }
-    public function get_datedenaissance () {
-        Return $this -> datedenaissance;
-    }
-    public function set_datedenaissance ($dna) {
-        $this -> datedenaissance = $dna;
-    }
-    public function get_race () {
-        Return $this -> race;
-    }
-    public function set_race ($r) {
-        $this -> race = $r;
-    }
-    public function get_sexe () {
-        Return $this -> sexe;
-    }
-    public function set_sexe ($s) {
-        $this -> sexe = $s;
-    }
-    public function get_taille () {
-        Return $this -> taille;
-    }
-    public function set_taille ($taille) {
-        $this -> taille = $taille;
-    }
-    public function get_sire () {
-        Return $this -> sire;
-    }
-    public function set_sire($sire) {
-        $this -> sire = $sire;
-    }
-}
-/*
-class Article{
+	const ermessage = "Une erreur s'est produite, signalez la à l'administrateur \n";
 
-    const errmessage = "Une erreur s'est produite, signalez la à l'administrateur \n";
-
-    public function db_get_all(){
+	public function db_get_all (){
 		global $conn;
-		$request = "SELECT * FROM ".DB_TABLE_ARTICLE.";";
 
-		try{
-			$sql = $conn->query($request);
+		$request = "SELECT *
+					FROM " .DB_TABLE_CHEVAL. "WHERE id_cheval IS NOT NULL;";
+		try {
+			$sql =$conn ->query($request);
 			return $sql->fetchAll(PDO::FETCH_ASSOC);
 		}catch(PDOException $e){
-			return $this->errmessage.$e->getMessage();
+			return $this->ermessage.$e->getMessage();
 		}
-    }
-
-	public function db_get_by_id($article_id=0){
-		$article_id = (int) $article_id;
-		if(!$article_id){
+	}
+	
+	public function db_get_by_id($id_cheval=0){
+		$id_cheval = (int) $id_cheval;
+		if(!$id_cheval){
 			return false;
 		}
 
 		global $conn;
 
-		$request = "SELECT * FROM ".DB_TABLE_ARTICLE." WHERE art_ID = :id";
+		$request = "SELECT * 
+					FROM ".DB_TABLE_CHEVAL." WHERE id_cheval = :id_cheval";
 		$sql = $conn->prepare($request);
-		$sql->bindValue(':id', $article_id, PDO::PARAM_INT);
+		$sql->bindValue(':id_cheval', $id_cheval, PDO::PARAM_INT);
 		try{
 			$sql->execute();
 			return $sql->fetch(PDO::FETCH_ASSOC);
@@ -88,105 +35,20 @@ class Article{
 		}
 	}
 
-	public function db_create($article_nom='', $article_commentaire='', $fk_categorie_id=0){
-		$fk_categorie_id = (int) $fk_categorie_id;
-
-		if(!$article_nom || $fk_categorie_id){
-			return false;
-		}
-
-		global $conn;
-		$request = "INSERT INTO ".DB_TABLE_ARTICLE."(art_nom, art_commentaire, fk_cat_ID) VALUES(:article_nom, :article_commentaire, :fk_categorie_id);";
-		$sql = $conn->prepare($request);
-		if(!$article_commentaire) $article_commentaire = "0";
-		$sql->bindValue(':article_nom', $article_nom, PDO::PARAM_STR);
-		$sql->bindValue(':article_commentaire', $article_commentaire, PDO::PARAM_STR);
-		$sql->bindValue(':fk_categorie_id', $fk_categorie_id, PDO::PARAM_INT);
-		try{
-			$sql->execute();
-			return true;
-		}catch(PDOException $e){
-			return $this->errmessage.$e->getMessage();
-		}
-	}
-
-	public function db_update($article_id=0, $new_article_nom='', $new_article_commentaire='', $new_fk_categorie_id=0){
-		$article_id = (int) $article_id;
-		if(!$article_id){
-			return false;
-		}
-
-		global $conn;
-		$request = "UPDATE ".DB_TABLE_ARTICLE." SET ";
-
-		if($new_article_nom){
-			$request .= "art_nom = :new_article_nom ,";
-		}
-		if($new_article_commentaire){
-			$request .= "art_commentaire = :new_article_commentaire ,";
-		}
-		if($new_fk_categorie_id){
-			$request .= "fk_cat_ID = :new_fk_categorie_id";
-		}
-		$request .= " WHERE art_ID=:article_id";
-		$sql = $conn->prepare($request);
-
-		if($new_article_nom){
-			$sql->bindValue(':new_article_nom', $new_article_nom, PDO::PARAM_STR);
-		}
-		if($new_article_commentaire){
-			$sql->bindValue(':new_article_commentaire', $new_article_commentaire, PDO::PARAM_STR);
-		}
-		if($new_fk_categorie_id){
-			$sql->bindValue(':new_fk_categorie_id', $new_fk_categorie_id, PDO::PARAM_INT);
-		}
-		$sql->bindValue(':article_id', $article_id, PDO::PARAM_INT);
-		try{
-			$sql->execute();
-			return true;
-		}catch(PDOException $e){
-			return $this->errmessage.$e->getMessage();
-		}
-	}
-
-	public function db_soft_delete_one($article_id=0){
-		$article_id = (int) $article_id;
-
-		if(!$article_id){
-			return false;
-		}
-
-		global $conn;
-
-		$request = "UPDATE ".DB_TABLE_ARTICLE." SET art_is_visible = 0 WHERE art_ID=:article_id";
-		$sql = $conn->prepare($request);
-		$sql->bindValue(':article_id', $article_id, PDO::PARAM_INT);
-		try{
-			$sql->execute();
-			return true;
-		}catch(PDOException $e){
-			return $this->errmessage.$e->getMessage();
-		}
-	}
-
-	public function db_soft_delete_multi($id_array){
-        if(!is_array($id_array)){
-            return false;
-        }
-
-        foreach ($id_array as $key => $value) {
-            if(is_nan($id_array[$key]) || !$id_array[$key]){
-                return false;
-            }
-        }
+	public function db_create($nom="", $dna="" , $race="", $sexe="", $taille = "", $sire = "", $robe =""){
 
         global $conn;
-
-        $list_id = implode(',', $id_array);
-
-        $request = "UPDATE ".DB_TABLE_ARTICLE." SET art_is_visible = 0 WHERE art_ID IN (:list_id)";
+        $request = "INSERT INTO cheval(nom_cheval, DNA_cheval, race_cheval, sexe_cheval, taille_cheval, SIRE_cheval, ref_robe)
+                VALUES (:nom, :dna, :race, :sex, :taille, :robe);";
         $sql = $conn->prepare($request);
-        $sql->bindValue(':list_id', $list_id, PDO::PARAM_STR);
+        $sql->bindValue(':nom', $nom, PDO::PARAM_STR);
+        $sql->bindValue(':dna', $dna, PDO::PARAM_STR);
+        $sql->bindValue(':race', $race, PDO::PARAM_STR);
+        $sql->bindValue(':sexe', $sexe, PDO::PARAM_STR);
+        $sql->bindValue(':taille', $taille, PDO::PARAM_INT);
+        $sql->bindValue(':sire', $sire, PDO::PARAM_INT);
+        $sql->bindValue(':robe', $robe, PDO::PARAM_INT);
+
         try{
             $sql->execute();
             return true;
@@ -195,18 +57,53 @@ class Article{
         }
     }
 
-	public function db_soft_delete_all(){
-		global $conn;
+    public function db_update_one($id_cheval=0, $nom="", $dna="" , $race="", $sexe="", $taille = "", $sire ="", $robe="" ){
+       $id_cheval = (int) $id_cheval;
+        if(!$id_cheval){
+            return false;
+        }
 
-		$request = "UPDATE ".DB_TABLE_ARTICLE." SET art_is_visible = 0";
-		try{
-			$conn->query($request);
-			return true;
-		}catch(PDOException $e){
-			return $this->errmessage.$e->getMessage();
-		}
-	}
+        global $conn;
+
+        $request = "UPDATE ".DB_TABLE_CHEVAL."
+                 SET nom = :nom, dna = :pre, dna = :dna, mail= :mail, tel= :tel, galop= :galop, nl = :nl  WHERE id_personne = :id_personne";
+        $sql = $conn->prepare($request);
+        $sql->bindValue(':id_personne', $id_personne, PDO::PARAM_INT);
+        $sql->bindValue(':nom', $nom, PDO::PARAM_STR);
+        $sql->bindValue(':pre', $prenom, PDO::PARAM_STR);
+        $sql->bindValue(':dna', $dna, PDO::PARAM_INT);
+        $sql->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $sql->bindValue(':tel', $tel, PDO::PARAM_INT);
+        $sql->bindValue(':galop', $galop, PDO::PARAM_INT);
+        $sql->bindValue(':nl', $nl, PDO::PARAM_INT);
+        try{
+            $sql->execute();
+            return true;
+        }catch(PDOException $e){
+            return $this->errmessage.$e->getMessage();
+        }
+    }
+
+    public function db_soft_delete_one($id_personne=0){
+        $id_personne = (int) $id_personne;
+
+        if(!$id_personne) {
+            return false;
+        }
+
+        global $conn;
+
+        $request = "UPDATE ".DB_TABLE_PERSONNE." SET actif = 0 WHERE id_personne = :id_personne;";
+        $sql = $conn->prepare($request);
+        $sql->bindValue(':id', $id_personne, PDO::PARAM_INT);
+        try{
+            $sql->execute();
+            return true;
+        }catch(PDOException $e){
+            return $this->errmessage.$e->getMessage();
+        }
+    }
 
 }
-*/
+
 ?>

@@ -13,14 +13,14 @@ define('DB_CLASS_DIR', 'class/');
 
 // get main classes
 include_once DB_CLASS_DIR.'Cavalier.class.inc.php';
-//include_once DB_CLASS_DIR.'Cheval.class.inc.php';
+include_once DB_CLASS_DIR.'Cheval.class.inc.php';
 //include_once DB_CLASS_DIR.'Cours.class.inc.php';
 
 // get main objects
 $oCavalier = new Cavalier();
 //$oCheval = new Cheval();
 //$oCours = new Cours();
-
+$oCavalerie = new Cheval();
 try {
     $server = "localhost";
     $username = "root";
