@@ -5,7 +5,7 @@ $sql = ("SELECT * FROM personne
         WHERE actif = 1");
 $req = $conn->prepare($sql);
 $res = $req->execute();
-/*
+
 ?>
 
 <!DOCTYPE html>
@@ -31,19 +31,19 @@ $res = $req->execute();
 
   ?>
   <div class="container pt-5">
-    <a class="btn btn-success mb-4" href="Cavalier_Affiche.php?nav=create">Créer un nouveau cavalier</a>
+    <a class="btn btn-success mb-4" href="Cavalier_Affiche_Test.php?nav=create">Créer un nouveau cavalier</a>
 
     <table id='table table-hover'>
         <thead>
-            <th>Id Cavalier</th>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Date de naissance</th>
-            <th>E-mail</th>
-            <th>Telephone</th>
-            <th>Galop</th>
-            <th>Numéro licence</th>
-            <th>actions</th>
+            <th><center><p>Id Cavalier</p></center></th>
+            <th><center><p>Nom</p></center></th>
+            <th><center><p>Prenom</p></center></th>
+            <th><center><p>Date de naissance</p></center></th>
+            <th><center><p>E-mail</p></center></th>
+            <th><center><p>Telephone</p></center></th>
+            <th><center><p>Galop</p></center></th>
+            <th><center><p>Numéro licence</p></center></th>
+            <th><center><p>actions</p></center></th>
         </thead>
         <tbody>
                         <?php 
@@ -63,16 +63,18 @@ $res = $req->execute();
                         <?php
                             }
                         ?>
-                    </tbody>
+        </tbody>
     </table>
-  </div>
+</div>
+<div class="container pt-5">
+    <a class="btn btn-success mb-4" href="Cavalier_Affiche_Test.php?nav=create">Modifier</a>
     <?php
     }
     elseif($_GET['nav'] === "create"){
         ?>
             <h1>Créer un Cavalier</h1>
 
-            <form action="Cavalier_trait.php" method="post">
+            <form action="Cavalier_trait_test.php" method="post">
                 <input placeholder="Nom" type="text" name="nom">
                 <input placeholder="Prenom" type="text" name="prenom">
                 <input placeholder="Date de naissance" type="text" name="dna">
@@ -80,8 +82,7 @@ $res = $req->execute();
                 <input placeholder="Numéro de téléphone" type="text" name="telephone">
                 <input placeholder="Galop" type="text" name="galop">
                 <input placeholder="Numéro de licence" type="text" name="numerolicence">
-                <label for="">Cavalier</label>
-                <button name="create" type="submit">Enregistrer</button>
+                <button name="create" type="submit">Enregistrer </button>
             </form>
 
         <?php
@@ -89,16 +90,23 @@ $res = $req->execute();
     elseif($_GET["nav"] === "update"){
         $data = $oCavalier->db_get_by_id($_GET["id"]);
         ?>
-            <form action="Cavalier_trait.php" method="post">
+
+            <h1>Modifier un cavalier</h1>
+
+            <form action="Cavalier_trait_test.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $data["id"] ?>">
                 <input placeholder="Nom" type="text" name="nom" value="<?php echo $data["nom"] ?>">
                 <input placeholder="Prenom" type="text" name="prenom" value="<?php echo $data["prenom"] ?>">
-                <input placeholder="Date de naissance" type="text" name="DNA" value="<?php echo $data["DNA"] ?>">
+                <input placeholder="Date de naissance" type="text" name="DNA" value="<?php echo $data["dna"] ?>">
                 <input placeholder="Adresse mail" type="text" name="mail" value="<?php echo $data["mail"] ?>">
                 <input placeholder="Numéro de téléphone" type="text" name="telephone" value="<?php echo $data["telephone"] ?>">
                 <input placeholder="galop" type="text" name="galop" value="<?php echo $data["galop"] ?>">
                 <input placeholder="Numéro de licence" type="text" name="numerolicence" value="<?php echo $data["numerolicence"] ?>">
-                <button name="update" type="submit">Enregistrer</button>
+                <button name="update" type="submit">Modifier</button>
+            </form>
+            <form action="Cavalier_modification.php" method="post">
+                <input type="hidden" name="id_personne" value="<?php echo $row["id_personne"] ?>">
+                <input type="button" name="id_personne" class='btn btn-primary' value="Modifier" value2="<?php echo $row["id_personne"] ?>" onclick="window.location='Cavalier_modification.php';">
             </form>
         <?php
 
@@ -106,7 +114,7 @@ $res = $req->execute();
     elseif($_GET["nav"] === "delete"){
         $data = $oCavalier->db_get_by_id($_GET["id"]);
         ?>
-            <form action="Cavalier_trait.php" method="post">
+            <form action="Cavalier_trait_test.php" method="post">
                 <input disabled type="text" name="nom" value="<?php echo $data["nom"]; ?>">
                 <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
                 <button name="delete" type="submit">Supprimer</button>
@@ -121,7 +129,7 @@ $res = $req->execute();
 </html>
 
 <?php
-*/
+/*
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -191,3 +199,4 @@ $res = $req->execute();
         </div>
     </body>
 </html>
+ */
