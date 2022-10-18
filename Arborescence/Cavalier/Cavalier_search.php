@@ -2,7 +2,7 @@
 include_once('../include/defines.inc.php');
 
 $sql = "SELECT * FROM personne
-        WHERE nom = :nom AND prenom = :prenom";
+        WHERE nom = :nom OR prenom = :prenom";
 $req = $conn->prepare($sql);
 $req->bindValue(':nom',$_POST['nom'],PDO::PARAM_STR);
 $req->bindValue(':prenom',$_POST['prenom'],PDO::PARAM_STR);

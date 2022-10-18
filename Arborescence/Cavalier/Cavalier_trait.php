@@ -37,19 +37,24 @@ if(isset($_POST["create"])){
     }
 }
 */
-if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['DNA'] != "" && $_POST['mail'] != "" && $_POST['telephone'] != "" && $_POST['galop'] != "" && $_POST['numerolicence'] != ""){
+if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['DNA'] != "" && $_POST['mail'] != "" && $_POST['telephone'] != "" && $_POST['gal_cav'] != "" && $_POST['num_lic'] != "" && $_POST['rue'] != ""
+         && $_POST['ville'] != "" && $_POST['cp'] != ""){
     
     $nom = $_POST["nom"];
     $pre = $_POST["prenom"];
     $dna = $_POST["DNA"];
     $mail = $_POST["mail"];
     $tel = $_POST["telephone"]; 
-    $galop = $_POST["galop"];
-    $nl = $_POST["numerolicence"];
+    $gal_cav = $_POST["gal_cav"];
+    $num_lic = $_POST["num_lic"];
+    $rue = $_POST['rue'];
+    $ville = $_POST['ville'];
+    $cp = $_POST['cp'];
+    
 
     //Insertion des données dans la table utilisateur
-    $sql = "INSERT INTO personne(nom, prenom, DNA, mail, actif, telephone, photo, galop, numerolicence)
-                VALUES ('$nom', '$pre', '$dna', '$mail', 1, $tel, 1, $galop, $nl)";
+    $sql = "INSERT INTO personne(nom, prenom, DNA, rue, code_postal, ville, mail, actif, telephone, photo, gal_cav, num_lic)
+                VALUES ('$nom', '$pre', '$dna', '$rue', $cp, '$ville' '$mail', 1, $tel, 1, $gal_cav, $num_lic)";
     $req = $conn->prepare($sql);
     $res = $req->execute();
     if($res){

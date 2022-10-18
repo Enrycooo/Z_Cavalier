@@ -5,7 +5,7 @@ $sql = ("SELECT * FROM personne
         WHERE actif = 1");
 $req = $conn->prepare($sql);
 $res = $req->execute();
-/*
+
 ?>
 
 <!DOCTYPE html>
@@ -56,8 +56,8 @@ $res = $req->execute();
                             <td><center><?php echo $row["DNA"] ?></center></td>
                             <td><center><?php echo $row["mail"] ?></center></td>
                             <td><center><?php echo $row["telephone"] ?></center></td>
-                            <td><center><?php echo $row["galop"] ?></center></td>
-                            <td><center><?php echo $row["numerolicence"] ?></center></td>
+                            <td><center><?php echo $row["gal_cav"] ?></center></td>
+                            <td><center><?php echo $row["num_lic"] ?></center></td>
                             </td>
                         </tr>
                         <?php
@@ -121,7 +121,8 @@ $res = $req->execute();
 </html>
 
 <?php
-*/
+
+/*
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -191,3 +192,4 @@ $res = $req->execute();
         </div>
     </body>
 </html>
+*/

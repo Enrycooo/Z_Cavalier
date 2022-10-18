@@ -35,11 +35,23 @@
             </div>
             <div class="form-group container">
                 <label>Galop :</label>
-            <input placeholder="galop" class="form-control" style="width: 25%;" type="text" name="galop">
+            <input placeholder="galop" class="form-control" style="width: 25%;" type="text" name="gal_cav">
             </div>
             <div class="form-group container">
                 <label>Numéro de licence :</label>
-            <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="numerolicence">
+            <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="num_lic">
+            </div>
+            <div class="form-group container">
+                <label>Numéro de licence :</label>
+            <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="rue">
+            </div>
+            <div class="form-group container">
+                <label>Numéro de licence :</label>
+            <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="cp">
+            </div>
+            <div class="form-group container">
+                <label>Numéro de licence :</label>
+            <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="ville">
             </div>
             <div class="form-group container">
             <button name="create" class=" btn btn-primary" type="submit id="submit">Créer</button>

@@ -6,8 +6,7 @@ class Cavalier{
 	public function db_get_all(){
 		global $conn;
 
-		$request = "SELECT * FROM ".DB_TABLE_PERSONNE.""
-                        . "WHERE actif = 1;";
+		$request = "SELECT * FROM ".DB_TABLE_PERSONNE." WHERE actif = 1;";
 		try{
 			$sql = $conn->query($request);
 			return $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -65,8 +64,8 @@ class Cavalier{
 
         global $conn;
 
-        $request = "UPDATE ".DB_TABLE_PERSONNE." P INNER JOIN ".DB_TABLE_CAVALIER." C ON P.id_personne = C.ref_pers"
-                . "SET nom = :nom, prenom = :pre, dna = :dna, mail= :mail, tel= :tel, galop= :galop, nl = :nl  WHERE id_personne = :id_personne";
+        $request = "UPDATE ".DB_TABLE_PERSONNE." P INNER JOIN ".DB_TABLE_CAVALIER." C ON P.id_personne = C.ref_pers 
+                 SET nom = :nom, prenom = :pre, dna = :dna, mail= :mail, tel= :tel, galop= :galop, nl = :nl  WHERE id_personne = :id_personne";
         $sql = $conn->prepare($request);
         $sql->bindValue(':id_personne', $id_personne, PDO::PARAM_INT);
         $sql->bindValue(':nom', $nom, PDO::PARAM_STR);
