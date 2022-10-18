@@ -22,7 +22,7 @@ $res = $req->execute();
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
 
     
-    <title>Affiche</title>
+    <title>Affichage Cavalier</title>
 </head>
 <body>
 
@@ -32,6 +32,8 @@ $res = $req->execute();
   ?>
   <div class="container pt-5">
     <a class="btn btn-success mb-4" href="Cavalier_Affiche_Test.php?nav=create">Créer un nouveau cavalier</a>
+    <a class="btn btn-success mb-4" href="Cavalier_Affiche_Test.php?nav=update"> Modifier </a>
+    <a class=" btn btn-success mb-4" href="Cavalier_Affiche_Test.php?nav=delete"> Supprimer </a>
 
     <table id='table table-hover'>
         <thead>
@@ -39,11 +41,11 @@ $res = $req->execute();
             <th><center><p>Nom</p></center></th>
             <th><center><p>Prenom</p></center></th>
             <th><center><p>Date de naissance</p></center></th>
+            <th><center><p>Adresse</p></center></th>
             <th><center><p>E-mail</p></center></th>
             <th><center><p>Telephone</p></center></th>
             <th><center><p>Galop</p></center></th>
             <th><center><p>Numéro licence</p></center></th>
-            <th><center><p>actions</p></center></th>
         </thead>
         <tbody>
                         <?php 
@@ -54,10 +56,11 @@ $res = $req->execute();
                             <td><center><?php echo $row["nom"] ?></center></td>
                             <td><center><?php echo $row["prenom"] ?></center></td>
                             <td><center><?php echo $row["DNA"] ?></center></td>
+                            <td><center><?php echo $row["rue"]. " ". $row["ville"] ." " . $row["code_postal"] ?></center></td>
                             <td><center><?php echo $row["mail"] ?></center></td>
                             <td><center><?php echo $row["telephone"] ?></center></td>
-                            <td><center><?php echo $row["galop"] ?></center></td>
-                            <td><center><?php echo $row["numerolicence"] ?></center></td>
+                            <td><center><?php echo $row["gal_cav"] ?></center></td>
+                            <td><center><?php echo $row["num_lic"] ?></center></td>
                             </td>
                         </tr>
                         <?php
@@ -66,8 +69,35 @@ $res = $req->execute();
         </tbody>
     </table>
 </div>
+<!--<script> //initialisation datatable
+        $(document).ready(function(){
+            $('#table').DataTable({
+                'processing': true,
+                'serverSide': true,
+                'serverMethod': 'post',
+                'ajax': {
+                    'url':'ajaxfile.php'
+                },
+                'columns': [
+                    { data: 'id_personne' },
+                    { data: 'nom' },
+                    { data: 'prenom' },
+                    { data: 'DNA' },
+                    { data: 'rue' },
+                    {data: 'ville'},
+                    {data: 'code_postal'},
+                    { data: 'mail' },
+                    { data: 'telephone' },
+                    {data: 'gal_cav'},
+                    {data: 'num_lic'}
+                ],
+                deferRender:    true,
+                scrollCollapse: true,
+                scroller:       true
+            });
+        });
+    </script> -->
 <div class="container pt-5">
-    <a class="btn btn-success mb-4" href="Cavalier_Affiche_Test.php?nav=create">Modifier</a>
     <?php
     }
     elseif($_GET['nav'] === "create"){
