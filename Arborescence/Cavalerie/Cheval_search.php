@@ -33,7 +33,7 @@ $res = $req->execute();
                     foreach ($data=$req->fetchAll() as $value) {
                         ?>
                         <tr data-value="<?php echo $value["nom"] ?>">
-                        <td><center><?php echo $id_personne ?></center></td>
+                        <td><center><?php echo $id_cheval ?></center></td>
                         <td><center><?php echo $key["nom"] ?></center></td>
                         <td><center><?php echo $key["dna"] ?></center></td>
                         <td><center><?php echo $key["race"] ?></center></td>

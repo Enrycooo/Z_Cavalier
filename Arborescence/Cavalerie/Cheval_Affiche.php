@@ -46,8 +46,8 @@ include('../include/defines.inc.php');
                 <?php 
                     foreach ($data as $key) {
                         $id_cheval = $key["id_cheval"]; ?>
-                        <tr data-value="<?php echo $id_personne ?>">
-                        <td><center><?php echo $id_personne ?></center></td>
+                        <tr data-value="<?php echo $id_cheval ?>">
+                        <td><center><?php echo $id_cheval ?></center></td>
                         <td><center><?php echo $key["nom"] ?></center></td>
                         <td><center><?php echo $key["dna"] ?></center></td>
                         <td><center><?php echo $key["race"] ?></center></td>
@@ -60,7 +60,7 @@ include('../include/defines.inc.php');
                                 Modifier
                             </button>
                             <form action="Cheval_trait.php" method="post">
-                                <input type="hidden" name="id_personne" value="<?php echo $id_cheval ?>">
+                                <input type="hidden" name="id_cheval" value="<?php echo $id_cheval ?>">
                                 <button type="submit" name="delete" class="delete-btn btn btn-danger">Supprimer</button>
                             </form>
                         </td>
@@ -84,10 +84,10 @@ include('../include/defines.inc.php');
     <?php 
     
         foreach($data as $key){
-        $id_personne = $key["id_personne"]; ?>
+        $id_cheval = $key["id_cheval"]; ?>
 
             <!-- Modal -->
-            <div class="modal fade" id="modal<?php echo $id_personne ?>" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade" id="modal<?php echo $id_cheval ?>" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -105,7 +105,7 @@ include('../include/defines.inc.php');
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="telephone" value="<?php echo $key["telephone"]; ?>">
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="gal_cav" value="<?php echo $key["gal_cav"]; ?>">
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="num_lic" value="<?php echo $key["num_lic"]; ?>">
-                                <input type="hidden" name="id_personne" value="<?php echo $id_personne ?>">
+                                <input type="hidden" name="id_cheval" value="<?php echo $id_cheval ?>">
                             </div>
                         
                             <div class="modal-footer">
