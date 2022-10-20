@@ -60,7 +60,7 @@ class Cavalier{
     }
 
     public function db_update_one($id_personne=0, $nom="", $prenom="" , $dna="", $rue="", $cp="", $ville="", $mail="", $tel ="", $galop = 0, $nl=""){
-       $id_personne = (int) $id_personne;
+       $id_personne = $_POST['id_personne'];
         if(!$id_personne){
             return false;
         }
@@ -91,7 +91,7 @@ class Cavalier{
     }
 
     public function db_soft_delete_one($id_personne=0){
-        $id_personne = (int) $id_personne;
+        $id_personne = (int) $_POST['id_personne'];
 
         if(!$id_personne) {
             return false;

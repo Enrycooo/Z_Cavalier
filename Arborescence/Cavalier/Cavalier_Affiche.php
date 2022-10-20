@@ -19,14 +19,11 @@ include('../include/defines.inc.php');
 <?php
 
         $data = $oCavalier->db_get_all();
-
   ?>
-  <form action="Cavalier_trait.php" method="post">
+  
         <div class="form-group row col-4 p-4">
-            <input class="form-control col-6 mr-3" type="text" name="nom" placeholder="Nom du cavalier">
-            <button class="btn btn-success col-5" name="create" type="submit">Créer un cavalier</button>
+            <button class="btn btn-success col-5" name="create" type="submit" href="Cavalier_Ajouter.php">Créer un cavalier</button>
         </div>
-    </form>
  
             <div class="row">
                 <div class="col">
@@ -75,8 +72,6 @@ include('../include/defines.inc.php');
                 ?>
             </tbody>
         </table>
-        <input type="checkbox" class="select-all" id="select-all">
-        <label for="select-all" class="form-check-label">Tout sélectionner</label>
 
     
     <div class="operations-div" style="display: flex; justify-content: space-evenly">
@@ -127,7 +122,7 @@ include('../include/defines.inc.php');
                 </div>
             </div>
         
-        <?php    
+        <?php
         }
 /*
     ?>
