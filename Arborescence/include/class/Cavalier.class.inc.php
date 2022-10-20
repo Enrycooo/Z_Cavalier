@@ -20,7 +20,7 @@ class Cavalier{
 
         global $conn;
         $request = "INSERT INTO personne(nom, prenom, DNA, rue, code_postal, ville, mail, actif, telephone, photo, gal_cav, num_lic)
-                VALUES (:nom, :pre, :dna, :rue, :cp, :ville, :mail, 1, :tel, 1, :gal_cav, :num_lic)";
+                    VALUES (:nom, :pre, :dna, :rue, :cp, :ville, :mail, 1, :tel, 1, :gal_cav, :num_lic)";
         $sql = $conn->prepare($request);
         $sql->bindValue(':nom', $nom, PDO::PARAM_STR);
         $sql->bindValue(':pre', $prenom, PDO::PARAM_STR);

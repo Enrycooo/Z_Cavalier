@@ -4,7 +4,7 @@ if(isset($_POST["create"])){
     $sql = $conn->prepare("SELECT id_personne FROM personne WHERE nom = :nom");
     $sql->bindValue(':nom', $_POST["nom"],PDO::PARAM_STR);
     $sql->execute();
-    $req = $oCavalier->db_create($_POST["nom"], $_POST["prenom"], $_POST["dna"],$_POST['rue'], $_POST['cp'], $_POST['ville'], $_POST["mail"], $_POST["telephone"], $_POST['gal_cav'], $_POST['num_lic']);
+    $req = $oCavalier->db_create($_POST["nom"], $_POST["prenom"], $_POST["DNA"],$_POST['rue'], $_POST['cp'], $_POST['ville'], $_POST["mail"], $_POST["telephone"], $_POST['gal_cav'], $_POST['num_lic']);
     if($req){
         ?>
             <script>

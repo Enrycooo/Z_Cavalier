@@ -23,6 +23,9 @@ $res = $req->execute();
                             <th style='text-align :center'>Nom</th>
                             <th style='text-align :center'>Prénom</th>
                             <th style='text-align :center'>Date de naissance</th>
+                            <th style="text-align :center">Rue</th>
+                            <th style="text-align :center">Code postal</th>
+                            <th style="text-align :center">Ville</th>
                             <th style='text-align :center'>adresse mail</th>
                             <th style='text-align :center'>téléphone</th>
                             <th style='text-align :center'>galop</th>
@@ -38,6 +41,9 @@ $res = $req->execute();
                             <td><center><?php echo $value["nom"] ?></center></td>
                             <td><center><?php echo $value["prenom"] ?></center></td>
                             <td><center><?php echo $value["DNA"] ?></center></td>
+                            <td><center><?php echo $value["rue"] ?></center></td>
+                            <td><center><?php echo $value["code_postal"] ?></center></td>
+                            <td><center><?php echo $value["ville"] ?></center></td>
                             <td><center><?php echo $value["mail"] ?></center></td>
                             <td><center><?php echo $value["telephone"] ?></center></td>
                             <td><center><?php echo $value["galop"] ?></center></td>

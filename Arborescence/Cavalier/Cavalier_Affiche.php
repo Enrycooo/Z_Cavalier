@@ -20,10 +20,15 @@ include('../include/defines.inc.php');
 
         $data = $oCavalier->db_get_all();
   ?>
-  
-        <div class="form-group row col-2 p-4">
-            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalCreate'>Création de cavalier</button>
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalCreate'>Création de cavalier</button>  
+            <<form action="Cavalier_search.php" method='post'></form>
+            <input placeholder="Nom" type="text" name="nom">
+            <input placeholder="Prenom" type="text" name="prenom">
+            <button name="search" type="submit id="submit">Rechercher</button>
         </div>
+    </div>
  
             <div class="row">
                 <div class="col">
@@ -130,25 +135,25 @@ include('../include/defines.inc.php');
                         <form action="Cavalier_trait.php" method="post">
                             <div class="modal-body form-group">
                                 <label>Nom :</label>
-                                <input placeholder="Nom" class="form-control" style="width: 25%;" type="text" name="nom">
+                                <input placeholder="Nom" class="form-control" type="text" name="nom">
                                 <label>Prenom :</label>
-                                <input placeholder="Prenom" class="form-control" style="width: 25%;" type="text" name="prenom">
+                                <input placeholder="Prenom" class="form-control" type="text" name="prenom">
                                 <label>Date de naissance :</label>
-                                <input placeholder="Date de naissance" class="form-control" style="width: 25%;" type="text" name="DNA">
+                                <input placeholder="Date de naissance" class="form-control" type="text" name="DNA">
+                                <label>Numéro de rue :</label>
+                                <input placeholder="numero de rue" class="form-control" type="text" name="rue">
+                                <label>Code postal :</label>
+                                <input placeholder="code postal" class="form-control" type="text" name="cp">
+                                <label>Ville :</label>
+                                <input placeholder="ville" class="form-control" type="text" name="ville">
                                 <label>Adresse mail :</label>
-                                <input placeholder="e-mail" class="form-control" style="width: 25%;" type="text" name="mail">
+                                <input placeholder="e-mail" class="form-control" type="text" name="mail">
                                 <label>Numéro de téléphone :</label>
-                                <input placeholder="telephone" class="form-control" style="width: 25%;" type="text" name="telephone">
+                                <input placeholder="telephone" class="form-control" type="text" name="telephone">
                                 <label>Galop :</label>
-                                <input placeholder="galop" class="form-control" style="width: 25%;" type="text" name="gal_cav">
+                                <input placeholder="galop" class="form-control" type="text" name="gal_cav">
                                 <label>Numéro de licence :</label>
-                                <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="num_lic">
-                                <label>Numéro de licence :</label>
-                                <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="rue">
-                                <label>Numéro de licence :</label>
-                                <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="cp">
-                                <label>Numéro de licence :</label>
-                                <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="ville">
+                                <input placeholder="numero de licence" class="form-control" type="text" name="num_lic">
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                                 <button type="submit" name="create" class="btn btn-primary">Créer</button>
