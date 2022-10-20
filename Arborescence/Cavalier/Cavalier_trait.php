@@ -1,28 +1,32 @@
 <?php
 include_once('../include/defines.inc.php');
-//Cette page est dédiée aux traitements
-/*
 if(isset($_POST["create"])){
     $sql = $conn->prepare("SELECT id_personne FROM personne WHERE nom = :nom");
     $sql->bindValue(':nom', $_POST["nom"],PDO::PARAM_STR);
     $sql->execute();
-    $req = $oCavalier->db_create($_POST["nom"], $_POST["prenom"], $_POST["dna"], $_POST["mail"], $_POST["telephone"], $_POST['galop'], $_POST['numerolicence']);
+    $req = $oCavalier->db_create($_POST["nom"], $_POST["prenom"], $_POST["dna"],$_POST['rue'], $_POST['cp'], $_POST['ville'], $_POST["mail"], $_POST["telephone"], $_POST['gal_cav'], $_POST['num_lic']);
     if($req){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
+                window.location.replace("http://localhost/Z_test/Arborescence/Cavalier/Cavalier_Affiche.php");
             </script>
         <?php
     }
 }elseif(isset($_POST["update"])){
-    $req = $oCavalier->db_update_one($_POST["nom"], $_POST["prenom"], $_POST["dna"], $_POST["mail"], $_POST["telephone"], $_POST['galop'], $_POST['numerolicence']);
+    $req = $oCavalier->db_update_one($_POST["nom"], $_POST["prenom"], $_POST["dna"],$_POST['rue'], $_POST['cp'], $_POST['ville'], $_POST["mail"], $_POST["telephone"], $_POST['gal_cav'], $_POST['num_lic']);
     if($req){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
+                window.location.replace("http://localhost/Z_test/Arborescence/Cavalier/Cavalier_Affiche.php");
             </script>
+        <?php
+    }else{
+    ?>
+        <script>
+                alert("Cela n'a pas fonctionné")
+        </script>
         <?php
     }
 }elseif(isset($_POST["delete"])){
@@ -31,12 +35,18 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
+                window.location.replace("http://localhost/Z_test/Arborescence/Cavalier/Cavalier_Affiche.php");
             </script>
+        <?php
+    }else{
+    ?>
+        <script>
+                alert("Cela n'a pas fonctionné pour la suppression")
+        </script>
         <?php
     }
 }
-*/
+/*
 if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['DNA'] != "" && $_POST['mail'] != "" && $_POST['telephone'] != "" && $_POST['gal_cav'] != "" && $_POST['num_lic'] != "" && $_POST['rue'] != ""
          && $_POST['ville'] != "" && $_POST['cp'] != ""){
     
@@ -84,4 +94,5 @@ elseif(isset($_POST["update"])){
         <?php
     }
 }
+ */
 ?>

@@ -47,9 +47,9 @@ include('../include/defines.inc.php');
             <tbody>
                 <?php 
                     foreach ($data as $key) {
-                        ?>
-                        <tr data-value="<?php echo $key["id_personne"] ?>">
-                        <td><center><?php echo $key["id_personne"] ?></center></td>
+                        $id_personne = $key["id_personne"]; ?>
+                        <tr data-value="<?php echo $id_personne ?>">
+                        <td><center><?php echo $id_personne ?></center></td>
                         <td><center><?php echo $key["nom"] ?></center></td>
                         <td><center><?php echo $key["prenom"] ?></center></td>
                         <td><center><?php echo $key["DNA"] ?></center></td>
@@ -61,11 +61,11 @@ include('../include/defines.inc.php');
                         <td><center><?php echo $key["gal_cav"] ?></center></td>
                         <td><center><?php echo $key["num_lic"] ?></center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
-                            <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modal<?php echo $key["id_personne"] ?>'>
+                            <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modal<?php echo $id_personne ?>'>
                                 Modifier
                             </button>
                             <form action="Cavalier_trait.php" method="post">
-                                <input type="hidden" name="id_personne" value="<?php echo $id ?>">
+                                <input type="hidden" name="id_personne" value="<?php echo $id_personne ?>">
                                 <button type="submit" name="delete" class="delete-btn btn btn-danger">Supprimer</button>
                             </form>
                         </td>
@@ -90,10 +90,11 @@ include('../include/defines.inc.php');
 
     <?php 
     
-        foreach($data as $key){ ?>
+        foreach($data as $key){
+        $id_personne = $key["id_personne"]; ?>
 
             <!-- Modal -->
-            <div class="modal fade" id="modal<?php echo $key["id_personne"] ?>" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade" id="modal<?php echo $id_personne ?>" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -114,7 +115,7 @@ include('../include/defines.inc.php');
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="telephone" value="<?php echo $key["telephone"]; ?>">
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="gal_cav" value="<?php echo $key["gal_cav"]; ?>">
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="num_lic" value="<?php echo $key["num_lic"]; ?>">
-                                <input type="hidden" name="id_personne" value="<?php echo $key["id_personne"]; ?>">
+                                <input type="hidden" name="id_personne" value="<?php echo $id_personne ?>">
                             </div>
                         
                             <div class="modal-footer">
