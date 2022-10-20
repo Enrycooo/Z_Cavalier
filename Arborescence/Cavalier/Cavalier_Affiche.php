@@ -128,10 +128,10 @@ include('../include/defines.inc.php');
         
         <?php    
         }
-
+/*
     ?>
 
-/*
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -201,4 +201,6 @@ include('../include/defines.inc.php');
         </div>
     </body>
 </html>
-*/
+<?php
+ * 
+ */
