@@ -8,9 +8,9 @@ include('../include/defines.inc.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <title>Casiers</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <title>Cavalier</title>
 </head>
 <body>
     <script> 
@@ -58,7 +58,7 @@ include('../include/defines.inc.php');
                         <td><center><?php echo $key["gal_cav"] ?></center></td>
                         <td><center><?php echo $key["num_lic"] ?></center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
-                            <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modal<?php echo $id_personne ?>'>
+                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal<?php echo $id_personne ?>'>
                                 Modifier
                             </button>
                             <form action="Cavalier_trait.php" method="post">
@@ -94,7 +94,7 @@ include('../include/defines.inc.php');
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Modifier le cavalier</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="close" data-dismiss="modal" data-bs-target="#staticBackdrop" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>

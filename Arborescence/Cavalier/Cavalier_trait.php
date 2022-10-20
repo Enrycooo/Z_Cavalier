@@ -9,7 +9,14 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_test/Arborescence/Cavalier/Cavalier_Affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
+            </script>
+        <?php
+    }else{
+        ?>
+            <script>
+                alert("La création n'a pas fonctionné")
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
             </script>
         <?php
     }
@@ -19,13 +26,13 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_test/Arborescence/Cavalier/Cavalier_Affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
             </script>
         <?php
     }else{
     ?>
         <script>
-                alert("Cela n'a pas fonctionné")
+                alert("La modification n'a pas fonctionné")
         </script>
         <?php
     }
@@ -35,13 +42,13 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_test/Arborescence/Cavalier/Cavalier_Affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
             </script>
         <?php
     }else{
     ?>
         <script>
-                alert("Cela n'a pas fonctionné pour la suppression")
+                alert("La suppression n'a pas fonctionné")
         </script>
         <?php
     }
