@@ -46,8 +46,8 @@ $res = $req->execute();
                             <td><center><?php echo $value["ville"] ?></center></td>
                             <td><center><?php echo $value["mail"] ?></center></td>
                             <td><center><?php echo $value["telephone"] ?></center></td>
-                            <td><center><?php echo $value["galop"] ?></center></td>
-                            <td><center><?php echo $value["numerolicence"] ?></center></td>
+                            <td><center><?php echo $value["gal_cav"] ?></center></td>
+                            <td><center><?php echo $value["num_lic"] ?></center></td>
                         </tr>
                         <?php
                             }

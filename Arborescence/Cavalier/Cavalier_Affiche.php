@@ -23,10 +23,11 @@ include('../include/defines.inc.php');
     <div class="container">
         <div class="d-flex justify-content-center">
             <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalCreate'>Création de cavalier</button>  
-            <form action="Cavalier_search.php" method='post'></form>
+            <form action="Cavalier_search.php" method='post'>
             <input placeholder="Nom" type="text" name="nom">
             <input placeholder="Prenom" type="text" name="prenom">
             <button name="search" type="submit id="submit">Rechercher</button>
+            </form>
         </div>
     </div>
  
