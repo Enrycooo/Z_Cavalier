@@ -56,4 +56,5 @@ $res = $req->execute();
                     </table>
                 </div>
             </div>
+            <center><a href='Cavalier_Affiche.php' class='btn btn-primary'>Retour</a></center>
         </div>
