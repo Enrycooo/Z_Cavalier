@@ -5,7 +5,6 @@
 define('DB_TABLE_PERSONNE', 'personne');
 define('DB_TABLE_COURS', 'cours');
 define('DB_TABLE_CHEVAL', 'cheval');
-define('DB_TABLE_CAVALIER', 'cavalier');
 
 //define paths
 define('DB_CLASS_DIR', 'class/');
@@ -18,9 +17,8 @@ include_once DB_CLASS_DIR.'Cheval.class.inc.php';
 
 // get main objects
 $oCavalier = new Cavalier();
-//$oCheval = new Cheval();
+$oCheval = new Cheval();
 //$oCours = new Cours();
-$oCavalerie = new Cheval();
 try {
     $server = "localhost";
     $username = "root";

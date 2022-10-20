@@ -41,7 +41,7 @@ class Cavalier{
         }
     }
 
-    public function db_update_one($id_personne=0, $nom="", $prenom="" , $dna="", $rue="", $cp="", $ville="", $mail="", $tel ="", $galop = 0, $nl=""){
+    public function db_update_one($nom="", $prenom="" , $dna="", $rue="", $cp="", $ville="", $mail="", $tel ="", $galop = 0, $nl=""){
        $id_personne = $_POST['id_personne'];
         if(!$id_personne){
             return false;
@@ -50,7 +50,7 @@ class Cavalier{
         global $conn;
 
         $request = "UPDATE ".DB_TABLE_PERSONNE."
-                  SET nom = :nom, prenom = :pre, DNA = :dna, rue = :rue, code_postal = :cp, ville = :ville, mail= :mail,actif= :actif telephone = :tel, gal_cav= :gal_cav, num_lic = :num_lic  
+                  SET nom = :nom, prenom = :pre, DNA = :dna, rue = :rue, code_postal = :cp, ville = :ville, mail= :mail, telephone = :tel, gal_cav= :gal_cav, num_lic = :num_lic  
                   WHERE id_personne = :id_personne";
         $sql = $conn->prepare($request);
         $sql->bindValue(':id_personne', $id_personne, PDO::PARAM_INT);

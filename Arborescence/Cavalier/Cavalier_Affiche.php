@@ -21,8 +21,8 @@ include('../include/defines.inc.php');
         $data = $oCavalier->db_get_all();
   ?>
   
-        <div class="form-group row col-4 p-4">
-            <button class="btn btn-success col-5" name="create" type="submit" href="Cavalier_Ajouter.php">Créer un cavalier</button>
+        <div class="form-group row col-2 p-4">
+            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalCreate'>Création de cavalier</button>
         </div>
  
             <div class="row">
@@ -94,9 +94,6 @@ include('../include/defines.inc.php');
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Modifier le cavalier</h5>
-                            <button type="button" class="close" data-dismiss="modal" data-bs-target="#staticBackdrop" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
                         </div>
                         <form action="Cavalier_trait.php" method="post">
                             <div class="modal-body form-group">
@@ -114,16 +111,53 @@ include('../include/defines.inc.php');
                             </div>
                         
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                                 <button type="submit" name="update" class="btn btn-primary">Modifier</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        
+            <?php
+            }
+            ?>
+            <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Insertion de cavalier</h5>
+                        </div>
+                        <form action="Cavalier_trait.php" method="post">
+                            <div class="modal-body form-group">
+                                <label>Nom :</label>
+                                <input placeholder="Nom" class="form-control" style="width: 25%;" type="text" name="nom">
+                                <label>Prenom :</label>
+                                <input placeholder="Prenom" class="form-control" style="width: 25%;" type="text" name="prenom">
+                                <label>Date de naissance :</label>
+                                <input placeholder="Date de naissance" class="form-control" style="width: 25%;" type="text" name="DNA">
+                                <label>Adresse mail :</label>
+                                <input placeholder="e-mail" class="form-control" style="width: 25%;" type="text" name="mail">
+                                <label>Numéro de téléphone :</label>
+                                <input placeholder="telephone" class="form-control" style="width: 25%;" type="text" name="telephone">
+                                <label>Galop :</label>
+                                <input placeholder="galop" class="form-control" style="width: 25%;" type="text" name="gal_cav">
+                                <label>Numéro de licence :</label>
+                                <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="num_lic">
+                                <label>Numéro de licence :</label>
+                                <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="rue">
+                                <label>Numéro de licence :</label>
+                                <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="cp">
+                                <label>Numéro de licence :</label>
+                                <input placeholder="numero de licence" class="form-control" style="width: 25%;" type="text" name="ville">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                <button type="submit" name="create" class="btn btn-primary">Créer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         <?php
-        }
 /*
     ?>
 
@@ -198,5 +232,5 @@ include('../include/defines.inc.php');
     </body>
 </html>
 <?php
- * 
+
  */
