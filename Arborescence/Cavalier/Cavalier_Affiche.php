@@ -1,11 +1,5 @@
 <?php
 include('../include/defines.inc.php');
-
-$sql = ("SELECT * FROM personne 
-        WHERE actif = 1");
-$req = $conn->prepare($sql);
-$res = $req->execute();
-
 ?>
 
 <!DOCTYPE html>
@@ -14,113 +8,128 @@ $res = $req->execute();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
-    <!-- jQuery Library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-
-    
-    <title>Affiche</title>
+    <title>Casiers</title>
 </head>
 <body>
-
+    <script> 
+        const url = "Cavalier_trait.php";
+    </script>
 <?php
-    if(!isset($_GET["nav"]) || $_GET["nav"] === "read"){
+
+        $data = $oCavalier->db_get_all();
 
   ?>
-  <div class="container pt-5">
-    <a class="btn btn-success mb-4" href="Cavalier_Affiche.php?nav=create">Créer un nouveau cavalier</a>
-
-    <table id='table table-hover'>
-        <thead>
-            <th>Id Cavalier</th>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Date de naissance</th>
-            <th>E-mail</th>
-            <th>Telephone</th>
-            <th>Galop</th>
-            <th>Numéro licence</th>
-            <th>actions</th>
-        </thead>
-        <tbody>
-                        <?php 
-                    foreach ($data = $req->fetchAll() as $row) {
+  <form action="Cavalier_trait.php" method="post">
+        <div class="form-group row col-4 p-4">
+            <input class="form-control col-6 mr-3" type="text" name="nom" placeholder="Nom du cavalier">
+            <button class="btn btn-success col-5" name="create" type="submit">Créer un cavalier</button>
+        </div>
+    </form>
+ 
+            <div class="row">
+                <div class="col">
+                    <table class='table table-hover'>
+            <thead>
+                <th style='text-align :center'>ID</th>
+                <th style='text-align :center'>Nom</th>
+                <th style='text-align :center'>Prenom</th>
+                <th style='text-align :center'>Date de naissance </th>
+                <th style='text-align :center'>rue</th>
+                <th style='text-align :center'>code postal</th>
+                <th style='text-align :center'>ville</th>
+                <th style='text-align :center'>mail</th>
+                <th style='text-align :center'>telephone</th>
+                <th style='text-align :center'>galop</th>
+                <th style='text-align :center'>numero licence</th>
+            </thead>
+            <tbody>
+                <?php 
+                    foreach ($data as $key) {
                         ?>
-                        <tr data-value="<?php echo $row["id_personne"] ?>">
-                            <td><center><?php echo $row["id_personne"] ?></center></td>
-                            <td><center><?php echo $row["nom"] ?></center></td>
-                            <td><center><?php echo $row["prenom"] ?></center></td>
-                            <td><center><?php echo $row["DNA"] ?></center></td>
-                            <td><center><?php echo $row["mail"] ?></center></td>
-                            <td><center><?php echo $row["telephone"] ?></center></td>
-                            <td><center><?php echo $row["gal_cav"] ?></center></td>
-                            <td><center><?php echo $row["num_lic"] ?></center></td>
-                            </td>
+                        <tr data-value="<?php echo $key["id_personne"] ?>">
+                        <td><center><?php echo $key["id_personne"] ?></center></td>
+                        <td><center><?php echo $key["nom"] ?></center></td>
+                        <td><center><?php echo $key["prenom"] ?></center></td>
+                        <td><center><?php echo $key["DNA"] ?></center></td>
+                        <td><center><?php echo $key["rue"] ?></center></td>
+                        <td><center><?php echo $key["code_postal"] ?></center></td>
+                        <td><center><?php echo $key["ville"] ?></center></td>
+                        <td><center><?php echo $key["mail"] ?></center></td>
+                        <td><center><?php echo $key["telephone"] ?></center></td>
+                        <td><center><?php echo $key["gal_cav"] ?></center></td>
+                        <td><center><?php echo $key["num_lic"] ?></center></td>
+                        <td style='display:flex; justify-content: space-evenly;'>
+                            <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modal<?php echo $key["id_personne"] ?>'>
+                                Modifier
+                            </button>
+                            <form action="Cavalier_trait.php" method="post">
+                                <input type="hidden" name="id_personne" value="<?php echo $id ?>">
+                                <button type="submit" name="delete" class="delete-btn btn btn-danger">Supprimer</button>
+                            </form>
+                        </td>
                         </tr>
                         <?php
-                            }
-                        ?>
-                    </tbody>
-    </table>
+                    }
+                ?>
+            </tbody>
+        </table>
+        <input type="checkbox" class="select-all" id="select-all">
+        <label for="select-all" class="form-check-label">Tout sélectionner</label>
+
+    
+    <div class="operations-div" style="display: flex; justify-content: space-evenly">
+        <button class="btn btn-danger delete-all" style="display: none">
+            Supprimer les éléments selectionnés.
+        </button>
+    </div>
   </div>
-    <?php
-    }
-    elseif($_GET['nav'] === "create"){
-        ?>
-            <h1>Créer un Cavalier</h1>
-
-            <form action="Cavalier_trait.php" method="post">
-                <input placeholder="Nom" type="text" name="nom">
-                <input placeholder="Prenom" type="text" name="prenom">
-                <input placeholder="Date de naissance" type="text" name="dna">
-                <input placeholder="Adresse mail" type="text" name="mail">
-                <input placeholder="Numéro de téléphone" type="text" name="telephone">
-                <input placeholder="Galop" type="text" name="galop">
-                <input placeholder="Numéro de licence" type="text" name="numerolicence">
-                <label for="">Cavalier</label>
-                <button name="create" type="submit">Enregistrer</button>
-            </form>
-
-        <?php
-    }
-    elseif($_GET["nav"] === "update"){
-        $data = $oCavalier->db_get_by_id($_GET["id"]);
-        ?>
-            <form action="Cavalier_trait.php" method="post">
-                <input type="hidden" name="id" value="<?php echo $data["id"] ?>">
-                <input placeholder="Nom" type="text" name="nom" value="<?php echo $data["nom"] ?>">
-                <input placeholder="Prenom" type="text" name="prenom" value="<?php echo $data["prenom"] ?>">
-                <input placeholder="Date de naissance" type="text" name="DNA" value="<?php echo $data["DNA"] ?>">
-                <input placeholder="Adresse mail" type="text" name="mail" value="<?php echo $data["mail"] ?>">
-                <input placeholder="Numéro de téléphone" type="text" name="telephone" value="<?php echo $data["telephone"] ?>">
-                <input placeholder="galop" type="text" name="galop" value="<?php echo $data["galop"] ?>">
-                <input placeholder="Numéro de licence" type="text" name="numerolicence" value="<?php echo $data["numerolicence"] ?>">
-                <button name="update" type="submit">Enregistrer</button>
-            </form>
-        <?php
-
-    }
-    elseif($_GET["nav"] === "delete"){
-        $data = $oCavalier->db_get_by_id($_GET["id"]);
-        ?>
-            <form action="Cavalier_trait.php" method="post">
-                <input disabled type="text" name="nom" value="<?php echo $data["nom"]; ?>">
-                <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
-                <button name="delete" type="submit">Supprimer</button>
-            </form>
-        <?php
-
-    }
+    </div>
     
+
+    <?php 
     
+        foreach($data as $key){ ?>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal<?php echo $key["id_personne"] ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Modifier le cavalier</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="Cavalier_trait.php" method="post">
+                            <div class="modal-body form-group">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $key["nom"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="prenom" value="<?php echo $key["prenom"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $key["DNA"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="rue" value="<?php echo $key["rue"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="cp" value="<?php echo $key["code_postal"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ville" value="<?php echo $key["ville"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="mail" value="<?php echo $key["mail"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="telephone" value="<?php echo $key["telephone"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="gal_cav" value="<?php echo $key["gal_cav"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="num_lic" value="<?php echo $key["num_lic"]; ?>">
+                                <input type="hidden" name="id_personne" value="<?php echo $key["id_personne"]; ?>">
+                            </div>
+                        
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <button type="submit" name="update" class="btn btn-primary">Modifier</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        
+        <?php    
+        }
+
     ?>
-</body>
-</html>
-
-<?php
 
 /*
 ?>
