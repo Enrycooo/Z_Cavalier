@@ -17,12 +17,12 @@ include('../include/defines.inc.php');
         const url = "Cavalier_trait.php";
     </script>
 <?php
-
+        if(!isset($_GET["nav"]) || $_GET["nav"] === "read"){
         $data = $oCavalier->db_get_all();
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
-            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalCreate'>Création de cavalier</button>  
+            <a class="btn btn-success mb-4" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle personne</a>
             <form action="Cavalier_search.php" method='post'>
             <input placeholder="Nom" type="text" name="nom">
             <input placeholder="Prenom" type="text" name="prenom">
@@ -75,22 +75,38 @@ include('../include/defines.inc.php');
                         </tr>
                         <?php
                     }
+        }
+        elseif($_GET['nav'] === 'create'){
                 ?>
             </tbody>
         </table>
+        <?php
+        ?>
+            <h1>Créer une personne</h1>
+
+            <form action="Cavalier_trait.php" method="post">
+                <input placeholder="Nom de la commune" type="text" name="city_name">
+                <input placeholder="Code INSEE" type="text" name="insee_code">
+                <input placeholder="Code ZIP" type="text" name="zip_code">
+                <input placeholder="latitude" type="text" name="lat">
+                <input placeholder="longitude" type="text" name="lng">
+                <label for="">Departement</label>
+                <button name="create" type="submit">Enregistrer</button>
+            </form>
+
+        <?php
+            }
+            elseif($_GET['nav'] === 'read'){
+            ?>
 
     
-    <div class="operations-div" style="display: flex; justify-content: space-evenly">
-        <button class="btn btn-danger delete-all" style="display: none">
-            Supprimer les éléments selectionnés.
-        </button>
-    </div>
-  </div>
-    </div>
-    
-
-    <?php 
-    
+        
+        
+        
+        
+        
+        <?php
+        
         foreach($data as $key){
         $id_personne = $key["id_personne"]; ?>
 
@@ -126,42 +142,7 @@ include('../include/defines.inc.php');
             </div>
             <?php
             }
-            ?>
-            <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Insertion de cavalier</h5>
-                        </div>
-                        <form action="Cavalier_trait.php" method="post">
-                            <div class="modal-body form-group">
-                                <label>Nom :</label>
-                                <input placeholder="Nom" class="form-control" type="text" name="nom">
-                                <label>Prenom :</label>
-                                <input placeholder="Prenom" class="form-control" type="text" name="prenom">
-                                <label>Date de naissance :</label>
-                                <input placeholder="Date de naissance" class="form-control" type="text" name="DNA">
-                                <label>Numéro de rue :</label>
-                                <input placeholder="numero de rue" class="form-control" type="text" name="rue">
-                                <label>Code postal :</label>
-                                <input placeholder="code postal" class="form-control" type="text" name="cp">
-                                <label>Ville :</label>
-                                <input placeholder="ville" class="form-control" type="text" name="ville">
-                                <label>Adresse mail :</label>
-                                <input placeholder="e-mail" class="form-control" type="text" name="mail">
-                                <label>Numéro de téléphone :</label>
-                                <input placeholder="telephone" class="form-control" type="text" name="telephone">
-                                <label>Galop :</label>
-                                <input placeholder="galop" class="form-control" type="text" name="gal_cav">
-                                <label>Numéro de licence :</label>
-                                <input placeholder="numero de licence" class="form-control" type="text" name="num_lic">
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                                <button type="submit" name="create" class="btn btn-primary">Créer</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            }
+        ?>
             </body>
             </html>
