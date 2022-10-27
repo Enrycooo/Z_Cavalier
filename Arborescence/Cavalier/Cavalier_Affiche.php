@@ -10,13 +10,14 @@ include('../include/defines.inc.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <title>Cavalier</title>
+    <title>Personne</title>
 </head>
 <body>
     <script> 
         const url = "Cavalier_trait.php";
     </script>
 <?php
+        //Nav = read c'est la "page principale" qui vas permettre de lire la BDD à travers le datatable
         if(!isset($_GET["nav"]) || $_GET["nav"] === "read"){
         $data = $oCavalier->db_get_all();
   ?>
@@ -81,16 +82,21 @@ include('../include/defines.inc.php');
             </tbody>
         </table>
         <?php
+        
         ?>
             <h1>Créer une personne</h1>
 
             <form action="Cavalier_trait.php" method="post">
-                <input placeholder="Nom de la commune" type="text" name="city_name">
-                <input placeholder="Code INSEE" type="text" name="insee_code">
-                <input placeholder="Code ZIP" type="text" name="zip_code">
-                <input placeholder="latitude" type="text" name="lat">
-                <input placeholder="longitude" type="text" name="lng">
-                <label for="">Departement</label>
+                <input placeholder="Nom" type="text" name="nom">
+                <input placeholder="Prenom" type="text" name="prenom">
+                <input placeholder="Date de naissance" type="text" name="DNA">
+                <input placeholder="Rue" type="text" name="rue">
+                <input placeholder="Code postal" type="text" name="cp">
+                <input placeholder="Ville" type="text" name="ville">
+                <input placeholder="Mail" type="text" name="mail">
+                <input placeholder="Telephone" type="text" name="telephone">
+                <input placeholder="Galop" type="text" name="gal_cav">
+                <input placeholder="Numero licence" type="text" name="num_lic">
                 <button name="create" type="submit">Enregistrer</button>
             </form>
 
