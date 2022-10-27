@@ -19,7 +19,7 @@ class Cheval{
 	public function db_create($nom_cheval="", $DNA_cheval="" , $race_cheval="", $sexe_cheval="", $taille_cheval="", $SIRE_cheval="", $ref_robe=""){
 
         global $conn;
-        $request = "INSERT INTO cheval(nom_cheval, DNA_cheval, race_cheval, sexe_cheval, taille_cheval, SIRE_cheval, ref_robe, actif_cheval)
+        $request = "INSERT INTO cheval (nom_cheval, DNA_cheval, race_cheval, sexe_cheval, taille_cheval, SIRE_cheval, ref_robe, actif_cheval)
                 VALUES (:nom, :dna, :race, :sexe, :taille, :sire, :robe, 1)";
         $sql = $conn->prepare($request);
         $sql->bindValue(':nom', $nom_cheval, PDO::PARAM_STR);
@@ -38,7 +38,7 @@ class Cheval{
         }
     }
 
-    public function db_update_one($id_cheval=0, $nom="", $dna="" , $race="", $sexe="", $taille="", $sire="", $robe=""){
+    public function db_update_one($id_cheval=0, $nom_cheval="", $DNA_cheval="" , $race_cheval="", $sexe_cheval="", $taille_cheval="", $SIRE_cheval="", $ref_robe=""){
        $id_cheval = $_POST['id_cheval'];
         if(!$id_cheval){
             return false;
