@@ -96,12 +96,12 @@ include('../include/defines.inc.php');
                         <form action="Cheval_trait.php" method="post">
                             <div class="modal-body form-group">
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $key["nom_cheval"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="prenom" value="<?php echo $key["DNA_cheval"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $key["race_cheval"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="rue" value="<?php echo $key["sexe_cheval"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="cp" value="<?php echo $key["taille_cheval"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ville" value="<?php echo $key["SIRE_cheval"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="mail" value="<?php echo $key["ref_robe"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $key["DNA_cheval"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="race" value="<?php echo $key["race_cheval"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="sexe" value="<?php echo $key["sexe_cheval"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="taille" value="<?php echo $key["taille_cheval"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="sire" value="<?php echo $key["SIRE_cheval"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="robe" value="<?php echo $key["ref_robe"]; ?>">
                                 <input type="hidden" name="id_cheval" value="<?php echo $id_cheval ?>">
                             </div>
                         
