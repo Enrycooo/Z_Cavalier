@@ -27,7 +27,7 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalerie/Chevale_Affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalerie/Cheval_Affiche.php");
             </script>
         <?php
     }else{

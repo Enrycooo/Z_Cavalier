@@ -38,7 +38,7 @@ class Cheval{
         }
     }
 
-    public function db_update_one($id_cheval=0, $nom_cheval="", $DNA_cheval="" , $race_cheval="", $sexe_cheval="", $taille_cheval="", $SIRE_cheval="", $ref_robe=""){
+    public function db_update_one($nom_cheval="", $DNA_cheval="" , $race_cheval="", $sexe_cheval="", $taille_cheval="", $SIRE_cheval="", $ref_robe=""){
        $id_cheval = $_POST['id_cheval'];
         if(!$id_cheval){
             return false;
