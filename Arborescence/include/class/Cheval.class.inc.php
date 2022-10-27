@@ -20,7 +20,7 @@ class Cheval{
 
         global $conn;
         $request = "INSERT INTO cheval (nom_cheval, DNA_cheval, race_cheval, sexe_cheval, taille_cheval, SIRE_cheval, ref_robe, actif_cheval)
-                VALUES (:nom, :dna, :race, :sexe, :taille, :sire, :robe, 1)";
+                    VALUES (:nom, :dna, :race, :sexe, :taille, :sire, :robe, 1)";
         $sql = $conn->prepare($request);
         $sql->bindValue(':nom', $nom_cheval, PDO::PARAM_STR);
         $sql->bindValue(':dna', $DNA_cheval, PDO::PARAM_STR);

@@ -2,7 +2,7 @@
 include_once('../include/defines.inc.php');
 
 if(isset($_POST["create"])){
-    $sql = $conn->prepare("SELECT id_cheval FROM cheval WHERE nom = :nom");
+    $sql = $conn->prepare("SELECT id_cheval FROM cheval WHERE nom_cheval = :nom");
     $sql->bindValue(':nom', $_POST["nom"],PDO::PARAM_STR);
     $sql->execute();
     $req = $oCheval->db_create($_POST["nom"], $_POST["dna"], $_POST["race"],$_POST['sexe'], $_POST['taille'], $_POST['sire'], $_POST["robe"]);
