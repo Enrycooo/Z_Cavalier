@@ -23,7 +23,7 @@ include('../include/defines.inc.php');
     <div class="container">
         <div class="d-flex justify-content-center">
             <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalCreate'>Insertion d'un cheval</button>  
-            <<form action="Cheval_search.php" method='post'></form>
+            <form action="Cheval_search.php" method='post'></form>
             <input placeholder="Nom" type="text" name="nom">
             <button name="search" type="submit id="submit">Rechercher</button>
         </div>
@@ -48,13 +48,13 @@ include('../include/defines.inc.php');
                         $id_cheval = $key["id_cheval"]; ?>
                         <tr data-value="<?php echo $id_cheval ?>">
                         <td><center><?php echo $id_cheval ?></center></td>
-                        <td><center><?php echo $key["nom"] ?></center></td>
-                        <td><center><?php echo $key["dna"] ?></center></td>
-                        <td><center><?php echo $key["race"] ?></center></td>
-                        <td><center><?php echo $key["sexe"] ?></center></td>
-                        <td><center><?php echo $key["taille"] ?></center></td>
-                        <td><center><?php echo $key["sire"] ?></center></td>
-                        <td><center><?php echo $key["robe"] ?></center></td>
+                        <td><center><?php echo $key["nom_cheval"] ?></center></td>
+                        <td><center><?php echo $key["DNA_cheval"] ?></center></td>
+                        <td><center><?php echo $key["race_cheval"] ?></center></td>
+                        <td><center><?php echo $key["sexe_cheval"] ?></center></td>
+                        <td><center><?php echo $key["taille_cheval"] ?></center></td>
+                        <td><center><?php echo $key["SIRE_cheval"] ?></center></td>
+                        <td><center><?php echo $key["ref_robe"] ?></center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
                             <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal<?php echo $id_cheval ?>'>
                                 Modifier
@@ -91,20 +91,17 @@ include('../include/defines.inc.php');
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Modifier le cavalier</h5>
+                            <h5 class="modal-title">Modifier le Cheval</h5>
                         </div>
-                        <form action="Cavalier_trait.php" method="post">
+                        <form action="Cheval_trait.php" method="post">
                             <div class="modal-body form-group">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $key["nom"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="prenom" value="<?php echo $key["prenom"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $key["DNA"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="rue" value="<?php echo $key["rue"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="cp" value="<?php echo $key["code_postal"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ville" value="<?php echo $key["ville"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="mail" value="<?php echo $key["mail"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="telephone" value="<?php echo $key["telephone"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="gal_cav" value="<?php echo $key["gal_cav"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="num_lic" value="<?php echo $key["num_lic"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $key["nom_cheval"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="prenom" value="<?php echo $key["DNA_cheval"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $key["race_cheval"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="rue" value="<?php echo $key["sexe_cheval"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="cp" value="<?php echo $key["taille_cheval"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ville" value="<?php echo $key["SIRE_cheval"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="mail" value="<?php echo $key["ref_robe"]; ?>">
                                 <input type="hidden" name="id_cheval" value="<?php echo $id_cheval ?>">
                             </div>
                         
@@ -123,30 +120,24 @@ include('../include/defines.inc.php');
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Insertion de cavalier</h5>
+                            <h5 class="modal-title">Insertion d'un Cheval</h5>
                         </div>
-                        <form action="Cavalier_trait.php" method="post">
+                        <form action="Cheval_trait.php" method="post">
                             <div class="modal-body form-group">
                                 <label>Nom :</label>
                                 <input placeholder="Nom" class="form-control" type="text" name="nom">
-                                <label>Prenom :</label>
-                                <input placeholder="Prenom" class="form-control" type="text" name="prenom">
                                 <label>Date de naissance :</label>
-                                <input placeholder="Date de naissance" class="form-control" type="text" name="DNA">
-                                <label>Numéro de rue :</label>
-                                <input placeholder="numero de rue" class="form-control" type="text" name="rue">
-                                <label>Code postal :</label>
-                                <input placeholder="code postal" class="form-control" type="text" name="cp">
-                                <label>Ville :</label>
-                                <input placeholder="ville" class="form-control" type="text" name="ville">
-                                <label>Adresse mail :</label>
-                                <input placeholder="e-mail" class="form-control" type="text" name="mail">
-                                <label>Numéro de téléphone :</label>
-                                <input placeholder="telephone" class="form-control" type="text" name="telephone">
-                                <label>Galop :</label>
-                                <input placeholder="galop" class="form-control" type="text" name="gal_cav">
-                                <label>Numéro de licence :</label>
-                                <input placeholder="numero de licence" class="form-control" type="text" name="num_lic">
+                                <input placeholder="Date de naissance" class="form-control" type="text" name="dna">
+                                <label>Race du cheval :</label>
+                                <input placeholder="Race" class="form-control" type="text" name="race">
+                                <label>Sexe du cheval :</label>
+                                <input placeholder="Sexe" class="form-control" type="text" name="sexe">
+                                <label>Taille du cheval :</label>
+                                <input placeholder="Taille" class="form-control" type="text" name="taille">
+                                <label>N°Sire du cheval :</label>
+                                <input placeholder="N°Sire" class="form-control" type="text" name="sire">
+                                <label>Référence de la robe du cheval :</label>
+                                <input placeholder="Référence de la robe" class="form-control" type="text" name="robe">
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                                 <button type="submit" name="create" class="btn btn-primary">Créer</button>
