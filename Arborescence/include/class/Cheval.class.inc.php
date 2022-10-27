@@ -51,13 +51,13 @@ class Cheval{
                   WHERE id_cheval = :id_cheval";
         $sql = $conn->prepare($request);
         $sql->bindValue(':id_cheval', $id_cheval, PDO::PARAM_INT);
-        $sql->bindValue(':nom', $nom, PDO::PARAM_STR);
-        $sql->bindValue(':dna', $dna, PDO::PARAM_STR);
-        $sql->bindValue(':race', $race, PDO::PARAM_STR);
-        $sql->bindValue(':sexe', $sexe, PDO::PARAM_STR);
-        $sql->bindValue(':taille', $taille, PDO::PARAM_STR);
-        $sql->bindValue(':sire', $sire, PDO::PARAM_STR);
-        $sql->bindValue(':robe', $robe, PDO::PARAM_STR);
+        $sql->bindValue(':nom', $nom_cheval, PDO::PARAM_STR);
+        $sql->bindValue(':dna', $DNA_cheval, PDO::PARAM_STR);
+        $sql->bindValue(':race', $race_cheval, PDO::PARAM_STR);
+        $sql->bindValue(':sexe', $sexe_cheval, PDO::PARAM_STR);
+        $sql->bindValue(':taille', $taille_cheval, PDO::PARAM_STR);
+        $sql->bindValue(':sire', $SIRE_cheval, PDO::PARAM_STR);
+        $sql->bindValue(':robe', $ref_robe, PDO::PARAM_STR);
         try{
             $sql->execute();
             return true;
@@ -75,7 +75,7 @@ class Cheval{
 
         global $conn;
 
-        $request = "UPDATE ".DB_TABLE_CHEVAL." SET actif_cheval = 0 WHERE id_cheval = :id_cheval;";
+        $request = "UPDATE ".DB_TABLE_CHEVAL." SET actif_chev = 0 WHERE id_cheval = :id_cheval;";
         $sql = $conn->prepare($request);
         $sql->bindValue(':id_cheval', $id_cheval, PDO::PARAM_INT);
         try{
