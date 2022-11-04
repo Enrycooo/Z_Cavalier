@@ -8,9 +8,14 @@ include('../include/defines.inc.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <title>Personne</title>
+    <script>
+        $('#trigger').click(function () {
+	$('#modal').modal({show : true});
+});
+    </script>
 </head>
 <body>
     <script> 
@@ -76,47 +81,15 @@ include('../include/defines.inc.php');
                         </tr>
                         <?php
                     }
-        }
-        elseif($_GET['nav'] === 'create'){
                 ?>
             </tbody>
         </table>
         <?php
-        
-        ?>
-            <h1>Créer une personne</h1>
+        }
 
-            <form action="Cavalier_trait.php" method="post">
-                <div class="container">
-                    <div class="form-group">
-                <input placeholder="Nom" type="text" name="nom">
-                <input placeholder="Prenom" type="text" name="prenom">
-                <input placeholder="Date de naissance" type="text" name="DNA">
-                <input type="checkbox" id="horns" name="horns">
-                <label for="responsable">Responsable</label>
-                <input placeholder="Rue" type="text" name="rue">
-                <input placeholder="Code postal" type="text" name="cp">
-                <input placeholder="Ville" type="text" name="ville">
-                <input placeholder="Mail" type="text" name="mail">
-                <input placeholder="Telephone" type="text" name="telephone">
-                <input placeholder="Galop" type="text" name="gal_cav">
-                <input placeholder="Numero licence" type="text" name="num_lic">
-                <button name="create" type="submit">Enregistrer</button>
-                    </div>
-                </div>
-            </form>
-
-        <?php
-            }
             elseif($_GET['nav'] === 'read'){
             ?>
 
-    
-        
-        
-        
-        
-        
         <?php
         
         foreach($data as $key){
@@ -131,15 +104,25 @@ include('../include/defines.inc.php');
                         </div>
                         <form action="Cavalier_trait.php" method="post">
                             <div class="modal-body form-group">
+                                <label>Nom :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $key["nom"]; ?>">
+                                <label>Prenom ;</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="prenom" value="<?php echo $key["prenom"]; ?>">
+                                <label>Date de naissance :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $key["DNA"]; ?>">
+                                <label>Rue :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="rue" value="<?php echo $key["rue"]; ?>">
+                                <label>Code postal :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="cp" value="<?php echo $key["code_postal"]; ?>">
+                                <label>Ville :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ville" value="<?php echo $key["ville"]; ?>">
+                                <label>Adresse mail :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="mail" value="<?php echo $key["mail"]; ?>">
+                                <label>Numéro de téléphone :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="telephone" value="<?php echo $key["telephone"]; ?>">
+                                <label>Galop :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="gal_cav" value="<?php echo $key["gal_cav"]; ?>">
+                                <label>Numéro de licence :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="num_lic" value="<?php echo $key["num_lic"]; ?>">
                                 <input type="hidden" name="id_personne" value="<?php echo $id_personne ?>">
                             </div>
@@ -154,6 +137,32 @@ include('../include/defines.inc.php');
             </div>
             <?php
             }
+            }
+            elseif($_GET['nav'] === 'create'){
+        ?>
+            <h1>Créer une personne</h1>
+
+            <form action="Cavalier_trait.php" method="post">
+                <div class="container">
+                    <div class="form-group">
+                <input placeholder="Nom" type="text" name="nom">
+                <input placeholder="Prenom" type="text" name="prenom">
+                <input placeholder="Date de naissance" type="text" name="DNA">
+                <input type="checkbox" id="responsable" name="responsable">
+                <label for="responsable">Responsable</label>
+                <input placeholder="Rue" type="text" name="rue">
+                <input placeholder="Code postal" type="text" name="cp">
+                <input placeholder="Ville" type="text" name="ville">
+                <input placeholder="Mail" type="text" name="mail">
+                <input placeholder="Telephone" type="text" name="telephone">
+                <input placeholder="Galop" type="text" name="gal_cav">
+                <input placeholder="Numero licence" type="text" name="num_lic">
+                <button name="create" type="submit">Enregistrer</button>
+                    </div>
+                </div>
+            </form>
+
+        <?php
             }
         ?>
             </body>
