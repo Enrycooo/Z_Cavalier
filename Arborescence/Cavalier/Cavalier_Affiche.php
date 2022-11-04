@@ -87,9 +87,13 @@ include('../include/defines.inc.php');
             <h1>Créer une personne</h1>
 
             <form action="Cavalier_trait.php" method="post">
+                <div class="container">
+                    <div class="form-group">
                 <input placeholder="Nom" type="text" name="nom">
                 <input placeholder="Prenom" type="text" name="prenom">
                 <input placeholder="Date de naissance" type="text" name="DNA">
+                <input type="checkbox" id="horns" name="horns">
+                <label for="responsable">Responsable</label>
                 <input placeholder="Rue" type="text" name="rue">
                 <input placeholder="Code postal" type="text" name="cp">
                 <input placeholder="Ville" type="text" name="ville">
@@ -98,6 +102,8 @@ include('../include/defines.inc.php');
                 <input placeholder="Galop" type="text" name="gal_cav">
                 <input placeholder="Numero licence" type="text" name="num_lic">
                 <button name="create" type="submit">Enregistrer</button>
+                    </div>
+                </div>
             </form>
 
         <?php

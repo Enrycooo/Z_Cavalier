@@ -12,6 +12,7 @@ $res = $req->execute();
 <html>
     <head>
         <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+        <title>Personne</title>
     </head>
     <body>
         <div class="container">
