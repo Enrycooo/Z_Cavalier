@@ -23,9 +23,10 @@ include('../include/defines.inc.php');
     <div class="container">
         <div class="d-flex justify-content-center">
             <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalCreate'>Insertion d'un cheval</button>  
-            <form action="Cheval_search.php" method='post'></form>
-            <input placeholder="Nom" type="text" name="nom">
-            <button name="search" type="submit id="submit">Rechercher</button>
+            <form action="Cheval_search.php" method='post'>
+                <input placeholder="Nom" type="text" name="nom">
+                <button name="search" type="submit id="submit">Rechercher</button>
+            </form>
         </div>
     </div>
  

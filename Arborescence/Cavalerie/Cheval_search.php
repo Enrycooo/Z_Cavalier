@@ -2,7 +2,7 @@
 include_once('../include/defines.inc.php');
 
 $sql = "SELECT * FROM cheval
-        WHERE nom = :nom ";
+        WHERE nom_cheval = :nom";
 $req = $conn->prepare($sql);
 $req->bindValue(':nom',$_POST['nom'],PDO::PARAM_STR);
 $res = $req->execute();
@@ -33,14 +33,14 @@ $res = $req->execute();
                     foreach ($data=$req->fetchAll() as $value) {
                         ?>
                         <tr data-value="<?php echo $value["nom"] ?>">
-                        <td><center><?php echo $id_cheval ?></center></td>
-                        <td><center><?php echo $key["nom"] ?></center></td>
-                        <td><center><?php echo $key["dna"] ?></center></td>
-                        <td><center><?php echo $key["race"] ?></center></td>
-                        <td><center><?php echo $key["sexe"] ?></center></td>
-                        <td><center><?php echo $key["taille"] ?></center></td>
-                        <td><center><?php echo $key["sire"] ?></center></td>
-                        <td><center><?php echo $key["robe"] ?></center></td>
+                            <td><center><?php echo $value['id_cheval'] ?></center></td>
+                            <td><center><?php echo $value["nom_cheval"] ?></center></td>
+                            <td><center><?php echo $value["DNA_cheval"] ?></center></td>
+                            <td><center><?php echo $value["race_cheval"] ?></center></td>
+                            <td><center><?php echo $value["sexe_cheval"] ?></center></td>
+                            <td><center><?php echo $value["taille_cheval"] ?></center></td>
+                            <td><center><?php echo $value["SIRE_cheval"] ?></center></td>
+                            <td><center><?php echo $value["ref_robe"] ?></center></td>
                         </tr>
                         <?php
                             }
@@ -49,4 +49,5 @@ $res = $req->execute();
                     </table>
                 </div>
             </div>
+            <center><a href='Cheval_Affiche.php' class='btn btn-primary'>Retour</a></center>
         </div>
