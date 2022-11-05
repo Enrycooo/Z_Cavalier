@@ -104,10 +104,10 @@ include('../include/defines.inc.php');
         ?>
             <h1>Créer une Robe</h1>
 
-            <form action="Cavalier_trait.php" method="post">
+            <form action="Robe_trait.php" method="post">
                 <div class="container">
                     <div class="form-group">
-                <input placeholder="nom de la robe" type="text" name="robe">
+                <input placeholder="lib_robe" type="text" name="lib_robe">
                 <button name="create" type="submit">Robe</button>
                     </div>
                 </div>

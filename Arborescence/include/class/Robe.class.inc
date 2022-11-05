@@ -6,7 +6,7 @@ class Robe{
 	public function db_get_all(){
 		global $conn;
 
-		$request = "SELECT * FROM ".DB_TABLE_ROBE.";";
+		$request = "SELECT id_robe, lib_robe FROM ".DB_TABLE_ROBE.";";
 		try{
 			$sql = $conn->query($request);
 			return $sql->fetchAll(PDO::FETCH_ASSOC);

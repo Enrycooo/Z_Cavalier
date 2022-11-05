@@ -1,7 +1,7 @@
 <?php
 include_once('../include/defines.inc.php');
 
-$sql = "SELECT * FROM robe
+$sql = "SELECT id_robe, lib_robe FROM robe
         WHERE lib_robe = :lib_robe";
 $req = $conn->prepare($sql);
 $req->bindValue(':lib_robe',$_POST['lib_robe'],PDO::PARAM_STR);
@@ -38,5 +38,5 @@ $res = $req->execute();
                     </table>
                 </div>
             </div>
-            <center><a href='Cavalier_Affiche.php' class='btn btn-primary'>Retour</a></center>
+            <center><a href='Robe_Affiche.php' class='btn btn-primary'>Retour</a></center>
         </div>
