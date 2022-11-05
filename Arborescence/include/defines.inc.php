@@ -14,6 +14,7 @@ define('DB_CLASS_DIR', 'class/');
 // get main classes
 include_once DB_CLASS_DIR.'Cavalier.class.inc.php';
 include_once DB_CLASS_DIR.'Cheval.class.inc.php';
+include_once DB_CLASS_DIR.'Robe.class.inc';
 //include_once DB_CLASS_DIR.'Cours.class.inc.php';
 
 // get main objects
