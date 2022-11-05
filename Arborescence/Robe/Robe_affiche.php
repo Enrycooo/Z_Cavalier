@@ -48,7 +48,7 @@ include('../include/defines.inc.php');
                         $id_robe = $key["id_robe"]; ?>
                         <tr data-value="<?php echo $id_robe ?>">
                         <td><center><?php echo $id_robe ?></center></td>
-                        <td><center><?php echo $key["nom robe"] ?></center></td>
+                        <td><center><?php echo $key["lib_robe"] ?></center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
                             <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal<?php echo $id_robe ?>'>
                                 Modifier
