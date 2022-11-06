@@ -84,9 +84,9 @@ include('../include/defines.inc.php');
                         </div>
                         <form action="Robe_trait.php" method="post">
                             <div class="modal-body form-group">
-                                <label>Nom :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $key["nom"]; ?>">
-                                <label>Nom ;</label>
+                                <label>lib_robe :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_robe" value="<?php echo $key["lib_robe"]; ?>">
+                                <label>lib_robe ;</label>
                             </div>
                         
                             <div class="modal-footer">
