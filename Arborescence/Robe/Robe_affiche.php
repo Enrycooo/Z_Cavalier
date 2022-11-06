@@ -28,9 +28,9 @@ include('../include/defines.inc.php');
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
-            <a class="btn btn-success mb-4" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle robe</a>
+            <a class="btn btn-success mb-4" href="Robe_affiche.php?nav=create">Créer une nouvelle robe</a>
             <form action="Robe_search.php" method='post'>
-            <input placeholder="Nom" type="text" name="nom">Rechercher</button>
+            <input placeholder="lib_robe" type="text" name="lib_robe">Rechercher</button>
             </form>
         </div>
     </div>

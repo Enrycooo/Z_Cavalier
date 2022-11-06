@@ -33,16 +33,16 @@ class Robe{
     }
 
     public function db_update_one($lib_robe=""){
-       $id_robe = $_POST['id_personne'];
+       $id_robe = $_POST['id_robe'];
         if(!$id_robe){
             return false;
         }
 
         global $conn;
 
-        $request = "UPDATE ".DB_TABLE_PERSONNE."
-                  SET nom = :nom, prenom = :pre, DNA = :dna, rue = :rue, code_postal = :cp, ville = :ville, mail= :mail, telephone = :tel, gal_cav= :gal_cav, num_lic = :num_lic  
-                  WHERE id_personne = :id_personne";
+        $request = "UPDATE ".DB_TABLE_ROBE."
+                  SET lib_robe = :lib_robe  
+                  WHERE id_robe = :id_robe";
         $sql = $conn->prepare($request);
         $sql->bindValue(':id_robe', $id_robe, PDO::PARAM_INT);
         $sql->bindValue(':lib_robe', $lib_robe, PDO::PARAM_STR);
@@ -63,7 +63,7 @@ class Robe{
 
         global $conn;
 
-        $request = "UPDATE ".DB_TABLE_ROBE." SET actif = 0 WHERE id_robe = :id_robe;";
+        $request = "UPDATE ".DB_TABLE_ROBE." WHERE id_robe = :id_robe;";
         $sql = $conn->prepare($request);
         $sql->bindValue(':id_robe', $id_robe, PDO::PARAM_INT);
         try{
