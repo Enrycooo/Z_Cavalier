@@ -14,12 +14,8 @@
         <group>
             <file>file:/C:/xampp/htdocs/Z_Cavalier/Arborescence/Cavalier/Cavalier_trait.php</file>
             <file>file:/C:/xampp/htdocs/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php</file>
-            <file>file:/C:/xampp/htdocs/Z_Cavalier/Arborescence/Cavalerie/Cheval_Affiche.php</file>
-            <file>file:/C:/xampp/htdocs/Z_Cavalier/Arborescence/Cavalerie/Cheval_trait.php</file>
-            <file>file:/C:/xampp/htdocs/Z_Cavalier/Arborescence/include/class/Cheval.class.inc.php</file>
-            <file>file:/C:/xampp/htdocs/Z_Cavalier/Arborescence/include/defines.inc.php</file>
             <file>file:/C:/xampp/htdocs/Z_Cavalier/Arborescence/include/class/Cavalier.class.inc.php</file>
-            <file>file:/C:/xampp/htdocs/Z_Cavalier/Arborescence/Cavalier/Cavalier_search.php</file>
+            <file>file:/C:/xampp/htdocs/Z_Cavalier/Arborescence/Robe/Robe_affiche.php</file>
         </group>
     </open-files>
 </project-private>
