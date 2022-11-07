@@ -18,8 +18,8 @@ include('../include/defines.inc.php');
     </script>
 <?php
         //Nav = read c'est la "page principale" qui vas permettre de lire la BDD à travers le datatable
+    $data = $oCavalier->db_get_all();
         if(!isset($_GET["nav"]) || $_GET["nav"] === "read"){
-        $data = $oCavalier->db_get_all();
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
@@ -65,9 +65,9 @@ include('../include/defines.inc.php');
                         <td><center><?php echo $key["gal_cav"] ?></center></td>
                         <td><center><?php echo $key["num_lic"] ?></center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
-                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal<?php echo $id_personne ?>'>
+                            <a type='button' class='btn btn-primary' data-bs-target='#modif<?php echo $id_personne ?>' href="Cavalier_Affiche.php?nav=update">
                                 Modifier
-                            </button>
+                            </a>
                             <form action="Cavalier_trait.php" method="post">
                                 <input type="hidden" name="id_personne" value="<?php echo $id_personne ?>">
                                 <button type="submit" name="delete" class="delete-btn btn btn-danger">Supprimer</button>
@@ -82,7 +82,7 @@ include('../include/defines.inc.php');
         <?php
         }
 
-            elseif($_GET['nav'] === 'read'){
+            elseif($_GET['nav'] === 'update'){
             ?>
 
         <?php
@@ -91,14 +91,9 @@ include('../include/defines.inc.php');
         $id_personne = $key["id_personne"]; ?>
 
             <!-- Modal -->
-            <div class="modal fade" id="modal<?php echo $id_personne ?>" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Modifier le cavalier</h5>
-                        </div>
+            <div class="" id="modif<?php echo $id_personne ?>">
                         <form action="Cavalier_trait.php" method="post">
-                            <div class="modal-body form-group">
+                            <div class="form-group" id="modif<?php echo $id_personne ?>">
                                 <label>Nom :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $key["nom"]; ?>">
                                 <label>Prenom ;</label>
@@ -122,8 +117,8 @@ include('../include/defines.inc.php');
                                 <input type="hidden" name="id_personne" value="<?php echo $id_personne ?>">
                             </div>
                         
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <div class="">
+                                <a type="button" class="btn btn-secondary" href="Cavalier_Affiche.php">Retour</a>
                                 <button type="submit" name="update" class="btn btn-primary">Modifier</button>
                             </div>
                         </form>

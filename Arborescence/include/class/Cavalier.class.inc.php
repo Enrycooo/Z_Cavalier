@@ -91,6 +91,26 @@ class Cavalier{
             return $this->errmessage.$e->getMessage();
         }
     }
+    
+    public function db_get_by_id($id=0){
+        $id = (int) $id;
+        if(!$id){
+            return false;
+        }
+
+        global $conn;
+
+        $request = "SELECT * FROM ".DB_TABLE_PERSONNE." WHERE id_personne = :id";
+        $sql = $conn->prepare($request);
+        $sql->bindValue(':id', $id, PDO::PARAM_INT);
+
+        try{
+            $sql->execute();
+            return $sql->fetch(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            return $this->errmessage.$e->getMessage();
+        }
+    }
 
 }
 
