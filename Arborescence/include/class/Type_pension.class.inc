@@ -1,12 +1,12 @@
 <?php 
 
-class Pension{
+class Type_pension{
 	const errmessage = "Une erreur s'est produite, signalez la à l'administrateur \n";
 
 	public function db_get_all(){
 		global $conn;
 
-		$request = "SELECT id_type_p, lib_type_p FROM ".DB_TABLE_PENSION.";";
+		$request = "SELECT id_type_p, lib_type_p FROM ".DB_TABLE_TYPE_PENSION.";";
 		try{
 			$sql = $conn->query($request);
 			return $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -33,14 +33,14 @@ class Pension{
     }
 
     public function db_update_one($lib_type_p=""){
-       $id_robe = $_POST['id_type_p'];
+       $id_type_p = $_POST['id_type_p'];
         if(!$id_type_p){
             return false;
         }
 
         global $conn;
 
-        $request = "UPDATE ".DB_TABLE_PENSION."
+        $request = "UPDATE ".DB_TABLE_TYPE_PENSION."
                   SET lib_type_p = :lib_type_p 
                   WHERE id_type_p = :id_type_p";
         $sql = $conn->prepare($request);
@@ -63,7 +63,7 @@ class Pension{
 
         global $conn;
 
-        $request = "UPDATE ".DB_TABLE_PENSION." WHERE id_type_p = :id_type_p;";
+        $request = "UPDATE ".DB_TABLE_TYPE_PENSION." WHERE id_type_p = :id_type_p;";
         $sql = $conn->prepare($request);
         $sql->bindValue(':id_type_p', $id_type_p, PDO::PARAM_INT);
         try{

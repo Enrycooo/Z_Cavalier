@@ -10,7 +10,7 @@ include('../include/defines.inc.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <title>Pension</title>
+    <title>Type_pension</title>
     <script>
         $('#trigger').click(function () {
 	$('#modal').modal({show : true});
@@ -19,17 +19,17 @@ include('../include/defines.inc.php');
 </head>
 <body>
     <script> 
-        const url = "Pension_trait.php";
+        const url = "Type_pension_trait.php";
     </script>
 <?php
         //Nav = read c'est la "page principale" qui vas permettre de lire la BDD à travers le datatable
         if(!isset($_GET["nav"]) || $_GET["nav"] === "read"){
-        $data = $oPension->db_get_all();
+        $data = $oType_pension->db_get_all();
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
-            <a class="btn btn-success mb-4" href="Pension_affiche.php?nav=create">Créer une nouvelle pension</a>
-            <form action="Pension_search.php" method='post'>
+            <a class="btn btn-success mb-4" href="Type_pension_affiche.php?nav=create">Créer un nouveau type de pension</a>
+            <form action="Type_pension_search.php" method='post'>
             <input placeholder="lib_type_p" type="text" name="lib_type_p">Rechercher</button>
             </form>
         </div>
@@ -53,7 +53,7 @@ include('../include/defines.inc.php');
                             <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal<?php echo $id_type_p ?>'>
                                 Modifier
                             </button>
-                            <form action="Pension_trait.php" method="post">
+                            <form action="Type_pension_trait.php" method="post">
                                 <input type="hidden" name="id_type_p" value="<?php echo $id_type_p ?>">
                                 <button type="submit" name="delete" class="delete-btn btn btn-danger">Supprimer</button>
                             </form>
@@ -80,9 +80,9 @@ include('../include/defines.inc.php');
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Modifier la Pension</h5>
+                            <h5 class="modal-title">Modifier le type de pension</h5>
                         </div>
-                        <form action="Pension_trait.php" method="post">
+                        <form action="Type_pension_trait.php" method="post">
                             <div class="modal-body form-group">
                                 <label>lib_type_p :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_type_p" value="<?php echo $key["lib_type_p"]; ?>">
@@ -102,13 +102,13 @@ include('../include/defines.inc.php');
             }
             elseif($_GET['nav'] === 'create'){
         ?>
-            <h1>Créer une Pension</h1>
+            <h1>Créer un type de pension</h1>
 
-            <form action="Pension_trait.php" method="post">
+            <form action="Type_pension_trait.php" method="post">
                 <div class="container">
                     <div class="form-group">
                 <input placeholder="lib_type_p" type="text" name="lib_type_p">
-                <button name="create" type="submit">Pension</button>
+                <button name="create" type="submit">Type_pension</button>
                     </div>
                 </div>
             </form>

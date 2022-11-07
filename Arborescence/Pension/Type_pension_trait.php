@@ -4,7 +4,7 @@ if(isset($_POST["create"])){
     $sql = $conn->prepare("SELECT id_type_p FROM type_pension WHERE lib_type_p = :lib_type_p");
     $sql->bindValue(':lib_type_p', $_POST["lib_type_p"],PDO::PARAM_STR);
     $sql->execute();
-    $req = $oCavalier->db_create($_POST["lib_type_p"]);
+    $req = $oType_pension->db_create($_POST["lib_type_p"]);
     if($req){
         ?>
             <script>
@@ -21,7 +21,7 @@ if(isset($_POST["create"])){
         <?php
     }
 }elseif(isset($_POST["update"])){
-    $req = $oPension->db_update_one($_POST["lib_type_p"]);
+    $req = $oType_pension->db_update_one($_POST["lib_type_p"]);
     if($req){
         ?>
             <script>
@@ -37,7 +37,7 @@ if(isset($_POST["create"])){
         <?php
     }
 }elseif(isset($_POST["delete"])){
-    $req = $oPension->db_soft_delete_one();
+    $req = $oType_pension->db_soft_delete_one();
     if($req){
         ?>
             <script>
