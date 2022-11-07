@@ -1,32 +1,32 @@
 <?php
 include_once('../include/defines.inc.php');
 if(isset($_POST["create"])){
-    $sql = $conn->prepare("SELECT id_robe FROM robe WHERE lib_robe = :lib_robe");
-    $sql->bindValue(':lib_robe', $_POST["lib_robe"],PDO::PARAM_STR);
+    $sql = $conn->prepare("SELECT id_type_p FROM type_pension WHERE lib_type_p = :lib_type_p");
+    $sql->bindValue(':lib_type_p', $_POST["lib_type_p"],PDO::PARAM_STR);
     $sql->execute();
-    $req = $oRobe->db_create($_POST["lib_robe"]);
+    $req = $oCavalier->db_create($_POST["lib_type_p"]);
     if($req){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Robe/Robe_affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Pension/Pension_affiche.php");
             </script>
         <?php
     }else{
         ?>
             <script>
                 alert("La création n'a pas fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Robe/Robe_affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Pension/Pension_affiche.php");
             </script>
         <?php
     }
 }elseif(isset($_POST["update"])){
-    $req = $oRobe->db_update_one($_POST["lib_robe"]);
+    $req = $oPension->db_update_one($_POST["lib_type_p"]);
     if($req){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Robe/Robe_affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Pension/Pension_affiche.php");
             </script>
         <?php
     }else{
@@ -37,12 +37,12 @@ if(isset($_POST["create"])){
         <?php
     }
 }elseif(isset($_POST["delete"])){
-    $req = $oRobe->db_soft_delete_one();
+    $req = $oPension->db_soft_delete_one();
     if($req){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Robe/Robe_affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Pension/Pension_affiche.php");
             </script>
         <?php
     }else{
