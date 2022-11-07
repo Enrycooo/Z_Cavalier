@@ -38,5 +38,5 @@ $res = $req->execute();
                     </table>
                 </div>
             </div>
-            <center><a href='Robe_Affiche.php' class='btn btn-primary'>Retour</a></center>
+            <center><a href='Robe_affiche.php' class='btn btn-primary'>Retour</a></center>
         </div>
