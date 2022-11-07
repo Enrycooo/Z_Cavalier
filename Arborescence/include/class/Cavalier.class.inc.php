@@ -14,6 +14,25 @@ class Cavalier{
 			return $this->errmessage.$e->getMessage();
 		}
 	}
+        
+        public function db_get_by_id($id_personne=0){
+		$id_personne = (int) $id_personne;
+		if(!$id_personne){
+			return false;
+		}
+
+		global $conn;
+
+		$request = "SELECT * FROM ".DB_TABLE_PERSONNE." WHERE id_personne = :id";
+		$sql = $conn->prepare($request);
+		$sql->bindValue(':id', $id_personne, PDO::PARAM_INT);
+		try{
+			$sql->execute();
+			return $sql->fetch(PDO::FETCH_ASSOC);
+		}catch(PDOException $e){
+			return $this->errmessage.$e->getMessage();
+		}
+	}
 
 
 	public function db_create($nom="", $prenom="" , $dna="", $rue="", $cp="", $ville="", $mail="", $tel ="", $galop = 0, $nl=""){
@@ -87,26 +106,6 @@ class Cavalier{
         try{
             $sql->execute();
             return true;
-        }catch(PDOException $e){
-            return $this->errmessage.$e->getMessage();
-        }
-    }
-    
-    public function db_get_by_id($id=0){
-        $id = (int) $id;
-        if(!$id){
-            return false;
-        }
-
-        global $conn;
-
-        $request = "SELECT * FROM ".DB_TABLE_PERSONNE." WHERE id_personne = :id";
-        $sql = $conn->prepare($request);
-        $sql->bindValue(':id', $id, PDO::PARAM_INT);
-
-        try{
-            $sql->execute();
-            return $sql->fetch(PDO::FETCH_ASSOC);
         }catch(PDOException $e){
             return $this->errmessage.$e->getMessage();
         }

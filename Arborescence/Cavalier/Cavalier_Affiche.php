@@ -18,8 +18,8 @@ include('../include/defines.inc.php');
     </script>
 <?php
         //Nav = read c'est la "page principale" qui vas permettre de lire la BDD à travers le datatable
-    $data = $oCavalier->db_get_all();
         if(!isset($_GET["nav"]) || $_GET["nav"] === "read"){
+        $data = $oCavalier->db_get_all();
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
@@ -47,34 +47,34 @@ include('../include/defines.inc.php');
                 <th style='text-align :center'>telephone</th>
                 <th style='text-align :center'>galop</th>
                 <th style='text-align :center'>numero licence</th>
+                <th style='text-align :center'>Actions</th>
             </thead>
             <tbody>
                 <?php 
                     foreach ($data as $key) {
-                        $id_personne = $key["id_personne"]; ?>
-                        <tr data-value="<?php echo $id_personne ?>">
-                        <td><center><?php echo $id_personne ?></center></td>
-                        <td><center><?php echo $key["nom"] ?></center></td>
-                        <td><center><?php echo $key["prenom"] ?></center></td>
-                        <td><center><?php echo $key["DNA"] ?></center></td>
-                        <td><center><?php echo $key["rue"] ?></center></td>
-                        <td><center><?php echo $key["code_postal"] ?></center></td>
-                        <td><center><?php echo $key["ville"] ?></center></td>
-                        <td><center><?php echo $key["mail"] ?></center></td>
-                        <td><center><?php echo $key["telephone"] ?></center></td>
-                        <td><center><?php echo $key["gal_cav"] ?></center></td>
-                        <td><center><?php echo $key["num_lic"] ?></center></td>
+                        $id_personne = $key["id_personne"]; 
+                        echo " <tr data-value=".$id_personne.">
+                        <td><center>".$key["id_personne"]."</center></td>
+                        <td><center>".$key["nom"]."</center></td>
+                        <td><center>".$key["prenom"]."</center></td>
+                        <td><center>".$key["DNA"]."</center></td>
+                        <td><center>".$key["rue"]."</center></td>
+                        <td><center>".$key["code_postal"]."</center></td>
+                        <td><center>".$key["ville"]."</center></td>
+                        <td><center>".$key["mail"]."</center></td>
+                        <td><center>".$key["telephone"]."</center></td>
+                        <td><center>".$key["gal_cav"]."</center></td>
+                        <td><center>".$key["num_lic"]."</center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
-                            <a type='button' class='btn btn-primary' data-bs-target='#modif<?php echo $id_personne ?>' href="Cavalier_Affiche.php?nav=update">
+                            <a type='button' class='btn btn-primary' href='Cavalier_Affiche.php?nav=update&id_personne=".$id_personne."'>
                                 Modifier
                             </a>
-                            <form action="Cavalier_trait.php" method="post">
-                                <input type="hidden" name="id_personne" value="<?php echo $id_personne ?>">
-                                <button type="submit" name="delete" class="delete-btn btn btn-danger">Supprimer</button>
+                            <form action='Cavalier_trait.php' method='post'>
+                                <input type='hidden' name='id_personne' value=".$id_personne.">
+                                <button type='submit' name='delete' class='delete-btn btn btn-danger'>Supprimer</button>
                             </form>
                         </td>
-                        </tr>
-                        <?php
+                        </tr>";
                     }
                 ?>
             </tbody>
@@ -82,39 +82,34 @@ include('../include/defines.inc.php');
         <?php
         }
 
-            elseif($_GET['nav'] === 'update'){
-            ?>
-
-        <?php
-        
-        foreach($data as $key){
-        $id_personne = $key["id_personne"]; ?>
-
-            <!-- Modal -->
-            <div class="" id="modif<?php echo $id_personne ?>">
+        elseif($_GET["nav"] === "update"){
+        $data = $oCavalier->db_get_by_id($_GET["id_personne"]);
+        ?>
+                    
+            <div class="">
                         <form action="Cavalier_trait.php" method="post">
-                            <div class="form-group" id="modif<?php echo $id_personne ?>">
+                            <div class="form-group">
                                 <label>Nom :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $key["nom"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $data["nom"]; ?>">
                                 <label>Prenom ;</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="prenom" value="<?php echo $key["prenom"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="prenom" value="<?php echo $data["prenom"]; ?>">
                                 <label>Date de naissance :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $key["DNA"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $data["DNA"]; ?>">
                                 <label>Rue :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="rue" value="<?php echo $key["rue"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="rue" value="<?php echo $data["rue"]; ?>">
                                 <label>Code postal :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="cp" value="<?php echo $key["code_postal"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="cp" value="<?php echo $data["code_postal"]; ?>">
                                 <label>Ville :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ville" value="<?php echo $key["ville"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ville" value="<?php echo $data["ville"]; ?>">
                                 <label>Adresse mail :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="mail" value="<?php echo $key["mail"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="mail" value="<?php echo $data["mail"]; ?>">
                                 <label>Numéro de téléphone :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="telephone" value="<?php echo $key["telephone"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="telephone" value="<?php echo $data["telephone"]; ?>">
                                 <label>Galop :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="gal_cav" value="<?php echo $key["gal_cav"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="gal_cav" value="<?php echo $data["gal_cav"]; ?>">
                                 <label>Numéro de licence :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="num_lic" value="<?php echo $key["num_lic"]; ?>">
-                                <input type="hidden" name="id_personne" value="<?php echo $id_personne ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="num_lic" value="<?php echo $data["num_lic"]; ?>">
+                                <input type="hidden" name="id_personne" value="<?php echo $_GET["id_personne"]; ?>">
                             </div>
                         
                             <div class="">
@@ -126,7 +121,6 @@ include('../include/defines.inc.php');
                 </div>
             </div>
             <?php
-            }
             }
             elseif($_GET['nav'] === 'create'){
         ?>
