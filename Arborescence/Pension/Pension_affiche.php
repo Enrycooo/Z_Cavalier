@@ -123,6 +123,12 @@ include('../include/defines.inc.php');
                 <div class="container">
                     <div class="form-group">
                 <input placeholder="lib_pension" type="text" name="lib_pension">
+                <input placeholder="date_deb_pension" type="text" name="date_deb_pension">
+                <input placeholder="duree_pension" type="text" name="duree_pension">
+                <input placeholder="tarif_pension" type="text" name="tarif_pension">
+                <input placeholder="ref_cheval" type="text" name="ref_cheval">
+                <input placeholder="ref_type_p" type="text" name="ref_type_p">
+                <input placeholder="ref_per" type="text" name="ref_per">
                 <button name="create" type="submit">Pension</button>
                     </div>
                 </div>
