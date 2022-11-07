@@ -30,7 +30,7 @@ include('../include/defines.inc.php');
             </form>
         </div>
     </div>
- 
+</br>
             <div class="row">
                 <div class="col">
                     <table class='table table-hover'>
