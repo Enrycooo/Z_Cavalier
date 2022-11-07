@@ -28,9 +28,9 @@ include('../include/defines.inc.php');
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
-            <a class="btn btn-success mb-4" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle robe</a>
+            <a class="btn btn-success mb-4" href="Robe_affiche.php?nav=create">Créer une nouvelle robe</a>
             <form action="Robe_search.php" method='post'>
-            <input placeholder="Nom" type="text" name="nom">Rechercher</button>
+            <input placeholder="lib_robe" type="text" name="lib_robe">Rechercher</button>
             </form>
         </div>
     </div>
@@ -84,9 +84,9 @@ include('../include/defines.inc.php');
                         </div>
                         <form action="Robe_trait.php" method="post">
                             <div class="modal-body form-group">
-                                <label>Nom :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $key["nom"]; ?>">
-                                <label>Nom ;</label>
+                                <label>lib_robe :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_robe" value="<?php echo $key["lib_robe"]; ?>">
+                                <label>lib_robe ;</label>
                             </div>
                         
                             <div class="modal-footer">

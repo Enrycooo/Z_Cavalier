@@ -22,6 +22,7 @@ include('../include/defines.inc.php');
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
+            <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a>
             <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalCreate'>Insertion d'un cheval</button>  
             <form action="Cheval_search.php" method='post'>
                 <input placeholder="Nom" type="text" name="nom">
@@ -96,12 +97,19 @@ include('../include/defines.inc.php');
                         </div>
                         <form action="Cheval_trait.php" method="post">
                             <div class="modal-body form-group">
+                                <h6 class="modal-title">Nom</h6>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $key["nom_cheval"]; ?>">
+                                <h6 class="modal-title">Date de naissance</h6>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $key["DNA_cheval"]; ?>">
+                                <h6 class="modal-title">Race</h6>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="race" value="<?php echo $key["race_cheval"]; ?>">
+                                <h6 class="modal-title">Sexe (0 = femelle / 1 = mâle)</h6>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="sexe" value="<?php echo $key["sexe_cheval"]; ?>">
+                                <h6 class="modal-title">Taille</h6>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="taille" value="<?php echo $key["taille_cheval"]; ?>">
+                                <h6 class="modal-title">N°Sire</h6>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="sire" value="<?php echo $key["SIRE_cheval"]; ?>">
+                                <h6 class="modal-title">Réference de la Robe</h6>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="robe" value="<?php echo $key["ref_robe"]; ?>">
                                 <input type="hidden" name="id_cheval" value="<?php echo $id_cheval ?>">
                             </div>

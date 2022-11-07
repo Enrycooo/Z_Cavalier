@@ -4,19 +4,19 @@ if(isset($_POST["create"])){
     $sql = $conn->prepare("SELECT id_robe FROM robe WHERE lib_robe = :lib_robe");
     $sql->bindValue(':lib_robe', $_POST["lib_robe"],PDO::PARAM_STR);
     $sql->execute();
-    $req = $oCavalier->db_create($_POST["lib"]);
+    $req = $oCavalier->db_create($_POST["lib_robe"]);
     if($req){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Robe/Robe_affiche.php");
             </script>
         <?php
     }else{
         ?>
             <script>
                 alert("La création n'a pas fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Robe/Robe_affiche.php");
             </script>
         <?php
     }
@@ -26,7 +26,7 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Robe/Robe_affiche.php");
             </script>
         <?php
     }else{
@@ -42,7 +42,7 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Robe/Robe_affiche.php");
             </script>
         <?php
     }else{
