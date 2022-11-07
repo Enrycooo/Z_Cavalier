@@ -9,14 +9,14 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Pension/Pension_affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Type_pension/Type_pension_affiche.php");
             </script>
         <?php
     }else{
         ?>
             <script>
                 alert("La création n'a pas fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Pension/Pension_affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Type_pension/Type_pension_affiche.php");
             </script>
         <?php
     }
@@ -26,7 +26,7 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Pension/Pension_affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Pension/Type_pension_affiche.php");
             </script>
         <?php
     }else{
@@ -42,7 +42,7 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
-                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Pension/Pension_affiche.php");
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Type_pension/v_affiche.php");
             </script>
         <?php
     }else{
