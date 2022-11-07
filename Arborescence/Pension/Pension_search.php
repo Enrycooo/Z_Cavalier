@@ -4,7 +4,7 @@ include_once('../include/defines.inc.php');
 $sql = "SELECT id_pension, lib_pension FROM pension
         WHERE lib_pension = :lib_pension";
 $req = $conn->prepare($sql);
-$req->bindValue(':lib_pension',$_POST['lib_pension'],PDO::PARAM_STR);
+$req->bindValue(':ref_cheval',$_POST['ref_cheval'],PDO::PARAM_STR);
 $res = $req->execute();
 ?>
 <html>

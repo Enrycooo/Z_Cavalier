@@ -30,7 +30,7 @@ include('../include/defines.inc.php');
         <div class="d-flex justify-content-center">
             <a class="btn btn-success mb-4" href="Pension_affiche.php?nav=create">Créer une nouvelle pension</a>
             <form action="Pension_search.php" method='post'>
-            <input placeholder="lib_pension" type="text" name="lib_pension">Rechercher</button>
+            <input placeholder="ref_cheval" type="text" name="ref_cheval">Rechercher</button>
             </form>
         </div>
     </div>
