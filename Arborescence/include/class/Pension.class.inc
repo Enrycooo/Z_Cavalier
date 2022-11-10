@@ -14,9 +14,28 @@ class Pension{
 			return $this->errmessage.$e->getMessage();
 		}
 	}
+                
+        public function db_get_by_id($id_pension=0){
+		$id_pension = (int) $id_pension;
+		if(!$id_pension){
+			return false;
+		}
+                
+                global $conn;
+
+		$request = "SELECT * FROM ".DB_TABLE_PENSION." WHERE id_pension = :id";
+		$sql = $conn->prepare($request);
+		$sql->bindValue(':id', $id_pension, PDO::PARAM_INT);
+		try{
+			$sql->execute();
+			return $sql->fetch(PDO::FETCH_ASSOC);
+		}catch(PDOException $e){
+			return $this->errmessage.$e->getMessage();
+		}
+	}
 
 
-	public function db_create($lib_pension="", $date_deb_pension="", $duree_pension="", $tarif_pension="", $ref_cheval="", $ref_type_p="", $ref_per="" ){
+	public function db_create($lib_pension="", $date_deb_pension="" , $duree_pension="", $tarif_pension="", $ref_cheval="", $ref_type_p="", $ref_per=""){
 
         global $conn;
         $request = "INSERT INTO pension(lib_pension, date_deb_pension, duree_pension, tarif_pension, ref_cheval, ref_type_p, ref_per)

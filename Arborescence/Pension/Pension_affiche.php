@@ -52,27 +52,26 @@ include('../include/defines.inc.php');
             <tbody>
                 <?php 
                     foreach ($data as $key) {
-                        $id_pension = $key["id_pension"]; ?>
-                        <tr data-value="<?php echo $id_pension ?>">
-                        <td><center><?php echo $id_pension ?></center></td>
-                        <td><center><?php echo $key["lib_pension"] ?></center></td>
-                        <td><center><?php echo $key["date_deb_pension"] ?></center></td>
-                        <td><center><?php echo $key["duree_pension"] ?></center></td>
-                        <td><center><?php echo $key["tarif_pension"] ?></center></td>
-                        <td><center><?php echo $key["ref_cheval"] ?></center></td>
-                        <td><center><?php echo $key["ref_type_p"] ?></center></td>
-                        <td><center><?php echo $key["ref_per"] ?></center></td>
+                        $id_pension = $key["id_pension"]; 
+                        echo " <tr data-value=".$id_pension.">
+                        <td><center>".$key["id_pension"]."</center></td>
+                        <td><center>".$key["lib_pension"]."</center></td>
+                        <td><center>".$key["date_deb_pension"]."</center></td>
+                        <td><center>".$key["duree_pension"]."</center></td>
+                        <td><center>".$key["tarif_pension"]."</center></td>
+                        <td><center>".$key["ref_cheval"]."</center></td>
+                        <td><center>".$key["ref_type_p"]."</center></td>
+                        <td><center>".$key["ref_per"]."</center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
-                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal<?php echo $id_pension ?>'>
+                            <a type='button' class='btn btn-primary' href='Pension_affiche.php?nav=update&id_pension=".$id_pension."'>
                                 Modifier
-                            </button>
-                            <form action="Pension_trait.php" method="post">
-                                <input type="hidden" name="id_pension" value="<?php echo $id_pension ?>">
-                                <button type="submit" name="delete" class="delete-btn btn btn-danger">Supprimer</button>
+                            </a>
+                            <form action='Pension_trait.php' method='post'>
+                                <input type='hidden' name='id_pension' value=".$id_pension.">
+                                <button type='submit' name='delete' class='delete-btn btn btn-danger'>Supprimer</button>
                             </form>
                         </td>
-                        </tr>
-                        <?php
+                        </tr>";
                     }
                 ?>
             </tbody>
@@ -105,7 +104,7 @@ include('../include/defines.inc.php');
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_type_p" value="<?php echo $data["ref_type_p"]; ?>">
                                 <label>ID personne :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_per" value="<?php echo $data["ref_per"]; ?>">
-                                <input type="hidden" name="id_personne" value="<?php echo $_GET["id_personne"]; ?>">
+                                <input type="hidden" name="id_pension" value="<?php echo $_GET["id_pension"]; ?>">
                             </div>
                         
                             <div class="">
