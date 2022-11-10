@@ -8,8 +8,8 @@ include('../include/defines.inc.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <title>Cheval</title>
 </head>
 <body>
@@ -17,25 +17,25 @@ include('../include/defines.inc.php');
         const url = "Cheval_trait.php";
     </script>
 <?php
-
+        if(!isset($_GET["nav"]) || $_GET["nav"] === "read"){
         $data = $oCheval->db_get_all();
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
-            <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a>
-            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalCreate'>Insertion d'un cheval</button>  
+        <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
+        <a class="btn btn-primary" href="Cheval_Affiche.php?nav=create">Ajouter un Cheval </a> &nbsp; 
             <form action="Cheval_search.php" method='post'>
-                <input placeholder="Nom" type="text" name="nom">
-                <button name="search" type="submit id="submit">Rechercher</button>
+            <input placeholder="Nom" type="text" name="nom">
+            <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
             </form>
         </div>
     </div>
-</br>
+ 
             <div class="row">
                 <div class="col">
                     <table class='table table-hover'>
             <thead>
-                <th style='text-align :center'>ID</th>
+            <th style='text-align :center'>ID</th>
                 <th style='text-align :center'>Nom</th>
                 <th style='text-align :center'>Date de naissance</th>
                 <th style='text-align :center'>Race </th>
@@ -47,112 +47,94 @@ include('../include/defines.inc.php');
             <tbody>
                 <?php 
                     foreach ($data as $key) {
-                        $id_cheval = $key["id_cheval"]; ?>
-                        <tr data-value="<?php echo $id_cheval ?>">
-                        <td><center><?php echo $id_cheval ?></center></td>
-                        <td><center><?php echo $key["nom_cheval"] ?></center></td>
-                        <td><center><?php echo $key["DNA_cheval"] ?></center></td>
-                        <td><center><?php echo $key["race_cheval"] ?></center></td>
-                        <td><center><?php echo $key["sexe_cheval"] ?></center></td>
-                        <td><center><?php echo $key["taille_cheval"] ?></center></td>
-                        <td><center><?php echo $key["SIRE_cheval"] ?></center></td>
-                        <td><center><?php echo $key["ref_robe"] ?></center></td>
+                        $id_cheval = $key["id_cheval"]; 
+                        echo " <tr data-value=".$id_cheval.">
+                        <td><center>".$key["id_cheval"]."</center></td>
+                        <td><center>".$key["nom_cheval"]."</center></td>
+                        <td><center>".$key["DNA_cheval"]."</center></td>
+                        <td><center>".$key["race_cheval"]."</center></td>
+                        <td><center>".$key["sexe_cheval"]."</center></td>
+                        <td><center>".$key["taille_cheval"]."</center></td>
+                        <td><center>".$key["SIRE_cheval"]."</center></td>
+                        <td><center>".$key["ref_robe"]."</center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
-                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal<?php echo $id_cheval ?>'>
+                            <a type='button' class='btn btn-primary' href='Cheval_Affiche.php?nav=update&id_cheval=".$id_cheval."'>
                                 Modifier
-                            </button>
-                            <form action="Cheval_trait.php" method="post">
-                                <input type="hidden" name="id_cheval" value="<?php echo $id_cheval ?>">
-                                <button type="submit" name="delete" class="delete-btn btn btn-danger">Supprimer</button>
+                            </a>
+                            <form action='Cheval_trait.php' method='post'>
+                                <input type='hidden' name='id_cheval' value=".$id_cheval.">
+                                <button type='submit' name='delete' class='delete-btn btn btn-danger'>Supprimer</button>
                             </form>
                         </td>
-                        </tr>
-                        <?php
+                        </tr>";
                     }
                 ?>
             </tbody>
         </table>
+        <?php
+        }
 
-    
-    <div class="operations-div" style="display: flex; justify-content: space-evenly">
-        <button class="btn btn-danger delete-all" style="display: none">
-            Supprimer les éléments selectionnés.
-        </button>
-    </div>
-  </div>
-    </div>
-    
-
-    <?php 
-    
-        foreach($data as $key){
-        $id_cheval = $key["id_cheval"]; ?>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modal<?php echo $id_cheval ?>" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Modifier le Cheval</h5>
-                        </div>
-                        <form action="Cheval_trait.php" method="post">
-                            <div class="modal-body form-group">
-                                <h6 class="modal-title">Nom</h6>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $key["nom_cheval"]; ?>">
-                                <h6 class="modal-title">Date de naissance</h6>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $key["DNA_cheval"]; ?>">
-                                <h6 class="modal-title">Race</h6>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="race" value="<?php echo $key["race_cheval"]; ?>">
-                                <h6 class="modal-title">Sexe (0 = femelle / 1 = mâle)</h6>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="sexe" value="<?php echo $key["sexe_cheval"]; ?>">
-                                <h6 class="modal-title">Taille</h6>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="taille" value="<?php echo $key["taille_cheval"]; ?>">
-                                <h6 class="modal-title">N°Sire</h6>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="sire" value="<?php echo $key["SIRE_cheval"]; ?>">
-                                <h6 class="modal-title">Réference de la Robe</h6>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="robe" value="<?php echo $key["ref_robe"]; ?>">
-                                <input type="hidden" name="id_cheval" value="<?php echo $id_cheval ?>">
-                            </div>
-                        
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                                <button type="submit" name="update" class="btn btn-primary">Modifier</button>
-                            </div>
-                        </form>
+        elseif($_GET["nav"] === "update"){
+        $data = $oCheval->db_get_by_id($_GET["id_cheval"]);
+        ?>               
+            <div class="">
+                <form action="Cheval_trait.php" method="post">
+                    <div class="modal-body form-group">
+                        <label>Nom :</label>
+                        <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $data["nom_cheval"]; ?>">
+                        <label>Date de naissance :</label>
+                        <input class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $data["DNA_cheval"]; ?>">
+                        <label>Race :</label>
+                        <input class="col-8 form-control" style="margin: 0 auto" type="text" name="race" value="<?php echo $data["race_cheval"]; ?>">
+                        <label>Sexe : (0 = mâle / 1 = femmelle)</label>
+                        <input class="col-8 form-control" style="margin: 0 auto" type="text" name="sexe" value="<?php echo $data["sexe_cheval"]; ?>">
+                        <label>Taille :</label>
+                        <input class="col-8 form-control" style="margin: 0 auto" type="text" name="taille" value="<?php echo $data["taille_cheval"]; ?>">
+                        <label>N°Sire du Cheval :</label>
+                        <input class="col-8 form-control" style="margin: 0 auto" type="text" name="sire" value="<?php echo $data["SIRE_cheval"]; ?>">
+                        <label>Référence de la robe :</label>
+                        <input class="col-8 form-control" style="margin: 0 auto" type="text" name="robe" value="<?php echo $data["ref_robe"]; ?>">
+                        <input type="hidden" name="id_cheval" value="<?php echo $_GET["id_cheval"]; ?>">
                     </div>
-                </div>
+                    <div class="modal-footer">
+                        <a type="button" class="btn btn-secondary" href="Cheval_Affiche.php">Retour</a>
+                        <button type="submit" name="update" class="btn btn-primary">Modifier</button>
+                    </div>
+                </form>
+        </div>
+        </div>
+        </div>
+        <?php
+        }
+        elseif($_GET['nav'] === 'create'){
+        ?>
+            
+        <h5 class="modal-title">Insertion d'un Cheval</h5>
+            <form action="Cheval_trait.php" method="post">
+            <div class="form-group">
+                <label>Nom :</label>
+                    <input placeholder="Nom" class="form-control" type="text" name="nom">
+                    <label>Date de naissance :</label>
+                    <input placeholder="Date de naissance" class="form-control" type="text" name="dna">
+                    <label>Race du cheval :</label>
+                    <input placeholder="Race" class="form-control" type="text" name="race">
+                    <label>Sexe du cheval : (0 = mâle / 1 = femmelle)</label>
+                    <input placeholder="Sexe" class="form-control" type="text" name="sexe">
+                    <label>Taille du cheval :</label>
+                    <input placeholder="Taille" class="form-control" type="text" name="taille">
+                    <label>N°Sire du cheval :</label>
+                    <input placeholder="N°Sire" class="form-control" type="text" name="sire">
+                    <label>Référence de la robe du cheval :</label>
+                    <input placeholder="Référence de la robe" class="form-control" type="text" name="robe">
+                    <div class="modal-footer">
+                        <a type="button" class="btn btn-secondary" href="Cheval_Affiche.php">Retour</a>
+                        <button name="create" type="submit" class ="btn btn-primary">Enregistrer</button>
+                    </div>
             </div>
+            </form>
+            </html>
             <?php
             }
-            ?>
-            <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Insertion d'un Cheval</h5>
-                        </div>
-                        <form action="Cheval_trait.php" method="post">
-                            <div class="modal-body form-group">
-                                <label>Nom :</label>
-                                <input placeholder="Nom" class="form-control" type="text" name="nom">
-                                <label>Date de naissance :</label>
-                                <input placeholder="Date de naissance" class="form-control" type="text" name="dna">
-                                <label>Race du cheval :</label>
-                                <input placeholder="Race" class="form-control" type="text" name="race">
-                                <label>Sexe du cheval :</label>
-                                <input placeholder="Sexe" class="form-control" type="text" name="sexe">
-                                <label>Taille du cheval :</label>
-                                <input placeholder="Taille" class="form-control" type="text" name="taille">
-                                <label>N°Sire du cheval :</label>
-                                <input placeholder="N°Sire" class="form-control" type="text" name="sire">
-                                <label>Référence de la robe du cheval :</label>
-                                <input placeholder="Référence de la robe" class="form-control" type="text" name="robe">
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                                <button type="submit" name="create" class="btn btn-primary">Créer</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        <?php
+        ?>
+            </body>
+            </html>

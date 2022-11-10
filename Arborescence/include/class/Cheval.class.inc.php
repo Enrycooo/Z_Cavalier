@@ -14,9 +14,27 @@ class Cheval{
 			return $this->errmessage.$e->getMessage();
 		}
 	}
+        public function db_get_by_id($id_cheval=0){
+            $id_cheval = (int) $id_cheval;
+            if(!$id_cheval){
+                return false;
+        }
+
+        global $conn;
+
+		$request = "SELECT * FROM ".DB_TABLE_CHEVAL." WHERE id_cheval = :id";
+		$sql = $conn->prepare($request);
+		$sql->bindValue(':id', $id_cheval, PDO::PARAM_INT);
+		try{
+			$sql->execute();
+			return $sql->fetch(PDO::FETCH_ASSOC);
+		}catch(PDOException $e){
+			return $this->errmessage.$e->getMessage();
+		}
+	}
 
 
-	public function db_create($nom_cheval="", $DNA_cheval="" , $race_cheval="", $sexe_cheval="", $taille_cheval="", $SIRE_cheval="", $ref_robe=""){
+	    public function db_create($nom_cheval="", $DNA_cheval="" , $race_cheval="", $sexe_cheval="", $taille_cheval="", $SIRE_cheval="", $ref_robe=""){
 
         global $conn;
         $request = "INSERT INTO cheval (nom_cheval, DNA_cheval, race_cheval, sexe_cheval, taille_cheval, SIRE_cheval, ref_robe, actif_chev)
