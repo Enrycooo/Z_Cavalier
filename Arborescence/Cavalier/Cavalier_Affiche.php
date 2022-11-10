@@ -91,7 +91,7 @@ include('../include/defines.inc.php');
                             <div class="form-group">
                                 <label>Nom :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $data["nom"]; ?>">
-                                <label>Prenom ;</label>
+                                <label>Prenom :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="prenom" value="<?php echo $data["prenom"]; ?>">
                                 <label>Date de naissance :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $data["DNA"]; ?>">
@@ -126,7 +126,6 @@ include('../include/defines.inc.php');
         ?>
             <h1>Créer une personne</h1>
 
-            <form action="Cavalier_trait.php" method="post">
                 <div class="container">
                 <script type="text/javascript">
         function verif ()
@@ -156,8 +155,9 @@ include('../include/defines.inc.php');
     display: none;
 }
 </style>
-<input id="check" type="checkbox" onChange="verif();" /><label> Responsable</label>
-<div id="1" class="on"><form action="Cavalier_trait.php" method="post">
+<input id="check" name="responsable" type="checkbox" onChange="verif();" /><label> Responsable</label>
+<div id="1" class="on">
+    <form action="Cavalier_trait.php" method="post">
                 <div class="container">
                     <div class="form-group">
                 <input placeholder="Nom" type="text" name="nom">
@@ -170,8 +170,10 @@ include('../include/defines.inc.php');
                 <button name="create" type="submit">Enregistrer</button>
                     </div>
                 </div>
-            </form></div>
-<div id="2" class="off"><form action="Cavalier_trait.php" method="post">
+            </form>
+</div>
+<div id="2" class="off">
+    <form action="Cavalier_trait.php" method="post">
                 <div class="container">
                     <div class="form-group">
                 <input placeholder="Nom" type="text" name="nom">
@@ -187,7 +189,6 @@ include('../include/defines.inc.php');
                 </div>
             </form></div>
                 </div>
-            </form>
 
         <?php
             }

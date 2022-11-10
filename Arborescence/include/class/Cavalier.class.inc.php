@@ -35,7 +35,7 @@ class Cavalier{
 	}
 
 
-	public function db_create($nom="", $prenom="" , $dna="", $rue="", $cp="", $ville="", $mail="", $tel ="", $galop = 0, $nl=""){
+	public function db_create($nom="", $prenom="" , $dna="", $rue="", $cp="", $ville="", $mail="", $tel ="", $galop = "", $nl=""){
 
         global $conn;
         $request = "INSERT INTO personne(nom, prenom, DNA, rue, code_postal, ville, mail, actif, telephone, photo, gal_cav, num_lic)
