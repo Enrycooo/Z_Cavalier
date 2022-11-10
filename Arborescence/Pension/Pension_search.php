@@ -1,7 +1,7 @@
 <?php
 include_once('../include/defines.inc.php');
 
-$sql = "SELECT id_pension, lib_pension FROM pension
+$sql = "SELECT * FROM pension
         WHERE lib_pension = :lib_pension";
 $req = $conn->prepare($sql);
 $req->bindValue(':ref_cheval',$_POST['ref_cheval'],PDO::PARAM_STR);

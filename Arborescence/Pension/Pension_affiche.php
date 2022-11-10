@@ -30,7 +30,8 @@ include('../include/defines.inc.php');
         <div class="d-flex justify-content-center">
             <a class="btn btn-success mb-4" href="Pension_affiche.php?nav=create">Créer une nouvelle pension</a>
             <form action="Pension_search.php" method='post'>
-            <input placeholder="ref_cheval" type="text" name="ref_cheval">Rechercher</button>
+            <input placeholder="ref_cheval" type="text" name="ref_cheval">
+            <button name="search" type="submit id="submit">Rechercher</button>
             </form>
         </div>
     </div>
@@ -79,33 +80,36 @@ include('../include/defines.inc.php');
         <?php
         }
 
-            elseif($_GET['nav'] === 'read'){
+            elseif($_GET["nav"] === "update"){
+            $data = $oPension->db_get_by_id($_GET["id_pension"]);
             ?>
 
         <?php
         
-        foreach($data as $key){
-        $id_pension = $key["id_pension"]; ?>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modal<?php echo $id_pension ?>" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Modifier la pension</h5>
-                        </div>
+        //foreach($data as $key){
+        //$id_pension = $key["id_pension"]; ?>         
+            <div class="">
                         <form action="Pension_trait.php" method="post">
-                            <div class="modal-body form-group">
-                                <label>lib_pension :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_pension" value="<?php echo $key["lib_pension"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_pension" value="<?php echo $key["date_deb_pension"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_pension" value="<?php echo $key["duree_pension"]; ?>">
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_pension" value="<?php echo $key["tarif_pension"]; ?>">
-                                <label>lib_pension ;</label>
+                            <div class="form-group">
+                                <label>Libellé :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_pension" value="<?php echo $data["lib_pension"]; ?>">
+                                <label>Date début :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="date_deb_pension" value="<?php echo $data["date_deb_pension"]; ?>">
+                                <label>Durée :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="duree_pension" value="<?php echo $data["duree_pension"]; ?>">
+                                <label>Tarif :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="tarif_pension" value="<?php echo $data["tarif_pension"]; ?>">
+                                <label>ID cheval :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_cheval" value="<?php echo $data["ref_cheval"]; ?>">
+                                <label>ID type pension :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_type_p" value="<?php echo $data["ref_type_p"]; ?>">
+                                <label>ID personne :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_per" value="<?php echo $data["ref_per"]; ?>">
+                                <input type="hidden" name="id_personne" value="<?php echo $_GET["id_personne"]; ?>">
                             </div>
                         
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <div class="">
+                                <a type="button" class="btn btn-secondary" href="Pension_affiche.php">Retour</a>
                                 <button type="submit" name="update" class="btn btn-primary">Modifier</button>
                             </div>
                         </form>
@@ -113,7 +117,6 @@ include('../include/defines.inc.php');
                 </div>
             </div>
             <?php
-            }
             }
             elseif($_GET['nav'] === 'create'){
         ?>
