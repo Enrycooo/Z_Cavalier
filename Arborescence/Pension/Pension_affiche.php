@@ -41,11 +41,11 @@ include('../include/defines.inc.php');
                     <table class='table table-hover'>
             <thead>
                 <th style='text-align :center'>id_pension</th>
+                <th style='text-align :center'>ref_cheval</th>
                 <th style='text-align :center'>lib_pension</th>
                 <th style='text-align :center'>date_deb_pension</th>
                 <th style='text-align :center'>duree_pension</th>
                 <th style='text-align :center'>tarif_pension</th>
-                <th style='text-align :center'>ref_cheval</th>
                 <th style='text-align :center'>ref_type_p</th>
                 <th style='text-align :center'>ref_per</th>
             </thead>
@@ -55,11 +55,11 @@ include('../include/defines.inc.php');
                         $id_pension = $key["id_pension"]; 
                         echo " <tr data-value=".$id_pension.">
                         <td><center>".$key["id_pension"]."</center></td>
+                        <td><center>".$key["ref_cheval"]."</center></td>
                         <td><center>".$key["lib_pension"]."</center></td>
                         <td><center>".$key["date_deb_pension"]."</center></td>
                         <td><center>".$key["duree_pension"]."</center></td>
                         <td><center>".$key["tarif_pension"]."</center></td>
-                        <td><center>".$key["ref_cheval"]."</center></td>
                         <td><center>".$key["ref_type_p"]."</center></td>
                         <td><center>".$key["ref_per"]."</center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
@@ -90,6 +90,8 @@ include('../include/defines.inc.php');
             <div class="">
                         <form action="Pension_trait.php" method="post">
                             <div class="form-group">
+                                <label>ID cheval :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_cheval" value="<?php echo $data["ref_cheval"]; ?>">
                                 <label>Libellé :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_pension" value="<?php echo $data["lib_pension"]; ?>">
                                 <label>Date début :</label>
@@ -98,8 +100,6 @@ include('../include/defines.inc.php');
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="duree_pension" value="<?php echo $data["duree_pension"]; ?>">
                                 <label>Tarif :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="tarif_pension" value="<?php echo $data["tarif_pension"]; ?>">
-                                <label>ID cheval :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_cheval" value="<?php echo $data["ref_cheval"]; ?>">
                                 <label>ID type pension :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_type_p" value="<?php echo $data["ref_type_p"]; ?>">
                                 <label>ID personne :</label>
@@ -124,11 +124,11 @@ include('../include/defines.inc.php');
             <form action="Pension_trait.php" method="post">
                 <div class="container">
                     <div class="form-group">
+                <input placeholder="ref_cheval" type="text" name="ref_cheval">
                 <input placeholder="lib_pension" type="text" name="lib_pension">
                 <input placeholder="date_deb_pension" type="text" name="date_deb_pension">
                 <input placeholder="duree_pension" type="text" name="duree_pension">
                 <input placeholder="tarif_pension" type="text" name="tarif_pension">
-                <input placeholder="ref_cheval" type="text" name="ref_cheval">
                 <input placeholder="ref_type_p" type="text" name="ref_type_p">
                 <input placeholder="ref_per" type="text" name="ref_per">
                 <button name="create" type="submit">Pension</button>
