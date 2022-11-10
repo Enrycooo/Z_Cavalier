@@ -167,7 +167,7 @@ include('../include/defines.inc.php');
                     <input placeholder="Numero licence" type="text" name="num_lic">
                     <input placeholder="Mail" type="text" name="mail">
                     <input placeholder="Telephone" type="text" name="telephone">
-                    <button name="create" type="submit">Enregistrer</button>
+                    <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
                 </div>
             </div>
         </form>
