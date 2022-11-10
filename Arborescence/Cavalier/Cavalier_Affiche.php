@@ -162,11 +162,11 @@ include('../include/defines.inc.php');
                 <div class="form-group">
                     <input placeholder="Nom" type="text" name="nom">
                     <input placeholder="Prenom" type="text" name="prenom">
-                    <input placeholder="Date de naissance" type="text" name="DNA">
-                    <input placeholder="Galop" type="text" name="gal_cav">
+                    <input type="date" placeholder="Date de naissance" type="text" name="DNA">
+                    <input type="number" placeholder="Galop" type="text" name="gal_cav">
                     <input placeholder="Numero licence" type="text" name="num_lic">
-                    <input placeholder="Mail" type="text" name="mail">
-                    <input placeholder="Telephone" type="text" name="telephone">
+                    <input type="email" placeholder="Mail" type="text" name="mail">
+                    <input type="number" placeholder="Telephone" type="text" name="telephone">
                     <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
                 </div>
             </div>
@@ -178,12 +178,12 @@ include('../include/defines.inc.php');
             <div class="form-group">
                 <input placeholder="Nom" type="text" name="nom">
                 <input placeholder="Prenom" type="text" name="prenom">
-                <input placeholder="Date de naissance" type="text" name="DNA">
+                <input type="date" placeholder="Date de naissance" type="text" name="DNA">
                 <input placeholder="Rue" type="text" name="rue">
-                <input placeholder="Code postal" type="text" name="cp">
+                <input type="number" placeholder="Code postal" type="text" name="cp">
                 <input placeholder="Ville" type="text" name="ville">
-                <input placeholder="Mail" type="text" name="mail">
-                <input placeholder="Telephone" type="text" name="telephone">
+                <input type="email" placeholder="Mail" type="text" name="mail">
+                <input type="number" placeholder="Telephone" type="text" name="telephone">
                 <button name="create" type="submit" class ="btn btn-primary">Enregistrer</button>
             </div>
         </div>
