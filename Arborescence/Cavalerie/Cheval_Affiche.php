@@ -22,8 +22,8 @@ include('../include/defines.inc.php');
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
-        <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a>
-        <a class="btn btn-primary" href="Cheval_Affiche.php?nav=create">Ajouter un Cheval </a>
+        <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
+        <a class="btn btn-primary" href="Cheval_Affiche.php?nav=create">Ajouter un Cheval </a> &nbsp; 
             <form action="Cheval_search.php" method='post'>
             <input placeholder="Nom" type="text" name="nom">
             <button name="search" type="submit id="submit">Rechercher</button>
