@@ -28,7 +28,7 @@ include('../include/defines.inc.php');
             <form action="Cavalier_search.php" method='post'> &nbsp;
             <input placeholder="Nom" type="text" name="nom"> &nbsp;
             <input placeholder="Prenom" type="text" name="prenom">
-            <button name="search" type="submit id="submit">Rechercher</button>
+            <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
             </form>
         </div>
     </div>
