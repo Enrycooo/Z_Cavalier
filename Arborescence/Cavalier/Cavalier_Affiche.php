@@ -128,21 +128,64 @@ include('../include/defines.inc.php');
 
             <form action="Cavalier_trait.php" method="post">
                 <div class="container">
+                <script type="text/javascript">
+        function verif ()
+        {
+            var etat = document.getElementById('check').checked;
+             
+            if(etat)
+            {
+                document.getElementById('1').className = 'off';
+                 
+                document.getElementById('2').className = 'on';
+            }
+            else
+            {
+                document.getElementById('1').className = 'on';
+                 
+                document.getElementById('2').className = 'off';
+            }
+        }
+</script>
+<style type="text/css">
+.on {
+    display: block;
+}
+ 
+.off {
+    display: none;
+}
+</style>
+<input id="check" type="checkbox" onChange="verif();" /><label> Responsable</label>
+<div id="1" class="on"><form action="Cavalier_trait.php" method="post">
+                <div class="container">
                     <div class="form-group">
                 <input placeholder="Nom" type="text" name="nom">
                 <input placeholder="Prenom" type="text" name="prenom">
                 <input placeholder="Date de naissance" type="text" name="DNA">
-                <input type="checkbox" id="responsable" name="responsable">
-                <label for="responsable">Responsable</label>
+                <input placeholder="Galop" type="text" name="gal_cav">
+                <input placeholder="Numero licence" type="text" name="num_lic">
+                <input placeholder="Mail" type="text" name="mail">
+                <input placeholder="Telephone" type="text" name="telephone">
+                <button name="create" type="submit">Enregistrer</button>
+                    </div>
+                </div>
+            </form></div>
+<div id="2" class="off"><form action="Cavalier_trait.php" method="post">
+                <div class="container">
+                    <div class="form-group">
+                <input placeholder="Nom" type="text" name="nom">
+                <input placeholder="Prenom" type="text" name="prenom">
+                <input placeholder="Date de naissance" type="text" name="DNA">
                 <input placeholder="Rue" type="text" name="rue">
                 <input placeholder="Code postal" type="text" name="cp">
                 <input placeholder="Ville" type="text" name="ville">
                 <input placeholder="Mail" type="text" name="mail">
                 <input placeholder="Telephone" type="text" name="telephone">
-                <input placeholder="Galop" type="text" name="gal_cav">
-                <input placeholder="Numero licence" type="text" name="num_lic">
                 <button name="create" type="submit">Enregistrer</button>
                     </div>
+                </div>
+            </form></div>
                 </div>
             </form>
 
