@@ -6,7 +6,7 @@ class Pension{
 	public function db_get_all(){
 		global $conn;
 
-		$request = "SELECT id_pension, lib_pension FROM ".DB_TABLE_PENSION.";";
+		$request = "SELECT * FROM ".DB_TABLE_PENSION.";";
 		try{
 			$sql = $conn->query($request);
 			return $sql->fetchAll(PDO::FETCH_ASSOC);
