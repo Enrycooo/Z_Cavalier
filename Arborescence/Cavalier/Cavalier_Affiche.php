@@ -127,6 +127,7 @@ include('../include/defines.inc.php');
         ?>
             <h1>Créer une personne</h1>
                 <script type="text/javascript">
+                    //fonction javascript permettant de choisir entre responsable et cavalier sans avoir à refresh la page
         function verif ()
         {
             var etat = document.getElementById('check').checked;
