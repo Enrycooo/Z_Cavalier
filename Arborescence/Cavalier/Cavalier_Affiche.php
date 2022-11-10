@@ -23,7 +23,8 @@ include('../include/defines.inc.php');
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
-            <a class="btn btn-success mb-4" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle personne</a>
+        <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a>
+            <a class="btn btn-primary" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle personne</a>
             <form action="Cavalier_search.php" method='post'>
             <input placeholder="Nom" type="text" name="nom">
             <input placeholder="Prenom" type="text" name="prenom">
@@ -183,7 +184,7 @@ include('../include/defines.inc.php');
                 <input placeholder="Ville" type="text" name="ville">
                 <input placeholder="Mail" type="text" name="mail">
                 <input placeholder="Telephone" type="text" name="telephone">
-                <button name="create" type="submit">Enregistrer</button>
+                <button name="create" type="submit" class ="btn btn-primary">Enregistrer</button>
             </div>
         </div>
     </form>

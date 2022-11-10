@@ -1,6 +1,5 @@
 <?php
 include_once('../include/defines.inc.php');
-
 if(isset($_POST["create"])){
     $sql = $conn->prepare("SELECT id_cheval FROM cheval WHERE nom_cheval = :nom");
     $sql->bindValue(':nom', $_POST["nom"],PDO::PARAM_STR);
