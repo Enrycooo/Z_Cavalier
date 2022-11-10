@@ -125,8 +125,6 @@ include('../include/defines.inc.php');
             elseif($_GET['nav'] === 'create'){
         ?>
             <h1>Créer une personne</h1>
-
-                <div class="container">
                 <script type="text/javascript">
         function verif ()
         {
@@ -155,27 +153,29 @@ include('../include/defines.inc.php');
     display: none;
 }
 </style>
-<input id="check" name="responsable" type="checkbox" onChange="verif();" /><label> Responsable</label>
-<div id="1" class="on">
-    <form action="Cavalier_trait.php" method="post">
-                <div class="container">
-                    <div class="form-group">
-                <input placeholder="Nom" type="text" name="nom">
-                <input placeholder="Prenom" type="text" name="prenom">
-                <input placeholder="Date de naissance" type="text" name="DNA">
-                <input placeholder="Galop" type="text" name="gal_cav">
-                <input placeholder="Numero licence" type="text" name="num_lic">
-                <input placeholder="Mail" type="text" name="mail">
-                <input placeholder="Telephone" type="text" name="telephone">
-                <button name="create" type="submit">Enregistrer</button>
-                    </div>
+<div class="container">
+<div class="m-auto">
+    <input id="check" name="responsable" type="checkbox" onChange="verif();" /><label> Responsable</label>
+    <div id="1" class="on">
+        <form action="Cavalier_trait.php" method="post">
+            <div class="container">
+                <div class="form-group">
+                    <input placeholder="Nom" type="text" name="nom">
+                    <input placeholder="Prenom" type="text" name="prenom">
+                    <input placeholder="Date de naissance" type="text" name="DNA">
+                    <input placeholder="Galop" type="text" name="gal_cav">
+                    <input placeholder="Numero licence" type="text" name="num_lic">
+                    <input placeholder="Mail" type="text" name="mail">
+                    <input placeholder="Telephone" type="text" name="telephone">
+                    <button name="create" type="submit">Enregistrer</button>
                 </div>
-            </form>
-</div>
-<div id="2" class="off">
+            </div>
+        </form>
+    </div>
+    <div id="2" class="off">
     <form action="Cavalier_trait.php" method="post">
-                <div class="container">
-                    <div class="form-group">
+        <div class="container">
+            <div class="form-group">
                 <input placeholder="Nom" type="text" name="nom">
                 <input placeholder="Prenom" type="text" name="prenom">
                 <input placeholder="Date de naissance" type="text" name="DNA">
@@ -185,13 +185,14 @@ include('../include/defines.inc.php');
                 <input placeholder="Mail" type="text" name="mail">
                 <input placeholder="Telephone" type="text" name="telephone">
                 <button name="create" type="submit">Enregistrer</button>
-                    </div>
-                </div>
-            </form></div>
-                </div>
-
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+</div>
         <?php
             }
         ?>
-            </body>
-            </html>
+</body>
+</html>
