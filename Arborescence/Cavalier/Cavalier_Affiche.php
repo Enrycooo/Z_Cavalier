@@ -153,9 +153,8 @@ include('../include/defines.inc.php');
     display: none;
 }
 </style>
-<div class="container">
+<div class="row flex-column">
 <div class="m-auto">
-    <input id="check" name="responsable" type="checkbox" onChange="verif();" /><label> Responsable</label>
     <div id="1" class="on">
         <form action="Cavalier_trait.php" method="post">
             <div class="container">
@@ -189,6 +188,7 @@ include('../include/defines.inc.php');
         </div>
     </form>
     </div>
+    <input id="check" name="responsable" type="checkbox" onChange="verif();" /><label> Responsable</label>
 </div>
 </div>
         <?php
