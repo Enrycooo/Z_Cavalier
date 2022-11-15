@@ -45,21 +45,20 @@ include('../include/defines.inc.php');
             <tbody>
                 <?php 
                     foreach ($data as $key) {
-                        $id_type_p = $key["id_type_p"]; ?>
-                        <tr data-value="<?php echo $id_type_p ?>">
-                        <td><center><?php echo $id_type_p ?></center></td>
-                        <td><center><?php echo $key["lib_type_p"] ?></center></td>
+                        $id_type_p= $key["id_type_p"]; 
+                        echo " <tr data-value=".$id_type_p.">
+                        <td><center>".$key["id_type_p"]."</center></td>
+                        <td><center>".$key["lib_type_p"]."</center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
-                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal<?php echo $id_type_p ?>'>
+                            <a type='button' class='btn btn-primary' href='Type_pension_affiche.php?nav=update&id_type_p=".$id_type_p."'>
                                 Modifier
-                            </button>
-                            <form action="Type_pension_trait.php" method="post">
-                                <input type="hidden" name="id_type_p" value="<?php echo $id_type_p ?>">
-                                <button type="submit" name="delete" class="delete-btn btn btn-danger">Supprimer</button>
+                            </a>
+                            <form action='Type_pension_trait.php' method='post'>
+                                <input type='hidden' name='id_type_p' value=".$id_type_p.">
+                                <button type='submit' name='delete' class='delete-btn btn btn-danger'>Supprimer</button>
                             </form>
                         </td>
-                        </tr>
-                        <?php
+                        </tr>";
                     }
                 ?>
             </tbody>
@@ -67,30 +66,24 @@ include('../include/defines.inc.php');
         <?php
         }
 
-            elseif($_GET['nav'] === 'read'){
+            elseif($_GET["nav"] === "update"){
+            $data = $oType_pension->db_get_by_id($_GET["id_type_p"]);
             ?>
 
         <?php
         
-        foreach($data as $key){
-        $id_type_p = $key["id_type_p"]; ?>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modal<?php echo $id_type_p ?>" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Modifier le type de pension</h5>
-                        </div>
+        //foreach($data as $key){
+        //$id_pension = $key["id_pension"]; ?>         
+            <div class="">
                         <form action="Type_pension_trait.php" method="post">
-                            <div class="modal-body form-group">
-                                <label>lib_type_p :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_type_p" value="<?php echo $key["lib_type_p"]; ?>">
-                                <label>lib_type_p ;</label>
+                            <div class="form-group">
+                                <label>Type pension :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_type_p" value="<?php echo $data["lib_type_p"]; ?>">
+                                <input type="hidden" name="id_type_p" value="<?php echo $_GET["id_type_p"]; ?>">
                             </div>
                         
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <div class="">
+                                <a type="button" class="btn btn-secondary" href="Type_pension_affiche.php">Retour</a>
                                 <button type="submit" name="update" class="btn btn-primary">Modifier</button>
                             </div>
                         </form>
@@ -98,7 +91,6 @@ include('../include/defines.inc.php');
                 </div>
             </div>
             <?php
-            }
             }
             elseif($_GET['nav'] === 'create'){
         ?>
