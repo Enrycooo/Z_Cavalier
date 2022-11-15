@@ -125,7 +125,7 @@ include('../include/defines.inc.php');
             }
             elseif($_GET['nav'] === 'create'){
         ?>
-            <h1>Créer une personne</h1>
+<center><h1>Créer une personne</h1></center>
                 <script type="text/javascript">
                     //fonction javascript permettant de choisir entre responsable et cavalier sans avoir à refresh la page
         function verif ()
@@ -155,20 +155,61 @@ include('../include/defines.inc.php');
     display: none;
 }
 </style>
-<div class="row flex-column">
-<div class="m-auto">
+
+    <div class="container">
+                <div class="form-group">
+    <div class="col-3">
+    <input id="check" name="responsable" type="checkbox" onChange="verif();" /><label> Responsable</label>
+    </div>
+                </div>
+    </div>
     <div id="1" class="on">
         <form action="Cavalier_trait.php" method="post">
             <div class="container">
-                <div class="form-group">
-                    <input placeholder="Nom" type="text" name="nom">
-                    <input placeholder="Prenom" type="text" name="prenom">
-                    <input type="date" placeholder="Date de naissance" type="text" name="DNA">
-                    <input type="number" placeholder="Galop" type="text" name="gal_cav">
-                    <input placeholder="Numero licence" type="text" name="num_lic">
-                    <input type="email" placeholder="Mail" type="text" name="mail">
-                    <input type="number" placeholder="Telephone" type="text" name="telephone">
+                <div class="col-9 float-end bg-warning center-align">
+                    <div class="container">
+                <div class="row">
+                    <div class="col-5">
+                    <label for="nom" class="form-label">Nom :</label>
+                    <input placeholder="Nom" class="form-control" id="nom" type="text" name="nom">
+                    </div>
+                    <div class="col-5">
+                    <label for="prenom" class="form-label">Prenom :</label>
+                    <input placeholder="Prenom" class="form-control" id="prenom" type="text" name="prenom">
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <div class="col-5">
+                        <label for="dna" class="form-label">Date de naissance :</label>
+                    <input type="date" id="dna" class="form-control" placeholder="Date de naissance" type="text" name="DNA">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-5">
+                        <label for="galop" class="form-label">Galop :</label>
+                    <input type="number" id="galop" class="form-control" placeholder="Galop" type="text" name="gal_cav">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-5">
+                        <label for="lic" class="form-label">Numéro licence :</label>
+                    <input placeholder="Numero licence" class="form-control" id="lic" type="text" name="num_lic">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-5">
+                        <label for="mail" class="form-label">Mail :</label>
+                    <input type="email" id="mail" class="form-control" placeholder="Mail" type="text" name="mail">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-5">
+                        <label for="tel" class="form-label">Numéro de téléphone :</label>
+                    <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone">
+                    </div>
+                    </div>
                     <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
                 </div>
             </div>
         </form>
@@ -177,6 +218,7 @@ include('../include/defines.inc.php');
     <form action="Cavalier_trait.php" method="post">
         <div class="container">
             <div class="form-group">
+                <fieldset>
                 <input placeholder="Nom" type="text" name="nom">
                 <input placeholder="Prenom" type="text" name="prenom">
                 <input type="date" placeholder="Date de naissance" type="text" name="DNA">
@@ -186,13 +228,11 @@ include('../include/defines.inc.php');
                 <input type="email" placeholder="Mail" type="text" name="mail">
                 <input type="number" placeholder="Telephone" type="text" name="telephone">
                 <button name="create" type="submit" class ="btn btn-primary">Enregistrer</button>
+                </fieldset>
             </div>
         </div>
     </form>
     </div>
-    <input id="check" name="responsable" type="checkbox" onChange="verif();" /><label> Responsable</label>
-</div>
-</div>
         <?php
             }
         ?>
