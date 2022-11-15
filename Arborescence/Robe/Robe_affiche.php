@@ -31,7 +31,7 @@ include('../include/defines.inc.php');
             <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
             <a class="btn btn-primary" href="Robe_affiche.php?nav=create">Créer une nouvelle robe</a> &nbsp;
             <form action="Robe_search.php" method='post'> &nbsp;
-            <input placeholder="lib_robe" type="text" name="lib_robe">Rechercher</button> &nbsp;
+            <input placeholder="lib_robe" type="text" name="lib_robe">Rechercher</button> 
             </form>
         </div>
     </div>

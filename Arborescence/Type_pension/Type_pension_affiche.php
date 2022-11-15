@@ -28,8 +28,9 @@ include('../include/defines.inc.php');
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
-            <a class="btn btn-success mb-4" href="Type_pension_affiche.php?nav=create">Créer un nouveau type de pension</a>
-            <form action="Type_pension_search.php" method='post'>
+            <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
+            <a class="btn btn-primary" href="Type_pension_affiche.php?nav=create">Créer un nouveau type de pension</a> &nbsp;
+            <form action="Type_pension_search.php" method='post'> &nbsp;
             <input placeholder="lib_type_p" type="text" name="lib_type_p">Rechercher</button>
             </form>
         </div>
