@@ -24,7 +24,7 @@ include('../include/defines.inc.php');
     <div class="container">
         <div class="d-flex justify-content-center">
             <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
-            <a class="btn-primary" href="Pension_affiche.php?nav=create">Créer une nouvelle pension</a> &nbsp;
+            <a class="btn btn-primary" href="Pension_affiche.php?nav=create">Créer une nouvelle pension</a> &nbsp;
             <form action="Pension_search.php" method='post'> &nbsp;
             <input placeholder="ref_cheval" type="text" name="ref_cheval"> &nbsp;
             <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
