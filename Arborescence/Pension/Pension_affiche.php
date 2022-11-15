@@ -11,11 +11,6 @@ include('../include/defines.inc.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <title>Pension</title>
-    <script>
-        $('#trigger').click(function () {
-	$('#modal').modal({show : true});
-});
-    </script>
 </head>
 <body>
     <script> 
@@ -28,10 +23,11 @@ include('../include/defines.inc.php');
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
-            <a class="btn btn-success mb-4" href="Pension_affiche.php?nav=create">Créer une nouvelle pension</a>
-            <form action="Pension_search.php" method='post'>
-            <input placeholder="ref_cheval" type="text" name="ref_cheval">
-            <button name="search" type="submit id="submit">Rechercher</button>
+            <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
+            <a class="btn btn-primary" href="Pension_affiche.php?nav=create">Créer une nouvelle pension</a> &nbsp;
+            <form action="Pension_search.php" method='post'> &nbsp;
+            <input placeholder="ref_cheval" type="text" name="ref_cheval"> &nbsp;
+            <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
             </form>
         </div>
     </div>
@@ -120,18 +116,18 @@ include('../include/defines.inc.php');
             elseif($_GET['nav'] === 'create'){
         ?>
             <h1>Créer une pension</h1>
-
+            
             <form action="Pension_trait.php" method="post">
                 <div class="container">
                     <div class="form-group">
                 <input placeholder="ref_cheval" type="text" name="ref_cheval">
                 <input placeholder="lib_pension" type="text" name="lib_pension">
-                <input placeholder="date_deb_pension" type="text" name="date_deb_pension">
+                <input type="date" placeholder="date_deb_pension" type="text" name="date_deb_pension">
                 <input placeholder="duree_pension" type="text" name="duree_pension">
                 <input placeholder="tarif_pension" type="text" name="tarif_pension">
                 <input placeholder="ref_type_p" type="text" name="ref_type_p">
                 <input placeholder="ref_per" type="text" name="ref_per">
-                <button name="create" type="submit">Pension</button>
+                <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </div>
             </form>
