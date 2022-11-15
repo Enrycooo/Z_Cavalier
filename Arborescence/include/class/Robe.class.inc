@@ -15,6 +15,24 @@ class Robe{
 		}
 	}
 
+                public function db_get_by_id($id_robe=0){
+		$id_robe = (int) $id_robe;
+		if(!$id_robe){
+			return false;
+		}
+                
+                global $conn;
+
+		$request = "SELECT * FROM ".DB_TABLE_ROBE." WHERE id_robe = :id";
+		$sql = $conn->prepare($request);
+		$sql->bindValue(':id', $id_robe, PDO::PARAM_INT);
+		try{
+			$sql->execute();
+			return $sql->fetch(PDO::FETCH_ASSOC);
+		}catch(PDOException $e){
+			return $this->errmessage.$e->getMessage();
+		}
+	}
 
 	public function db_create($lib_robe=""){
 

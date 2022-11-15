@@ -28,9 +28,10 @@ include('../include/defines.inc.php');
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
-            <a class="btn btn-success mb-4" href="Robe_affiche.php?nav=create">Créer une nouvelle robe</a>
-            <form action="Robe_search.php" method='post'>
-            <input placeholder="lib_robe" type="text" name="lib_robe">Rechercher</button>
+            <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
+            <a class="btn btn-primary" href="Robe_affiche.php?nav=create">Créer une nouvelle robe</a> &nbsp;
+            <form action="Robe_search.php" method='post'> &nbsp;
+            <input placeholder="lib_robe" type="text" name="lib_robe">Rechercher</button> 
             </form>
         </div>
     </div>
@@ -45,21 +46,20 @@ include('../include/defines.inc.php');
             <tbody>
                 <?php 
                     foreach ($data as $key) {
-                        $id_robe = $key["id_robe"]; ?>
-                        <tr data-value="<?php echo $id_robe ?>">
-                        <td><center><?php echo $id_robe ?></center></td>
-                        <td><center><?php echo $key["lib_robe"] ?></center></td>
+                        $id_robe = $key["id_robe"];
+                        echo " <tr data-value=".$id_robe.">
+                        <td><center>".$key["id_robe"]."</center></td>
+                        <td><center>".$key["lib_robe"]."</center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
-                            <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modal<?php echo $id_robe ?>'>
+                            <a type='button' class='btn btn-primary' href='Robe_affiche.php?nav=update&id_robe=".$id_robe."'>
                                 Modifier
-                            </button>
-                            <form action="Robe_trait.php" method="post">
-                                <input type="hidden" name="id_robe" value="<?php echo $id_robe ?>">
-                                <button type="submit" name="delete" class="delete-btn btn btn-danger">Supprimer</button>
+                            </a>
+                            <form action='Robe_trait.php' method='post'>
+                                <input type='hidden' name='id_robe' value=".$id_robe.">
+                                <button type='submit' name='delete' class='delete-btn btn btn-danger'>Supprimer</button>
                             </form>
                         </td>
-                        </tr>
-                        <?php
+                        </tr>";
                     }
                 ?>
             </tbody>
@@ -67,30 +67,23 @@ include('../include/defines.inc.php');
         <?php
         }
 
-            elseif($_GET['nav'] === 'read'){
+            elseif($_GET["nav"] === "update"){
+            $data = $oRobe->db_get_by_id($_GET["id_robe"]);
             ?>
-
         <?php
         
-        foreach($data as $key){
-        $id_robe = $key["id_robe"]; ?>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modal<?php echo $id_robe ?>" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Modifier la Robe</h5>
-                        </div>
+        //foreach($data as $key){
+        //$id_pension = $key["id_pension"]; ?>         
+            <div class="">
                         <form action="Robe_trait.php" method="post">
-                            <div class="modal-body form-group">
-                                <label>lib_robe :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_robe" value="<?php echo $key["lib_robe"]; ?>">
-                                <label>lib_robe ;</label>
+                            <div class="form-group">
+                                <label>Nom robe :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_robe" value="<?php echo $data["lib_robe"]; ?>">
+                                <input type="hidden" name="id_robe" value="<?php echo $_GET["id_robe"]; ?>">
                             </div>
                         
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <div class="">
+                                <a type="button" class="btn btn-secondary" href="Robe_affiche.php">Retour</a>
                                 <button type="submit" name="update" class="btn btn-primary">Modifier</button>
                             </div>
                         </form>
@@ -98,7 +91,6 @@ include('../include/defines.inc.php');
                 </div>
             </div>
             <?php
-            }
             }
             elseif($_GET['nav'] === 'create'){
         ?>

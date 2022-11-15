@@ -14,6 +14,25 @@ class Type_pension{
 			return $this->errmessage.$e->getMessage();
 		}
 	}
+        
+                public function db_get_by_id($id_type_p=0){
+		$id_type_p = (int) $id_type_p;
+		if(!$id_type_p){
+			return false;
+		}
+                
+                global $conn;
+
+		$request = "SELECT * FROM ".DB_TABLE_TYPE_PENSION." WHERE id_type_p = :id";
+		$sql = $conn->prepare($request);
+		$sql->bindValue(':id', $id_type_p, PDO::PARAM_INT);
+		try{
+			$sql->execute();
+			return $sql->fetch(PDO::FETCH_ASSOC);
+		}catch(PDOException $e){
+			return $this->errmessage.$e->getMessage();
+		}
+	}
 
 
 	public function db_create($lib_type_p=""){
