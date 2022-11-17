@@ -104,6 +104,7 @@ if(isset($_POST["create"])){
     ?>
         <script>
                 alert("La suppression n'a pas fonctionné")
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
         </script>
         <?php
     }

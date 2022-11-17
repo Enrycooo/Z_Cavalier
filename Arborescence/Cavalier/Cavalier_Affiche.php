@@ -8,8 +8,16 @@ include('../include/defines.inc.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "input" ).checkboxradio();
+  } );
+  </script>
     <title>Personne</title>
 </head>
 <body>
@@ -32,7 +40,7 @@ include('../include/defines.inc.php');
             </form>
         </div>
     </div>
- 
+    
             <div class="row">
                 <div class="col">
                     <table class='table table-hover'>
@@ -82,7 +90,7 @@ include('../include/defines.inc.php');
         </table>
         <?php
         }
-
+        //Tout ce qui se trouve en dessous de $_GET["nav"] === update est pour la modification
         elseif($_GET["nav"] === "update"){
         $data = $oCavalier->db_get_by_id($_GET["id_personne"]);
         ?>
@@ -123,6 +131,7 @@ include('../include/defines.inc.php');
             </div>
             <?php
             }
+            //Tout ce qui se trouve en dessous de $_GET['nav'] === create est pour l'insertion de personne dans la BDD
             elseif($_GET['nav'] === 'create'){
         ?>
 <center><h1>Créer une personne</h1></center>
@@ -155,14 +164,9 @@ include('../include/defines.inc.php');
     display: none;
 }
 </style>
-
-    <div class="container">
-                <div class="form-group">
-    <div class="col-3">
-    <input id="check" name="responsable" type="checkbox" onChange="verif();" /><label> Responsable</label>
-    </div>
-                </div>
-    </div>
+<div class="widget">
+    <center><label for="check">Responsable</label>
+        <input  id="check" name="checkbox" type="checkbox" onChange="verif();" ></center>
     <div id="1" class="on">
         <form action="Cavalier_trait.php" method="post">
             <div class="container">
@@ -208,6 +212,7 @@ include('../include/defines.inc.php');
                     <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone">
                     </div>
                     </div>
+                        <a type="button" class="btn btn-secondary" href="Cavalier_Affiche.php">Retour</a>
                     <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
                 </div>
                 </div>
@@ -217,22 +222,62 @@ include('../include/defines.inc.php');
     <div id="2" class="off">
     <form action="Cavalier_trait.php" method="post">
         <div class="container">
-            <div class="form-group">
-                <fieldset>
-                <input placeholder="Nom" type="text" name="nom">
-                <input placeholder="Prenom" type="text" name="prenom">
-                <input type="date" placeholder="Date de naissance" type="text" name="DNA">
-                <input placeholder="Rue" type="text" name="rue">
-                <input type="number" placeholder="Code postal" type="text" name="cp">
-                <input placeholder="Ville" type="text" name="ville">
-                <input type="email" placeholder="Mail" type="text" name="mail">
-                <input type="number" placeholder="Telephone" type="text" name="telephone">
+                <div class="col-9 float-end bg-warning center-align">
+                    <div class="container">
+                <div class="row">
+                    <div class="col-5">
+                    <label for="nom" class="form-label">Nom :</label>
+                    <input placeholder="Nom" class="form-control" id="nom" type="text" name="nom">
+                    </div>
+                    <div class="col-5">
+                    <label for="prenom" class="form-label">Prenom :</label>
+                    <input placeholder="Prenom" class="form-control" id="prenom" type="text" name="prenom">
+                    </div>
+                </div>
+                        <div class="form-group">
+                        <div class="col-5">
+                            <label for="dna" class="form-label">Date de naissance :</label>
+                <input type="date" placeholder="Date de naissance" class="form-control" type="text" name="DNA">
+                        </div>
+                </div>
+                <div class="form-group">
+                        <div class="col-5">
+                            <label for="rue" class="form-label">Rue :</label>
+                <input placeholder="Rue" class="form-control" id="rue" type="text" name="rue">
+                        </div>
+                </div>
+                <div class="form-group">
+                        <div class="col-5">
+                            <label for="cp" class="form-label">Code postal :</label>
+                <input type="number" id="cp" class="form-control" placeholder="Code postal" type="text" name="cp">
+                        </div>
+                </div>
+                <div class="form-group">
+                        <div class="col-5">
+                            <label for="ville" class="form-label">Ville :</label>
+                <input placeholder="Ville" class="form-control" id="ville" type="text" name="ville">
+                        </div>
+                </div>
+                <div class="form-group">
+                        <div class="col-5">
+                            <label for="mail" class="form-label">Mail :</label>
+                <input type="email" id="mail" class="form-control" placeholder="Mail" type="text" name="mail">
+                        </div>
+                </div>
+                <div class="form-group">
+                        <div class="col-5">
+                            <label for="tel" class="form-label">Numéro de téléphone :</label>
+                <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone">
+                        </div>
+                </div>
+                       <a type="button" class="btn btn-secondary" href="Cavalier_Affiche.php">Retour</a>
                 <button name="create" type="submit" class ="btn btn-primary">Enregistrer</button>
-                </fieldset>
             </div>
+        </div>
         </div>
     </form>
     </div>
+</div>
         <?php
             }
         ?>
