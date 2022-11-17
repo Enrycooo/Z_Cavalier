@@ -33,6 +33,10 @@ include('../include/defines.inc.php');
         <div class="d-flex justify-content-center">
         <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
             <a class="btn btn-primary" href="Cours_Affiche.php?nav=create">Créer un nouveau cours</a> &nbsp;
+            <form action="Cours_search.php" method='post'>
+                <input placeholder="Date" type="datetime-local" name="date_cours">
+            <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
+            </form>
         </div>
     </div>
     
