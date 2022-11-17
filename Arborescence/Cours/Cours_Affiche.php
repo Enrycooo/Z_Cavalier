@@ -1,6 +1,6 @@
-<?php
-include('../include/defines.inc.php');
-?>
+    <?php
+    include('../include/defines.inc.php');
+    ?>
 
 <!DOCTYPE html>
 <html lang="fr">
