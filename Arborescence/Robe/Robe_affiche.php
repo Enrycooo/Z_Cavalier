@@ -78,7 +78,7 @@ include('../include/defines.inc.php');
             <div class="">
                         <form action="Robe_trait.php" method="post">
                             <div class="form-group">
-                                <label>Nom robe :</label>
+                                <label>Nom robe:</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_robe" value="<?php echo $data["lib_robe"]; ?>">
                                 <input type="hidden" name="id_robe" value="<?php echo $_GET["id_robe"]; ?>">
                             </div>
