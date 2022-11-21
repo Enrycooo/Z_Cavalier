@@ -1,6 +1,5 @@
 {
     "require": {
-        "dcblogdev/pdo-wrapper": "^2.0",
-        "rlanvin/php-rrule": "^2.3"
+        "dcblogdev/pdo-wrapper": "^2.0"
     }
 }
