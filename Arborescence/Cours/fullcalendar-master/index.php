@@ -87,11 +87,6 @@
 
                     </div>
 
-                    
-
-                </div>
-
-            </div>
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
@@ -100,6 +95,9 @@
 
             </form>
 
+                    </div>
+
+            </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
@@ -164,10 +162,6 @@
 
                     </div>
 
-                </div>
-
-            </div>
-
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
               <button type="submit" class="btn btn-primary">Enregistrer</button>
@@ -176,6 +170,9 @@
 
             </form>
 
+                    </div>
+
+            </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

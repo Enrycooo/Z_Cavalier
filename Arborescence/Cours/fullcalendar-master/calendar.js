@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     $('#editeventmodal').modal('hide');
 
                     //refresh calendar
-                    calendar.refetchEvents();         
+                    calendar.refetchEvents();
                 }
             });
             
