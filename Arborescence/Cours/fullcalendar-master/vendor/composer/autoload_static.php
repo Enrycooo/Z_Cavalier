@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInitfc0e2afc17b96114b4b4658f129bd6e5
 {
     public static $prefixLengthsPsr4 = array (
+        'R' => 
+        array (
+            'RRule\\' => 6,
+        ),
         'D' => 
         array (
             'Dcblogdev\\PdoWrapper\\' => 21,
@@ -14,6 +18,10 @@ class ComposerStaticInitfc0e2afc17b96114b4b4658f129bd6e5
     );
 
     public static $prefixDirsPsr4 = array (
+        'RRule\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rlanvin/php-rrule/src',
+        ),
         'Dcblogdev\\PdoWrapper\\' => 
         array (
             0 => __DIR__ . '/..' . '/dcblogdev/pdo-wrapper/src',
