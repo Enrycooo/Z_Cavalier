@@ -25,6 +25,7 @@
     <script src='<?=$dir;?>packages/datepicker/datepicker.js'></script>
     <script src='<?=$dir;?>packages/colorpicker/bootstrap-colorpicker.min.js'></script>
     <script src='<?=$dir;?>calendar.js'></script>
+    <script src='fullcalendar/core/locales/fr.js'></script>
 </head>
 <body>
 
