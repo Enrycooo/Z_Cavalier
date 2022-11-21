@@ -10,7 +10,7 @@ include('../include/defines.inc.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <title>Type_pension</title>
+    <title>Type pension</title>
     <script>
         $('#trigger').click(function () {
 	$('#modal').modal({show : true});
@@ -30,8 +30,9 @@ include('../include/defines.inc.php');
         <div class="d-flex justify-content-center">
             <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
             <a class="btn btn-primary" href="Type_pension_affiche.php?nav=create">Créer un nouveau type de pension</a> &nbsp;
-            <form action="Type_pension_search.php" method='post'> &nbsp;
-            <input placeholder="lib_type_p" type="text" name="lib_type_p">Rechercher</button>
+            <form action="Type_pension_search.php" method='post' title="Veuillez renseigner le type de pension concerné par votre recherche"> &nbsp;
+            <input placeholder="lib_type_p" type="text" name="lib_type_p">
+            <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
             </form>
         </div>
     </div>
@@ -95,7 +96,7 @@ include('../include/defines.inc.php');
             }
             elseif($_GET['nav'] === 'create'){
         ?>
-            <h1>Créer un type de pension</h1>
+           <h1>Créer un type de pension</h1>
 
             <form action="Type_pension_trait.php" method="post">
                 <div class="container">
@@ -104,7 +105,7 @@ include('../include/defines.inc.php');
                 <button name="create" type="submit">Type_pension</button>
                     </div>
                 </div>
-            </form>
+            </form
 
         <?php
             }
