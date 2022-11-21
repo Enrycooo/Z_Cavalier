@@ -98,15 +98,23 @@ include('../include/defines.inc.php');
         ?>
            <h1>Créer un type de pension</h1>
 
-            <form action="Type_pension_trait.php" method="post">
-                <div class="container">
-                    <div class="form-group">
-                <input placeholder="lib_type_p" type="text" name="lib_type_p">
-                <button name="create" type="submit">Type_pension</button>
+        <form action="Type_pension_trait.php" method="post">
+            <div class="container">
+                <div class="col-9 float-end bg-warning center-align">
+                    <div class="container">
+                <div class="row">
+                    <div class="col-5">
+                    <label for="lib_type_p" class="form-label">Nom Type pension :</label>
+                    <input placeholder="lib_type_p" class="form-control" id="nom" type="text" name="lib_type_p">
                     </div>
+                    </div>
+                        <a type="button" class="btn btn-secondary" href="Type_pension_affiche.php">Retour</a>
+                    <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
                 </div>
-            </form
-
+                </div>
+            </div>
+        </form>
+    </div>
         <?php
             }
         ?>

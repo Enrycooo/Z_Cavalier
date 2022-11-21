@@ -97,14 +97,22 @@ include('../include/defines.inc.php');
         ?>
             <h1>Créer une Robe</h1>
 
-            <form action="Robe_trait.php" method="post">
-                <div class="container">
-                    <div class="form-group">
-                <input placeholder="lib_robe" type="text" name="lib_robe">
-                <button name="create" type="submit">Robe</button>
+        <form action="Robe_trait.php" method="post">
+            <div class="container">
+                <div class="col-9 float-end bg-warning center-align">
+                    <div class="container">
+                <div class="row">
+                    <div class="col-5">
+                    <label for="lib_robe" class="form-label">Robe :</label>
+                    <input placeholder="lib_robe" class="form-control" id="nom" type="text" name="lib_robe">
                     </div>
+                        <a type="button" class="btn btn-secondary" href=Robe_affiche.php">Retour</a>
+                    <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
                 </div>
-            </form>
+                </div>
+            </div>
+        </form>
+    </div>
 
         <?php
             }

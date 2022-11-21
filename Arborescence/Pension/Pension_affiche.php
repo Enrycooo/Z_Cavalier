@@ -162,7 +162,7 @@ include('../include/defines.inc.php');
                     <input type="ref_per" id="tel" class="form-control" placeholder="ref_per" type="text" name="ref_per">
                     </div>
                     </div>
-                        <a type="button" class="btn btn-secondary" href="Pension_Affiche.php">Retour</a>
+                        <a type="button" class="btn btn-secondary" href="Pension_affiche.php">Retour</a>
                     <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
                 </div>
                 </div>
