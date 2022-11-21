@@ -34,8 +34,8 @@ include('../include/defines.inc.php');
         <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
             <a class="btn btn-primary" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle personne</a> &nbsp;
             <form action="Cavalier_search.php" method='post'> &nbsp;
-            <input placeholder="Nom" type="text" name="nom"> &nbsp;
-            <input placeholder="Prenom" type="text" name="prenom">
+            <input placeholder="Nom" type="text" name="nom" title="Veuillez renseigner le nom de la personne concernée par votre recherche"> &nbsp;
+            <input placeholder="Prenom" type="text" name="prenom" title="Veuillez renseigner le prenom de la personne concernée par votre recherche">
             <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
             </form>
         </div>

@@ -26,7 +26,7 @@ include('../include/defines.inc.php');
             <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
             <a class="btn btn-primary" href="Pension_affiche.php?nav=create">Créer une nouvelle pension</a> &nbsp;
             <form action="Pension_search.php" method='post'> &nbsp;
-            <input placeholder="ref_cheval" type="text" name="ref_cheval"> &nbsp;
+            <input placeholder="ref_cheval" type="text" name="ref_cheval" title="Veuillez renseigner l'identifiant du cheval concerné par votre recherche"> &nbsp;
             <input placeholder="lib_pension" type="text" name="lib_pension"> &nbsp;
             <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
             </form>
