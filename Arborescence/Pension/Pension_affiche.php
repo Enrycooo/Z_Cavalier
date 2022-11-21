@@ -135,13 +135,13 @@ include('../include/defines.inc.php');
                     <div class="form-group">
                         <div class="col-5">
                         <label for="date_deb_pension" class="form-label">Date début de pension:</label>
-                    <input type="date_deb_pension" id="dna" class="form-control" placeholder="date_deb_pension" type="text" name="date_deb_pension">
+                    <input type="date" id="dna" class="form-control" placeholder="date_deb_pension" type="text" name="date_deb_pension">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-5">
                         <label for="duree_pension" class="form-label">Durée pension (en mois) :</label>
-                    <input type="duree_pension" id="galop" class="form-control" placeholder="duree_pension" type="text" name="duree_pension">
+                    <input type="text" id="galop" class="form-control" placeholder="duree_pension" type="text" name="duree_pension">
                         </div>
                     </div>
                     <div class="form-group">
@@ -153,13 +153,13 @@ include('../include/defines.inc.php');
                     <div class="form-group">
                         <div class="col-5">
                         <label for="ref_type_p" class="form-label">Id type pension :</label>
-                    <input type="ref_type_p" id="mail" class="form-control" placeholder="ref_type_p" type="text" name="ref_type_p">
+                    <input type="text" id="mail" class="form-control" placeholder="ref_type_p" type="text" name="ref_type_p">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-5">
                         <label for="ref_per" class="form-label">Id personne :</label>
-                    <input type="ref_per" id="tel" class="form-control" placeholder="ref_per" type="text" name="ref_per">
+                    <input type="text" id="tel" class="form-control" placeholder="ref_per" type="text" name="ref_per">
                     </div>
                     </div>
                         <a type="button" class="btn btn-secondary" href="Pension_affiche.php">Retour</a>
