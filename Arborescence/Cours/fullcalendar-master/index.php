@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calandar</title>
+    <title>Calendrier</title>
     
     <link href='<?=$dir;?>packages/core/main.css' rel='stylesheet' />
     <link href='<?=$dir;?>packages/daygrid/main.css' rel='stylesheet' />
@@ -194,7 +194,7 @@
 <div class="container">
 
     <p><br><a></a></p>
-
+    <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addeventmodal">
       Ajouter un cours
     </button>
