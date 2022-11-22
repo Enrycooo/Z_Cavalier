@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calandar</title>
+    <title>Calendrier</title>
     
     <link href='<?=$dir;?>packages/core/main.css' rel='stylesheet' />
     <link href='<?=$dir;?>packages/daygrid/main.css' rel='stylesheet' />
@@ -81,6 +81,19 @@
                             <div id="textcolor-group" class="form-group">
                                 <label class="control-label" for="textcolor">Couleur de texte</label>
                                 <input type="text" class="form-control colorpicker" name="text_color" value="#ffffff">
+                                <!-- errors will go here -->
+                            </div>
+                            
+                            <div id="textcolor-group" class="form-group">
+                                <label class="control-label" for="textcolor">Récurrence :</label>
+                                <select name="recurrence" id="recurrence">
+                                    <option>--Choisissez une option--</option>
+                                    <option value='0'>Pas de récurrence</option>
+                                    <option value="1">Journalier</option>
+                                    <option value="2">Hebdomadaire</option>
+                                    <option value="3">Mensuel</option>
+                                </select>
+                                
                                 <!-- errors will go here -->
                             </div>
 
@@ -181,7 +194,7 @@
 <div class="container">
 
     <p><br><a></a></p>
-
+    <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addeventmodal">
       Ajouter un cours
     </button>
