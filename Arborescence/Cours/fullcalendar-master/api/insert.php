@@ -11,6 +11,7 @@ if (isset($_POST['title'])) {
     $color      = $_POST['color'];
     $text_color = $_POST['text_color'];
     $rec        = $_POST['recurrence'];
+    $hours = $end->format('H') - $start-format('H');
 
     //validation
     if ($title == '') {
@@ -37,7 +38,7 @@ if (isset($_POST['title'])) {
 
         //store
         $dateT = $start;
-        $dateF = date('Y-m-d H:i:s', strtotime($dateT. ' + 4 hours'));
+        $dateF = date('Y-m-d H:i:s', strtotime($dateT. ' + '.$hours.' hours'));
         if($rec == 1){
             while($dateT<$end){
             $insert = [
