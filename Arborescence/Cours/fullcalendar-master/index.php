@@ -83,6 +83,19 @@
                                 <input type="text" class="form-control colorpicker" name="text_color" value="#ffffff">
                                 <!-- errors will go here -->
                             </div>
+                            
+                            <div id="textcolor-group" class="form-group">
+                                <label class="control-label" for="textcolor">Récurrence :</label>
+                                <select name="recurrence" id="recurrence">
+                                    <option>--Choisissez une option--</option>
+                                    <option value='0'>Pas de récurrence</option>
+                                    <option value="1">Journalier</option>
+                                    <option value="2">Hebdomadaire</option>
+                                    <option value="3">Mensuel</option>
+                                </select>
+                                
+                                <!-- errors will go here -->
+                            </div>
 
                         </div>
 

@@ -10,6 +10,7 @@ if (isset($_POST['title'])) {
     $end        = $_POST['endDate'];
     $color      = $_POST['color'];
     $text_color = $_POST['text_color'];
+    $rec        = $_POST['recurrence'];
 
     //validation
     if ($title == '') {
@@ -37,6 +38,20 @@ if (isset($_POST['title'])) {
         //store
         $dateT = $start;
         $dateF = date('Y-m-d H:i:s', strtotime($dateT. ' + 4 hours'));
+        if($rec == 1){
+            while($dateT<$end){
+            $insert = [
+            'title'       => $title,
+            'start_event' => $dateT,
+            'end_event'   => $dateF,
+            'color'       => $color,
+            'text_color'  => $text_color
+            ];
+            $db->insert('cours', $insert);
+            $dateT = date('Y-m-d H:i:s', strtotime($dateT. ' + 1 days'));
+        }
+        }
+        if($rec == 2){
         while($dateT<$end){
             $insert = [
             'title'       => $title,
@@ -47,6 +62,32 @@ if (isset($_POST['title'])) {
         ];
             $db->insert('cours', $insert);
             $dateT = date('Y-m-d H:i:s', strtotime($dateT. ' + 7 days'));
+        }
+        }
+        elseif($rec == 3){
+            while($dateT<$end){
+            $insert = [
+            'title'       => $title,
+            'start_event' => $dateT,
+            'end_event'   => $dateF,
+            'color'       => $color,
+            'text_color'  => $text_color
+        ];
+            $db->insert('cours', $insert);
+            $dateT = date('Y-m-d H:i:s', strtotime($dateT. ' + 1 month'));
+        }
+        }
+        elseif($rec == 0){
+            while($dateT<$end){
+            $insert = [
+            'title'       => $title,
+            'start_event' => $dateT,
+            'end_event'   => $dateF,
+            'color'       => $color,
+            'text_color'  => $text_color
+        ];
+            $db->insert('cours', $insert);
+        }
         }
       
     } else {
