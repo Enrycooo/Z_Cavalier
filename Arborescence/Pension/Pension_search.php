@@ -2,9 +2,11 @@
 include_once('../include/defines.inc.php');
 
 $sql = "SELECT * FROM pension
-        WHERE ref_cheval = :ref_cheval";
+        WHERE ref_cheval = :ref_cheval
+        OR lib_pension = :lib_pension";
 $req = $conn->prepare($sql);
 $req->bindValue(':ref_cheval',$_POST['ref_cheval'],PDO::PARAM_STR);
+$req->bindValue(':lib_pension',$_POST['lib_pension'],PDO::PARAM_STR);
 $res = $req->execute();
 ?>
 <html>
