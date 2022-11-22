@@ -31,7 +31,7 @@ include('../include/defines.inc.php');
             <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
             <a class="btn btn-primary" href="Robe_affiche.php?nav=create">Créer une nouvelle robe</a> &nbsp;
             <form action="Robe_search.php" method='post'> &nbsp;
-            <input placeholder="lib_robe" type="text" name="lib_robe" title="Veuillez renseigner le nom de la robe concernée par votre recherche">
+            <input placeholder="nom de la robe" type="text" name="lib_robe" title="Veuillez renseigner le nom de la robe concernée par votre recherche">
             <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
             </form>
         </div>
@@ -41,8 +41,9 @@ include('../include/defines.inc.php');
                 <div class="col">
                     <table class='table table-hover'>
             <thead>
-                <th style='text-align :center'>id_robe</th>
-                <th style='text-align :center'>lib_robe</th>
+                <th style='text-align :center'>id robe</th>
+                <th style='text-align :center'>nom robe</th>
+                <th style='text-align :center'>Actions</th>
             </thead>
             <tbody>
                 <?php 
@@ -104,7 +105,7 @@ include('../include/defines.inc.php');
                 <div class="row">
                     <div class="col-5">
                     <label for="lib_robe" class="form-label">Robe :</label>
-                    <input placeholder="lib_robe" class="form-control" id="nom" type="text" name="lib_robe">
+                    <input placeholder="nom de la robe" class="form-control" id="nom" type="text" name="lib_robe">
                     </div>
                         <a type="button" class="btn btn-secondary" href=Robe_affiche.php">Retour</a>
                     <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>

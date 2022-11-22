@@ -10,7 +10,7 @@ $res = $req->execute();
 <html>
     <head>
         <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-        <title>Type_Pension</title>
+        <title>Type Pension</title>
     </head>
     <body>
         <div class="container">
@@ -19,8 +19,8 @@ $res = $req->execute();
                     <table class='table table-hover'>
                     <thead>
                         <tr>
-                            <th style='text-align :center'>id_type_p</th>
-                            <th style='text-align :center'>lib_type_p</th>
+                            <th style='text-align :center'>id type pension</th>
+                            <th style='text-align :center'>nom type pension</th>
                         </tr>
                     </thead>
                     <tbody>

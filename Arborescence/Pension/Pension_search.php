@@ -21,14 +21,14 @@ $res = $req->execute();
                     <table class='table table-hover'>
                     <thead>
                         <tr>
-                            <th style='text-align :center'>id_pension</th>
-                            <th style='text-align :center'>ref_cheval</th>
-                            <th style='text-align :center'>lib_pension</th>
-                            <th style='text-align :center'>date_deb_pension</th>
-                            <th style='text-align :center'>duree_pension</th>
-                            <th style='text-align :center'>tarif_pension</th>
-                            <th style='text-align :center'>ref_type_p</th>
-                            <th style='text-align :center'>ref_per</th>
+                            <th style='text-align :center'>id pension</th>
+                            <th style='text-align :center'>ref cheval</th>
+                            <th style='text-align :center'>type pension</th>
+                            <th style='text-align :center'>date debut pension</th>
+                            <th style='text-align :center'>duree pension</th>
+                            <th style='text-align :center'>tarif pension</th>
+                            <th style='text-align :center'>ref type pension</th>
+                            <th style='text-align :center'>ref personne</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -31,7 +31,7 @@ include('../include/defines.inc.php');
             <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
             <a class="btn btn-primary" href="Type_pension_affiche.php?nav=create">Créer un nouveau type de pension</a> &nbsp;
             <form action="Type_pension_search.php" method='post' title="Veuillez renseigner le type de pension concerné par votre recherche"> &nbsp;
-            <input placeholder="lib_type_p" type="text" name="lib_type_p">
+            <input placeholder="nom du type de pension" type="text" name="lib_type_p">
             <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
             </form>
         </div>
@@ -41,8 +41,9 @@ include('../include/defines.inc.php');
                 <div class="col">
                     <table class='table table-hover'>
             <thead>
-                <th style='text-align :center'>id_type_p</th>
-                <th style='text-align :center'>lib_type_p</th>
+                <th style='text-align :center'>id type pension</th>
+                <th style='text-align :center'>nom type pension</th>
+                <th style='text-align :center'>Actions</th>
             </thead>
             <tbody>
                 <?php 
@@ -105,7 +106,7 @@ include('../include/defines.inc.php');
                 <div class="row">
                     <div class="col-5">
                     <label for="lib_type_p" class="form-label">Nom Type pension :</label>
-                    <input placeholder="lib_type_p" class="form-control" id="nom" type="text" name="lib_type_p">
+                    <input placeholder="nom du type de pension" class="form-control" id="nom" type="text" name="lib_type_p">
                     </div>
                     </div>
                         <a type="button" class="btn btn-secondary" href="Type_pension_affiche.php">Retour</a>

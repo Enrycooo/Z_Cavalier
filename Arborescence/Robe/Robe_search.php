@@ -19,8 +19,8 @@ $res = $req->execute();
                     <table class='table table-hover'>
                     <thead>
                         <tr>
-                            <th style='text-align :center'>id_robe</th>
-                            <th style='text-align :center'>lib_robe</th>
+                            <th style='text-align :center'>id robe</th>
+                            <th style='text-align :center'>nom robe</th>
                         </tr>
                     </thead>
                     <tbody>
