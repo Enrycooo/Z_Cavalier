@@ -35,14 +35,19 @@ if (isset($_POST['title'])) {
         $data['message'] = 'Success!';
 
         //store
-        $insert = [
+        $dateT = $start;
+        $dateF = date('Y-m-d H:i:s', strtotime($dateT. ' + 4 hours'));
+        while($dateT<$end){
+            $insert = [
             'title'       => $title,
-            'start_event' => $start,
-            'end_event'   => $end,
+            'start_event' => $dateT,
+            'end_event'   => $dateF,
             'color'       => $color,
             'text_color'  => $text_color
         ];
-        $db->insert('cours', $insert);
+            $db->insert('cours', $insert);
+            $dateT = date('Y-m-d H:i:s', strtotime($dateT. ' + 7 days'));
+        }
       
     } else {
 
