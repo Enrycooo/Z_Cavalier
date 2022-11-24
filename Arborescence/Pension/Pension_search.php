@@ -40,7 +40,7 @@ $res = $req->execute();
                             <td><center><?php echo $value["ref_cheval"] ?></center></td>
                             <td><center><?php echo $value["lib_pension"] ?></center></td>
                             <td><center><?php echo $value["date_deb_pension"] ?></center></td>
-                            <td><center><?php echo $value["duree_pension"] ?></center></td>
+                            <td><center><?php echo $value["date_fin_pension"] ?></center></td>
                             <td><center><?php echo $value["tarif_pension"] ?></center></td>
                             <td><center><?php echo $value["ref_type_p"] ?></center></td>
                             <td><center><?php echo $value["ref_per"] ?></center></td>

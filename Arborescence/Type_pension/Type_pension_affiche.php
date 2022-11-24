@@ -41,8 +41,8 @@ include('../include/defines.inc.php');
                 <div class="col">
                     <table class='table table-hover'>
             <thead>
-                <th style='text-align :center'>id type pension</th>
-                <th style='text-align :center'>nom type pension</th>
+                <th style='text-align :center'>Id </th>
+                <th style='text-align :center'>Nom du type de pension</th>
                 <th style='text-align :center'>Actions</th>
             </thead>
             <tbody>
