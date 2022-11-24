@@ -37,7 +37,8 @@ if (isset($_POST['title'])) {
 
         //store
         $dateT = $start;
-        $dateF = date('Y-m-d H:i:s', strtotime($dateT. ' + 4 hours'));
+        $hours = date('h', strtotime($end)) - date('h', strtotime($start));
+        $dateF = date('Y-m-d H:i:s', strtotime($dateT. " + $hours hours"));
         if($rec == 1){
             while($dateT<$end){
             $insert = [
@@ -49,6 +50,7 @@ if (isset($_POST['title'])) {
             ];
             $db->insert('cours', $insert);
             $dateT = date('Y-m-d H:i:s', strtotime($dateT. ' + 1 days'));
+            $dateF = date('Y-m-d H:i:s', strtotime($dateT. " + $hours hours"));
         }
         }
         if($rec == 2){
@@ -62,6 +64,7 @@ if (isset($_POST['title'])) {
         ];
             $db->insert('cours', $insert);
             $dateT = date('Y-m-d H:i:s', strtotime($dateT. ' + 7 days'));
+            $dateF = date('Y-m-d H:i:s', strtotime($dateT. " + $hours hours"));
         }
         }
         elseif($rec == 3){
@@ -75,6 +78,7 @@ if (isset($_POST['title'])) {
         ];
             $db->insert('cours', $insert);
             $dateT = date('Y-m-d H:i:s', strtotime($dateT. ' + 1 month'));
+            $dateF = date('Y-m-d H:i:s', strtotime($dateT. " + $hours hours"));
         }
         }
         elseif($rec == 0){
@@ -87,6 +91,7 @@ if (isset($_POST['title'])) {
             'text_color'  => $text_color
         ];
             $db->insert('cours', $insert);
+            $dateF = date('Y-m-d H:i:s', strtotime($dateT. " + $hours hours"));
         }
         }
       
