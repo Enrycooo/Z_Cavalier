@@ -41,8 +41,8 @@ include('../include/defines.inc.php');
                 <div class="col">
                     <table class='table table-hover'>
             <thead>
-                <th style='text-align :center'>id robe</th>
-                <th style='text-align :center'>nom robe</th>
+                <th style='text-align :center'>Id </th>
+                <th style='text-align :center'>Nom de la robe</th>
                 <th style='text-align :center'>Actions</th>
             </thead>
             <tbody>
