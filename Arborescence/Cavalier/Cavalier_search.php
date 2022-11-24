@@ -3,7 +3,8 @@ include_once('../include/defines.inc.php');
 
 $sql = "SELECT * FROM personne
         WHERE nom = :nom 
-        OR prenom =:prenom";
+        OR prenom =:prenom
+        AND actif = 1;";
 $req = $conn->prepare($sql);
 $req->bindValue(':nom',$_POST['nom'],PDO::PARAM_STR);
 $req->bindValue(':prenom',$_POST['prenom'],PDO::PARAM_STR);
