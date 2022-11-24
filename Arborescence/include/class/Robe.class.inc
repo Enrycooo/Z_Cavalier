@@ -6,7 +6,7 @@ class Robe{
 	public function db_get_all(){
 		global $conn;
 
-		$request = "SELECT id_robe, lib_robe FROM ".DB_TABLE_ROBE.";";
+		$request = "SELECT id_robe, lib_robe FROM ".DB_TABLE_ROBE." WHERE actif_robe = 1;";
 		try{
 			$sql = $conn->query($request);
 			return $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -81,7 +81,7 @@ class Robe{
 
         global $conn;
 
-        $request = "UPDATE ".DB_TABLE_ROBE." WHERE id_robe = :id_robe;";
+        $request = "UPDATE ".DB_TABLE_ROBE." SET actif_robe = 0 WHERE id_robe = :id_robe;";
         $sql = $conn->prepare($request);
         $sql->bindValue(':id_robe', $id_robe, PDO::PARAM_INT);
         try{

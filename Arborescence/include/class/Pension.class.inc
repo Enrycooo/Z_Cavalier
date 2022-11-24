@@ -6,7 +6,7 @@ class Pension{
 	public function db_get_all(){
 		global $conn;
 
-		$request = "SELECT * FROM ".DB_TABLE_PENSION.";";
+		$request = "SELECT * FROM ".DB_TABLE_PENSION." WHERE actif_pen = 1;";
 		try{
 			$sql = $conn->query($request);
 			return $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -92,7 +92,7 @@ class Pension{
 
         global $conn;
 
-        $request = "UPDATE ".DB_TABLE_PENSION." WHERE id_pension = :id_pension;";
+        $request = "UPDATE ".DB_TABLE_PENSION." SET actif_pen = 0 WHERE id_pension = :id_pension;";
         $sql = $conn->prepare($request);
         $sql->bindValue(':id_pension', $id_pension, PDO::PARAM_INT);
         try{
