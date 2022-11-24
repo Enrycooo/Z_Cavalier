@@ -75,6 +75,7 @@ class Pension{
         $sql->bindValue(':ref_cheval', $ref_cheval, PDO::PARAM_STR);
         $sql->bindValue(':ref_type_p', $ref_type_p, PDO::PARAM_STR);
         $sql->bindValue(':ref_per', $ref_per, PDO::PARAM_STR);
+        $sql->bindValue(':id_pension', $id_pension, PDO::PARAM_INT);
         try{
             $sql->execute();
             return true;

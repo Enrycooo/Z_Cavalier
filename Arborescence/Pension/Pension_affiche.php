@@ -95,9 +95,9 @@ include('../include/defines.inc.php');
                                 <label>Libellé :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_pension" value="<?php echo $data["lib_pension"]; ?>">
                                 <label>Date de début :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="date_deb_pension" value="<?php echo $data["date_deb_pension"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="date" name="date_deb_pension" value="<?php echo $data["date_deb_pension"]; ?>">
                                 <label>Date de fin :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="date_fin_pension" value="<?php echo $data["date_fin_pension"]; ?>">
+                                <input class="col-8 form-control" style="margin: 0 auto" type="date" name="date_fin_pension" value="<?php echo $data["date_fin_pension"]; ?>">
                                 <label>Tarif:</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="tarif_pension" value="<?php echo $data["tarif_pension"]; ?>">
                                 <label>ID type pension :</label>
