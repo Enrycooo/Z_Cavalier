@@ -81,12 +81,14 @@ if(isset($_POST["create"])){
         ?>
             <script>
                 alert("Cela a fonctionné")
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
             </script>
         <?php
     }else{
     ?>
         <script>
                 alert("La modification n'a pas fonctionné")
+                window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php");
         </script>
         <?php
     }

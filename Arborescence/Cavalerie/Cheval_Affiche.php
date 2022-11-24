@@ -90,9 +90,9 @@ include('../include/defines.inc.php');
                         <label>Sexe : (0 = mâle / 1 = femmelle)</label>
                         <input class="col-8 form-control" style="margin: 0 auto" type="text" name="sexe" value="<?php echo $data["sexe_cheval"]; ?>">
                         <label>Taille :</label>
-                        <input type="number" class="col-8 form-control" style="margin: 0 auto" type="text" name="taille" value="<?php echo $data["taille_cheval"]; ?>">
+                        <input type="number" class="col-8 form-control" style="margin: 0 auto" name="taille" value="<?php echo $data["taille_cheval"]; ?>">
                         <label>N°Sire du Cheval :</label>
-                        <input type="number" class="col-8 form-control" style="margin: 0 auto" type="text" name="sire" value="<?php echo $data["SIRE_cheval"]; ?>">
+                        <input class="col-8 form-control" style="margin: 0 auto" type="text" name="sire" value="<?php echo $data["SIRE_cheval"]; ?>">
                         <label>Référence de la robe :</label>
                         <input type="number" class="col-8 form-control" style="margin: 0 auto" type="text" name="robe" value="<?php echo $data["ref_robe"]; ?>">
                         <input type="hidden" name="id_cheval" value="<?php echo $_GET["id_cheval"]; ?>">
