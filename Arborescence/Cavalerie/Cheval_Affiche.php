@@ -26,6 +26,7 @@ include('../include/defines.inc.php');
         <a class="btn btn-primary" href="Cheval_Affiche.php?nav=create">Ajouter un Cheval </a> &nbsp; 
             <form action="Cheval_search.php" method='post'>
             <input placeholder="Nom" type="text" name="nom" title="Veuillez renseigner le nom du cheval concerné par votre recherche">
+            <input placeholder="Race" type="text" name="race" title="Veuillez renseigner le prenom de la personne concernée par votre recherche">
             <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
             </form>
         </div>

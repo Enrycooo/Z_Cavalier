@@ -2,9 +2,11 @@
 include_once('../include/defines.inc.php');
 
 $sql = "SELECT * FROM cheval
-        WHERE nom_cheval = :nom";
+        WHERE nom_cheval = :nom
+        Or race_cheval = :race";
 $req = $conn->prepare($sql);
 $req->bindValue(':nom',$_POST['nom'],PDO::PARAM_STR);
+$req->bindValue(':race',$_POST['race'],PDO::PARAM_STR);
 $res = $req->execute();
 ?>
 <html>
