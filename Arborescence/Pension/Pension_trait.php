@@ -21,7 +21,7 @@ if(isset($_POST["create"])){
         <?php
     }
 }elseif(isset($_POST["update"])){
-    $req = $oPension->db_update_one($_POST["lib_pension"], $_POST["date_deb_pension"], $_POST["duree_pension"], $_POST["tarif_pension"], $_POST["ref_cheval"], $_POST["ref_type_p"], $_POST["ref_per"]);
+    $req = $oPension->db_update_one($_POST["lib_pension"], $_POST["date_deb_pension"], $_POST["date_fin_pension"], $_POST["tarif_pension"], $_POST["ref_cheval"], $_POST["ref_type_p"], $_POST["ref_per"]);
     if($req){
         ?>
             <script>

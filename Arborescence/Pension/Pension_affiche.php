@@ -9,6 +9,8 @@ include('../include/defines.inc.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <title>Pension</title>
 </head>
@@ -37,14 +39,14 @@ include('../include/defines.inc.php');
                 <div class="col">
                     <table class='table table-hover'>
             <thead>
-                            <th style='text-align :center'>id pension</th>
-                            <th style='text-align :center'>ref cheval</th>
-                            <th style='text-align :center'>type pension</th>
-                            <th style='text-align :center'>date debut pension</th>
-                            <th style='text-align :center'>duree pension</th>
-                            <th style='text-align :center'>tarif pension</th>
-                            <th style='text-align :center'>ref type pension</th>
-                            <th style='text-align :center'>ref personne</th>
+                            <th style='text-align :center'>Id pension</th>
+                            <th style='text-align :center'>Reference cheval</th>
+                            <th style='text-align :center'>Type </th>
+                            <th style='text-align :center'>Date de debut </th>
+                            <th style='text-align :center'>Date de fin </th>
+                            <th style='text-align :center'>Tarif </th>
+                            <th style='text-align :center'>Reference type pension</th>
+                            <th style='text-align :center'>Reference personne</th>
                             <th style='text-align :center'>Actions</th>
             </thead>
             <tbody>
@@ -56,7 +58,7 @@ include('../include/defines.inc.php');
                         <td><center>".$key["ref_cheval"]."</center></td>
                         <td><center>".$key["lib_pension"]."</center></td>
                         <td><center>".$key["date_deb_pension"]."</center></td>
-                        <td><center>".$key["duree_pension"]."</center></td>
+                        <td><center>".$key["date_fin_pension"]."</center></td>
                         <td><center>".$key["tarif_pension"]."</center></td>
                         <td><center>".$key["ref_type_p"]."</center></td>
                         <td><center>".$key["ref_per"]."</center></td>
@@ -94,8 +96,8 @@ include('../include/defines.inc.php');
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_pension" value="<?php echo $data["lib_pension"]; ?>">
                                 <label>Date de début :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="date_deb_pension" value="<?php echo $data["date_deb_pension"]; ?>">
-                                <label>Durée :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="duree_pension" value="<?php echo $data["duree_pension"]; ?>">
+                                <label>Date de fin :</label>
+                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="date_fin_pension" value="<?php echo $data["date_fin_pension"]; ?>">
                                 <label>Tarif:</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="tarif_pension" value="<?php echo $data["tarif_pension"]; ?>">
                                 <label>ID type pension :</label>
@@ -141,8 +143,8 @@ include('../include/defines.inc.php');
                     </div>
                     <div class="form-group">
                         <div class="col-5">
-                        <label for="duree_pension" class="form-label">Durée pension (en mois) :</label>
-                    <input type="text" id="galop" class="form-control" placeholder="duree pension" type="text" name="duree_pension">
+                        <label for="duree_pension" class="form-label">Date fin de pension :</label>
+                    <input type="date" id="galop" class="form-control" placeholder="date fin pension" type="text" name="date_fin_pension">
                         </div>
                     </div>
                     <div class="form-group">
