@@ -2,7 +2,8 @@
 include_once('../include/defines.inc.php');
 
 $sql = "SELECT id_type_p, lib_type_p FROM type_pension
-        WHERE lib_type_p = :lib_type_p";
+        WHERE lib_type_p = :lib_type_p
+        AND actif_type_pen = 1;";
 $req = $conn->prepare($sql);
 $req->bindValue(':lib_type_p',$_POST['lib_type_p'],PDO::PARAM_STR);
 $res = $req->execute();

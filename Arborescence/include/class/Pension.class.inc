@@ -38,8 +38,8 @@ class Pension{
 	public function db_create($lib_pension="", $date_deb_pension="" , $date_fin_pension="", $tarif_pension="", $ref_cheval="", $ref_type_p="", $ref_per=""){
 
         global $conn;
-        $request = "INSERT INTO pension(lib_pension, date_deb_pension, date_fin_pension, tarif_pension, ref_cheval, ref_type_p, ref_per)
-                    VALUES (:lib_pension, :date_deb_pension, :date_fin_pension, :tarif_pension, :ref_cheval, :ref_type_p, :ref_per)";
+        $request = "INSERT INTO pension(lib_pension, date_deb_pension, date_fin_pension, tarif_pension, ref_cheval, ref_type_p, ref_per,actif_pen)
+                    VALUES (:lib_pension, :date_deb_pension, :date_fin_pension, :tarif_pension, :ref_cheval, :ref_type_p, :ref_per,1)";
         $sql = $conn->prepare($request);
         $sql->bindValue(':lib_pension', $lib_pension, PDO::PARAM_STR);
         $sql->bindValue(':date_deb_pension', $date_deb_pension, PDO::PARAM_STR);

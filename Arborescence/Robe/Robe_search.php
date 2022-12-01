@@ -2,7 +2,8 @@
 include_once('../include/defines.inc.php');
 
 $sql = "SELECT id_robe, lib_robe FROM robe
-        WHERE lib_robe = :lib_robe";
+        WHERE lib_robe = :lib_robe
+        AND actif_robe = 1;";
 $req = $conn->prepare($sql);
 $req->bindValue(':lib_robe',$_POST['lib_robe'],PDO::PARAM_STR);
 $res = $req->execute();

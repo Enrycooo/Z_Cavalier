@@ -37,8 +37,8 @@ class Robe{
 	public function db_create($lib_robe=""){
 
         global $conn;
-        $request = "INSERT INTO robe(lib_robe)
-                    VALUES (:lib_robe)";
+        $request = "INSERT INTO robe(lib_robe,actif_robe)
+                    VALUES (:lib_robe,1)";
         $sql = $conn->prepare($request);
         $sql->bindValue(':lib_robe', $lib_robe, PDO::PARAM_STR);
 

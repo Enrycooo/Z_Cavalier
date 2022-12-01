@@ -6,7 +6,7 @@ class Type_pension{
 	public function db_get_all(){
 		global $conn;
 
-		$request = "SELECT id_type_p, lib_type_p FROM ".DB_TABLE_TYPE_PENSION.";";
+		$request = "SELECT * FROM ".DB_TABLE_TYPE_PENSION." WHERE actif_type_pen = 1;";
 		try{
 			$sql = $conn->query($request);
 			return $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -38,8 +38,8 @@ class Type_pension{
 	public function db_create($lib_type_p=""){
 
         global $conn;
-        $request = "INSERT INTO type_pension(lib_type_p)
-                    VALUES (:lib_type_p)";
+        $request = "INSERT INTO type_pension(lib_type_p,actif_type_pen)
+                    VALUES (:lib_type_p,1)";
         $sql = $conn->prepare($request);
         $sql->bindValue(':lib_type_p', $lib_type_p, PDO::PARAM_STR);
 
@@ -82,7 +82,7 @@ class Type_pension{
 
         global $conn;
 
-        $request = "UPDATE ".DB_TABLE_TYPE_PENSION." WHERE id_type_p = :id_type_p;";
+        $request = "UPDATE ".DB_TABLE_TYPE_PENSION." SET actif_type_pen = 0 WHERE id_type_p = :id_type_p;";
         $sql = $conn->prepare($request);
         $sql->bindValue(':id_type_p', $id_type_p, PDO::PARAM_INT);
         try{
