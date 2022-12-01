@@ -85,6 +85,20 @@ document.addEventListener('DOMContentLoaded', function() {
                         type:"POST",
                         data:{id:arg.event.id},
                     }); 
+                    //refresh calender after deleting
+                    calendar.fullCalendar('refetchEvents');
+                    //close model
+                    $('#editeventmodal').modal('hide');
+                }
+            });
+            
+            $('body').on('click', '#deleteREvent', function() {
+                if(confirm("Are you sure you want to remove it?")) {
+                    $.ajax({
+                        url:url+"api/deleteR.php",
+                        type:"POST",
+                        data:{idR:arg.event.idR},
+                    }); 
 
                     //close model
                     $('#editeventmodal').modal('hide');

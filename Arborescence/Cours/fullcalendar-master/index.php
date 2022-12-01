@@ -180,6 +180,7 @@
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
               <button type="submit" class="btn btn-primary">Enregistrer</button>
               <button type="button" class="btn btn-danger" id="deleteEvent" data-id>Supprimer</button>
+              <button type="button" class="btn btn-danger" id="deleteREvent" data-idR>Supprimer tout les cours récurent</button>
             </div>
 
             </form>

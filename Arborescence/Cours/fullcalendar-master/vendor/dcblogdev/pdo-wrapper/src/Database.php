@@ -162,7 +162,7 @@ class Database
         //convert array into comma seperated string
         $placeholders = implode(',', array_values($placeholders));
 
-        $this->run("INSERT INTO $table ($columns) VALUES ($placeholders)", $values);
+        $this->run("INSERT INTO $table ($columns,idR) VALUES ($placeholders,LAST_INSERT_ID())", $values);
 
         return $this->lastInsertId();
     }
@@ -253,6 +253,20 @@ class Database
     public function deleteById($table, $id)
     {
         $stmt = $this->run("DELETE FROM $table WHERE id = ?", [$id]);
+        
+        return $stmt->rowCount();
+    }
+    
+    /**
+     * Delete record by recurrence
+     * 
+     * @param  string $table table name
+     * @param  string $column name of column
+     * @param  string $idR id of recurrence
+     */
+    public function deleteRById($table, $idR)
+    {
+        $stmt = $this->run("DELETE FROM $table WHERE idR = ?", [$idR]);
 
         return $stmt->rowCount();
     }

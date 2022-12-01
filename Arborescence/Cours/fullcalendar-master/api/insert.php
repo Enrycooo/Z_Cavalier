@@ -14,15 +14,15 @@ if (isset($_POST['title'])) {
 
     //validation
     if ($title == '') {
-        $error['title'] = 'Title is required';
+        $error['title'] = 'Un Titre est obligatoire';
     }
 
     if ($start == '') {
-        $error['start'] = 'Start date is required';
+        $error['start'] = 'Une date de début est obligatoire';
     }
 
     if ($end == '') {
-        $error['end'] = 'End date is required';
+        $error['end'] = 'Une date de fin est obligatoire';
     }
 
     //if there are no errors, carry on
