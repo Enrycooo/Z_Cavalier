@@ -36,6 +36,7 @@ include('../include/defines.inc.php');
             <form action="Cavalier_search.php" method='post'> &nbsp;
             <input placeholder="Nom" type="text" name="nom" title="Veuillez renseigner le nom de la personne concernée par votre recherche"> &nbsp;
             <input placeholder="Prenom" type="text" name="prenom" title="Veuillez renseigner le prenom de la personne concernée par votre recherche">
+            <input placeholder="Galop" type="text" name="galop" title="Veuillez renseigner le galop des personnes concernées par votre recherche">
             <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
             </form>
         </div>

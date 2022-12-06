@@ -121,58 +121,35 @@ include('../include/defines.inc.php');
         ?>
             <h1>Créer une pension</h1>
             
+        <link href="css/styles.css" rel="stylesheet" />
+        <style>
+               body {
+        
+    }   
+        </style>
+        <span class="imageDroite"><img class="img-fluid" src="assets/img/logo_REL.png" alt="..." /></span>
         <form action="Pension_trait.php" method="post">
-            <div class="container">
-                <div class="col-9 float-end bg-warning center-align">
-                    <div class="container">
-                <div class="row">
-                    <div class="col-5">
+            <p>
                     <label for="ref_cheval" class="form-label">Cheval :</label>
                     <input placeholder="ref du cheval" class="form-control" id="nom" type="text" name="ref_cheval">
-                    </div>
-                    <div class="col-5">
                     <label for="lib_pension" class="form-label">Type de pension :</label>
                     <input placeholder="Type de pension" class="form-control" id="prenom" type="text" name="lib_pension">
-                    </div>
-                </div>
-                    <div class="form-group">
-                        <div class="col-5">
                         <label for="date_deb_pension" class="form-label">Date début de pension:</label>
                     <input type="date" id="dna" class="form-control" placeholder="date debut pension" type="text" name="date_deb_pension">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-5">
                         <label for="duree_pension" class="form-label">Date fin de pension :</label>
                     <input type="date" id="galop" class="form-control" placeholder="date fin pension" type="text" name="date_fin_pension">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-5">
                         <label for="tarif_pension" class="form-label">Tarif pension :</label>
                     <input placeholder="tarif de la pension" class="form-control" id="lic" type="text" name="tarif_pension">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-5">
                         <label for="ref_type_p" class="form-label">Id type pension :</label>
                     <input type="text" id="mail" class="form-control" placeholder="ref du type de pension" type="text" name="ref_type_p">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-5">
                         <label for="ref_per" class="form-label">Id personne :</label>
                     <input type="text" id="tel" class="form-control" placeholder="ref de la personne" type="text" name="ref_per">
-                    </div>
-                    </div>
+            </p>
                         <a type="button" class="btn btn-secondary" href="Pension_affiche.php">Retour</a>
                     <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
-                </div>
-                </div>
-            </div>
+            
         </form>
-    </div>
-
+        </y>
         <?php
             }
         ?>
