@@ -28,7 +28,7 @@ include('../include/defines.inc.php');
     ?>
         <div class="container">
             <div class="d-flex justify-content-center">
-                <a href="/Z_Cavalier/dashboard/index.html"><img src="/Z_Cavalier/dashboard/assets/img/home_icon.png" /></a> &nbsp;
+                <a href="/Z_Cavalier/dashboard/index.php"><img src="/Z_Cavalier/dashboard/assets/img/home_icon.png" /></a> &nbsp;
                 <a class="btn btn-primary" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle personne</a> &nbsp;
                 <form action="Cavalier_search.php" method='post'> &nbsp;
                     <input placeholder="Nom" type="text" name="nom" title="Veuillez renseigner le nom de la personne concernée par votre recherche"> &nbsp;
@@ -143,6 +143,13 @@ include('../include/defines.inc.php');
                     <div class="container">
                         <div class="col-9 float-end bg-warning center-align">
                             <div class="container">
+                                <h1>
+                                    <center>
+                                        <u>
+                                            <font color="#0d6efd" face="Georgia">Cavalier</font>
+                                        </u>
+                                    </center></br>
+                                </h1>
                                 <div class="row">
                                     <div class="col-5">
                                         <label for="nom" class="form-label">Nom :</label>
@@ -159,6 +166,30 @@ include('../include/defines.inc.php');
                                         <input type="date" placeholder="Date de naissance" class="form-control" type="text" name="DNA">
                                     </div>
                                 </div>
+
+                                <!-- Ajout Rue, Ville et Code Postale si la personn est son propre responsable -->
+                                <div id="resp2">
+                                    <form action="Cavalier_trait.php" method="post">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <label for="rue" class="form-label">Rue :</label>
+                                                <input id="rue" class="form-control" placeholder="Rue" type="text" name="rue">
+                                            </div>
+                                            <div class="col-5">
+                                                <label for="ville" class="form-label">Ville :</label>
+                                                <input type="email" id="ville" class="form-control" placeholder="Ville" type="text" name="ville">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-5">
+                                                <label for="cp" class="form-label"> Code Postal</label>
+                                                <input type="number" placeholder="Code Postal" class="form-control" id="cp" type="text" name="cp">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Retour aux infos de base du cavalier -->
                                 <div class="row">
                                     <div class="col-5">
                                         <label for="galop" class="form-label">Galop :</label>
@@ -178,17 +209,17 @@ include('../include/defines.inc.php');
                                         <label for="tel" class="form-label">Numéro de téléphone :</label>
                                         <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone"> <br>
                                     </div>
-                                    </br></br>
-                                    <div id="affiche" class="form-check form-switch">
+                                    </br></br></br></br></br>
+                                    <div id="affiche" class="form-check form-switch ms-4 mb-4">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                        <label class="form-check-label" for="flexSwitchCheckDefault">Responsable</label>
+                                        <label class="form-check-label">Responsable</label>
                                     </div>
-                                    <a type="button" class="btn btn-secondary" href="Cavalier_Affiche.php">Retour</a>
-                                    <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
-
+                                    <a type="button" class="btn btn-secondary" href="Cavalier_Affiche.php" id="back">Retour</a>
+                                    <button name="create" type="submit" class="btn btn-primary" id="save">Enregistrer</button>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </form>
             </div>
 
@@ -199,6 +230,13 @@ include('../include/defines.inc.php');
                         <div class="col-9 float-end bg-warning center-align">
                             <div class="container">
                                 <div class="row">
+                                    <h1>
+                                        <center>
+                                            <u>
+                                                <font color="#0d6efd" face="Georgia">Responsable</font>
+                                            </u>
+                                        </center></br>
+                                    </h1>
                                     <div class="col-5">
                                         <label for="nom" class="form-label">Nom :</label>
                                         <input placeholder="Nom" class="form-control" id="nom" type="text" name="nom">
@@ -217,17 +255,17 @@ include('../include/defines.inc.php');
                                 <div class="row">
                                     <div class="col-5">
                                         <label for="rue" class="form-label">Rue :</label>
-                                        <input type="number" id="galop" class="form-control" placeholder="Galop" type="text" name="gal_cav">
+                                        <input id="rue" class="form-control" placeholder="Rue" type="text" name="rue">
                                     </div>
                                     <div class="col-5">
                                         <label for="ville" class="form-label">Ville :</label>
-                                        <input type="email" id="mail" class="form-control" placeholder="Mail" type="text" name="mail">
+                                        <input type="email" id="ville" class="form-control" placeholder="Ville" type="text" name="ville">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-5">
                                         <label for="cp" class="form-label"> Code Postal</label>
-                                        <input placeholder="Numero licence" class="form-control" id="lic" type="text" name="num_lic">
+                                        <input type="number" placeholder="Code Postal" class="form-control" id="cp" type="text" name="cp">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -239,14 +277,14 @@ include('../include/defines.inc.php');
                                         <label for="tel" class="form-label">Numéro de téléphone :</label>
                                         <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone"><br>
                                     </div>
+                                    <button type="button" class="btn btn-secondary" id="back2">Retour</button>
+                                    <button name="create" type="submit" class="btn btn-primary" id="save2">Enregistrer</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </form>
             </div>
-            </form>
-
-        </div>
         </div>
     <?php
         }
@@ -254,12 +292,35 @@ include('../include/defines.inc.php');
     <script>
         let r_affiche = document.getElementById("affiche");
         let resp = document.getElementById("resp");
+        let resp2 = document.getElementById("resp2");
+
+        let save2 = document.getElementById("save2");
+        let save = document.getElementById("save");
+        let back = document.getElementById("back");
+        let back2 = document.getElementById("back2");
+
         resp.style.display = "none";
+        resp2.style.display = "none";
+        save2.style.display = "none";
+        back2.style.display = "none";
+
         r_affiche.addEventListener("click", () => {
             if (getComputedStyle(resp).display != "none") {
                 resp.style.display = "none";
+                resp2.style.display = "none";
+                save2.style.display = "none";
+                back2.style.display = "none";
+                save.style.display = "flex";
+                back.style.display = "flex";
+
             } else {
                 resp.style.display = "block";
+                resp2.style.display = "flex";
+                save2.style.display = "flex";
+                back2.style.display = "flex";
+                save.style.display = "none";
+                back.style.display = "none";
+
             }
         })
     </script>
