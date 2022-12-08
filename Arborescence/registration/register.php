@@ -18,7 +18,7 @@ if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['password'])){
 	// récupérer le mot de passe et supprimer les antislashes ajoutés par le formulaire
 	$password = stripslashes($_REQUEST['password']);
         
-        $codage = hash('SHA256', $password);
+        $codage = hash('SHA512', $password);
         
         $request = "INSERT into `users` (username, email, type, password)
                     VALUES (:name, :mail, 'user', :pwd)";
