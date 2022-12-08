@@ -10,20 +10,24 @@ session_start();
 
 if (isset($_POST['username'])){
 	$username = stripslashes($_REQUEST['username']);
-	$username = mysqli_real_escape_string($conn, $username);
 	$_SESSION['username'] = $username;
 	$password = stripslashes($_REQUEST['password']);
-	$password = mysqli_real_escape_string($conn, $password);
-        $query = "SELECT * FROM `users` WHERE username='$username' and password='".hash('sha256', $password)."'";
-	$result = mysqli_query($conn,$query) or die(mysql_error());
+        $codage = hash('SHA256', $password);
+        
+        $request = "SELECT * FROM `users` WHERE username='$username' 
+                    and password='$codage'";
+        $sql = $conn->prepare($request);
+        $sql->bindValue(':name', $username, PDO::PARAM_STR);
+        $sql->bindValue(':pwd', $codage, PDO::PARAM_STR);
+        $res = $conn->query($request);
 	
-	if (mysqli_num_rows($result) == 1) {
-		$user = mysqli_fetch_assoc($result);
+	if ($res->rowCount() == 1) {
+		$user = $res->fetch(PDO::FETCH_ASSOC);
 		// vérifier si l'utilisateur est un administrateur ou un utilisateur
 		if ($user['type'] == 'admin') {
-			header('location: admin/home.php');		  
+			header('location: http://localhost/Z_Cavalier/dashboard/index.php');		  
 		}else{
-			header('location: index.php');
+			header('location: http://localhost/Z_Cavalier/front/index.html');
 		}
 	}else{
 		$message = "Le nom d'utilisateur ou le mot de passe est incorrect.";

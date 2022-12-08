@@ -18,12 +18,14 @@ if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['password'])){
 	// récupérer le mot de passe et supprimer les antislashes ajoutés par le formulaire
 	$password = stripslashes($_REQUEST['password']);
         
+        $codage = hash('SHA256', $password);
+        
         $request = "INSERT into `users` (username, email, type, password)
-                    VALUES (:name, :mail, 'user', ".hash('sha256', ":pwd").")";
+                    VALUES (:name, :mail, 'user', :pwd)";
         $sql = $conn->prepare($request);
         $sql->bindValue(':name', $username, PDO::PARAM_STR);
         $sql->bindValue(':mail', $email, PDO::PARAM_STR);
-        $sql->bindValue(':pwd', $password, PDO::PARAM_STR);
+        $sql->bindValue(':pwd', $codage, PDO::PARAM_STR);
         $sql->execute();
 
     if($sql){
