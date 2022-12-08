@@ -79,7 +79,7 @@ include('../include/defines.inc.php');
         //$id_pension = $key["id_pension"]; ?>
             <h1>Modifier</h1>
             <link href="../static/css/style.css" rel="stylesheet" />     
-            <span class="imageDroite"><img class="img-fluid" src="assets/img/logo_REL.png" alt="..." /></span>
+            <span class="imageDroite"><img class="img-fluid" src="../static/assets/img/logo_REL.png" alt="..." /></span>
             <form action="Type_pension_trait.php" method="post">
             <p>
                     <label>Type pension :</label>
@@ -97,7 +97,7 @@ include('../include/defines.inc.php');
            <h1>Créer un type de pension</h1>
 
         <link href="../static/css/style.css" rel="stylesheet" />     
-        <span class="imageDroite"><img class="img-fluid" src="static/assets/img/logo_REL.png" alt="..." /></span>
+        <span class="imageDroite"><img class="img-fluid" src="../static/assets/img/logo_REL.png" alt="..." /></span>
         <form action="Type_pension_trait.php" method="post">
             <p>
                     <label for="ref_cheval" class="form-label">Type pension :</label>

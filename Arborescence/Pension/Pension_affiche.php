@@ -89,8 +89,8 @@ include('../include/defines.inc.php');
         //$id_pension = $key["id_pension"]; ?>         
             <h1>Modifier</h1>
             <div class="">
-            <link href="css/styles.css" rel="stylesheet" />     
-            <span class="imageDroite"><img class="img-fluid" src="assets/img/logo_REL.png" alt="..." /></span>
+            <link href="../static/css/style.css" rel="stylesheet" />     
+            <span class="imageDroite"><img class="img-fluid" src="../static/assets/img/logo_REL.png" alt="..." /></span>
             <form action="Pension_trait.php" method="post">
             <p>
                                 <label>ID du cheval :</label>
@@ -118,8 +118,8 @@ include('../include/defines.inc.php');
             elseif($_GET['nav'] === 'create'){
         ?> 
     <h1>Créer une pension</h1>
-        <link href="css/styles.css" rel="stylesheet" />     
-        <span class="imageDroite"><img class="img-fluid" src="assets/img/logo_REL.png" alt="..." /></span>
+        <link href="../static/css/style.css" rel="stylesheet" />     
+        <span class="imageDroite"><img class="img-fluid" src="../static/assets/img/logo_REL.png" alt="..." /></span>
         <form action="Pension_trait.php" method="post">
             <p>
                     <label for="ref_cheval" class="form-label">Cheval :</label>
