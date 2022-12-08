@@ -28,7 +28,7 @@ include('../include/defines.inc.php');
     ?>
         <div class="container">
             <div class="d-flex justify-content-center">
-                <a href="/Z_Cavalier/dashboard/index.php"><img src="/Z_Cavalier/dashboard/assets/img/home_icon.png" /></a> &nbsp;
+                <a href="/Z_Cavalier/dashboard/index.html"><img src="/Z_Cavalier/dashboard/assets/img/home_icon.png" /></a> &nbsp;
                 <a class="btn btn-primary" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle personne</a> &nbsp;
                 <form action="Cavalier_search.php" method='post'> &nbsp;
                     <input placeholder="Nom" type="text" name="nom" title="Veuillez renseigner le nom de la personne concernée par votre recherche"> &nbsp;
