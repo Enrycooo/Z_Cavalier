@@ -76,22 +76,20 @@ include('../include/defines.inc.php');
         
         //foreach($data as $key){
         //$id_pension = $key["id_pension"]; ?>         
+            <h1>Modifier</h1>
             <div class="">
-                        <form action="Robe_trait.php" method="post">
-                            <div class="form-group">
-                                <label>Nom robe:</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_robe" value="<?php echo $data["lib_robe"]; ?>">
-                                <input type="hidden" name="id_robe" value="<?php echo $_GET["id_robe"]; ?>">
-                            </div>
-                        
-                            <div class="">
-                                <a type="button" class="btn btn-secondary" href="Robe_affiche.php">Retour</a>
-                                <button type="submit" name="update" class="btn btn-primary">Modifier</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <link href="css/styles.css" rel="stylesheet" />     
+            <span class="imageDroite"><img class="img-fluid" src="assets/img/logo_REL.png" alt="..." /></span>
+            <form action="Robe_trait.php" method="post">
+            <p>
+                    <label>Nom de la robe :</label>
+                    <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_robe" value="<?php echo $data["lib_robe"]; ?>">
+                    <input type="hidden" name="id_robe" value="<?php echo $_GET["id_robe"]; ?>">
+            </p>
+                        <a type="button" class="btn btn-secondary" href="Robe_affiche.php">Retour</a>
+                    <button name="update" type="submit" class="btn btn-primary">Modifier</button>
+            
+            </form>
             <?php
             }
             elseif($_GET['nav'] === 'create'){

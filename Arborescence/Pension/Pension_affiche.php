@@ -87,9 +87,12 @@ include('../include/defines.inc.php');
         
         //foreach($data as $key){
         //$id_pension = $key["id_pension"]; ?>         
+            <h1>Modifier</h1>
             <div class="">
-                        <form action="Pension_trait.php" method="post">
-                            <div class="form-group">
+            <link href="css/styles.css" rel="stylesheet" />     
+            <span class="imageDroite"><img class="img-fluid" src="assets/img/logo_REL.png" alt="..." /></span>
+            <form action="Pension_trait.php" method="post">
+            <p>
                                 <label>ID du cheval :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_cheval" value="<?php echo $data["ref_cheval"]; ?>">
                                 <label>Libellé :</label>
@@ -105,16 +108,11 @@ include('../include/defines.inc.php');
                                 <label>ID personne :</label>
                                 <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_per" value="<?php echo $data["ref_per"]; ?>">
                                 <input type="hidden" name="id_pension" value="<?php echo $_GET["id_pension"]; ?>">
-                            </div>
-                        
-                            <div class="">
-                                <a type="button" class="btn btn-secondary" href="Pension_affiche.php">Retour</a>
-                                <button type="submit" name="update" class="btn btn-primary">Modifier</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            </p>
+                        <a type="button" class="btn btn-secondary" href="Pension_affiche.php">Retour</a>
+                    <button name="update" type="submit" class="btn btn-primary">Modifier</button>
+            
+            </form>
             <?php
             }
             elseif($_GET['nav'] === 'create'){

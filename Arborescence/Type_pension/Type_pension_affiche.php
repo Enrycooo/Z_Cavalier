@@ -83,12 +83,12 @@ include('../include/defines.inc.php');
             <span class="imageDroite"><img class="img-fluid" src="assets/img/logo_REL.png" alt="..." /></span>
             <form action="Type_pension_trait.php" method="post">
             <p>
-                    <label for="ref_cheval" class="form-label">Type pension :</label>
+                    <label>Type pension :</label>
                     <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_type_p" value="<?php echo $data["lib_type_p"]; ?>">
-                    <input type="hidden" name="lib_type_p" value="<?php echo $_GET["lib_type_p"]; ?>">
+                    <input type="hidden" name="id_type_p" value="<?php echo $_GET["id_type_p"]; ?>">
             </p>
                         <a type="button" class="btn btn-secondary" href="Type_pension_affiche.php">Retour</a>
-                    <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button name="update" type="submit" class="btn btn-primary">Modifier</button>
             
             </form>
             <?php
