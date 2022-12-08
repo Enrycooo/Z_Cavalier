@@ -118,15 +118,9 @@ include('../include/defines.inc.php');
             <?php
             }
             elseif($_GET['nav'] === 'create'){
-        ?>
-            <h1>Créer une pension</h1>
-            
-        <link href="css/styles.css" rel="stylesheet" />
-        <style>
-               body {
-        
-    }   
-        </style>
+        ?> 
+    <h1>Créer une pension</h1>
+        <link href="css/styles.css" rel="stylesheet" />     
         <span class="imageDroite"><img class="img-fluid" src="assets/img/logo_REL.png" alt="..." /></span>
         <form action="Pension_trait.php" method="post">
             <p>
@@ -149,9 +143,8 @@ include('../include/defines.inc.php');
                     <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
             
         </form>
-        </y>
         <?php
             }
         ?>
-            </body>
+</body>
             </html>

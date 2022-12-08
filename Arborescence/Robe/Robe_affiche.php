@@ -97,19 +97,17 @@ include('../include/defines.inc.php');
             elseif($_GET['nav'] === 'create'){
         ?>
             <h1>Créer une Robe</h1>
-
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />     
+        <span class="imageDroite"><img class="img-fluid" src="assets/img/logo_REL.png" alt="..." /></span>
         <form action="Robe_trait.php" method="post">
             <p>
                     <label for="lib_robe" class="form-label">Robe :</label>
-                    <input placeholder="nom de la robe" class="form-control" id="nom" type="text" name="lib_robe">
+                    <input placeholder="nom de la robe" class="form-control" id="lib_robe" type="text" name="lib_robe">
             </p>
-            <x>
                         <a type="button" class="btn btn-secondary" href="Robe_affiche.php">Retour</a>
                     <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
-            </x>
+            
         </form>
-    </div>
 
         <?php
             }

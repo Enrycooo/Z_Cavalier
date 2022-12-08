@@ -76,46 +76,38 @@ include('../include/defines.inc.php');
         <?php
         
         //foreach($data as $key){
-        //$id_pension = $key["id_pension"]; ?>         
+        //$id_pension = $key["id_pension"]; ?>
+            <h1>Modifier</h1>
             <div class="">
-                        <form action="Type_pension_trait.php" method="post">
-                            <div class="form-group">
-                                <label>Type pension :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_type_p" value="<?php echo $data["lib_type_p"]; ?>">
-                                <input type="hidden" name="id_type_p" value="<?php echo $_GET["id_type_p"]; ?>">
-                            </div>
-                        
-                            <div class="">
-                                <a type="button" class="btn btn-secondary" href="Type_pension_affiche.php">Retour</a>
-                                <button type="submit" name="update" class="btn btn-primary">Modifier</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <link href="css/styles.css" rel="stylesheet" />     
+            <span class="imageDroite"><img class="img-fluid" src="assets/img/logo_REL.png" alt="..." /></span>
+            <form action="Type_pension_trait.php" method="post">
+            <p>
+                    <label for="ref_cheval" class="form-label">Type pension :</label>
+                    <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_type_p" value="<?php echo $data["lib_type_p"]; ?>">
+                    <input type="hidden" name="lib_type_p" value="<?php echo $_GET["lib_type_p"]; ?>">
+            </p>
+                        <a type="button" class="btn btn-secondary" href="Type_pension_affiche.php">Retour</a>
+                    <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
+            
+            </form>
             <?php
             }
             elseif($_GET['nav'] === 'create'){
         ?>
            <h1>Créer un type de pension</h1>
 
+        <link href="css/styles.css" rel="stylesheet" />     
+        <span class="imageDroite"><img class="img-fluid" src="assets/img/logo_REL.png" alt="..." /></span>
         <form action="Type_pension_trait.php" method="post">
-            <div class="container">
-                <div class="col-9 float-end bg-warning center-align">
-                    <div class="container">
-                <div class="row">
-                    <div class="col-5">
-                    <label for="lib_type_p" class="form-label">Nom Type pension :</label>
-                    <input placeholder="nom du type de pension" class="form-control" id="nom" type="text" name="lib_type_p">
-                    </div>
-                    </div>
+            <p>
+                    <label for="ref_cheval" class="form-label">Type pension :</label>
+                    <input placeholder="Nom du type de pension" class="form-control" id="lib_type_p" type="text" name="lib_type_p">
+            </p>
                         <a type="button" class="btn btn-secondary" href="Type_pension_affiche.php">Retour</a>
                     <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
-                </div>
-                </div>
-            </div>
+            
         </form>
-    </div>
         <?php
             }
         ?>
