@@ -162,7 +162,7 @@ class Database
         //convert array into comma seperated string
         $placeholders = implode(',', array_values($placeholders));
 
-        $this->run("INSERT INTO $table ($columns,idR) VALUES ($placeholders,LAST_INSERT_ID())", $values);
+        $this->run("INSERT INTO $table ($columns) VALUES ($placeholders)", $values);
 
         return $this->lastInsertId();
     }
