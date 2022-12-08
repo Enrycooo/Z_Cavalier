@@ -28,7 +28,7 @@ include('../include/defines.inc.php');
   ?>
     <div class="container">
         <div class="d-flex justify-content-center">
-            <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
+            <a href="/Z_Cavalier/dashboard/index.php"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
             <a class="btn btn-primary" href="Robe_affiche.php?nav=create">Créer une nouvelle robe</a> &nbsp;
             <form action="Robe_search.php" method='post'> &nbsp;
             <input placeholder="nom de la robe" type="text" name="lib_robe" title="Veuillez renseigner le nom de la robe concernée par votre recherche">
