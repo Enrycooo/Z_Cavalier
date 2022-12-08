@@ -5,7 +5,7 @@
 </head>
 <body>
 <?php
-require('../config.php');
+require('../../include/defines.inc.php');
 
 if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['type'], $_REQUEST['password'])){
 	// récupérer le nom d'utilisateur et supprimer les antislashes ajoutés par le formulaire
@@ -21,9 +21,13 @@ if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['type'], $_REQUES
 	$type = stripslashes($_REQUEST['type']);
 	$type = mysqli_real_escape_string($conn, $type);
 	
-    $query = "INSERT into `users` (username, email, type, password)
-				  VALUES ('$username', '$email', '$type', '".hash('sha256', $password)."')";
-    $res = mysqli_query($conn, $query);
+        $request = "INSERT into `users` (username, email, type, password)
+                    VALUES ('$username', '$email', '$type', '".hash('sha256', $password)."')";
+        $sql = $conn->prepare($request);
+        $sql->bindValue(':nom', $nom, PDO::PARAM_STR);
+        $sql->bindValue(':pre', $prenom, PDO::PARAM_STR);
+        $sql->bindValue(':dna', $dna, PDO::PARAM_STR);
+        $sql->execute();
 
     if($res){
        echo "<div class='sucess'>
