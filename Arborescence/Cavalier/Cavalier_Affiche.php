@@ -270,7 +270,7 @@ if (!isset($_SESSION["username"])) {
                                     </div>
                                     <div class="col-5">
                                         <label for="ville" class="form-label">Ville :</label>
-                                        <input type="email" id="ville" class="form-control" placeholder="Ville" type="text" name="ville">
+                                        <input type="text" id="ville" class="form-control" placeholder="Ville"name="ville">
                                     </div>
                                 </div>
                                 <div class="form-group">
