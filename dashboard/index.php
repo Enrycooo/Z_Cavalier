@@ -51,6 +51,8 @@
                         href="/Z_Cavalier/Arborescence/Pension/Pension_affiche.php">PENSION</a></li>
                 <li class="nav-item"><a class="nav-link"
                         href="/Z_Cavalier/Arborescence/Cours/fullcalendar-master/index.php">COURS</a></li>
+                <li class="nav-item"><a class="nav-link"
+                        href="/Z_Cavalier/Arborescence/registration/admin/add_user.php">Ajouter un utilisateur</a></li>
             </ul>
         </div>
     </nav>
@@ -67,6 +69,9 @@
                 <div class="subheading mb-5">
                     12 rue du cheval, 19100 Brive-la-Gaillarde
                 </div>
+            </div>
+        </section>
+    </div>
 </body>
 
 </html>

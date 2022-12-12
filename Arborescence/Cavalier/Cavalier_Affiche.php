@@ -177,7 +177,6 @@ if (!isset($_SESSION["username"])) {
 
                                 <!-- Ajout Rue, Ville et Code Postale si la personne est son propre responsable -->
                                 <div id="resp2">
-                                    <form action="Cavalier_trait.php" method="post">
                                         <div class="row">
                                             <div class="col-5">
                                                 <label for="rue" class="form-label">Rue :</label>
@@ -194,7 +193,6 @@ if (!isset($_SESSION["username"])) {
                                                 <input type="number" placeholder="Code Postal" class="form-control" id="cp" type="text" name="cp">
                                             </div>
                                         </div>
-                                    </form>
                                 </div>
 
                                 <!-- Retour aux infos de base du cavalier -->
@@ -218,7 +216,7 @@ if (!isset($_SESSION["username"])) {
                                         <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone"> <br>
                                     </div>
                                     </br></br></br></br></br>
-                                    <div id="affiche" class="form-check form-switch ms-4 mb-4">
+                                    <div id="affiche" class="form-check form-switch ms-4 mb-4 col-2">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                                         <label class="form-check-label">Responsable</label>
                                     </div>
