@@ -102,18 +102,29 @@ include('../include/defines.inc.php');
             }
             elseif($_GET['nav'] === 'create'){
         ?>
-            <h1>Créer une Robe</h1>
-        <link href="../static/css/style.css" rel="stylesheet" />     
-        <span class="imageDroite"><img class="img-fluid" src="../static/assets/img/logo_REL.png" alt="..." /></span>
-        <form action="Robe_trait.php" method="post">
-            <p>
-                    <label for="lib_robe" class="form-label">Robe :</label>
-                    <input placeholder="nom de la robe" class="form-control" id="lib_robe" type="text" name="lib_robe">
-            </p>
-                        <a type="button" class="btn btn-secondary" href="Robe_affiche.php">Retour</a>
-                    <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
-            
-        </form>
+<link href="../static/css/main.css" rel="stylesheet" media="all">
+<div class="p-t-130 p-b-100">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Création d'une robe</h2>
+                <form action="Robe_trait.php" method="post">
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Nom de la robe</label>
+                                <input class="input--style-4" type="text" name="lib_robe">
+                            </div>
+                        </div>
+                        <div class="p-t-15">
+                                <a type="button" class="btn btn-secondary" href="Robe_affiche.php">Retour</a>
+                                <button type="submit" name="create" class="btn btn--radius-2 btn--blue">Enregistrer</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
         <?php
             }

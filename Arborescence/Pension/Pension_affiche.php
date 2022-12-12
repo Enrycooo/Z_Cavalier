@@ -125,30 +125,84 @@ include('../include/defines.inc.php');
             }
             elseif($_GET['nav'] === 'create'){
         ?> 
-    <h1>Créer une pension</h1>
-        <link href="../static/css/style.css" rel="stylesheet" />     
-        <span class="imageDroite"><img class="img-fluid" src="../static/assets/img/logo_REL.png" alt="..." /></span>
-        <form action="Pension_trait.php" method="post">
-            <p>
-                    <label for="ref_cheval" class="form-label">Cheval :</label>
-                    <input placeholder="ref du cheval" class="form-control" id="nom" type="text" name="ref_cheval">
-                    <label for="lib_pension" class="form-label">Type de pension :</label>
-                    <input placeholder="Type de pension" class="form-control" id="prenom" type="text" name="lib_pension">
-                        <label for="date_deb_pension" class="form-label">Date début de pension:</label>
-                    <input type="date" id="dna" class="form-control" placeholder="date debut pension" type="text" name="date_deb_pension">
-                        <label for="duree_pension" class="form-label">Date fin de pension :</label>
-                    <input type="date" id="galop" class="form-control" placeholder="date fin pension" type="text" name="date_fin_pension">
-                        <label for="tarif_pension" class="form-label">Tarif pension :</label>
-                    <input placeholder="tarif de la pension" class="form-control" id="lic" type="text" name="tarif_pension">
-                        <label for="ref_type_p" class="form-label">Id type pension :</label>
-                    <input type="text" id="mail" class="form-control" placeholder="ref du type de pension" type="text" name="ref_type_p">
-                        <label for="ref_per" class="form-label">Id personne :</label>
-                    <input type="text" id="tel" class="form-control" placeholder="ref de la personne" type="text" name="ref_per">
-            </p>
+<link href="../static/css/main.css" rel="stylesheet" media="all">
+<body>
+        <style>
+      #grad {
+        height: 500px;
+        background-color: blue; /* Pour les navigateurs qui ne supportent pas de gradient */
+        background-image: linear-gradient(to right, #1c87c9, #8ebf42);
+      }
+    </style>
+</body>
+<div class="p-t-130 p-b-100">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Insertion d'une pension</h2>
+                <form action="Pension_trait.php" method="post">
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Nom</label>
+                                <input class="input--style-4" type="text" name="lib_pension">
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Date de début</label>
+                                <input class="input--style-4 js-datepicker" type="date" name="date_deb_pension">
+                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Date de fin</label>
+                                <div class="input-group-icon">
+                                    <input class="input--style-4 js-datepicker" type="date" name="date_fin_pension">
+                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Tarif</label>
+                                <input class="input--style-4" type="text" name="tarif_pension">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Ref cheval</label>
+                                    <input class="input--style-4" class="form-control" type="text" name="ref_cheval">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Reférence du type de pension</label>
+                                 <input class="input--style-4" type="text" name="ref_type_p">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Référence de la personne</label>
+                                <input class="input--style-4" type="text" name="ref_per">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-t-15">
                         <a type="button" class="btn btn-secondary" href="Pension_affiche.php">Retour</a>
-                    <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
-            
-        </form>
+                        <button type="submit" name="create" class="btn btn--radius-2 btn--blue">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
         <?php
             }
         ?>

@@ -102,19 +102,31 @@ include('../include/defines.inc.php');
             }
             elseif($_GET['nav'] === 'create'){
         ?>
-           <h1>Créer un type de pension</h1>
-
-        <link href="../static/css/style.css" rel="stylesheet" />     
-        <span class="imageDroite"><img class="img-fluid" src="../static/assets/img/logo_REL.png" alt="..." /></span>
-        <form action="Type_pension_trait.php" method="post">
-            <p>
-                    <label for="ref_cheval" class="form-label">Type pension :</label>
-                    <input placeholder="Nom du type de pension" class="form-control" id="lib_type_p" type="text" name="lib_type_p">
-            </p>
-                        <a type="button" class="btn btn-secondary" href="Type_pension_affiche.php">Retour</a>
-                    <button name="create" type="submit" class="btn btn-primary">Enregistrer</button>
-            
-        </form>
+<link href="../static/css/main.css" rel="stylesheet" media="all">
+<body style="background-color:orange;">
+</body>
+<div class="p-t-130 p-b-100">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Création d'un type de pension</h2>
+                <form action="Type_pension_trait.php" method="post">
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Nom du type de pension</label>
+                                <input class="input--style-4" type="text" name="lib_type_p">
+                            </div>
+                        </div>
+                        <div class="p-t-15">
+                                <a type="button" class="btn btn-secondary" href="Type_pension_affiche.php">Retour</a>
+                                <button type="submit" name="create" class="btn btn--radius-2 btn--blue">Enregistrer</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
         <?php
             }
         ?>
