@@ -1,4 +1,14 @@
-<?php require('config.php');?>
+<?php 
+require('config.php');
+// Initialiser la session
+	session_start();
+	// Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
+	if(!isset($_SESSION["username"])){
+                echo "<script>alert(\"Veuillez vous connecter en tant qu'admin pour accéder à cette page\")
+                      window.location.replace('http://localhost/Z_Cavalier/Arborescence/registration/login.php')</script>";
+		exit(); 
+	}
+        ?>
 <!DOCTYPE html>
 <html>
 <head>
