@@ -18,6 +18,7 @@ include('../include/defines.inc.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link href="../static/css/main.css" rel="stylesheet" media="all">
     <title>Cheval</title>
 </head>
 <body>
@@ -118,30 +119,78 @@ include('../include/defines.inc.php');
         elseif($_GET['nav'] === 'create'){
         ?>
             
-        <h5 class="modal-title">Insertion d'un Cheval</h5>
-            <form action="Cheval_trait.php" method="post">
-            <div class="form-group">
-                <label>Nom :</label>
-                    <input placeholder="Nom" class="form-control" type="text" name="nom">
-                    <label>Date de naissance :</label>
-                    <input type="date" placeholder="Date de naissance" class="form-control" type="text" name="dna">
-                    <label>Race du cheval :</label>
-                    <input placeholder="Race" class="form-control" type="text" name="race">
-                    <label>Sexe du cheval : (0 = mâle / 1 = femmelle)</label>
-                    <input placeholder="Sexe" class="form-control" type="text" name="sexe">
-                    <label>Taille du cheval :</label>
-                    <input type="number" placeholder="Taille" class="form-control" type="text" name="taille">
-                    <label>N°Sire du cheval :</label>
-                    <input placeholder="N°Sire" class="form-control" type="text" name="sire">
-                    <label>Référence de la robe du cheval :</label>
-                    <input type="number" placeholder="Référence de la robe" class="form-control" type="text" name="robe">
-                    <div class="modal-footer">
-                        <a type="button" class="btn btn-secondary" href="Cheval_Affiche.php">Retour</a>
-                        <button name="create" type="submit" class ="btn btn-primary">Enregistrer</button>
+        <div class="p-t-130 p-b-100">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Insertion d'un cheval</h2>
+                <form method="POST">
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Nom</label>
+                                <input class="input--style-4" type="text" name="nom">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Race</label>
+                                <input class="input--style-4" type="text" name="race">
+                            </div>
+                        </div>
                     </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Date de naissance</label>
+                                <div class="input-group-icon">
+                                    <input class="input--style-4 js-datepicker" type="date" name="dna">
+                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Sexe</label>
+                                <div class="p-t-10">
+                                    <input class="input--style-4" placeholder="(0 = mâle / 1 = femmelle)" class="form-control" type="text" name="sexe">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Taille</label>
+                                <div class="p-t-10">
+                                    <input class="input--style-4" class="form-control" type="text" name="taille">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">N° Sire</label>
+                                 <input class="input--style-4" type="email" name="sire">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Référence de la robe</label>
+                                <input class="input--style-4" type="text" name="robe">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-t-15">
+                        <a type="button" class="btn btn-secondary" href="Cheval_Affiche.php">Retour</a>
+                        <button class="btn btn--radius-2 btn--blue" type="submit">Enregistrer</button>
+                    </div>
+                </form>
             </div>
-            </form>
-            </html>
+        </div>
+    </div>
+</div>
             <?php
             }
         ?>
