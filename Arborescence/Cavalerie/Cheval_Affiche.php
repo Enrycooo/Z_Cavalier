@@ -123,7 +123,7 @@ include('../include/defines.inc.php');
         <div class="card card-4">
             <div class="card-body">
                 <h2 class="title">Insertion d'un cheval</h2>
-                <form method="POST">
+                <form action="Cheval_trait.php" method="post">
                     <div class="row row-space">
                         <div class="col-2">
                             <div class="input-group">
@@ -171,7 +171,7 @@ include('../include/defines.inc.php');
                         <div class="col-2">
                             <div class="input-group">
                                 <label class="label">N° Sire</label>
-                                 <input class="input--style-4" type="email" name="sire">
+                                 <input class="input--style-4" type="text" name="sire">
                             </div>
                         </div>
                         <div class="col-2">
@@ -183,7 +183,7 @@ include('../include/defines.inc.php');
                     </div>
                     <div class="p-t-15">
                         <a type="button" class="btn btn-secondary" href="Cheval_Affiche.php">Retour</a>
-                        <button class="btn btn--radius-2 btn--blue" type="submit">Enregistrer</button>
+                        <button type="submit" name="create" class="btn btn--radius-2 btn--blue">Enregistrer</button>
                     </div>
                 </form>
             </div>
