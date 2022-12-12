@@ -1,13 +1,13 @@
 <?php
 include('../include/defines.inc.php');
 // Initialiser la session
-	session_start();
-	// Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
-	if(!isset($_SESSION["username"])){
-                echo "<script>alert(\"Veuillez vous connecter en tant qu'admin pour accéder à cette page\")
+session_start();
+// Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
+if (!isset($_SESSION["username"])) {
+    echo "<script>alert(\"Veuillez vous connecter en tant qu'admin pour accéder à cette page\")
                       window.location.replace('http://localhost/Z_Cavalier/Arborescence/registration/login.php')</script>";
-		exit(); 
-	}
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -175,7 +175,7 @@ include('../include/defines.inc.php');
                                     </div>
                                 </div>
 
-                                <!-- Ajout Rue, Ville et Code Postale si la personn est son propre responsable -->
+                                <!-- Ajout Rue, Ville et Code Postale si la personne est son propre responsable -->
                                 <div id="resp2">
                                     <form action="Cavalier_trait.php" method="post">
                                         <div class="row">
@@ -222,8 +222,13 @@ include('../include/defines.inc.php');
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                                         <label class="form-check-label">Responsable</label>
                                     </div>
-                                    <a type="button" class="btn btn-secondary" href="Cavalier_Affiche.php" id="back">Retour</a>
-                                    <button name="create" type="submit" class="btn btn-primary" id="save">Enregistrer</button>
+                                    <center>
+                                        <p>
+                                            <hr><button class="btn btn-secondary" id="back"><a class="text-light text-decoration-none" href="Cavalier_Affiche.php">Retour</a></button></hr>
+                                            <button name="create" type="submit" class="btn btn-primary" id="save">Enregistrer</button>
+                                        </p>
+                                    </center>
+
                                 </div>
                             </div>
                         </div>
@@ -285,8 +290,11 @@ include('../include/defines.inc.php');
                                         <label for="tel" class="form-label">Numéro de téléphone :</label>
                                         <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone"><br>
                                     </div>
-                                    <button type="button" class="btn btn-secondary" id="back2">Retour</button>
-                                    <button name="create" type="submit" class="btn btn-primary" id="save2">Enregistrer</button>
+                                    <center>
+                                        <p> <button class="btn btn-secondary" id="back2"><a class="text-light text-decoration-none" href="Cavalier_Affiche.php">Retour</a></button>
+                                            <button name="create" type="submit" class="btn btn-primary" id="save2">Enregistrer</button>
+                                        </p>
+                                    </center>
                                 </div>
                             </div>
                         </div>
