@@ -6,7 +6,15 @@
 <body>
 <?php
 require('../../include/defines.inc.php');
-
+// Initialiser la session
+	session_start();
+	// Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
+	if(!isset($_SESSION["username"])){
+                echo "<script>alert(\"Veuillez vous connecter en tant qu'admin pour accéder à cette page\")
+                      window.location.replace('http://localhost/Z_Cavalier/Arborescence/registration/login.php')</script>";
+		exit(); 
+	}
+        
 if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['type'], $_REQUEST['password'])){
 	// récupérer le nom d'utilisateur et supprimer les antislashes ajoutés par le formulaire
 	$username = stripslashes($_REQUEST['username']);
