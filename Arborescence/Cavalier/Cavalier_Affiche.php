@@ -34,8 +34,59 @@ if (!isset($_SESSION["username"])) {
     if (!isset($_GET["nav"]) || $_GET["nav"] === "read") {
         $data = $oCavalier->db_get_all();
     ?>
+    <div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="../../dashboard/index.php" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php" class="nav-link align-middle px-0">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Cavalier</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/Cavalerie/Cheval_Affiche.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Cheval</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/Robe/Robe_affiche.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Robe</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/Pension/Pension_affiche.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Pension</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/Type_pension/Type_pension_affiche.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Type Pension</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/Cours/fullcalendar-master/index.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Cours</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/registration/admin/add_user.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Ajouter un utilisateur</span> </a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="dropdown pb-4">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../../Dashboard/assets/img/Admin.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="/Z_Cavalier/Arborescence/registration/logout.php">Se déconnecter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col py-3">
         <div class="container">
-            <div class="d-flex justify-content-center">
+            <div class="row justify-content-md-center">
+            <div class="input-group">
                 <a href="/Z_Cavalier/dashboard/index.php"><img src="/Z_Cavalier/dashboard/assets/img/home_icon.png" /></a> &nbsp;
                 <a class="btn btn-primary" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle personne</a> &nbsp;
                 <form action="Cavalier_search.php" method='post'> &nbsp;
@@ -44,12 +95,13 @@ if (!isset($_SESSION["username"])) {
                     <button name="search" type="submit id=" submit" class="btn btn-primary">Rechercher</button>
                 </form>
             </div>
+            </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-4">
             <div class="col">
                 <table class='table table-hover'>
-                    <thead>
+                    <thead class="table-dark">
                         <th style='text-align :center'>ID</th>
                         <th style='text-align :center'>Nom</th>
                         <th style='text-align :center'>Prenom</th>
@@ -93,6 +145,7 @@ if (!isset($_SESSION["username"])) {
                         ?>
                     </tbody>
                 </table>
+            </div>
             <?php
         }
         //Tout ce qui se trouve en dessous de $_GET["nav"] === update est pour la modification
@@ -138,173 +191,177 @@ if (!isset($_SESSION["username"])) {
         //Tout ce qui se trouve en dessous de $_GET['nav'] === create est pour l'insertion de personne dans la BDD
         elseif ($_GET['nav'] === 'create') {
     ?>
-        <center>
-            <h1>Créer une personne</h1>
-        </center>
-
+<link href="../static/css/main.css" rel="stylesheet" media="all">
         <div class="widget">
+            <div class="p-t-130 p-b-100">
+            <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+            <div class="card-body">
             <!-- Class Cavalier -->
             <div id="cav">
                 <form action="Cavalier_trait.php" method="post">
-                    <div class="container">
-                        <div class="col-9 float-end bg-warning center-align">
-                            <div class="container">
-                                <div class="col-5">
-                                    <h1>
-                                        <center>
-                                            <u>
-                                                <font color="#0d6efd" face="Georgia">Cavalier</font>
-                                                <font color="#0d6efd" face="Georgia" id="txt_resp">Et/Ou Responsable</font>
-                                            </u>
-                                        </center></br>
-                                    </h1>
+                    <h2 class="title">Insertion d'une Personne</h2>
+                    <h2 class="title" id="txt_resp">Et/Ou Responsable</h2>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                <label for="nom" class="label">Nom</label>
+                                <input placeholder="Nom" class="input--style-4" id="nom" type="text" name="nom_cav">
                                 </div>
-                                <div class="row">
-                                    <div class="col-5">
-                                        <label for="nom" class="form-label">Nom :</label>
-                                        <input placeholder="Nom" class="form-control" id="nom" type="text" name="nom_cav">
-                                    </div>
-                                    <div class="col-5">
-                                        <label for="prenom" class="form-label">Prenom :</label>
-                                        <input placeholder="Prenom" class="form-control" id="prenom" type="text" name="prenom_cav">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-5">
-                                        <label for="dna" class="form-label">Date de naissance :</label>
-                                        <input type="date" placeholder="Date de naissance" class="form-control" type="text" name="DNA_cav">
+                        </div>
+                            <div class="col-2">
+                            <div class="input-group">
+                                <label for="prenom" class="label">Prenom</label>
+                                        <input placeholder="Prenom" class="input--style-4" id="prenom" type="text" name="prenom_cav">
+                            </div>
+                            </div>
+                        </div>
+                                <div class="col-2">
+                            <div class="input-group">
+                                        <label for="dna" class="label">Date de naissance</label>
+                                        <input type="date" placeholder="Date de naissance" class="input--style-4" type="text" name="DNA_cav">
                                     </div>
                                 </div>
 
                                 <!-- Ajout Rue, Ville et Code Postale si la personne est son propre responsable -->
                                 <div id="resp2">
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <label for="rue" class="form-label">Rue :</label>
-                                            <input id="rue" class="form-control" placeholder="Rue" type="text" name="rue_cav">
-                                        </div>
-                                        <div class="col-5">
-                                            <label for="ville" class="form-label">Ville :</label>
-                                            <input id="ville" class="form-control" placeholder="Ville" type="text" name="ville_cav">
+                                    <div class="row row-space">
+                                    <div class="col-2">
+                            <div class="input-group">
+                                            <label for="rue" class="label">Rue</label>
+                                            <input id="rue" class="input--style-4" placeholder="Rue" type="text" name="rue_cav">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-5">
-                                            <label for="cp" class="form-label"> Code Postal</label>
-                                            <input type="number" placeholder="Code Postal" class="form-control" id="cp" type="text" name="cp_cav">
+                                        <div class="col-2">
+                            <div class="input-group">
+                                            <label for="ville" class="label">Ville</label>
+                                            <input id="ville" class="input--style-4" placeholder="Ville" type="text" name="ville_cav">
                                         </div>
                                     </div>
+                                    <div class="col-2">
+                            <div class="input-group">
+                                            <label for="cp" class="label"> Code Postal</label>
+                                            <input type="number" placeholder="Code Postal" class="input--style-4" id="cp" type="text" name="cp_cav">
+                                        </div>
+                                    </div>
+                                </div>
                                 </div>
 
                                 <!-- Retour aux infos de base du cavalier -->
-                                <div class="row">
-                                    <div class="col-5">
-                                        <label for="galop" class="form-label">Galop :</label>
-                                        <input type="number" id="galop" class="form-control" placeholder="Galop" type="text" name="gal_cav">
-                                    </div>
-                                    <div class="col-5">
-                                        <label for="lic" class="form-label">Numéro licence :</label>
-                                        <input placeholder="Numero licence" class="form-control" id="lic" type="text" name="num_lic">
+                                <div class="row row-space">
+                                <div class="col-2">
+                            <div class="input-group">
+                                        <label for="galop" class="label">Galop</label>
+                                        <input type="number" id="galop" class="input--style-4" placeholder="Galop" type="text" name="gal_cav">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-5">
-                                        <label for="mail" class="form-label">Mail :</label>
-                                        <input type="email" id="mail" class="form-control" placeholder="Mail" type="text" name="mail_cav">
+                                    <div class="col-2">
+                            <div class="input-group">
+                                        <label for="lic" class="label">Numéro licence</label>
+                                        <input placeholder="Numero licence" class="input--style-4" id="lic" type="text" name="num_lic">
                                     </div>
-                                    <div class="col-5">
-                                        <label for="tel" class="form-label">Numéro de téléphone :</label>
-                                        <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone_cav"> <br>
+                                </div>
+                                </div>
+                                <div class="row row-space">
+                                <div class="col-2">
+                            <div class="input-group">
+                                        <label for="mail" class="label">Mail</label>
+                                        <input type="email" id="mail" class="input--style-4" placeholder="Mail" type="text" name="mail_cav">
                                     </div>
-                                    </br></br></br></br></br>
-                                    <div id="affiche" class="form-check form-switch ms-4 mb-4 col-2">
+                                </div>
+                                    <div class="col-2">
+                            <div class="input-group">
+                                        <label for="tel" class="label">Numéro de téléphone</label>
+                                        <input type="number" id="tel" class="input--style-4" placeholder="Telephone" type="text" name="telephone_cav">
+                                    </div>
+                                    </div>
+                                </div>
+                                    <div id="affiche" class="col-2">
+                            <div class="input-group">
+                            <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                                         <label class="form-check-label">Responsable</label>
                                     </div>
+                            </div>
+                                    </div>
                                     <center>
-                                        <p>
                                             <hr><button class="btn btn-secondary" id="back"><a class="text-light text-decoration-none" href="Cavalier_Affiche.php">Retour</a></button></hr>
                                             <button name="create" type="submit" class="btn btn-primary" id="save">Enregistrer</button>
-                                        </p>
                                     </center>
 
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-            </div>
 
             <!-- Class Responsable -->
             <div id="resp">
                 <form action="Cavalier_trait.php" method="post">
-                    <div class="container">
-                        <div class="col-9 float-end bg-warning center-align">
-                            <div class="container">
-                                <div class="container">
-                                    <div class="col-5">
-                                        <h1>
-                                            <center>
-                                                <u>
-                                                    <font color="#0d6efd" face="Georgia">Responsable</font>
-                                                </u>
-                                            </center></br>
-                                        </h1>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <label for="nom" class="form-label">Nom :</label>
-                                            <input placeholder="Nom" class="form-control" id="nom" type="text" name="nom_resp">
+                    <h2 class="title">Insertion d'un Responsable</h2>
+                    <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                            <label for="nom" class="label">Nom :</label>
+                                            <input placeholder="Nom" class="input--style-4" id="nom" type="text" name="nom_resp">
                                         </div>
-                                        <div class="col-5">
-                                            <label for="prenom" class="form-label">Prenom :</label>
-                                            <input placeholder="Prenom" class="form-control" id="prenom" type="text" name="prenom_resp">
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                            <label for="prenom" class="label">Prenom :</label>
+                                            <input placeholder="Prenom" class="input--style-4" id="prenom" type="text" name="prenom_resp">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-5">
-                                            <label for="dna" class="form-label">Date de naissance :</label>
-                                            <input type="date" id="dna" class="form-control" placeholder="Date de naissance" type="text" name="DNA_resp">
+                                    <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                            <label for="dna" class="label">Date de naissance :</label>
+                                            <input type="date" id="dna" class="input--style-4" placeholder="Date de naissance" type="text" name="DNA_resp">
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <label for="rue" class="form-label">Rue :</label>
-                                            <input id="rue" class="form-control" placeholder="Rue" type="text" name="rue_resp">
+                                    </div>
+                                    <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                            <label for="rue" class="label">Rue :</label>
+                                            <input id="rue" class="input--style-4" placeholder="Rue" type="text" name="rue_resp">
                                         </div>
-                                        <div class="col-5">
-                                            <label for="ville" class="form-label">Ville :</label>
-                                            <input type="text" id="ville" class="form-control" placeholder="Ville" name="ville_resp">
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                            <label for="ville" class="label">Ville :</label>
+                                            <input type="text" id="ville" class="input--style-4" placeholder="Ville" name="ville_resp">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-5">
-                                            <label for="cp" class="form-label"> Code Postal</label>
-                                            <input type="number" placeholder="Code Postal" class="form-control" id="cp" type="text" name="cp_resp">
+                            <div class="col-2">
+                                <div class="input-group">
+                                            <label for="cp" class="label"> Code Postal</label>
+                                            <input type="number" placeholder="Code Postal" class="input--style-4" id="cp" type="text" name="cp_resp">
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <label for="mail" class="form-label">Mail :</label>
-                                            <input type="email" id="mail" class="form-control" placeholder="Mail" type="text" name="mail_resp">
+                            </div>
+                                    </div>
+                                    <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                            <label for="mail" class="label">Mail :</label>
+                                            <input type="email" id="mail" class="input--style-4" placeholder="Mail" type="text" name="mail_resp">
                                         </div>
-                                        <div class="col-5">
-                                            <label for="tel" class="form-label">Numéro de téléphone :</label>
-                                            <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone_resp"><br>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                            <label for="tel" class="label">Numéro de téléphone :</label>
+                                            <input type="number" id="tel" class="input--style-4" placeholder="Telephone" type="text" name="telephone_resp"><br>
                                         </div>
+                            </div>
+                                    </div>
                                         <center>
-                                            <p> <button class="btn btn-secondary" id="back2"><a class="text-light text-decoration-none" href="Cavalier_Affiche.php">Retour</a></button>
+                                            <hr><button class="btn btn-secondary" id="back2"><a class="text-light text-decoration-none" href="Cavalier_Affiche.php">Retour</a></button></hr>
                                                 <button name="create" type="submit" class="btn btn-primary" id="save2">Enregistrer</button>
-                                            </p>
                                         </center>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </form>
                 </form>
             </div>
+        </div>
+    </div>
+    </div>
         </div>
     <?php
         }
