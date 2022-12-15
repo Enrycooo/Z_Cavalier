@@ -100,14 +100,14 @@ include('../include/defines.inc.php');
             <div class="table-responsive">
             <table class='table table-hover'>
                 <thead class="table-dark">
-                            <th style='text-align :center'>Id pension</th>
-                            <th style='text-align :center'>Reference cheval</th>
+                            <th style='text-align :center'>ID</th>
+                            <th style='text-align :center'>Ref cheval</th>
                             <th style='text-align :center'>Type </th>
-                            <th style='text-align :center'>Date de debut </th>
-                            <th style='text-align :center'>Date de fin </th>
+                            <th style='text-align :center'>Date debut </th>
+                            <th style='text-align :center'>Date fin </th>
                             <th style='text-align :center'>Tarif </th>
-                            <th style='text-align :center'>Reference type pension</th>
-                            <th style='text-align :center'>Reference personne</th>
+                            <th style='text-align :center'>Ref type pension</th>
+                            <th style='text-align :center'>Refpersonne</th>
                             <th style='text-align :center'>Actions</th>
                 </thead>
                 <tbody>
@@ -252,6 +252,8 @@ include('../include/defines.inc.php');
                         <button type="submit" name="create" class="btn btn--radius-2 btn--blue">Enregistrer</button>
                     </div>
                 </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>

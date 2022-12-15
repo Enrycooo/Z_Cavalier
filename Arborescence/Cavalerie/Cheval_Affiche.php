@@ -81,7 +81,6 @@ include('../include/defines.inc.php');
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="input-group">
-                <a href="/Z_Cavalier/dashboard/index.php"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
                 <a class="btn btn-primary" href="Cheval_Affiche.php?nav=create">Ajouter un Cheval </a> &nbsp;
                 <form action="Cheval_search.php" method='post'>
                     <input placeholder="Nom" type="text" name="nom" title="Veuillez renseigner le nom du cheval concerné par votre recherche">

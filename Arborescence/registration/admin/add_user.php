@@ -52,7 +52,7 @@ if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['type'], $_REQUES
 	<h1 class="box-logo box-title"><a href="http://localhost/Z_Cavalier/dashboard/index.php">Dashboard</a></h1>
     <h1 class="box-title">Add user</h1>
 	<input type="text" class="box-input" name="username" placeholder="Nom d'utilisateur" required />
-    <input type="text" class="box-input" name="email" placeholder="Email" required />
+    <input type="email" class="box-input" name="email" placeholder="Email" required />
 	<div class="input-group">
 			<select class="box-input" name="type" id="type" >
 				<option value="" disabled selected>Type</option>
