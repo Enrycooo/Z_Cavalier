@@ -72,7 +72,7 @@ include('../include/defines.inc.php');
                         <img src="../../Dashboard/assets/img/Admin.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">Se déconnecter</a></li>
+                        <li><a class="dropdown-item" href="/Z_Cavalier/Arborescence/registration/logout.php">Se déconnecter</a></li>
                     </ul>
                 </div>
             </div>
