@@ -31,7 +31,7 @@ include('../include/defines.inc.php');
         if(!isset($_GET["nav"]) || $_GET["nav"] === "read"){
         $data = $oPension->db_get_all();
   ?>
-        <div class="container-fluid">
+    <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
@@ -108,9 +108,8 @@ include('../include/defines.inc.php');
                             <th style='text-align :center'>Reference type pension</th>
                             <th style='text-align :center'>Reference personne</th>
                             <th style='text-align :center'>Actions</th>
-            </tbody>
-            </table>
-            </div>
+                </thead>
+                <tbody>
                 <?php 
                     foreach ($data as $key) {
                         $id_pension = $key["id_pension"]; 
@@ -135,8 +134,9 @@ include('../include/defines.inc.php');
                         </tr>";
                     }
                 ?>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+            </div>
         <?php
         }
 

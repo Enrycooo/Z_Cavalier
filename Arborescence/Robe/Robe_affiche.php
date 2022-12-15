@@ -104,9 +104,8 @@ include('../include/defines.inc.php');
                 <th style='text-align :center'>Id </th>
                 <th style='text-align :center'>Nom de la robe</th>
                 <th style='text-align :center'>Actions</th>
-            </tbody>
-            </table>
-            </div>
+                </thead>
+                <tbody>
                 <?php 
                     foreach ($data as $key) {
                         $id_robe = $key["id_robe"];
@@ -125,8 +124,9 @@ include('../include/defines.inc.php');
                         </tr>";
                     }
                 ?>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+            </div>
         <?php
         }
 
