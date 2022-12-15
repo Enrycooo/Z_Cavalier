@@ -93,6 +93,7 @@ include('../include/defines.inc.php');
             </form>
         </div>
     </div>
+    </div>
  
     <div class="row mt-4">
         <div class="col">
@@ -149,7 +150,6 @@ include('../include/defines.inc.php');
         //foreach($data as $key){
         //$id_pension = $key["id_pension"]; ?>         
             <h1>Modifier</h1>
-            <div class="">
             <link href="../static/css/style.css" rel="stylesheet" />     
             <span class="imageDroite"><img class="img-fluid" src="../static/assets/img/logo_REL.png" alt="..." /></span>
             <form action="Pension_trait.php" method="post">
@@ -251,7 +251,7 @@ include('../include/defines.inc.php');
                         <a type="button" class="btn btn-secondary" href="Pension_affiche.php">Retour</a>
                         <button type="submit" name="create" class="btn btn--radius-2 btn--blue">Enregistrer</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -259,5 +259,8 @@ include('../include/defines.inc.php');
         <?php
             }
         ?>
-</body>
+</div>
+    </div>
+</div>
+            </body>
             </html>

@@ -175,7 +175,7 @@ include('../include/defines.inc.php');
                                 <a type="button" class="btn btn-secondary" href="Type_pension_affiche.php">Retour</a>
                                 <button type="submit" name="create" class="btn btn--radius-2 btn--blue">Enregistrer</button>
                         </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -183,5 +183,8 @@ include('../include/defines.inc.php');
         <?php
             }
         ?>
+    </div>
+    </div>
+    </div>
             </body>
             </html>
