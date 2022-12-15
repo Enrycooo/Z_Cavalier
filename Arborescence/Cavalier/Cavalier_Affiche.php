@@ -41,7 +41,6 @@ if (!isset($_SESSION["username"])) {
                 <form action="Cavalier_search.php" method='post'> &nbsp;
                     <input placeholder="Nom" type="text" name="nom" title="Veuillez renseigner le nom de la personne concernée par votre recherche"> &nbsp;
                     <input placeholder="Prenom" type="text" name="prenom" title="Veuillez renseigner le prenom de la personne concernée par votre recherche">
-                    <input placeholder="Galop" type="text" name="galop" title="Veuillez renseigner le galop des personnes concernées par votre recherche">
                     <button name="search" type="submit id=" submit" class="btn btn-primary">Rechercher</button>
                 </form>
             </div>
@@ -129,7 +128,6 @@ if (!isset($_SESSION["username"])) {
                         <div class="">
                             <a type="button" class="btn btn-secondary" href="Cavalier_Affiche.php">Retour</a>
                             <button type="submit" name="update" class="btn btn-primary">Modifier</button>
-
                         </div>
                     </form>
                 </div>
@@ -151,27 +149,30 @@ if (!isset($_SESSION["username"])) {
                     <div class="container">
                         <div class="col-9 float-end bg-warning center-align">
                             <div class="container">
-                                <h1>
-                                    <center>
-                                        <u>
-                                            <font color="#0d6efd" face="Georgia">Cavalier</font>
-                                        </u>
-                                    </center></br>
-                                </h1>
+                                <div class="col-5">
+                                    <h1>
+                                        <center>
+                                            <u>
+                                                <font color="#0d6efd" face="Georgia">Cavalier</font>
+                                                <font color="#0d6efd" face="Georgia" id="txt_resp">Et/Ou Responsable</font>
+                                            </u>
+                                        </center></br>
+                                    </h1>
+                                </div>
                                 <div class="row">
                                     <div class="col-5">
                                         <label for="nom" class="form-label">Nom :</label>
-                                        <input placeholder="Nom" class="form-control" id="nom" type="text" name="nom">
+                                        <input placeholder="Nom" class="form-control" id="nom" type="text" name="nom_cav">
                                     </div>
                                     <div class="col-5">
                                         <label for="prenom" class="form-label">Prenom :</label>
-                                        <input placeholder="Prenom" class="form-control" id="prenom" type="text" name="prenom">
+                                        <input placeholder="Prenom" class="form-control" id="prenom" type="text" name="prenom_cav">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-5">
                                         <label for="dna" class="form-label">Date de naissance :</label>
-                                        <input type="date" placeholder="Date de naissance" class="form-control" type="text" name="DNA">
+                                        <input type="date" placeholder="Date de naissance" class="form-control" type="text" name="DNA_cav">
                                     </div>
                                 </div>
 
@@ -180,17 +181,17 @@ if (!isset($_SESSION["username"])) {
                                     <div class="row">
                                         <div class="col-5">
                                             <label for="rue" class="form-label">Rue :</label>
-                                            <input id="rue" class="form-control" placeholder="Rue" type="text" name="rue">
+                                            <input id="rue" class="form-control" placeholder="Rue" type="text" name="rue_cav">
                                         </div>
                                         <div class="col-5">
                                             <label for="ville" class="form-label">Ville :</label>
-                                            <input type="email" id="ville" class="form-control" placeholder="Ville" type="text" name="ville">
+                                            <input type="email" id="ville" class="form-control" placeholder="Ville" type="text" name="ville_cav">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-5">
                                             <label for="cp" class="form-label"> Code Postal</label>
-                                            <input type="number" placeholder="Code Postal" class="form-control" id="cp" type="text" name="cp">
+                                            <input type="number" placeholder="Code Postal" class="form-control" id="cp" type="text" name="cp_cav">
                                         </div>
                                     </div>
                                 </div>
@@ -209,11 +210,11 @@ if (!isset($_SESSION["username"])) {
                                 <div class="row">
                                     <div class="col-5">
                                         <label for="mail" class="form-label">Mail :</label>
-                                        <input type="email" id="mail" class="form-control" placeholder="Mail" type="text" name="mail">
+                                        <input type="email" id="mail" class="form-control" placeholder="Mail" type="text" name="mail_cav">
                                     </div>
                                     <div class="col-5">
                                         <label for="tel" class="form-label">Numéro de téléphone :</label>
-                                        <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone"> <br>
+                                        <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone_cav"> <br>
                                     </div>
                                     </br></br></br></br></br>
                                     <div id="affiche" class="form-check form-switch ms-4 mb-4 col-2">
@@ -240,63 +241,66 @@ if (!isset($_SESSION["username"])) {
                     <div class="container">
                         <div class="col-9 float-end bg-warning center-align">
                             <div class="container">
-                                <div class="row">
-                                    <h1>
+                                <div class="container">
+                                    <div class="col-5">
+                                        <h1>
+                                            <center>
+                                                <u>
+                                                    <font color="#0d6efd" face="Georgia">Responsable</font>
+                                                </u>
+                                            </center></br>
+                                        </h1>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <label for="nom" class="form-label">Nom :</label>
+                                            <input placeholder="Nom" class="form-control" id="nom" type="text" name="nom_resp">
+                                        </div>
+                                        <div class="col-5">
+                                            <label for="prenom" class="form-label">Prenom :</label>
+                                            <input placeholder="Prenom" class="form-control" id="prenom" type="text" name="prenom_resp">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-5">
+                                            <label for="dna" class="form-label">Date de naissance :</label>
+                                            <input type="date" id="dna" class="form-control" placeholder="Date de naissance" type="text" name="DNA_resp">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <label for="rue" class="form-label">Rue :</label>
+                                            <input id="rue" class="form-control" placeholder="Rue" type="text" name="rue_resp">
+                                        </div>
+                                        <div class="col-5">
+                                            <label for="ville" class="form-label">Ville :</label>
+                                            <input type="text" id="ville" class="form-control" placeholder="Ville" name="ville_resp">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-5">
+                                            <label for="cp" class="form-label"> Code Postal</label>
+                                            <input type="number" placeholder="Code Postal" class="form-control" id="cp" type="text" name="cp_resp">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <label for="mail" class="form-label">Mail :</label>
+                                            <input type="email" id="mail" class="form-control" placeholder="Mail" type="text" name="mail_resp">
+                                        </div>
+                                        <div class="col-5">
+                                            <label for="tel" class="form-label">Numéro de téléphone :</label>
+                                            <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone_resp"><br>
+                                        </div>
                                         <center>
-                                            <u>
-                                                <font color="#0d6efd" face="Georgia">Responsable</font>
-                                            </u>
-                                        </center></br>
-                                    </h1>
-                                    <div class="col-5">
-                                        <label for="nom" class="form-label">Nom :</label>
-                                        <input placeholder="Nom" class="form-control" id="nom" type="text" name="nom">
+                                            <p> <button class="btn btn-secondary" id="back2"><a class="text-light text-decoration-none" href="Cavalier_Affiche.php">Retour</a></button>
+                                                <button name="create" type="submit" class="btn btn-primary" id="save2">Enregistrer</button>
+                                            </p>
+                                        </center>
                                     </div>
-                                    <div class="col-5">
-                                        <label for="prenom" class="form-label">Prenom :</label>
-                                        <input placeholder="Prenom" class="form-control" id="prenom" type="text" name="prenom">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-5">
-                                        <label for="dna" class="form-label">Date de naissance :</label>
-                                        <input type="date" id="dna" class="form-control" placeholder="Date de naissance" type="text" name="DNA">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-5">
-                                        <label for="rue" class="form-label">Rue :</label>
-                                        <input id="rue" class="form-control" placeholder="Rue" type="text" name="rue">
-                                    </div>
-                                    <div class="col-5">
-                                        <label for="ville" class="form-label">Ville :</label>
-                                        <input type="text" id="ville" class="form-control" placeholder="Ville" name="ville">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-5">
-                                        <label for="cp" class="form-label"> Code Postal</label>
-                                        <input type="number" placeholder="Code Postal" class="form-control" id="cp" type="text" name="cp">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-5">
-                                        <label for="mail" class="form-label">Mail :</label>
-                                        <input type="email" id="mail" class="form-control" placeholder="Mail" type="text" name="mail">
-                                    </div>
-                                    <div class="col-5">
-                                        <label for="tel" class="form-label">Numéro de téléphone :</label>
-                                        <input type="number" id="tel" class="form-control" placeholder="Telephone" type="text" name="telephone"><br>
-                                    </div>
-                                    <center>
-                                        <p> <button class="btn btn-secondary" id="back2"><a class="text-light text-decoration-none" href="Cavalier_Affiche.php">Retour</a></button>
-                                            <button name="create" type="submit" class="btn btn-primary" id="save2">Enregistrer</button>
-                                        </p>
-                                    </center>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </form>
             </div>
         </div>
@@ -307,6 +311,7 @@ if (!isset($_SESSION["username"])) {
         let r_affiche = document.getElementById("affiche");
         let resp = document.getElementById("resp");
         let resp2 = document.getElementById("resp2");
+        let txt_resp = document.getElementById("txt_resp");
 
         let save2 = document.getElementById("save2");
         let save = document.getElementById("save");
@@ -317,6 +322,7 @@ if (!isset($_SESSION["username"])) {
         resp2.style.display = "none";
         save2.style.display = "none";
         back2.style.display = "none";
+        txt_resp.style.display = "none";
 
         r_affiche.addEventListener("click", () => {
             if (getComputedStyle(resp).display != "none") {
@@ -326,6 +332,7 @@ if (!isset($_SESSION["username"])) {
                 back2.style.display = "none";
                 save.style.display = "flex";
                 back.style.display = "flex";
+                txt_resp.style.display = "none";
 
             } else {
                 resp.style.display = "block";
@@ -334,7 +341,7 @@ if (!isset($_SESSION["username"])) {
                 back2.style.display = "flex";
                 save.style.display = "none";
                 back.style.display = "none";
-
+                txt_resp.style.display = "flex";
             }
         })
     </script>
