@@ -63,32 +63,38 @@ class Cavalier
     ) {
 
         global $conn;
-        $request = "INSERT INTO personne(nom, prenom, DNA, rue, code_postal, ville, mail, actif, telephone, photo, gal_cav, num_lic)
-                    VALUES (:nom, :pre, :dna, :rue, :cp, :ville, :mail, 1, :tel, 1, :gal_cav, :num_lic)";
-        $sql = $conn->prepare($request);
         /* Cavalier et/ou Responsable */
-        $sql->bindValue(':nom', $nom_cav, PDO::PARAM_STR);
-        $sql->bindValue(':pre', $prenom_cav, PDO::PARAM_STR);
-        $sql->bindValue(':dna', $dna_cav, PDO::PARAM_STR);
-        $sql->bindValue(':rue', $rue_cav, PDO::PARAM_STR);
-        $sql->bindValue(':cp', $cp_cav, PDO::PARAM_STR);
-        $sql->bindValue(':ville', $ville_cav, PDO::PARAM_STR);
-        $sql->bindValue(':mail', $mail_cav, PDO::PARAM_STR);
-        $sql->bindValue(':tel', $tel_cav, PDO::PARAM_STR);
+        $request = "INSERT INTO personne(nom, prenom, DNA, rue, code_postal, ville, mail, actif, telephone, photo, gal_cav, num_lic)
+                    VALUES (:nom_cav, :pre_cav, :dna_cav, :rue_cav, :cp_cav, :ville_cav, :mail_cav, 1, :tel_cav, 1, :gal_cav, :num_lic)";
+        $sql = $conn->prepare($request);
+        $sql->bindValue(':nom_cav', $nom_cav, PDO::PARAM_STR);
+        $sql->bindValue(':pre_cav', $prenom_cav, PDO::PARAM_STR);
+        $sql->bindValue(':dna_cav', $dna_cav, PDO::PARAM_STR);
+        $sql->bindValue(':rue_cav', $rue_cav, PDO::PARAM_STR);
+        $sql->bindValue(':cp_cav', $cp_cav, PDO::PARAM_STR);
+        $sql->bindValue(':ville_cav', $ville_cav, PDO::PARAM_STR);
+        $sql->bindValue(':mail_cav', $mail_cav, PDO::PARAM_STR);
+        $sql->bindValue(':tel_cav', $tel_cav, PDO::PARAM_STR);
         $sql->bindValue(':gal_cav', $galop, PDO::PARAM_INT);
         $sql->bindValue(':num_lic', $nl, PDO::PARAM_STR);
         /* Reponsable */
-        $sql->bindValue(':nom', $nom_resp, PDO::PARAM_STR);
-        $sql->bindValue(':pre', $prenom_resp, PDO::PARAM_STR);
-        $sql->bindValue(':dna', $dna_resp, PDO::PARAM_STR);
-        $sql->bindValue(':rue', $rue_resp, PDO::PARAM_STR);
-        $sql->bindValue(':cp', $cp_resp, PDO::PARAM_STR);
-        $sql->bindValue(':ville', $ville_resp, PDO::PARAM_STR);
-        $sql->bindValue(':mail', $mail_resp, PDO::PARAM_STR);
-        $sql->bindValue(':tel', $tel_resp, PDO::PARAM_STR);
+        $request2 = "INSERT INTO personne(nom, prenom, DNA, rue, code_postal, ville, mail, actif, telephone, photo)
+                    VALUES (:nom_resp, :pre_resp, :dna_resp, :rue_resp, :cp_resp, :ville_resp, :mail_resp, 1, :tel_resp, 1)";
+        $sql2 = $conn->prepare($request2);
+        $sql2->bindValue(':nom_resp', $nom_resp, PDO::PARAM_STR);
+        $sql2->bindValue(':pre_resp', $prenom_resp, PDO::PARAM_STR);
+        $sql2->bindValue(':dna_resp', $dna_resp, PDO::PARAM_STR);
+        $sql2->bindValue(':rue_resp', $rue_resp, PDO::PARAM_STR);
+        $sql2->bindValue(':cp_resp', $cp_resp, PDO::PARAM_STR);
+        $sql2->bindValue(':ville_resp', $ville_resp, PDO::PARAM_STR);
+        $sql2->bindValue(':mail_resp', $mail_resp, PDO::PARAM_STR);
+        $sql2->bindValue(':tel_resp', $tel_resp, PDO::PARAM_STR);
         /* Try de la requête */
         try {
             $sql->execute();
+            if (isset($nom_resp, $prenom_resp, $dna_resp, $rue_resp, $cp_resp, $ville_resp, $mail_resp, $tel_resp)) {
+                $sql2->execute();
+            }
             return true;
         } catch (PDOException $e) {
             return $this->errmessage . $e->getMessage();

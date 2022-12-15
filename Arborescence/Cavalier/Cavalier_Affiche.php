@@ -185,7 +185,7 @@ if (!isset($_SESSION["username"])) {
                                         </div>
                                         <div class="col-5">
                                             <label for="ville" class="form-label">Ville :</label>
-                                            <input type="email" id="ville" class="form-control" placeholder="Ville" type="text" name="ville_cav">
+                                            <input id="ville" class="form-control" placeholder="Ville" type="text" name="ville_cav">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -232,7 +232,7 @@ if (!isset($_SESSION["username"])) {
                             </div>
                         </div>
                     </div>
-                </form>
+
             </div>
 
             <!-- Class Responsable -->
@@ -302,6 +302,7 @@ if (!isset($_SESSION["username"])) {
                             </div>
                         </div>
                     </div>
+                </form>
                 </form>
             </div>
         </div>

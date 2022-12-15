@@ -22,10 +22,7 @@ if (isset($_POST["create"])) {
         $rue_resp = $_POST['rue_resp'];
         $cp_resp = $_POST['cp_resp'];
         $ville_resp = $_POST['ville_resp'];
-        /* Requête */
-        $sql = $conn->prepare("SELECT id_personne FROM personne WHERE nom = :nom");
-        $sql->bindValue(':nom', $_POST["nom"], PDO::PARAM_STR);
-        $sql->execute();
+
         $req = $oCavalier->db_create($nom_cav, $prenom_cav, $dna_cav, $mail_cav, $tel_cav, $rue_cav, $cp_cav, $ville_cav, $galop, $nl, $nom_resp, $prenom_resp, $dna_resp, $mail_resp, $tel_resp, $rue_resp, $cp_resp, $ville_resp);
         if ($req) {
 ?>
@@ -46,7 +43,6 @@ if (isset($_POST["create"])) {
         ?>
         <script>
             alert("Veuillez remplir tout les champs !")
-            die;
             window.location.replace("http://localhost/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php?nav=create");
         </script>
     <?php
