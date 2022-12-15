@@ -205,7 +205,7 @@ require('config.php');
 <div class="container">
 
     <p><br><a></a></p>
-    <a href="/Z_Cavalier/dashboard/index.html"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
+    <a href="/Z_Cavalier/dashboard/index.php"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addeventmodal">
       Ajouter un cours
     </button>
