@@ -28,32 +28,82 @@ include('../include/defines.inc.php');
         if(!isset($_GET["nav"]) || $_GET["nav"] === "read"){
         $data = $oCheval->db_get_all();
   ?>
+    <div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="../../dashboard/index.php" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/Cavalier/Cavalier_Affiche.php" class="nav-link align-middle px-0">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Cavalier</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/Cavalerie/Cheval_Affiche.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Cheval</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/Robe/Robe_affiche.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Robe</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/Pension/Pension_affiche.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Pension</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/Cours/fullcalendar-master/index.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Cours</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Z_Cavalier/Arborescence/registration/admin/add_user.php" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Ajouter un utilisateur</span> </a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="dropdown pb-4">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../../Dashboard/assets/img/Admin.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="#">Se déconnecter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col py-3">
     <div class="container">
-        <div class="d-flex justify-content-center">
-        <a href="/Z_Cavalier/dashboard/index.php"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
-        <a class="btn btn-primary" href="Cheval_Affiche.php?nav=create">Ajouter un Cheval </a> &nbsp; 
-            <form action="Cheval_search.php" method='post'>
-            <input placeholder="Nom" type="text" name="nom" title="Veuillez renseigner le nom du cheval concerné par votre recherche">
-            <input placeholder="Race" type="text" name="race" title="Veuillez renseigner le prenom de la personne concernée par votre recherche">
-            <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
-            </form>
+        <div class="row justify-content-md-center">
+            <div class="input-group">
+                <a href="/Z_Cavalier/dashboard/index.php"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
+                <a class="btn btn-primary" href="Cheval_Affiche.php?nav=create">Ajouter un Cheval </a> &nbsp;
+                <form action="Cheval_search.php" method='post'>
+                    <input placeholder="Nom" type="text" name="nom" title="Veuillez renseigner le nom du cheval concerné par votre recherche">
+                    <input placeholder="Race" type="text" name="race" title="Veuillez renseigner le prenom de la personne concernée par votre recherche">
+                    <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
+                </form>
+            </div>
         </div>
     </div>
  
-            <div class="row">
-                <div class="col">
-                    <table class='table table-hover'>
-            <thead>
-            <th style='text-align :center'>ID</th>
-                <th style='text-align :center'>Nom</th>
-                <th style='text-align :center'>Date de naissance</th>
-                <th style='text-align :center'>Race </th>
-                <th style='text-align :center'>Sexe</th>
-                <th style='text-align :center'>Taille</th>
-                <th style='text-align :center'>N°Sire</th>
-                <th style='text-align :center'>Robe</th>
-            </thead>
-            <tbody>
+    <div class="row mt-4">
+        <div class="col">
+            <div class="table-responsive">
+            <table class='table table-hover'>
+                <thead class="table-dark">
+                    <th style='text-align :center'>ID</th>
+                    <th style='text-align :center'>Nom</th>
+                    <th style='text-align :center'>Date de naissance</th>
+                    <th style='text-align :center'>Race </th>
+                    <th style='text-align :center'>Sexe</th>
+                    <th style='text-align :center'>Taille</th>
+                    <th style='text-align :center'>N°Sire</th>
+                    <th style='text-align :center'>Robe</th>
+                    <th style='text-align :center'>Actions</th>
+                </thead>
+                <tbody>
                 <?php 
                     foreach ($data as $key) {
                         $id_cheval = $key["id_cheval"]; 
@@ -78,39 +128,89 @@ include('../include/defines.inc.php');
                         </tr>";
                     }
                 ?>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+            </div>
         <?php
         }
 
         elseif($_GET["nav"] === "update"){
         $data = $oCheval->db_get_by_id($_GET["id_cheval"]);
-        ?>               
-            <div class="">
-                <form action="Cheval_trait.php" method="post">
-                    <div class="modal-body form-group">
-                        <label>Nom :</label>
-                        <input class="col-8 form-control" style="margin: 0 auto" type="text" name="nom" value="<?php echo $data["nom_cheval"]; ?>">
-                        <label>Date de naissance :</label>
-                        <input type ="date" class="col-8 form-control" style="margin: 0 auto" type="text" name="dna" value="<?php echo $data["DNA_cheval"]; ?>">
-                        <label>Race :</label>
-                        <input class="col-8 form-control" style="margin: 0 auto" type="text" name="race" value="<?php echo $data["race_cheval"]; ?>">
-                        <label>Sexe : (0 = mâle / 1 = femmelle)</label>
-                        <input class="col-8 form-control" style="margin: 0 auto" type="text" name="sexe" value="<?php echo $data["sexe_cheval"]; ?>">
-                        <label>Taille :</label>
-                        <input type="number" class="col-8 form-control" style="margin: 0 auto" name="taille" value="<?php echo $data["taille_cheval"]; ?>">
-                        <label>N°Sire du Cheval :</label>
-                        <input class="col-8 form-control" style="margin: 0 auto" type="text" name="sire" value="<?php echo $data["SIRE_cheval"]; ?>">
-                        <label>Référence de la robe :</label>
-                        <input type="number" class="col-8 form-control" style="margin: 0 auto" type="text" name="robe" value="<?php echo $data["ref_robe"]; ?>">
-                        <input type="hidden" name="id_cheval" value="<?php echo $_GET["id_cheval"]; ?>">
+        ?>
+            <link href="../static/css/main.css" rel="stylesheet" media="all">
+            <div class="p-t-130 p-b-100">
+                <div class="wrapper wrapper--w680">
+                    <div class="card card-4">
+                        <div class="card-body">
+                            <h2 class="title">Modification d'un cheval</h2>
+                            <form action="Cheval_trait.php" method="post">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <label class="label">Nom</label>
+                                            <input class="input--style-4" style="margin: 0 auto" type="text" name="nom" value="<?php echo $data["nom_cheval"]; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <label class="label">Race</label>
+                                            <input class="input--style-4" style="margin: 0 auto" type="text" name="race" value="<?php echo $data["race_cheval"]; ?>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <label class="label">Date de naissance</label>
+                                            <div class="input-group-icon">
+                                                <input type ="date" class="input--style-4" style="margin: 0 auto" type="text" name="dna" value="<?php echo $data["DNA_cheval"]; ?>">
+                                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <label class="label">Sexe</label>
+                                            <div class="p-t-10">
+                                                <input class="input--style-4" style="margin: 0 auto" type="text" name="sexe" value="<?php echo $data["sexe_cheval"]; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <label class="label">Taille</label>
+                                            <div class="p-t-10">
+                                                <input type="number" class="input--style-4" style="margin: 0 auto" name="taille" value="<?php echo $data["taille_cheval"]; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <label class="label">N° Sire</label>
+                                             <input class="input--style-4" style="margin: 0 auto" type="text" name="sire" value="<?php echo $data["SIRE_cheval"]; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <label class="label">Référence de la robe</label>
+                                            <input type="number" class="input--style-4" style="margin: 0 auto" type="text" name="robe" value="<?php echo $data["ref_robe"]; ?>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-t-15">
+                                    <input type="hidden" name="id_cheval" value="<?php echo $_GET["id_cheval"]; ?>">
+                                    <a type="button" class="btn btn-secondary" href="Cheval_Affiche.php">Retour</a>
+                                    <button type="submit" name="update" class="btn btn-primary">Modifier</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <a type="button" class="btn btn-secondary" href="Cheval_Affiche.php">Retour</a>
-                        <button type="submit" name="update" class="btn btn-primary">Modifier</button>
-                    </div>
-                </form>
-        </div>
+                </div>
+            </div>
         </div>
         </div>
         <?php
@@ -193,5 +293,8 @@ include('../include/defines.inc.php');
             <?php
             }
         ?>
+</div>
+    </div>
+</div>
             </body>
             </html>
