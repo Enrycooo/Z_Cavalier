@@ -158,8 +158,6 @@ include('../include/defines.inc.php');
             elseif($_GET['nav'] === 'create'){
         ?>
 <link href="../static/css/main.css" rel="stylesheet" media="all">
-<body style="background-color:orange;">
-</body>
 <div class="p-t-130 p-b-100">
     <div class="wrapper wrapper--w680">
         <div class="card card-4">
@@ -180,6 +178,7 @@ include('../include/defines.inc.php');
                     </div>
                 </div>
                 </div>
+            </div>
             </div>
             </div>
         </div>

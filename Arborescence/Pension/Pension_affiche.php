@@ -100,7 +100,7 @@ include('../include/defines.inc.php');
             <div class="table-responsive">
             <table class='table table-hover'>
                 <thead class="table-dark">
-                            <th style='text-align :center'>Id</th>
+                            <th style='text-align :center'>ID</th>
                             <th style='text-align :center'>Ref cheval</th>
                             <th style='text-align :center'>Type </th>
                             <th style='text-align :center'>Date debut </th>
