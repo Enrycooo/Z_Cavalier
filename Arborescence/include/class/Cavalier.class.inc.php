@@ -39,24 +39,27 @@ class Cavalier
 
 
     public function db_create(
+        /* Cavalier Et/Ou Responsable */
         $nom_cav = "",
         $prenom_cav = "",
         $dna_cav = "",
+        $mail_cav = "",
+        $tel_cav = "",
         $rue_cav = "",
         $cp_cav = "",
         $ville_cav = "",
-        $mail_cav = "",
-        $tel_cav = "",
         $galop = "",
         $nl = "",
+        /* Reponsable */
         $nom_resp = "",
         $prenom_resp = "",
         $dna_resp = "",
+        $mail_resp = "",
+        $tel_resp = "",
         $rue_resp = "",
         $cp_resp = "",
-        $ville_resp = "",
-        $mail_resp = "",
-        $tel_resp = ""
+        $ville_resp = ""
+
     ) {
 
         global $conn;
