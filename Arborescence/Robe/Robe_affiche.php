@@ -34,7 +34,7 @@ include('../include/defines.inc.php');
         if(!isset($_GET["nav"]) || $_GET["nav"] === "read"){
         $data = $oRobe->db_get_all();
   ?>
-        <div class="container-fluid">
+    <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
@@ -127,6 +127,8 @@ include('../include/defines.inc.php');
                 </tbody>
             </table>
             </div>
+        </div>
+        </div>
         <?php
         }
 
@@ -172,8 +174,10 @@ include('../include/defines.inc.php');
                         <div class="p-t-15">
                                 <a type="button" class="btn btn-secondary" href="Robe_affiche.php">Retour</a>
                                 <button type="submit" name="create" class="btn btn--radius-2 btn--blue">Enregistrer</button>
-                        </div>
+                    </div>
                 </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
