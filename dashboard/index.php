@@ -50,6 +50,8 @@
                 <li class="nav-item"><a class="nav-link"
                         href="/Z_Cavalier/Arborescence/Pension/Pension_affiche.php">PENSION</a></li>
                 <li class="nav-item"><a class="nav-link"
+                        href="/Z_Cavalier/Arborescence/Type_pension/Type_pension_affiche.php">TYPE PENSION</a></li>
+                <li class="nav-item"><a class="nav-link"
                         href="/Z_Cavalier/Arborescence/Cours/fullcalendar-master/index.php">COURS</a></li>
                 <li class="nav-item"><a class="nav-link"
                         href="/Z_Cavalier/Arborescence/registration/admin/add_user.php">Ajouter un utilisateur</a></li>
