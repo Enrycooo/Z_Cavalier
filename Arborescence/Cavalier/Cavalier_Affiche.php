@@ -177,22 +177,22 @@ if (!isset($_SESSION["username"])) {
 
                                 <!-- Ajout Rue, Ville et Code Postale si la personne est son propre responsable -->
                                 <div id="resp2">
-                                        <div class="row">
-                                            <div class="col-5">
-                                                <label for="rue" class="form-label">Rue :</label>
-                                                <input id="rue" class="form-control" placeholder="Rue" type="text" name="rue">
-                                            </div>
-                                            <div class="col-5">
-                                                <label for="ville" class="form-label">Ville :</label>
-                                                <input type="email" id="ville" class="form-control" placeholder="Ville" type="text" name="ville">
-                                            </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <label for="rue" class="form-label">Rue :</label>
+                                            <input id="rue" class="form-control" placeholder="Rue" type="text" name="rue">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-5">
-                                                <label for="cp" class="form-label"> Code Postal</label>
-                                                <input type="number" placeholder="Code Postal" class="form-control" id="cp" type="text" name="cp">
-                                            </div>
+                                        <div class="col-5">
+                                            <label for="ville" class="form-label">Ville :</label>
+                                            <input type="email" id="ville" class="form-control" placeholder="Ville" type="text" name="ville">
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-5">
+                                            <label for="cp" class="form-label"> Code Postal</label>
+                                            <input type="number" placeholder="Code Postal" class="form-control" id="cp" type="text" name="cp">
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- Retour aux infos de base du cavalier -->
@@ -270,7 +270,7 @@ if (!isset($_SESSION["username"])) {
                                     </div>
                                     <div class="col-5">
                                         <label for="ville" class="form-label">Ville :</label>
-                                        <input type="text" id="ville" class="form-control" placeholder="Ville"name="ville">
+                                        <input type="text" id="ville" class="form-control" placeholder="Ville" name="ville">
                                     </div>
                                 </div>
                                 <div class="form-group">
