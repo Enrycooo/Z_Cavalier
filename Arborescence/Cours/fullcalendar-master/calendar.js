@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
 
-    var url = './';
+    var url ='./';
 
-    $('body').on('click', '.datetimepicker', function () {
+    $('body').on('click', '.datetimepicker', function() {
         $(this).not('.hasDateTimePicker').datetimepicker({
             controlType: 'select',
             changeMonth: true,
@@ -10,19 +10,18 @@ document.addEventListener('DOMContentLoaded', function () {
             dateFormat: "dd-mm-yy",
             timeFormat: 'HH:mm:ss',
             yearRange: "1900:+10",
-            showOn: 'focus',
+            showOn:'focus',
             firstDay: 1
         }).focus();
     });
 
     $(".colorpicker").colorpicker();
-
+    
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
-        locale: 'fr',
-        aspectRatio: 2,
+        locale:'fr',
         header: {
             left: 'prev,next today',
             center: 'title',
@@ -33,43 +32,43 @@ document.addEventListener('DOMContentLoaded', function () {
         editable: true,
         //uncomment to have a default date
         //defaultDate: '2020-04-07',
-        events: url + 'api/load.php',
-        eventDrop: function (arg) {
-            var start = arg.event.start.toDateString() + ' ' + arg.event.start.getHours() + ':' + arg.event.start.getMinutes() + ':' + arg.event.start.getSeconds();
+        events: url+'api/load.php',
+        eventDrop: function(arg) {
+            var start = arg.event.start.toDateString()+' '+arg.event.start.getHours()+':'+arg.event.start.getMinutes()+':'+arg.event.start.getSeconds();
             if (arg.event.end == null) {
                 end = start;
             } else {
-                var end = arg.event.end.toDateString() + ' ' + arg.event.end.getHours() + ':' + arg.event.end.getMinutes() + ':' + arg.event.end.getSeconds();
+                var end = arg.event.end.toDateString()+' '+arg.event.end.getHours()+':'+arg.event.end.getMinutes()+':'+arg.event.end.getSeconds();
             }
 
             $.ajax({
-                url: url + "api/update.php",
-                type: "POST",
-                data: { id: arg.event.id, start: start, end: end },
+              url:url+"api/update.php",
+              type:"POST",
+              data:{id:arg.event.id, start:start, end:end},
             });
         },
-        eventResize: function (arg) {
-            var start = arg.event.start.toDateString() + ' ' + arg.event.start.getHours() + ':' + arg.event.start.getMinutes() + ':' + arg.event.start.getSeconds();
-            var end = arg.event.end.toDateString() + ' ' + arg.event.end.getHours() + ':' + arg.event.end.getMinutes() + ':' + arg.event.end.getSeconds();
+        eventResize: function(arg) {
+            var start = arg.event.start.toDateString()+' '+arg.event.start.getHours()+':'+arg.event.start.getMinutes()+':'+arg.event.start.getSeconds();
+            var end = arg.event.end.toDateString()+' '+arg.event.end.getHours()+':'+arg.event.end.getMinutes()+':'+arg.event.end.getSeconds();
 
             $.ajax({
-                url: url + "api/update.php",
-                type: "POST",
-                data: { id: arg.event.id, start: start, end: end },
+              url:url+"api/update.php",
+              type:"POST",
+              data:{id:arg.event.id, start:start, end:end},
             });
         },
-        eventClick: function (arg) {
+        eventClick: function(arg) {
             var id = arg.event.id;
-
+            
             $('#editEventId').val(id);
-            $('#deleteEvent').attr('data-id', id);
+            $('#deleteEvent').attr('data-id', id); 
 
             $.ajax({
-                url: url + "api/getevent.php",
-                type: "POST",
-                dataType: 'json',
-                data: { id: id },
-                success: function (data) {
+              url:url+"api/getevent.php",
+              type:"POST",
+              dataType: 'json',
+              data:{id:id},
+              success: function(data) {
                     $('#editEventTitle').val(data.title);
                     $('#editStartDate').val(data.start);
                     $('#editEndDate').val(data.end);
@@ -79,27 +78,27 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            $('body').on('click', '#deleteEvent', function () {
-                if (confirm("Are you sure you want to remove it?")) {
+            $('body').on('click', '#deleteEvent', function() {
+                if(confirm("Are you sure you want to remove it?")) {
                     $.ajax({
-                        url: url + "api/delete.php",
-                        type: "POST",
-                        data: { id: arg.event.id },
-                    });
+                        url:url+"api/delete.php",
+                        type:"POST",
+                        data:{id:arg.event.id},
+                    }); 
                     //refresh calender after deleting
                     calendar.fullCalendar('refetchEvents');
                     //close model
                     $('#editeventmodal').modal('hide');
                 }
             });
-
-            $('body').on('click', '#deleteREvent', function () {
-                if (confirm("Are you sure you want to remove it?")) {
+            
+            $('body').on('click', '#deleteREvent', function() {
+                if(confirm("Are you sure you want to remove it?")) {
                     $.ajax({
-                        url: url + "api/deleteR.php",
-                        type: "POST",
-                        data: { idR: arg.event.idR },
-                    });
+                        url:url+"api/deleteR.php",
+                        type:"POST",
+                        data:{idR:arg.event.idR},
+                    }); 
 
                     //close model
                     $('#editeventmodal').modal('hide');
@@ -108,14 +107,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     calendar.refetchEvents();
                 }
             });
-
+            
             calendar.refetchEvents();
         }
     });
 
     calendar.render();
 
-    $('#createEvent').submit(function (event) {
+    $('#createEvent').submit(function(event) {
 
         // stop the form refreshing the page
         event.preventDefault();
@@ -125,16 +124,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // process the form
         $.ajax({
-            type: "POST",
-            url: url + 'api/insert.php',
-            data: $(this).serialize(),
-            dataType: 'json',
-            encode: true
-        }).done(function (data) {
+            type        : "POST",
+            url         : url+'api/insert.php',
+            data        : $(this).serialize(),
+            dataType    : 'json',
+            encode      : true
+        }).done(function(data) {
 
             // insert worked
             if (data.success) {
-
+                
                 //remove any form data
                 $('#createEvent').trigger("reset");
 
@@ -162,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    $('#editEvent').submit(function (event) {
+    $('#editEvent').submit(function(event) {
 
         // stop the form refreshing the page
         event.preventDefault();
@@ -180,23 +179,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // process the form
         $.ajax({
-            type: "POST",
-            url: url + 'api/update.php',
-            data: {
-                id: id,
-                title: title,
-                start: start,
-                end: end,
-                color: color,
-                text_color: textColor
+            type        : "POST",
+            url         : url+'api/update.php',
+            data        : {
+                id:id, 
+                title:title, 
+                start:start,
+                end:end,
+                color:color,
+                text_color:textColor
             },
-            dataType: 'json',
-            encode: true
-        }).done(function (data) {
+            dataType    : 'json',
+            encode      : true
+        }).done(function(data) {
 
             // insert worked
             if (data.success) {
-
+                
                 //remove any form data
                 $('#editEvent').trigger("reset");
 
