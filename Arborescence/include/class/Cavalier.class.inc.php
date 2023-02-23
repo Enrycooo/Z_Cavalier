@@ -92,7 +92,7 @@ class Cavalier
         /* Try de la requête */
         try {
             $sql->execute();
-            if (isset($nom_resp, $prenom_resp, $dna_resp, $rue_resp, $cp_resp, $ville_resp, $mail_resp, $tel_resp)) {
+            if ($nom_resp != "" && $prenom_resp != "" && $dna_resp != "" && $rue_resp != "" && $cp_resp != "" && $ville_resp != "" && $mail_resp != "" && $tel_resp != "") {
                 $sql2->execute();
             }
             return true;
