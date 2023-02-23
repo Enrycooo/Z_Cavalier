@@ -76,7 +76,7 @@ class Cavalier
         $sql->bindValue(':mail_cav', $mail_cav, PDO::PARAM_STR);
         $sql->bindValue(':tel_cav', $tel_cav, PDO::PARAM_STR);
         $sql->bindValue(':gal_cav', $galop, PDO::PARAM_INT);
-        $sql->bindValue(':num_lic', $nl, PDO::PARAM_STR);
+        $sql->bindValue(':num_lic', $nl, PDO::PARAM_STR); 
         /* Reponsable */
         $request2 = "INSERT INTO personne(nom, prenom, DNA, rue, code_postal, ville, mail, actif, telephone, photo)
                     VALUES (:nom_resp, :pre_resp, :dna_resp, :rue_resp, :cp_resp, :ville_resp, :mail_resp, 1, :tel_resp, 1)";
