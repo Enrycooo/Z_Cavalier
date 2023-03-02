@@ -18,14 +18,13 @@ if (!isset($_SESSION["username"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <link rek="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
     <title>Personne</title>
     <style>
         .image-tableau {
@@ -108,7 +107,8 @@ if (!isset($_SESSION["username"])) {
 
         <div class="row mt-4">
             <div class="col">
-                <table class='table table-hover' id="myTable">
+                <label>Rechercher : <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="myTable"></label>
+                <table class='table table-hover dataTable' id="myTable">
                     <thead class="table-dark">
                         <th style='text-align :center'>ID</th>
                         <th style='text-align :center'>img</th>
@@ -129,28 +129,28 @@ if (!isset($_SESSION["username"])) {
                         foreach ($data as $key) {
                             $id_personne = $key["id_personne"];
                             ?>
-                            <tr data-value="<?=$id_personne?>">
-                            <td><center><?= $key["id_personne"]?></center></td>
-                            <td><center><img class="image-tableau" src='../static/img/<?=$key["photo"]?>'></center></td>
-                            <td><center><?= $key["nom"]?></center></td>
-                            <td><center><?= $key["prenom"]?></center></td>
-                            <td><center><?= $key["DNA"]?></center></td>
-                            <td><center><?= $key["rue"]?></center></td>
-                            <td><center><?= $key["code_postal"]?></center></td>
-                            <td><center><?= $key["ville"]?></center></td>
-                            <td><center><?= $key["mail"]?></center></td>
-                            <td><center><?= $key["telephone"]?></center></td>
-                            <td><center><?= $key["gal_cav"]?></center></td>
-                            <td><center><?= $key["num_lic"]?></center></td>
-                            <td style='display:flex; justify-content: space-evenly;'>
-                                <a type='button' class='btn btn-primary' href='Cavalier_Affiche.php?nav=update&id_personne=" . $id_personne . "'>
-                                    Modifier
-                                </a>
-                                <form action='Cavalier_trait.php' method='post'>
-                                    <input type='hidden' name='id_personne' value=" . $id_personne . ">
-                                    <button type='submit' name='delete' class='delete-btn btn btn-danger'>Supprimer</button>
-                                </form>
-                            </td>
+                            <tr>
+                                <td><center><?= $key["id_personne"]?></center></td>
+                                <td><center><img class="image-tableau" src='../static/img/<?=$key["photo"]?>'></center></td>
+                                <td><center><?= $key["nom"]?></center></td>
+                                <td><center><?= $key["prenom"]?></center></td>
+                                <td><center><?= $key["DNA"]?></center></td>
+                                <td><center><?= $key["rue"]?></center></td>
+                                <td><center><?= $key["code_postal"]?></center></td>
+                                <td><center><?= $key["ville"]?></center></td>
+                                <td><center><?= $key["mail"]?></center></td>
+                                <td><center><?= $key["telephone"]?></center></td>
+                                <td><center><?= $key["gal_cav"]?></center></td>
+                                <td><center><?= $key["num_lic"]?></center></td>
+                                <td style='display:flex; justify-content: space-evenly;'>
+                                    <a type='button' class='btn btn-primary' href='Cavalier_Affiche.php?nav=update&id_personne=" . $id_personne . "'>
+                                        Modifier
+                                    </a>
+                                    <form action='Cavalier_trait.php' method='post'>
+                                        <input type='hidden' name='id_personne' value=" . $id_personne . ">
+                                        <button type='submit' name='delete' class='delete-btn btn btn-danger'>Supprimer</button>
+                                    </form>
+                                </td>
                             </tr>
                         <?php
                         }
@@ -386,22 +386,37 @@ if (!isset($_SESSION["username"])) {
     ?>
     <script>
         $(document).ready(function() {
-            $('#myTable').dataTable({
-              paging: true, // Activer la pagination
-              pageLength: 10, // Afficher 5 lignes par page
-              // Ajouter les contrôles de pagination
-              dom: 'p',
-              // Personnaliser le texte des boutons de pagination
-              language: {
-                paginate: {
-                  first: 'Première',
-                  last: 'Dernière',
-                  next: 'Suivant',
-                  previous: 'Précédent'
-                }
-              }
-            });
-        });
+    $('#myTable').DataTable({
+        searching: true,
+        searchDelay: 500,
+        paging: true,
+        pageLength: 10,
+        dom: 'p',
+        language: {
+            paginate: {
+                first: 'Première',
+                last: 'Dernière',
+                next: 'Suivant',
+                previous: 'Précédent'
+            }
+        },
+        search: {
+            "smart": true
+        },
+        initComplete: function () {
+            this.api().columns().every( function () {
+                var that = this;
+                $( 'input', this.footer() ).on( 'keyup change clear', function () {
+                    if ( that.search() !== this.value ) {
+                        that
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );
+        }
+    });
+});
         
         let r_affiche = document.getElementById("affiche");
         let resp = document.getElementById("resp");
