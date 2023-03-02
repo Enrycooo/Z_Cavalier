@@ -28,8 +28,8 @@ if (!isset($_SESSION["username"])) {
     <title>Personne</title>
     <style>
         .image-tableau {
-            width: 50px;
-            height: 50px;
+            width: 25px;
+            height: 25px;
         }
     </style>
 </head>
@@ -108,7 +108,7 @@ if (!isset($_SESSION["username"])) {
                     <div class="row mt-4">
                         <div class="col">
                             <label>Rechercher : <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="myTable"></label>
-                            <table class='table table-hover dataTable' id="myTable">
+                            <table class='table table-hover dataTable' id="myTable" style="font-size: 12px;">
                                 <thead class="table-dark">
                                     <th style='text-align :center'>ID</th>
                                     <th style='text-align :center'>img</th>
