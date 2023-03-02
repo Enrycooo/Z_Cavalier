@@ -21,8 +21,10 @@ if (!isset($_SESSION["username"])) {
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <link rek="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <title>Personne</title>
     <style>
@@ -106,7 +108,7 @@ if (!isset($_SESSION["username"])) {
 
         <div class="row mt-4">
             <div class="col">
-                <table class='table table-hover'>
+                <table class='table table-hover' id="myTable">
                     <thead class="table-dark">
                         <th style='text-align :center'>ID</th>
                         <th style='text-align :center'>img</th>
@@ -383,6 +385,24 @@ if (!isset($_SESSION["username"])) {
         }
     ?>
     <script>
+        $(document).ready(function() {
+            $('#myTable').dataTable({
+              paging: true, // Activer la pagination
+              pageLength: 10, // Afficher 5 lignes par page
+              // Ajouter les contrôles de pagination
+              dom: 'p',
+              // Personnaliser le texte des boutons de pagination
+              language: {
+                paginate: {
+                  first: 'Première',
+                  last: 'Dernière',
+                  next: 'Suivant',
+                  previous: 'Précédent'
+                }
+              }
+            });
+        });
+        
         let r_affiche = document.getElementById("affiche");
         let resp = document.getElementById("resp");
         let resp2 = document.getElementById("resp2");
