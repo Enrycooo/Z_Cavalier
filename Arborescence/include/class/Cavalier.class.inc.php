@@ -40,6 +40,7 @@ class Cavalier
 
     public function db_create(
         /* Cavalier Et/Ou Responsable */
+        $fichier = "",
         $nom_cav = "",
         $prenom_cav = "",
         $dna_cav = "",
@@ -65,8 +66,9 @@ class Cavalier
         global $conn;
         /* Cavalier et/ou Responsable */
         $request = "INSERT INTO personne(nom, prenom, DNA, rue, code_postal, ville, mail, actif, telephone, photo, gal_cav, num_lic)
-                    VALUES (:nom_cav, :pre_cav, :dna_cav, :rue_cav, :cp_cav, :ville_cav, :mail_cav, 1, :tel_cav, 1, :gal_cav, :num_lic)";
+                    VALUES (:nom_cav, :pre_cav, :dna_cav, :rue_cav, :cp_cav, :ville_cav, :mail_cav, 1, :tel_cav, :img, :gal_cav, :num_lic)";
         $sql = $conn->prepare($request);
+        $sql->bindValue(':img', $fichier, PDO::PARAM_STR);
         $sql->bindValue(':nom_cav', $nom_cav, PDO::PARAM_STR);
         $sql->bindValue(':pre_cav', $prenom_cav, PDO::PARAM_STR);
         $sql->bindValue(':dna_cav', $dna_cav, PDO::PARAM_STR);

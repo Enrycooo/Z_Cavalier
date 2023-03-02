@@ -25,6 +25,12 @@ if (!isset($_SESSION["username"])) {
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="styles.css">
     <title>Personne</title>
+    <style>
+        .image-tableau {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
 </head>
 
 <body>
@@ -103,6 +109,7 @@ if (!isset($_SESSION["username"])) {
                 <table class='table table-hover'>
                     <thead class="table-dark">
                         <th style='text-align :center'>ID</th>
+                        <th style='text-align :center'>img</th>
                         <th style='text-align :center'>Nom</th>
                         <th style='text-align :center'>Prenom</th>
                         <th style='text-align :center'>Date de naissance </th>
@@ -119,18 +126,20 @@ if (!isset($_SESSION["username"])) {
                         <?php
                         foreach ($data as $key) {
                             $id_personne = $key["id_personne"];
-                            echo " <tr data-value=" . $id_personne . ">
-                            <td><center>" . $key["id_personne"] . "</center></td>
-                            <td><center>" . $key["nom"] . "</center></td>
-                            <td><center>" . $key["prenom"] . "</center></td>
-                            <td><center>" . $key["DNA"] . "</center></td>
-                            <td><center>" . $key["rue"] . "</center></td>
-                            <td><center>" . $key["code_postal"] . "</center></td>
-                            <td><center>" . $key["ville"] . "</center></td>
-                            <td><center>" . $key["mail"] . "</center></td>
-                            <td><center>" . $key["telephone"] . "</center></td>
-                            <td><center>" . $key["gal_cav"] . "</center></td>
-                            <td><center>" . $key["num_lic"] . "</center></td>
+                            ?>
+                            <tr data-value="<?=$id_personne?>">
+                            <td><center><?= $key["id_personne"]?></center></td>
+                            <td><center><img class="image-tableau" src='../static/img/<?=$key["photo"]?>'></center></td>
+                            <td><center><?= $key["nom"]?></center></td>
+                            <td><center><?= $key["prenom"]?></center></td>
+                            <td><center><?= $key["DNA"]?></center></td>
+                            <td><center><?= $key["rue"]?></center></td>
+                            <td><center><?= $key["code_postal"]?></center></td>
+                            <td><center><?= $key["ville"]?></center></td>
+                            <td><center><?= $key["mail"]?></center></td>
+                            <td><center><?= $key["telephone"]?></center></td>
+                            <td><center><?= $key["gal_cav"]?></center></td>
+                            <td><center><?= $key["num_lic"]?></center></td>
                             <td style='display:flex; justify-content: space-evenly;'>
                                 <a type='button' class='btn btn-primary' href='Cavalier_Affiche.php?nav=update&id_personne=" . $id_personne . "'>
                                     Modifier
@@ -140,7 +149,8 @@ if (!isset($_SESSION["username"])) {
                                     <button type='submit' name='delete' class='delete-btn btn btn-danger'>Supprimer</button>
                                 </form>
                             </td>
-                            </tr>";
+                            </tr>
+                        <?php
                         }
                         ?>
                     </tbody>
@@ -199,7 +209,7 @@ if (!isset($_SESSION["username"])) {
             <div class="card-body">
             <!-- Class Cavalier -->
             <div id="cav">
-                <form action="Cavalier_trait.php" method="post">
+                <form action="Cavalier_trait.php" method="post" enctype="multipart/form-data">
                     <h2 class="title">Insertion d'une Personne</h2>
                     <h2 class="title" id="txt_resp">Et/Ou Responsable</h2>
                         <div class="row row-space">
@@ -276,6 +286,12 @@ if (!isset($_SESSION["username"])) {
                                     </div>
                                     </div>
                                 </div>
+                                <div class="row row-space">
+                                    <div class="col-8">
+                                    <label class="form-label" for="customFile">Image</label>
+                                    <input type="file" class="form-control" name="image"/>
+                                    </div>
+                                </div>
                                     <div id="affiche" class="col-2">
                             <div class="input-group">
                             <div class="form-check form-switch">
@@ -286,7 +302,7 @@ if (!isset($_SESSION["username"])) {
                                     </div>
                                     <center>
                                             <hr><button class="btn btn-secondary" id="back"><a class="text-light text-decoration-none" href="Cavalier_Affiche.php">Retour</a></button></hr>
-                                            <button name="create" type="submit" class="btn btn-primary" id="save">Enregistrer</button>
+                                            <button name="create" type="submit" name="submit" class="btn btn-primary" id="save">Enregistrer</button>
                                     </center>
 
                                 </div>
@@ -384,7 +400,7 @@ if (!isset($_SESSION["username"])) {
         txt_resp.style.display = "none";
 
         r_affiche.addEventListener("click", () => {
-            if (getComputedStyle(resp).display != "none") {
+            if (getComputedStyle(resp).display !== "none") {
                 resp.style.display = "none";
                 resp2.style.display = "none";
                 save2.style.display = "none";
