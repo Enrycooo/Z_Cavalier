@@ -21,10 +21,10 @@ if (!isset($_SESSION["username"])) {
     <link rel="stylesheet" href="/code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <link rek="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
     <title>Personne</title>
     <style>
         .image-tableau {
@@ -94,24 +94,17 @@ if (!isset($_SESSION["username"])) {
                     <div class="container">
                         <div class="row justify-content-md-center">
                             <div class="input-group">
-                                <a href="/Z_Cavalier/dashboard/index.php"><img src="/Z_Cavalier/dashboard/assets/img/home_icon.png" /></a> &nbsp;
                                 <a class="btn btn-primary" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle personne</a> &nbsp;
-                                <form action="Cavalier_search.php" method='post'> &nbsp;
-                                    <input placeholder="Nom" type="text" name="nom" title="Veuillez renseigner le nom de la personne concernée par votre recherche"> &nbsp;
-                                    <input placeholder="Prenom" type="text" name="prenom" title="Veuillez renseigner le prenom de la personne concernée par votre recherche">
-                                    <button name="search" type="submit id=" submit" class="btn btn-primary">Rechercher</button>
-                                </form>
                             </div>
                         </div>
                     </div>
 
                     <div class="row mt-4">
                         <div class="col">
-                            <label>Rechercher : <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="myTable"></label>
-                            <table class='table table-hover dataTable' id="myTable" style="font-size: 12px;">
+                            <table class='table table-striped table-bordered dt-responsive nowrap table-hover dataTable' id="myTable" style="font-size: 12px;">
                                 <thead class="table-dark">
                                     <th style='text-align :center'>ID</th>
-                                    <th style='text-align :center'>img</th>
+                                    <th style='text-align :center'>imgage</th>
                                     <th style='text-align :center'>Nom</th>
                                     <th style='text-align :center'>Prenom</th>
                                     <th style='text-align :center'>Date de naissance </th>
@@ -180,8 +173,13 @@ if (!isset($_SESSION["username"])) {
                                     }
                                     ?>
                                 </tbody>
+                                <tfoot>
+                                    
+                                </tfoot>
                             </table>
                         </div>
+                        </div>
+                    </div>
                     <?php
                 }
                 //Tout ce qui se trouve en dessous de $_GET["nav"] === update est pour la modification
@@ -468,34 +466,7 @@ if (!isset($_SESSION["username"])) {
                     <script>
                         $(document).ready(function() {
                             $('#myTable').DataTable({
-                                searching: true,
-                                searchDelay: 500,
-                                paging: true,
-                                pageLength: 10,
-                                dom: 'p',
-                                language: {
-                                    paginate: {
-                                        first: 'Première',
-                                        last: 'Dernière',
-                                        next: 'Suivant',
-                                        previous: 'Précédent'
-                                    }
-                                },
-                                search: {
-                                    "smart": true
-                                },
-                                initComplete: function() {
-                                    this.api().columns().every(function() {
-                                        var that = this;
-                                        $('input', this.footer()).on('keyup change clear', function() {
-                                            if (that.search() !== this.value) {
-                                                that
-                                                    .search(this.value)
-                                                    .draw();
-                                            }
-                                        });
-                                    });
-                                }
+                                searching: true
                             });
                         });
 
