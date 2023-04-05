@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+include('../include/defines.inc.php');
+?>
 
 <head>
     <meta charset="utf-8" />
@@ -12,9 +15,7 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
@@ -24,9 +25,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="#page-top">Centre Equestre</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
@@ -37,10 +36,8 @@
                     <li class="nav-item"><a class="nav-link" href="#cours">Cours</a></li>
                     <li class="nav-item"><a class="nav-link" href="#chevaux">Nos Chevaux</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link"
-                            href="../Arborescence/Registration/register.php">S'inscrire</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../Arborescence/Registration/login.php">Se
-                            connecter</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../Arborescence/Registration/register.php">S'inscrire</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../Arborescence/Registration/login.php">Se connecter</a></li>
                 </ul>
             </div>
         </div>
@@ -81,8 +78,7 @@
         <div class="container px-4 px-lg-5">
             <!-- Featured Project Row-->
             <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/domaine_equestre.jpg"
-                        alt="..." /></div>
+                <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/domaine_equestre.jpg" alt="..." /></div>
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
                         <h4>Domain de REL</h4>
@@ -132,8 +128,7 @@
         <div class="container px-4 px-lg-5">
             <!-- Featured Cours Row-->
             <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/chevaux.jpg"
-                        alt="..." /></div>
+                <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/chevaux.jpg" alt="..." /></div>
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
                         <h4>Cours</h4>
@@ -147,8 +142,7 @@
                 <div class="container px-4 px-lg-5">
                     <!-- Nos Chevaux Project Row-->
                     <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                        <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0"
-                                src="assets/img/nos_chevaux.jpg" alt="..." /></div>
+                        <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/nos_chevaux.jpg" alt="..." /></div>
                         <div class="col-xl-4 col-lg-5">
                             <div class="featured-text text-center text-lg-left">
                                 <h4>Nos Chevaux</h4>
@@ -159,36 +153,33 @@
                             </div>
                         </div>
                     </div>
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <?php foreach ($chevaux as $key => $cheval) : ?>
+                                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $key ?>" <?= $key == 0 ? 'class="active"' : '' ?>></li>
+                            <?php endforeach; ?>
+                        </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="assets/img/cheval_femelle_blanche.jpg" class="d-block w-100" alt="...">
-                                <p>Cheval Test</p>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="assets/img/poney_noir.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="assets/img/cheval_male_marron.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="assets/img/poney_blanc.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="assets/img/duo_cheval_marron.jpg" class="d-block w-100" alt="...">
-                            </div>
+                            <?php foreach ($chevaux as $key => $cheval) : ?>
+                                <div class="carousel-item <?= $key == 0 ? 'active' : '' ?>">
+                                    <img src="<?= $cheval['photo_cheval'] ?>" class="d-block w-100" alt="<?= $cheval['nom_cheval'] ?>">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5><?= $cheval['nom_cheval'] ?></h5>
+                                        <p><?= $cheval['race_cheval'] ?> - <?= $cheval['SIRE_cheval'] ?></p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="prev">
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="next">
+                            <span class="visually-hidden">Précédent</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                            <span class="visually-hidden">Suivant</span>
+                        </a>
                     </div>
+
                 </div>
             </section>
             <!-- Signup-->
@@ -201,12 +192,8 @@
                             <form class="form-signup" id="contactForm" data-sb-form-api-token="API_TOKEN">
                                 <!-- Email address input-->
                                 <div class="row input-group-newsletter">
-                                    <div class="col"><input class="form-control" id="emailAddress" type="email"
-                                            placeholder="Entrer une adresse email..."
-                                            aria-label="Entrer une adresse email..."
-                                            data-sb-validations="required,email" /></div>
-                                    <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton"
-                                            type="submit">Prevenez moi !</button></div>
+                                    <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Entrer une adresse email..." aria-label="Entrer une adresse email..." data-sb-validations="required,email" /></div>
+                                    <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Prevenez moi !</button></div>
                                 </div>
                                 <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is
                                     required.</div>
@@ -221,8 +208,7 @@
                                         <div class="fw-bolder">Form submission successful!</div>
                                         To activate this form, sign up at
                                         <br />
-                                        <a
-                                            href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                                     </div>
                                 </div>
                                 <!-- Submit error message-->
