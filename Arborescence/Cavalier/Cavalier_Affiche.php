@@ -94,7 +94,8 @@ if (!isset($_SESSION["username"])) {
                     <div class="container">
                         <div class="row justify-content-md-center">
                             <div class="input-group">
-                                <a class="btn btn-primary" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle personne</a> &nbsp;
+                                <a class="btn btn-primary" href="Cavalier_Affiche.php?nav=create">Créer une nouvelle personne</a> &nbsp;&nbsp;&nbsp;
+                                <a class="btn btn-primary" href="Cavalier_Affiche.php?nav=cavalier">Ajouter un/des cavaliers à un cours</a>
                             </div>
                         </div>
                     </div>
@@ -382,7 +383,7 @@ if (!isset($_SESSION["username"])) {
                                                         </div>
                                                     </div>
                                                     <center>
-                                                        <hr><button class="btn btn-secondary" id="back"><a class="text-light text-decoration-none" href="Cavalier_Affiche.php">Retour</a></button></hr>
+                                                        <hr><button class="btn btn-secondary" id="back"><a class="text-light text-decoration-none" href="Cavalier_Affiche.php?nav=read">Retour</a></button></hr>
                                                         <button name="create" type="submit" name="submit" class="btn btn-primary" id="save">Enregistrer</button>
                                                     </center>
 
