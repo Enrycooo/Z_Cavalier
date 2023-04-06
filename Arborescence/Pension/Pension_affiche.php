@@ -8,6 +8,7 @@ include('../include/defines.inc.php');
                       window.location.replace('http://localhost/Z_Cavalier/Arborescence/registration/login.php')</script>";
 		exit(); 
 	}
+    setlocale(LC_TIME, 'fr_FR.utf8', 'fra', 'fr_FR', 'french');
 ?>
 
 <!DOCTYPE html>
@@ -108,12 +109,15 @@ include('../include/defines.inc.php');
                 <tbody>
                 <?php 
                     foreach ($data as $key) {
+                        mb_internal_encoding("UTF-8");
+                        $date_deb = strftime("%d %B %Y", strtotime($key["date_deb_pension"]));
+                        $date_fin = strftime("%d %B %Y", strtotime($key["date_fin_pension"]));
                         $id_pension = $key["id_pension"]; 
                         echo " <tr data-value=".$id_pension.">
                         <td><center>".$key["id_pension"]."</center></td>
                         <td><center>".$key["nom_cheval"]."</center></td>
-                        <td><center>".$key["date_deb_pension"]."</center></td>
-                        <td><center>".$key["date_fin_pension"]."</center></td>
+                        <td><center>".$date_deb."</center></td>
+                        <td><center>".$date_fin."</center></td>
                         <td><center>".$key["tarif_pension"]."</center></td>
                         <td><center>".$key["lib_type_p"]."</center></td>
                         <td><center>".$key['nom'],' ',$key['prenom']."</center></td>
