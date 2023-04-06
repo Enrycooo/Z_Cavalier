@@ -1,7 +1,7 @@
     <!DOCTYPE html>
     <html lang="en">
     <?php
-    include('../include/defines.inc.php');
+    include('../Arborescence/include/defines.inc.php');
     ?>
 
     <head>
@@ -175,11 +175,11 @@
                             <div class="carousel-inner">
                                 <?php foreach ($chevaux as $key => $cheval) : ?>
                                     <div class="carousel-item <?= $key == 0 ? 'active' : '' ?>">
-                                        <img class="image-tableau" src='../static/img_front/<?= $key["photo_cheval"] ?>
+                                        <img class="image-tableau" src='/Arborescence/static/img_front/ <?= $key["photo_cheval"] ?>'>
                                         <div class="carousel-caption d-none d-md-block">
                                             <h5><?= $cheval['nom_cheval'] ?></h5>
-                                            <p>Race : <?= $cheval['race_cheval'] ?> 
-                                            </br>N°Sire : <?= $cheval['SIRE_cheval'] ?></p>
+                                            <p>Race : <?= $cheval['race_cheval'] ?>
+                                                </br>N°Sire : <?= $cheval['SIRE_cheval'] ?></p>
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
