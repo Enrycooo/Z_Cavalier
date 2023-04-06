@@ -59,14 +59,9 @@
                     <div class="col-lg-8">
                         <h2 class="text-white mb-4">Ecurie <i>REL</i></h2>
                         <p class="text-white-50">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                            id est laborum.
+                            Bienvenue au Centre Équestre REL ! Nous proposons des cours d'équitation pour tous les niveaux, des installations modernes,
+                            des chevaux bien dressés et soignés, ainsi que des activités spéciales telles que des promenades en calèche et des stages de voltige.
+                            </br>Rejoignez notre communauté équestre et vivez une expérience inoubliable !
                         </p>
                     </div>
                 </div>
@@ -82,10 +77,9 @@
                     <div class="col-xl-4 col-lg-5">
                         <div class="featured-text text-center text-lg-left">
                             <h4>Domain de REL</h4>
-                            <p class="text-black-50 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat. </p>
+                            <p class="text-black-50 mb-0">Nos locaux spacieux comprennent un grand manège couvert, des carrières extérieures,
+                                des paddocks bien entretenus et des sentiers de randonnée, offrant ainsi un cadre idéal pour pratiquer l'équitation dans les meilleures conditions.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -97,8 +91,7 @@
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-left">
                                     <h4 class="text-white">Nos écuries </h4>
-                                    <p class="mb-0 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <p class="mb-0 text-white-50">Nos écuries offrent un environnement confortable et sécurisé pour nos chevaux, avec des boxes spacieux et des installations de gestion des déchets modernes.</p>
                                     <hr class="d-none d-lg-block mb-0 ms-0" />
                                 </div>
                             </div>
@@ -113,8 +106,9 @@
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-right">
                                     <h4 class="text-white">Personnels qualifiés</h4>
-                                    <p class="mb-0 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <p class="mb-0 text-white-50">Notre équipe de professionnels passionnés de l'équitation est là pour vous accueillir chaleureusement,
+                                        vous guider dans votre pratique équestre et assurer la sécurité et le bien-être de nos cavaliers et de nos chevaux.
+                                    </p>
                                     <hr class="d-none d-lg-block mb-0 me-0" />
                                 </div>
                             </div>
@@ -146,10 +140,10 @@
                             <div class="col-xl-4 col-lg-5">
                                 <div class="featured-text text-center text-lg-left">
                                     <h4>Nos Chevaux</h4>
-                                    <p class="text-black-50 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                        ex ea commodo consequat. </p>
+                                    <p class="text-black-50 mb-0">Nos chevaux, élevés avec soin et bénéficiant d'une formation attentive,
+                                        sont des partenaires de confiance pour nos cavaliers de tous niveaux. Que vous soyez débutant ou cavalier confirmé,
+                                        nos chevaux bien dressés vous offriront une expérience équestre exceptionnelle,.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +169,7 @@
                             <div class="carousel-inner">
                                 <?php foreach ($chevaux as $key => $cheval) : ?>
                                     <div class="carousel-item <?= $key == 0 ? 'active' : '' ?>">
-                                        <img class="image-tableau" src='/Arborescence/static/img_front/ <?= $key["photo_cheval"] ?>'>
+                                        <img class="image-tableau" src='/Arborescence/static/img_front/ <?= $cheval["photo_cheval"] ?>' />
                                         <div class="carousel-caption d-none d-md-block">
                                             <h5><?= $cheval['nom_cheval'] ?></h5>
                                             <p>Race : <?= $cheval['race_cheval'] ?>
