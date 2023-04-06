@@ -18,7 +18,7 @@ include_once DB_CLASS_DIR.'Cavalier.class.inc.php';
 include_once DB_CLASS_DIR.'Cheval.class.inc.php';
 include_once DB_CLASS_DIR.'Robe.class.inc';
 include_once DB_CLASS_DIR.'Type_pension.class.inc';
-include_once DB_CLASS_DIR.'Pension.class.inc';
+include_once DB_CLASS_DIR.'Pension.class.inc.php';
 include_once DB_CLASS_DIR.'Cours.class.inc.php';
 
 // get main objects

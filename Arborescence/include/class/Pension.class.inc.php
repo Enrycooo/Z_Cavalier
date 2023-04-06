@@ -15,17 +15,17 @@ class Pension{
 		}
 	}
                 
-        public function db_get_by_id($id_pension=0){
-		$id_pension = (int) $id_pension;
-		if(!$id_pension){
+        public function db_get_by_id($id_pers=0){
+		$id_pers = (int) $id_pers;
+		if(!$id_pers){
 			return false;
 		}
                 
                 global $conn;
 
-		$request = "SELECT * FROM ".DB_TABLE_PENSION." WHERE id_pension = :id";
+		$request = "SELECT nom, prenom FROM ".DB_TABLE_PENSION." P INNER JOIN ".DB_TABLE_PERSONNE." PE ON P.ref_per=PE.id_personne WHERE id_pension = :id";
 		$sql = $conn->prepare($request);
-		$sql->bindValue(':id', $id_pension, PDO::PARAM_INT);
+		$sql->bindValue(':id', $id_pers, PDO::PARAM_INT);
 		try{
 			$sql->execute();
 			return $sql->fetch(PDO::FETCH_ASSOC);

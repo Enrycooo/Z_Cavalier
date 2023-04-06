@@ -113,6 +113,8 @@ include('../include/defines.inc.php');
                 <tbody>
                 <?php 
                     foreach ($data as $key) {
+                        $id_pers = $key['ref_per'];
+                        $nom = $oPension->db_get_by_id($id_pers);
                         $id_pension = $key["id_pension"]; 
                         echo " <tr data-value=".$id_pension.">
                         <td><center>".$key["id_pension"]."</center></td>
@@ -122,7 +124,7 @@ include('../include/defines.inc.php');
                         <td><center>".$key["date_fin_pension"]."</center></td>
                         <td><center>".$key["tarif_pension"]."</center></td>
                         <td><center>".$key["ref_type_p"]."</center></td>
-                        <td><center>".$key["ref_per"]."</center></td>
+                        <td><center>".$nom['nom']."</center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
                             <a type='button' class='btn btn-primary' href='Pension_affiche.php?nav=update&id_pension=".$id_pension."'>
                                 Modifier
