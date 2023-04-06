@@ -126,8 +126,8 @@
                     <div class="col-xl-4 col-lg-5">
                         <div class="featured-text text-center text-lg-left">
                             <h4>Cours</h4>
-                            <p class="text-black-50 mb-0"> Réserver des cours en passant par un professionel de votre centre
-                                equestre</p>
+                            <p class="text-black-50 mb-0"> Réserver des cours en passant par un professionel de votre centre equestre</p></br>
+                            <a class="btn btn-primary" href="calendar_pres.php" target="_blank">Voir le calendrier</a>
                         </div>
                     </div>
                 </div>
@@ -161,23 +161,31 @@
                         ?>
 
                         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <!-- Liste des indicateurs du carrousel -->
                             <ol class="carousel-indicators">
+                                <!-- Boucle foreach pour générer les indicateurs du carrousel -->
                                 <?php foreach ($chevaux as $key => $cheval) : ?>
+                                    <!-- Indicateur du carrousel sous forme d'élément de liste -->
                                     <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $key ?>" <?= $key == 0 ? 'class="active"' : '' ?>></li>
                                 <?php endforeach; ?>
                             </ol>
+
+                            <!-- Contenu des diapositives du carrousel -->
                             <div class="carousel-inner">
                                 <?php foreach ($chevaux as $key => $cheval) : ?>
+                                    <!-- Diapositive du carrousel avec une condition pour définir la première diapositive comme active -->
                                     <div class="carousel-item <?= $key == 0 ? 'active' : '' ?>">
-                                        <img class="image-tableau" src='/Arborescence/static/img_front/ <?= $cheval["photo_cheval"] ?>' />
-                                        <div class="carousel-caption d-none d-md-block">
-                                            <h5><?= $cheval['nom_cheval'] ?></h5>
-                                            <p>Race : <?= $cheval['race_cheval'] ?>
+                                        <img class="image-tableau" src='/Z_Cavalier/Arborescence/static/img_front/<?= $cheval["photo_cheval"] ?>' style="max-width: 100%; max-height: 3500px;">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 5px;">
+                                            <h5 style="color: white;"><?php echo $cheval['nom_cheval'] ?></h5>
+                                            <p style="color: white;"> Race : <?php echo $cheval['race_cheval'] ?>
                                                 </br>N°Sire : <?= $cheval['SIRE_cheval'] ?></p>
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
+
+                            <!-- Contrôles du carrousel pour passer à la diapositive précédente ou suivante -->
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Précédent</span>
