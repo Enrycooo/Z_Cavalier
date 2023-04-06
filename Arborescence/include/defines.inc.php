@@ -8,6 +8,7 @@ define('DB_TABLE_CHEVAL', 'cheval');
 define('DB_TABLE_ROBE', 'robe');
 define('DB_TABLE_TYPE_PENSION', 'type_pension');
 define('DB_TABLE_PENSION', 'pension');
+define('DB_TABLE_SEXE_CHEVAL', 'sexe_cheval');
 
 //define paths
 define('DB_CLASS_DIR', 'class/');

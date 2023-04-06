@@ -6,9 +6,10 @@ class Cheval{
 	public function db_get_all(){
 		global $conn;
 
-                $request = "SELECT C.id_cheval, C.nom_cheval, C.DNA_cheval, C.race_cheval, C.sexe_cheval, C.taille_cheval, C.SIRE_cheval, C.ref_robe, RO.id_robe, RO.lib_robe
+                $request = "SELECT C.id_cheval, C.nom_cheval, C.DNA_cheval, C.race_cheval, C.taille_cheval, C.SIRE_cheval, C.ref_robe, RO.id_robe, RO.lib_robe, S.sexe
                 FROM ".DB_TABLE_CHEVAL." C
                 INNER JOIN ".DB_TABLE_ROBE." RO ON C.ref_robe=RO.id_robe 
+                INNER JOIN ".DB_TABLE_SEXE_CHEVAL." S ON C.id_sexe = S.id_sexe
                 WHERE actif_chev = 1;";
 		try{
 			$sql = $conn->query($request);
@@ -25,7 +26,11 @@ class Cheval{
 
         global $conn;
 
-		$request = "SELECT * FROM ".DB_TABLE_CHEVAL." WHERE id_cheval = :id";
+		$request = "SELECT C.id_cheval, C.nom_cheval, C.DNA_cheval, C.race_cheval, C.taille_cheval, C.SIRE_cheval, C.ref_robe, RO.id_robe, RO.lib_robe, S.sexe
+        FROM ".DB_TABLE_CHEVAL." C
+        INNER JOIN ".DB_TABLE_ROBE." RO ON C.ref_robe=RO.id_robe
+        INNER JOIN ".DB_TABLE_SEXE_CHEVAL." S ON C.id_sexe = S.id_sexe
+        WHERE id_cheval = :id";
 		$sql = $conn->prepare($request);
 		$sql->bindValue(':id', $id_cheval, PDO::PARAM_INT);
 		try{

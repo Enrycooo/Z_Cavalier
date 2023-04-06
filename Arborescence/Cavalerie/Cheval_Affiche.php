@@ -117,7 +117,7 @@ include('../include/defines.inc.php');
                         <td><center>".$key["nom_cheval"]."</center></td>
                         <td><center>".$date."</center></td>
                         <td><center>".$key["race_cheval"]."</center></td>
-                        <td><center>".$key["sexe_cheval"]."</center></td>
+                        <td><center>".$key["sexe"]."</center></td>
                         <td><center>".$key["taille_cheval"]."</center></td>
                         <td><center>".$key["SIRE_cheval"]."</center></td>
                         <td><center>".$key["lib_robe"]."</center></td>
@@ -179,7 +179,7 @@ include('../include/defines.inc.php');
                                         <div class="input-group">
                                             <label class="label">Sexe</label>
                                             <div class="p-t-10">
-                                                <input class="input--style-4" style="margin: 0 auto" type="text" name="sexe" value="<?php echo $data["sexe_cheval"]; ?>">
+                                                <input class="input--style-4" style="margin: 0 auto" type="text" name="sexe" value="<?php echo $data["sexe"]; ?>">
                                             </div>
                                         </div>
                                     </div>
