@@ -43,7 +43,7 @@ if (isset($_POST['title'])) {
         if($rec == 1){
         while($dateT<$end){
             $insert = [
-            'id_parent'   => $first_id,
+            'parent'   => $first_id,
             'title'       => $title,
             'start_event' => $dateT,
             'end_event'   => $dateF,
@@ -61,7 +61,7 @@ if (isset($_POST['title'])) {
         if($rec == 2){
         while($dateT<$end){
             $insert = [
-            'id_parent'   => $first_id,
+            'parent'   => $first_id,
             'title'       => $title,
             'start_event' => $dateT,
             'end_event'   => $dateF,
@@ -79,7 +79,7 @@ if (isset($_POST['title'])) {
         elseif($rec == 3){
             while($dateT<$end){
             $insert = [
-            'id_parent'   => $first_id,
+            'parent'   => $first_id,
             'title'       => $title,
             'start_event' => $dateT,
             'end_event'   => $dateF,
@@ -97,7 +97,7 @@ if (isset($_POST['title'])) {
         elseif($rec == 0){
             while($dateT<$end){
             $insert = [
-            'id_parent'   => $first_id,
+            'parent'   => $first_id,
             'title'       => $title,
             'start_event' => $dateT,
             'end_event'   => $dateF,

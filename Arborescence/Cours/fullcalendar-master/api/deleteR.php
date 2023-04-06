@@ -1,6 +1,6 @@
 <?php
 include("../config.php");
 
-if (isset($_POST["idR"])) {
-    $db->deleteRById('cours',$_POST['id-parent']);
+if (isset($_POST["parent"])) {
+    $db->deleteRById('cours',$_POST['parent']);
 }

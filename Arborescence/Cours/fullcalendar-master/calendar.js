@@ -59,8 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         eventClick: function(arg) {
             var id = arg.event.id;
-            var parent = arg.event.extendedProps.parent;
-            
+            if(arg.event.extendedProps.parent == null){
+                var parent = arg.event.id;
+            }else {
+                var parent = arg.event.extendedProps.parent;
+            }
+
             $('#editEventId').val(id);
             $('#deleteEvent').attr('data-id', id); 
             $('#deleteREvent').attr('data-parent', parent);
@@ -99,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     $.ajax({
                         url:url+"api/deleteR.php",
                         type:"POST",
-                        data:{parent:arg.event.parent},
+                        data:{parent:arg.event.extendedProps.parent},
                     }); 
 
                     //close model
