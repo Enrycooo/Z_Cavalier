@@ -8,6 +8,7 @@ include('../include/defines.inc.php');
                       window.location.replace('http://localhost/Z_Cavalier/Arborescence/registration/login.php')</script>";
 		exit(); 
 	}
+        setlocale(LC_TIME, 'fr_FR.utf8', 'fra', 'fr_FR', 'french');
 ?>
 
 <!DOCTYPE html>
@@ -108,11 +109,13 @@ include('../include/defines.inc.php');
                 <tbody>
                 <?php 
                     foreach ($data as $key) {
+                        mb_internal_encoding("UTF-8");
+                        $date = strftime("%d %B %Y", strtotime($key["DNA_cheval"]));
                         $id_cheval = $key["id_cheval"]; 
                         echo " <tr data-value=".$id_cheval.">
                         <td><center>".$key["id_cheval"]."</center></td>
                         <td><center>".$key["nom_cheval"]."</center></td>
-                        <td><center>".$key["DNA_cheval"]."</center></td>
+                        <td><center>".$date."</center></td>
                         <td><center>".$key["race_cheval"]."</center></td>
                         <td><center>".$key["sexe_cheval"]."</center></td>
                         <td><center>".$key["taille_cheval"]."</center></td>
