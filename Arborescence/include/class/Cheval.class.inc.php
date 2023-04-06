@@ -6,7 +6,10 @@ class Cheval{
 	public function db_get_all(){
 		global $conn;
 
-		$request = "SELECT * FROM ".DB_TABLE_CHEVAL." WHERE actif_chev = 1;";
+                $request = "SELECT C.id_cheval, C.nom_cheval, C.DNA_cheval, C.race_cheval, C.sexe_cheval, C.taille_cheval, C.SIRE_cheval, C.ref_robe, RO.id_robe, RO.lib_robe
+                FROM ".DB_TABLE_CHEVAL." C
+                INNER JOIN ".DB_TABLE_ROBE." RO ON C.ref_robe=RO.id_robe 
+                WHERE actif_chev = 1;";
 		try{
 			$sql = $conn->query($request);
 			return $sql->fetchAll(PDO::FETCH_ASSOC);

@@ -17,6 +17,10 @@ include('../include/defines.inc.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <title>Cheval</title>
 </head>
@@ -82,11 +86,6 @@ include('../include/defines.inc.php');
         <div class="row justify-content-md-center">
             <div class="input-group">
                 <a class="btn btn-primary" href="Cheval_Affiche.php?nav=create">Ajouter un Cheval </a> &nbsp;
-                <form action="Cheval_search.php" method='post'>
-                    <input placeholder="Nom" type="text" name="nom" title="Veuillez renseigner le nom du cheval concerné par votre recherche">
-                    <input placeholder="Race" type="text" name="race" title="Veuillez renseigner le prenom de la personne concernée par votre recherche">
-                    <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
-                </form>
             </div>
         </div>
     </div>
@@ -94,7 +93,7 @@ include('../include/defines.inc.php');
     <div class="row mt-4">
         <div class="col">
             <div class="table-responsive">
-            <table class='table table-hover'>
+            <table class='table table-hover' id="myTable">
                 <thead class="table-dark">
                     <th style='text-align :center'>ID</th>
                     <th style='text-align :center'>Nom</th>
@@ -118,7 +117,7 @@ include('../include/defines.inc.php');
                         <td><center>".$key["sexe_cheval"]."</center></td>
                         <td><center>".$key["taille_cheval"]."</center></td>
                         <td><center>".$key["SIRE_cheval"]."</center></td>
-                        <td><center>".$key["ref_robe"]."</center></td>
+                        <td><center>".$key["lib_robe"]."</center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
                             <a type='button' class='btn btn-primary' href='Cheval_Affiche.php?nav=update&id_cheval=".$id_cheval."'>
                                 Modifier
@@ -301,3 +300,10 @@ include('../include/defines.inc.php');
 </div>
             </body>
             </html>
+            <script>
+                $(document).ready(function() {
+                    $('#myTable').DataTable({
+                        searching: true
+                    });
+                });
+            </script>
