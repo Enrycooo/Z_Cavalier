@@ -39,9 +39,11 @@ if (isset($_POST['title'])) {
         $dateT = $start;
         $hours = date('h', strtotime($end)) - date('h', strtotime($start));
         $dateF = date('Y-m-d H:i:s', strtotime($dateT. " + $hours hours"));
+        $first_id = null;
         if($rec == 1){
-            while($dateT<$end){
+        while($dateT<$end){
             $insert = [
+            'id_parent'   => $first_id,
             'title'       => $title,
             'start_event' => $dateT,
             'end_event'   => $dateF,
@@ -49,6 +51,9 @@ if (isset($_POST['title'])) {
             'text_color'  => $text_color
             ];
             $db->insert('cours', $insert);
+            if ($first_id === null) {
+                $first_id = $db->lastInsertId(); // mettre à jour la première ID si elle n'a pas encore été définie
+            }
             $dateT = date('Y-m-d H:i:s', strtotime($dateT. ' + 1 days'));
             $dateF = date('Y-m-d H:i:s', strtotime($dateT. " + $hours hours"));
         }
@@ -56,6 +61,7 @@ if (isset($_POST['title'])) {
         if($rec == 2){
         while($dateT<$end){
             $insert = [
+            'id_parent'   => $first_id,
             'title'       => $title,
             'start_event' => $dateT,
             'end_event'   => $dateF,
@@ -63,6 +69,9 @@ if (isset($_POST['title'])) {
             'text_color'  => $text_color
         ];
             $db->insert('cours', $insert);
+            if ($first_id === null) {
+                $first_id = $db->lastInsertId(); // mettre à jour la première ID si elle n'a pas encore été définie
+            }
             $dateT = date('Y-m-d H:i:s', strtotime($dateT. ' + 7 days'));
             $dateF = date('Y-m-d H:i:s', strtotime($dateT. " + $hours hours"));
         }
@@ -70,6 +79,7 @@ if (isset($_POST['title'])) {
         elseif($rec == 3){
             while($dateT<$end){
             $insert = [
+            'id_parent'   => $first_id,
             'title'       => $title,
             'start_event' => $dateT,
             'end_event'   => $dateF,
@@ -77,6 +87,9 @@ if (isset($_POST['title'])) {
             'text_color'  => $text_color
         ];
             $db->insert('cours', $insert);
+            if ($first_id === null) {
+                $first_id = $db->lastInsertId(); // mettre à jour la première ID si elle n'a pas encore été définie
+            }
             $dateT = date('Y-m-d H:i:s', strtotime($dateT. ' + 1 month'));
             $dateF = date('Y-m-d H:i:s', strtotime($dateT. " + $hours hours"));
         }
@@ -84,6 +97,7 @@ if (isset($_POST['title'])) {
         elseif($rec == 0){
             while($dateT<$end){
             $insert = [
+            'id_parent'   => $first_id,
             'title'       => $title,
             'start_event' => $dateT,
             'end_event'   => $dateF,
@@ -91,6 +105,9 @@ if (isset($_POST['title'])) {
             'text_color'  => $text_color
         ];
             $db->insert('cours', $insert);
+            if ($first_id === null) {
+                $first_id = $db->lastInsertId(); // mettre à jour la première ID si elle n'a pas encore été définie
+            }
             $dateF = date('Y-m-d H:i:s', strtotime($dateT. " + $hours hours"));
         }
         }
