@@ -266,7 +266,7 @@ class Database
      */
     public function deleteRById($table, $parent)
     {
-        $stmt = $this->run("DELETE FROM $table WHERE parent = ?", [$parent]);
+        $stmt = $this->run("DELETE FROM $table WHERE id = ? OR parent = ?", [$parent, $parent]);
 
 
         return $stmt->rowCount();
