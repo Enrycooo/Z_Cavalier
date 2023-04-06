@@ -84,13 +84,7 @@ include('../include/defines.inc.php');
     <div class="container">
     <div class="row justify-content-md-center">
             <div class="input-group">
-            <a href="/Z_Cavalier/dashboard/index.php"><img src ="/Z_Cavalier/dashboard/assets/img/home_icon.png"/></a> &nbsp;
             <a class="btn btn-primary" href="Pension_affiche.php?nav=create">Créer une nouvelle pension</a> &nbsp;
-            <form action="Pension_search.php" method='post'> &nbsp;
-            <input placeholder="ref cheval" type="text" name="ref_cheval" title="Veuillez renseigner l'identifiant du cheval concerné par votre recherche"> &nbsp;
-            <input placeholder="nom du type de pension" type="text" name="lib_pension" title="Veuillez renseigner le nom de la pension concerné par votre recherche"> &nbsp;
-            <button name="search" type="submit id="submit" class="btn btn-primary">Rechercher</button>
-            </form>
         </div>
     </div>
     </div>
@@ -101,30 +95,26 @@ include('../include/defines.inc.php');
             <table class='table table-hover'>
                 <thead class="table-dark">
                             <th style='text-align :center'>ID</th>
-                            <th style='text-align :center'>Ref cheval</th>
-                            <th style='text-align :center'>Type </th>
+                            <th style='text-align :center'>Cheval</th>
                             <th style='text-align :center'>Date debut </th>
                             <th style='text-align :center'>Date fin </th>
                             <th style='text-align :center'>Tarif </th>
-                            <th style='text-align :center'>Ref type pension</th>
-                            <th style='text-align :center'>Refpersonne</th>
+                            <th style='text-align :center'>Type de pension</th>
+                            <th style='text-align :center'>Cavalier</th>
                             <th style='text-align :center'>Actions</th>
                 </thead>
                 <tbody>
                 <?php 
                     foreach ($data as $key) {
-                        $id_pers = $key['ref_per'];
-                        $nom = $oPension->db_get_by_id($id_pers);
                         $id_pension = $key["id_pension"]; 
                         echo " <tr data-value=".$id_pension.">
                         <td><center>".$key["id_pension"]."</center></td>
-                        <td><center>".$key["ref_cheval"]."</center></td>
-                        <td><center>".$key["lib_pension"]."</center></td>
+                        <td><center>".$key["nom_cheval"]."</center></td>
                         <td><center>".$key["date_deb_pension"]."</center></td>
                         <td><center>".$key["date_fin_pension"]."</center></td>
                         <td><center>".$key["tarif_pension"]."</center></td>
-                        <td><center>".$key["ref_type_p"]."</center></td>
-                        <td><center>".$nom['nom']."</center></td>
+                        <td><center>".$key["lib_type_p"]."</center></td>
+                        <td><center>".$key['nom'],' ',$key['prenom']."</center></td>
                         <td style='display:flex; justify-content: space-evenly;'>
                             <a type='button' class='btn btn-primary' href='Pension_affiche.php?nav=update&id_pension=".$id_pension."'>
                                 Modifier
@@ -146,36 +136,66 @@ include('../include/defines.inc.php');
             elseif($_GET["nav"] === "update"){
             $data = $oPension->db_get_by_id($_GET["id_pension"]);
             ?>
-
-        <?php
-        
-        //foreach($data as $key){
-        //$id_pension = $key["id_pension"]; ?>         
-            <h1>Modifier</h1>
-            <link href="../static/css/style.css" rel="stylesheet" />     
-            <span class="imageDroite"><img class="img-fluid" src="../static/assets/img/logo_REL.png" alt="..." /></span>
-            <form action="Pension_trait.php" method="post">
-            <p>
-                                <label>ID du cheval :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_cheval" value="<?php echo $data["ref_cheval"]; ?>">
-                                <label>Libellé :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="lib_pension" value="<?php echo $data["lib_pension"]; ?>">
-                                <label>Date de début :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="date" name="date_deb_pension" value="<?php echo $data["date_deb_pension"]; ?>">
-                                <label>Date de fin :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="date" name="date_fin_pension" value="<?php echo $data["date_fin_pension"]; ?>">
-                                <label>Tarif:</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="tarif_pension" value="<?php echo $data["tarif_pension"]; ?>">
-                                <label>ID type pension :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_type_p" value="<?php echo $data["ref_type_p"]; ?>">
-                                <label>ID personne :</label>
-                                <input class="col-8 form-control" style="margin: 0 auto" type="text" name="ref_per" value="<?php echo $data["ref_per"]; ?>">
-                                <input type="hidden" name="id_pension" value="<?php echo $_GET["id_pension"]; ?>">
-            </p>
-                        <a type="button" class="btn btn-secondary" href="Pension_affiche.php">Retour</a>
-                    <button name="update" type="submit" class="btn btn-primary">Modifier</button>
-            
-            </form>
+        <link href="../static/css/main.css" rel="stylesheet" media="all">
+                <div class="widget">
+                    <div class="p-t-130 p-b-100">
+                        <div class="wrapper wrapper--w680">
+                            <div class="card card-4">
+                                <div class="card-body">
+                                    <form action="Cavalier_trait.php" method="post">
+                                        <h2 class="title">Modification</h2>
+                                        <div class="row row-space">
+                                            <div class="col-2">
+                                                <div class="input-group">
+                                                    <label class="label">Cheval</label>
+                                                    <input class="input--style-4" style="margin: 0 auto" type="text" name="nom" value="<?php echo $data["nom_cheval"]; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="input-group">
+                                                    <label class="label">Type de pension</label>
+                                                    <input class="input--style-4" style="margin: 0 auto" type="text" name="prenom" value="<?php echo $data["lib_type_p"]; ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row row-space">
+                                            <div class="col-2">
+                                                <div class="input-group">
+                                                    <label class="label">Date de début</label>
+                                                    <input class="input--style-4" style="margin: 0 auto" type="text" name="dna" value="<?php echo $data["date_deb_pension"]; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="input-group">
+                                                    <label class="label">Date de fin</label>
+                                                    <input class="input--style-4" style="margin: 0 auto" type="text" name="telephone" value="<?php echo $data["date_fin_pension"]; ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row row-space">
+                                            <div class="col-2">
+                                                <div class="input-group">
+                                                    <label class="label">Tarif :</label>
+                                                    <input class="input--style-4" style="margin: 0 auto" type="text" name="rue" value="<?php echo $data["tarif_pension"]; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="input-group">
+                                                    <label class="label">Cavalier :</label>
+                                                    <input class="input--style-4" style="margin: 0 auto" type="text" name="cp" value="<?= $data["nom"],' ',$data['prenom']; ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <a type="button" class="btn btn-secondary" href="Pension_affiche.php?nav=read">Retour</a>
+                                            <button type="submit" name="update" class="btn btn-primary">Modifier</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <?php
             }
             elseif($_GET['nav'] === 'create'){
