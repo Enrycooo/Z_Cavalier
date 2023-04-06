@@ -19,6 +19,8 @@ include('../include/defines.inc.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <title>Pension</title>
 </head>
@@ -92,7 +94,7 @@ include('../include/defines.inc.php');
     <div class="row mt-4">
         <div class="col">
             <div class="table-responsive">
-            <table class='table table-hover'>
+            <table class='table table-hover' id="myTable">
                 <thead class="table-dark">
                             <th style='text-align :center'>ID</th>
                             <th style='text-align :center'>Cheval</th>
@@ -288,3 +290,10 @@ include('../include/defines.inc.php');
 </div>
             </body>
             </html>
+            <script>
+                $(document).ready(function() {
+                    $('#myTable').DataTable({
+                        searching: true
+                    });
+                });
+                </script>
