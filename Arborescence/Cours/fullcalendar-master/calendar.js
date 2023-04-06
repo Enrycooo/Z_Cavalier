@@ -59,9 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         eventClick: function(arg) {
             var id = arg.event.id;
+            var parent = arg.event.extendedProps.parent;
             
             $('#editEventId').val(id);
             $('#deleteEvent').attr('data-id', id); 
+            $('#deleteREvent').attr('data-parent', parent);
 
             $.ajax({
               url:url+"api/getevent.php",
@@ -85,10 +87,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         type:"POST",
                         data:{id:arg.event.id},
                     }); 
-                    //refresh calender after deleting
-                    calendar.fullCalendar('refetchEvents');
                     //close model
                     $('#editeventmodal').modal('hide');
+                    //refresh calender after deleting
+                    calendar.fullCalendar('refetchEvents');
                 }
             });
             
@@ -97,12 +99,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     $.ajax({
                         url:url+"api/deleteR.php",
                         type:"POST",
-                        data:{idR:arg.event.idR},
+                        data:{parent:arg.event.parent},
                     }); 
 
                     //close model
                     $('#editeventmodal').modal('hide');
-
                     //refresh calendar
                     calendar.refetchEvents();
                 }

@@ -264,9 +264,9 @@ class Database
      * @param  string $column name of column
      * @param  string $idR id of recurrence
      */
-    public function deleteRById($table, $idR)
+    public function deleteRById($table, $id_parent)
     {
-        $stmt = $this->run("DELETE FROM $table WHERE idR = ?", [$idR]);
+        $stmt = $this->run("DELETE FROM $table WHERE id_parent = ?", [$id_parent]);
 
         return $stmt->rowCount();
     }
