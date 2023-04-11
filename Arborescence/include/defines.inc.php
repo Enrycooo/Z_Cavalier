@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 // define database tables names
@@ -15,12 +15,12 @@ define('DB_CLASS_DIR', 'class/');
 
 
 // get main classes
-include_once DB_CLASS_DIR.'Cavalier.class.inc.php';
-include_once DB_CLASS_DIR.'Cheval.class.inc.php';
-include_once DB_CLASS_DIR.'Robe.class.inc';
-include_once DB_CLASS_DIR.'Type_pension.class.inc';
-include_once DB_CLASS_DIR.'Pension.class.inc.php';
-include_once DB_CLASS_DIR.'Cours.class.inc.php';
+include_once DB_CLASS_DIR . 'Cavalier.class.inc.php';
+include_once DB_CLASS_DIR . 'Cheval.class.inc.php';
+include_once DB_CLASS_DIR . 'Robe.class.inc.php';
+include_once DB_CLASS_DIR . 'Type_pension.class.inc.php';
+include_once DB_CLASS_DIR . 'Pension.class.inc.php';
+include_once DB_CLASS_DIR . 'Cours.class.inc.php';
 
 // get main objects
 $oCavalier = new Cavalier();
@@ -36,9 +36,7 @@ try {
     $dbname = "centre_equestre";
 
     // connect to DB
-    $conn = new PDO("mysql:host=$server;dbname=$dbname","$username","$password");
-}
-catch (PDOException $e) {
+    $conn = new PDO("mysql:host=$server;dbname=$dbname", "$username", "$password");
+} catch (PDOException $e) {
     //throw $th;
 }
-?>

@@ -47,7 +47,7 @@
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
-                        <h1 class="mx-auto my-0 text-uppercase">Ecurie <i>REL</i></h1>
+                        <h1 class="mx-auto my-0 text-uppercase">Ecurie REL</h1>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                         <div class="featured-text text-center text-lg-left">
                             <h4>Cours</h4>
                             <p class="text-black-50 mb-0"> Réserver des cours en passant par un professionel de votre centre equestre</p></br>
-                            <a class="btn btn-primary" href="calendar_pres.php" target="_blank">Voir le calendrier</a>
+                            <a class="btn btn-primary" href="../Arborescence/Cours/fullcalendar-master/calendar_pres.php" target="_blank">Voir le calendrier</a>
                         </div>
                     </div>
                 </div>
