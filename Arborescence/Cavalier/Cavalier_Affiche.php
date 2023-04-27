@@ -112,7 +112,7 @@ if (!isset($_SESSION["username"])) {
                             <table class='table table-striped table-bordered dt-responsive nowrap table-hover dataTable' id="myTable" style="font-size: 12px;">
                                 <thead class="table-dark">
                                     <th style='text-align :center'>ID</th>
-                                    <th style='text-align :center'>imgage</th>
+                                    <th style='text-align :center'>image</th>
                                     <th style='text-align :center'>Nom</th>
                                     <th style='text-align :center'>Prenom</th>
                                     <th style='text-align :center'>Date de naissance </th>
