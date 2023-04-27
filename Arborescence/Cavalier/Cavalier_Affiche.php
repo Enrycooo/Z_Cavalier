@@ -25,6 +25,9 @@ if (!isset($_SESSION["username"])) {
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <!-- Inclusion des fichiers jQuery et Typeahead.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
     <title>Personne</title>
     <style>
         .image-tableau {
@@ -430,16 +433,41 @@ if (!isset($_SESSION["username"])) {
                                                     <div class="col-2">
                                                         <div class="input-group">
                                                             <label for="ville" class="label">Ville :</label>
-                                                            <input type="text" id="ville" class="input--style-4" placeholder="Ville" name="ville_resp">
+                                                            <input type="search" id="ville" class="input--style-4" placeholder="Ville" name="ville_resp">
                                                         </div>
                                                     </div>
                                                     <div class="col-2">
                                                         <div class="input-group">
                                                             <label for="cp" class="label"> Code Postal</label>
-                                                            <input type="number" placeholder="Code Postal" class="input--style-4" id="cp" type="text" name="cp_resp">
+                                                            <input type="number" placeholder="Code Postal" class="input--style-4" id="cp" type="search" name="cp_resp">
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <script>
+                                                    // Initialise le champ de recherche
+                                                    $('#ville').typeahead({
+                                                        hint: true,
+                                                        highlight: true,
+                                                        minLength: 3
+                                                    }, {
+                                                        // Requête AJAX pour récupérer les villes correspondantes depuis votre base de données
+                                                        source: function(query, process) {
+                                                            return $.ajax({
+                                                                url: 'recherche_ville.php',
+                                                                type: 'GET',
+                                                                data: {
+                                                                    query: query
+                                                                },
+                                                                dataType: 'JSON',
+                                                                success: function(data) {
+                                                                    return process(data);
+                                                                }
+                                                            });
+                                                        }
+                                                    });
+                                                </script>
+
                                             </div>
                                             <div class="row row-space">
                                                 <div class="col-2">
