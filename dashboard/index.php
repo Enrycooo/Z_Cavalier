@@ -30,7 +30,7 @@ if (!isset($_SESSION["username"])) {
 <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="http://localhost/Z_Cavalier/front/index.html">
+        <a class="navbar-brand js-scroll-trigger" href="http://localhost/Z_Cavalier/front/index.php">
             <span class="d-block d-lg-none">Centre Equestre REL</span>
             <span class="d-none d-lg-block"><img class="img-fluid" src="assets/img/logo_REL.png" alt="..." /></span>
         </a>
