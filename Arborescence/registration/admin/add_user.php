@@ -40,7 +40,7 @@
 	}
 
 	// Récupérer la liste des personnes pour la sélection
-	$request = "SELECT id_pers, nom, prenom FROM personne";
+	$request = "SELECT id_personne, nom, prenom FROM personne";
 	$sql = $conn->prepare($request);
 	$sql->execute();
 	$personnes = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -64,8 +64,8 @@
 		// Permet de coder le password en SHA256
 		$codage = hash('SHA256', $password);
 
-		$request = "INSERT into `users` (username, email, id_pers,  type, password)
-                    VALUES (:name, :mail, :id_pers, :type, :pwd)";
+		$request = "INSERT into `users` (username, email,  type, password, ref_pers)
+                    VALUES (:name, :mail, :type, :pwd, :id_pers)";
 		$sql = $conn->prepare($request);
 		$sql->bindValue(':name', $username, PDO::PARAM_STR);
 		$sql->bindValue(':mail', $email, PDO::PARAM_STR);
@@ -98,7 +98,7 @@
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 					foreach ($result as $row) {
-						$id_pers = $row['id_pers'];
+						$id_pers = $row['id_personne'];
 						$nom = $row['nom'];
 						$prenom = $row['prenom'];
 						echo "<option value='$id_pers'>$nom $prenom</option>";
